@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" role="img" aria-label="Nexus AI Systems">
+  <title>Nexus AI Systems</title>
+  <!-- Mark -->
+  <g>
+    <rect width="64" height="64" rx="14" ry="14" fill="#FFFFFF"/>
+    <g fill="#101214">
+      <rect x="15" y="14" width="6" height="36"/>
+      <rect x="43" y="14" width="6" height="36"/>
+      <polygon points="15,14 21,14 49,50 43,50"/>
+    </g>
+  </g>
+  <!-- Wordmark -->
+  <g transform="translate(84, 0)" fill="#101214" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
+    <text x="0" y="40" font-size="28" font-weight="600" letter-spacing="-0.6">Nexus</text>
+    <text x="0" y="58" font-size="11" font-weight="500" letter-spacing="2.4" opacity="0.78">AI SYSTEMS</text>
+  </g>
+  <!-- Tagline -->
+  <text x="84" y="82" fill="#101214" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="1.6" opacity="0.72">BUSINESS OPERATING SYSTEM</text>
+</svg>

@@ -1,9 +1,12 @@
 import { departments } from "@/data/departments";
+import type { IconCode } from "@/components/ui/icon";
 
 export interface NavLink {
   href: string;
   label: string;
   description?: string;
+  icon?: IconCode;
+  color?: string;
 }
 
 export interface NavItemWithChildren extends NavLink {
@@ -29,6 +32,7 @@ export const departmentsNavigation: NavLink[] = departments.map((d) => ({
   href: `/departamentos/${d.slug}`,
   label: d.shortName,
   description: d.tagline,
+  color: d.color.base,
 }));
 
 export const footerNavigation: { title: string; links: NavLink[] }[] = [

@@ -2,9 +2,9 @@
 export const copy = {
   hero: {
     eyebrow: "DEPT.IA / Workforce",
-    title: "Contrata un departamento. No otra herramienta.",
+    title: "The operating system for modern companies.",
     subtitle:
-      "Equipos de IA especializados que conocen tu empresa, trabajan con tus herramientas y ejecutan tareas bajo tu control.",
+      "Nexus AI Systems is no longer an agency. It is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
     primaryCta: "Crear mi equipo",
     secondaryCta: "Ver cómo trabaja",
     microtext: "Instancia privada · Configuración guiada · Cancela cuando quieras",

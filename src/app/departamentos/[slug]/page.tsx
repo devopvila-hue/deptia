@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { MemberPattern } from "@/components/visualizations/member-pattern";
+import { AGENT_ICONS, Icon } from "@/components/ui/icon";
 import { VideoPlaceholder } from "@/components/visualizations/video-placeholder";
 import { PermissionsBoardStatic } from "@/components/visualizations/permissions-board";
 import { FAQ } from "@/components/ui/faq";
@@ -309,18 +310,15 @@ function AgentAvatarInline({
   size?: "sm" | "md" | "lg";
 }) {
   const sizeClass = { sm: "h-10 w-10", md: "h-12 w-12", lg: "h-16 w-16" }[size];
-  const initialsClass = { sm: "text-[0.7rem]", md: "text-[0.85rem]", lg: "text-[1.1rem]" }[size];
+  const iconSize = { sm: "h-4 w-4", md: "h-5 w-5", lg: "h-7 w-7" }[size];
   return (
     <div
       className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border-strong bg-[#0c0e0a] ${sizeClass}`}
       style={{ boxShadow: `0 0 0 1px ${agent.color}33, 0 0 24px ${agent.color}20` }}
       aria-hidden
     >
-      <span
-        className={`relative z-10 font-mono font-medium tracking-[0.06em] text-foreground ${initialsClass}`}
-        style={{ color: agent.color }}
-      >
-        {agent.initials}
+      <span className="relative z-10" style={{ color: agent.color }}>
+        <Icon code={agent.icon} className={iconSize} strokeWidth={2} />
       </span>
     </div>
   );
@@ -425,11 +423,16 @@ function DepartmentMembers({
               key={m.id}
               className="flex items-start gap-4 rounded-xl border border-border bg-[#0c0e0a] p-4"
             >
-              <MemberPattern member={m} color={department.color.base} size="md" />
+              <MemberPattern
+                member={m}
+                color={department.color.base}
+                size="md"
+                icon={AGENT_ICONS[department.slug]}
+              />
               <div className="flex-1">
                 <p className="text-[0.9375rem] font-medium text-foreground">{m.role}</p>
                 <p className="mt-0.5 font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">
-                  {m.initials} · ID {m.id.toUpperCase()}
+                  ID {m.id.toUpperCase()}
                 </p>
                 <ul className="mt-3 space-y-1.5 border-t border-border/60 pt-3">
                   {m.responsibilities.map((r) => (

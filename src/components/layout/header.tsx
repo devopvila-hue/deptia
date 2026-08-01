@@ -8,30 +8,23 @@ import { useScrollPosition } from "@/hooks/use-scroll-position";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import { brand } from "@/config/brand";
+import { BrandMark } from "@/components/ui/brand-mark";
 import { mainNavigation, mobileNavigation, departmentsNavigation } from "@/config/navigation";
 import { DepartmentsDropdown } from "@/components/layout/departments-dropdown";
 import { cn } from "@/lib/utils";
 
-function BrandMark({ className }: { className?: string }) {
+function BrandLink({ className, compact }: { className?: string; compact?: boolean }) {
   return (
     <Link
       href="/"
       className={cn(
-        "group relative inline-flex items-center gap-2.5 font-display text-[1.0625rem] tracking-[-0.01em] text-foreground",
+        "group relative inline-flex items-center font-display text-foreground",
+        compact ? "text-[0.95rem]" : "text-[1.15rem]",
         className
       )}
       aria-label={`${brand.name} — Inicio`}
     >
-      <span className="relative inline-grid h-7 w-7 grid-cols-2 grid-rows-2 gap-[2px]" aria-hidden>
-        <span className="rounded-[2px] bg-accent" />
-        <span className="rounded-[2px] border border-foreground/50" />
-        <span className="rounded-[2px] border border-foreground/50" />
-        <span className="rounded-[2px] bg-foreground" />
-      </span>
-      <span className="font-semibold">
-        {brand.name}
-        <span className="text-muted/60">.</span>
-      </span>
+      <BrandMark showTagline={!compact} />
     </Link>
   );
 }
@@ -82,7 +75,7 @@ export function Header() {
         )}
       >
         <div className="container-wide flex items-center justify-between gap-6">
-          <BrandMark />
+          <BrandLink compact={compact} />
 
           <nav
             aria-label="Principal"
@@ -161,7 +154,7 @@ function MobileMenu({ onClose, isMobile }: { onClose: () => void; isMobile: bool
       className="fixed inset-0 z-50 flex flex-col bg-background/96 backdrop-blur-xl lg:hidden"
     >
       <div className="container-wide flex items-center justify-between py-5">
-        <BrandMark />
+        <BrandLink compact />
         <button
           type="button"
           onClick={onClose}

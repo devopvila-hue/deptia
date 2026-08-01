@@ -1,20 +1,20 @@
 // Centralised brand configuration. Update here to rebrand the entire site.
 export const brand = {
-  name: "DEPT.IA",
-  tagline: "Tu empresa, con más equipo.",
-  shortTagline: "Contrata un departamento. No otra herramienta.",
+  name: "Nexus AI Systems",
+  tagline: "The operating system for modern companies.",
+  shortTagline: "The operating system for modern companies.",
   description:
-    "Departamentos empresariales operados mediante inteligencia artificial. Equipos especializados que conocen tu empresa, trabajan con tus herramientas y ejecutan tareas bajo tu control.",
-  domain: "dept.ia",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dept.ia",
-  contactEmail: "hola@dept.ia",
-  securityEmail: "seguridad@dept.ia",
-  legalName: "DEPT.IA Technologies, S.L.",
+    "Nexus AI Systems is no longer an agency. It is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
+  domain: "nexusaisystems.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexusaisystems.com",
+  contactEmail: "hola@nexusaisystems.com",
+  securityEmail: "seguridad@nexusaisystems.com",
+  legalName: "Nexus AI Systems, S.L.",
   country: "España",
   foundedYear: 2025,
   social: {
-    linkedin: "https://www.linkedin.com/company/dept-ia",
-    x: "https://x.com/dept_ia",
+    linkedin: "https://www.linkedin.com/company/nexus-ai-systems",
+    x: "https://x.com/nexus_ai_systems",
   },
 } as const;
 

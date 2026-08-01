@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { MemberPattern } from "@/components/visualizations/member-pattern";
+import { AGENT_ICONS } from "@/components/ui/icon";
 import type { Department } from "@/types/department";
 import { track } from "@/lib/analytics";
 
@@ -50,7 +51,13 @@ export function DepartmentGrid({ department }: { department: Department }) {
 
       <div className="mt-6 grid grid-cols-6 gap-2">
         {department.members.map((m) => (
-          <MemberPattern key={m.id} member={m} size="sm" color={department.color.base} />
+          <MemberPattern
+            key={m.id}
+            member={m}
+            size="sm"
+            color={department.color.base}
+            icon={AGENT_ICONS[department.slug]}
+          />
         ))}
       </div>
 

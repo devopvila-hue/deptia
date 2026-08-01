@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Sparkles, MessageCircle, ChevronRight, Volume2 } from "lucide-react";
+import { Icon, type IconCode } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
 export type DepartmentAgent = {
@@ -10,6 +11,7 @@ export type DepartmentAgent = {
   name: string;
   role: string;
   initials: string;
+  icon: IconCode;
   color: string;
   colorSoft: string;
   avatarStyle:
@@ -303,10 +305,10 @@ function AgentAvatar({
     lg: "h-16 w-16",
   }[size];
 
-  const initialsClass = {
-    sm: "text-[0.7rem]",
-    md: "text-[0.85rem]",
-    lg: "text-[1.1rem]",
+  const iconSize = {
+    sm: "h-4 w-4",
+    md: "h-5 w-5",
+    lg: "h-7 w-7",
   }[size];
 
   return (
@@ -320,17 +322,18 @@ function AgentAvatar({
       }}
       aria-hidden
     >
-      <svg viewBox="0 0 40 40" className="absolute inset-0 h-full w-full opacity-90">
+      <svg viewBox="0 0 40 40" className="absolute inset-0 h-full w-full opacity-30">
         {renderAvatarPattern(agent.avatarStyle, agent.color)}
       </svg>
       <span
-        className={cn(
-          "relative z-10 font-mono font-medium tracking-[0.06em] text-foreground mix-blend-screen",
-          initialsClass
-        )}
+        className="relative z-10"
         style={{ color: agent.color }}
       >
-        {agent.initials}
+        <Icon
+          code={agent.icon}
+          className={iconSize}
+          strokeWidth={2}
+        />
       </span>
       {pulse && (
         <motion.span

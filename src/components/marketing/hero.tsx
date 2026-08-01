@@ -43,15 +43,18 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="mt-6 text-display text-[clamp(2.75rem,6.4vw,5.5rem)] leading-[0.95] tracking-[-0.035em] text-balance text-foreground"
             >
-              {copy.hero.title.split(" ").map((word, i) => (
-                <span key={i} className="inline-block">
-                  {i === 2 ? (
-                    <span className="italic text-muted/90"> {word}</span>
-                  ) : i === 3 ? (
-                    <span className="text-foreground"> {word}</span>
-                  ) : (
-                    <> {word}</>
-                  )}
+              {copy.hero.title.split(" ").map((word, i, arr) => (
+                <span key={i}>
+                  <span className="inline-block">
+                    {i === 2 ? (
+                      <span className="italic text-muted/90">{word}</span>
+                    ) : i === 3 ? (
+                      <span className="text-foreground">{word}</span>
+                    ) : (
+                      <>{word}</>
+                    )}
+                  </span>
+                  {i < arr.length - 1 && " "}
                 </span>
               ))}
             </motion.h1>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, ArrowUpRight, Sparkles } from "lucide-react";
 import { departmentsNavigation } from "@/config/navigation";
+import { Icon, AGENT_ICONS } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
 const HOVER_TOLERANCE_MS = 120;
@@ -131,8 +132,8 @@ export function DepartmentsDropdown() {
           >
             <div
               className={cn(
-                "overflow-hidden rounded-2xl border border-border bg-background/80 backdrop-blur-xl",
-                "shadow-[0_24px_64px_-24px_rgba(0,0,0,0.45)]"
+                "overflow-hidden rounded-2xl border border-border bg-background-elevated shadow-[0_24px_64px_-24px_rgba(0,0,0,0.6)] backdrop-blur-xl backdrop-saturate-150",
+                "ring-1 ring-inset ring-foreground/[0.08]"
               )}
             >
               {/* soft top glow */}
@@ -141,7 +142,10 @@ export function DepartmentsDropdown() {
                 aria-hidden
               />
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2">
-                {departmentsNavigation.map((item, i) => (
+                {departmentsNavigation.map((item) => {
+                  const slug = item.href.split("/").pop() ?? "";
+                  const iconCode = AGENT_ICONS[slug];
+                  return (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -155,9 +159,14 @@ export function DepartmentsDropdown() {
                   >
                     <span
                       className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-border bg-[#0c0e0a]"
+                      style={{ color: item.color }}
                       aria-hidden
                     >
-                      <DepartmentMark index={i} />
+                      {iconCode ? (
+                        <Icon code={iconCode} className="h-4 w-4" strokeWidth={2} />
+                      ) : (
+                        <DepartmentMark index={0} />
+                      )}
                     </span>
                     <span className="flex-1">
                       <span className="flex items-center justify-between gap-2">
@@ -174,9 +183,10 @@ export function DepartmentsDropdown() {
                       </span>
                     </span>
                   </Link>
-                ))}
+                  );
+                })}
               </div>
-              <div className="border-t border-border/60 bg-surface-soft/20 px-4 py-3">
+              <div className="border-t border-border/60 bg-surface-soft/80 px-4 py-3">
                 <Link
                   href="/departamentos"
                   role="menuitem"

@@ -7,6 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { MemberPattern } from "@/components/visualizations/member-pattern";
+import { AGENT_ICONS } from "@/components/ui/icon";
 import { departments } from "@/data/departments";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -113,7 +114,13 @@ function DepartmentCard({
       {/* Members preview */}
       <div className="relative mt-6 grid grid-cols-6 gap-2">
         {department.members.slice(0, 6).map((m) => (
-          <MemberPattern key={m.id} member={m} size="sm" color={department.color.base} />
+          <MemberPattern
+            key={m.id}
+            member={m}
+            size="sm"
+            color={department.color.base}
+            icon={AGENT_ICONS[department.slug]}
+          />
         ))}
       </div>
       <p className="relative mt-3 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">

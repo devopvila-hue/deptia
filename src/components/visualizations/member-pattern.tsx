@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { Icon, type IconCode } from "@/components/ui/icon";
 import type { DepartmentMember } from "@/types/department";
 
 type Props = {
@@ -8,15 +9,16 @@ type Props = {
   size?: "sm" | "md" | "lg";
   color?: string;
   className?: string;
+  icon?: IconCode;
 };
 
 const SIZES = {
-  sm: { box: "h-9 w-9", initials: "text-[0.65rem]" },
-  md: { box: "h-12 w-12", initials: "text-[0.75rem]" },
-  lg: { box: "h-14 w-14", initials: "text-[0.85rem]" },
+  sm: { box: "h-9 w-9", icon: "h-4 w-4" },
+  md: { box: "h-12 w-12", icon: "h-5 w-5" },
+  lg: { box: "h-14 w-14", icon: "h-6 w-6" },
 } as const;
 
-export function MemberPattern({ member, size = "md", color = "var(--accent)", className }: Props) {
+export function MemberPattern({ member, size = "md", color = "var(--accent)", className, icon }: Props) {
   const dims = SIZES[size];
 
   return (
@@ -30,17 +32,11 @@ export function MemberPattern({ member, size = "md", color = "var(--accent)", cl
       aria-label={member.role}
       role="img"
     >
-      <svg viewBox="0 0 40 40" className="absolute inset-0 h-full w-full opacity-90">
+      <svg viewBox="0 0 40 40" className="absolute inset-0 h-full w-full opacity-25">
         {renderPattern(member.pattern, color)}
       </svg>
-      <span
-        className={cn(
-          "relative z-10 font-mono font-medium tracking-[0.06em] text-foreground mix-blend-screen",
-          dims.initials
-        )}
-        style={{ color }}
-      >
-        {member.initials}
+      <span className="relative z-10" style={{ color }}>
+        <Icon code={icon ?? "PPL-08"} className={dims.icon} strokeWidth={2} />
       </span>
     </div>
   );

@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { MemberPattern } from "@/components/visualizations/member-pattern";
+import { AGENT_ICONS } from "@/components/ui/icon";
 import { departments, listAvailableDepartments } from "@/data/departments";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -432,7 +433,13 @@ function DepartamentosView() {
             <p className="mt-1 text-[0.8125rem] text-muted text-pretty line-clamp-2">{d.promise}</p>
             <div className="mt-3 grid grid-cols-6 gap-1.5">
               {d.members.slice(0, 6).map((m) => (
-                <MemberPattern key={m.id} member={m} size="sm" color={d.color.base} />
+                <MemberPattern
+                  key={m.id}
+                  member={m}
+                  size="sm"
+                  color={d.color.base}
+                  icon={AGENT_ICONS[d.slug]}
+                />
               ))}
             </div>
             <button className="mt-3 inline-flex items-center gap-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted hover:text-foreground">

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.git$|\\\\.gitmodules$\")",
+      "Bash(git rm *)",
+      "Bash(git rebase *)",
+      "Bash(git push *)"
+    ]
+  }
+}
