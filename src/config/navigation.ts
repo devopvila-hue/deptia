@@ -1,7 +1,14 @@
+import { departments } from "@/data/departments";
+
 export interface NavLink {
   href: string;
   label: string;
   description?: string;
+}
+
+export interface NavItemWithChildren extends NavLink {
+  children?: never;
+  isDepartmentsTrigger?: true;
 }
 
 export const mainNavigation: NavLink[] = [
@@ -18,14 +25,18 @@ export const mobileNavigation: NavLink[] = [
   { href: "/contacto", label: "Contacto", description: "Hablamos cuando quieras" },
 ];
 
+export const departmentsNavigation: NavLink[] = departments.map((d) => ({
+  href: `/departamentos/${d.slug}`,
+  label: d.shortName,
+  description: d.tagline,
+}));
+
 export const footerNavigation: { title: string; links: NavLink[] }[] = [
   {
     title: "Producto",
     links: [
       { href: "/departamentos", label: "Departamentos" },
-      { href: "/departamentos/marketing", label: "Marketing" },
-      { href: "/departamentos/ventas", label: "Ventas" },
-      { href: "/departamentos/contenido", label: "Contenido" },
+      ...departmentsNavigation,
       { href: "/como-funciona", label: "Cómo funciona" },
       { href: "/precios", label: "Precios" },
     ],

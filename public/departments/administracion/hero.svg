@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Administración — conciliaciones" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-adm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1310"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+    <radialGradient id="glow-adm" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="rgba(240,135,117,0.18)"/>
+      <stop offset="0.5" stop-color="rgba(240,135,117,0.05)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <pattern id="grid-adm" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(242,240,233,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg-adm)"/>
+  <rect width="1280" height="720" fill="url(#grid-adm)" opacity="0.5"/>
+  <rect width="1280" height="720" fill="url(#glow-adm)"/>
+  <!-- ledger row -->
+  <g font-family="ui-monospace, monospace" transform="translate(140,160)">
+    <rect width="1000" height="48" rx="6" fill="#0c0e0a" stroke="rgba(240,135,117,0.25)"/>
+    <text x="20" y="30" fill="#989b94" font-size="12">01/09</text>
+    <text x="120" y="30" fill="#f2f0e9" font-size="13">Stripe payouts</text>
+    <text x="640" y="30" fill="#989b94" font-size="12">CONCILIADO</text>
+    <text x="820" y="30" text-anchor="end" fill="#7ce5a3" font-size="13">+1.240,00</text>
+    <text x="980" y="30" text-anchor="end" fill="#7ce5a0" font-size="13">✓</text>
+  </g>
+  <g font-family="ui-monospace, monospace" transform="translate(140,224)">
+    <rect width="1000" height="48" rx="6" fill="#0c0e0a" stroke="rgba(240,135,117,0.3)"/>
+    <text x="20" y="30" fill="#989b94" font-size="12">02/09</text>
+    <text x="120" y="30" fill="#f2f0e9" font-size="13">Proveedor SaaS · mensual</text>
+    <text x="640" y="30" fill="#989b94" font-size="12">CONCILIADO</text>
+    <text x="820" y="30" text-anchor="end" fill="#ffbd59" font-size="13">-389,00</text>
+    <text x="980" y="30" text-anchor="end" fill="#7ce5a0" font-size="13">✓</text>
+  </g>
+  <g font-family="ui-monospace, monospace" transform="translate(140,288)">
+    <rect width="1000" height="48" rx="6" fill="#0c0e0a" stroke="rgba(240,135,117,0.45)"/>
+    <text x="20" y="30" fill="#989b94" font-size="12">03/09</text>
+    <text x="120" y="30" fill="#f2f0e9" font-size="13">Nómina equipo</text>
+    <text x="640" y="30" fill="#ffbd59" font-size="12">PENDIENTE APROBACIÓN</text>
+    <text x="820" y="30" text-anchor="end" fill="#ffbd59" font-size="13">-8.420,00</text>
+    <text x="980" y="30" text-anchor="end" fill="#ffbd59" font-size="13">·</text>
+  </g>
+  <g font-family="ui-monospace, monospace" transform="translate(140,352)">
+    <rect width="1000" height="48" rx="6" fill="#0c0e0a" stroke="rgba(240,135,117,0.25)"/>
+    <text x="20" y="30" fill="#989b94" font-size="12">04/09</text>
+    <text x="120" y="30" fill="#f2f0e9" font-size="13">Holded · facturación cliente A</text>
+    <text x="640" y="30" fill="#989b94" font-size="12">CONCILIADO</text>
+    <text x="820" y="30" text-anchor="end" fill="#7ce5a3" font-size="13">+2.190,00</text>
+    <text x="980" y="30" text-anchor="end" fill="#7ce5a0" font-size="13">✓</text>
+  </g>
+  <g font-family="ui-monospace, monospace" transform="translate(140,416)">
+    <rect width="1000" height="48" rx="6" fill="#0c0e0a" stroke="rgba(240,135,117,0.4)"/>
+    <text x="20" y="30" fill="#989b94" font-size="12">05/09</text>
+    <text x="120" y="30" fill="#f2f0e9" font-size="13">Reembolso cliente B · propuesta</text>
+    <text x="640" y="30" fill="#ff6961" font-size="12">ESCALADO HUMANO</text>
+    <text x="820" y="30" text-anchor="end" fill="#ff6961" font-size="13">-340,00</text>
+    <text x="980" y="30" text-anchor="end" fill="#ff6961" font-size="13">·</text>
+  </g>
+  <text x="40" y="48" font-family="ui-monospace, monospace" fill="#c2c4bc" font-size="11" letter-spacing="3" opacity="0.7">DEPT · ADMINISTRACIÓN</text>
+  <text x="1240" y="48" text-anchor="end" font-family="ui-monospace, monospace" fill="#989b94" font-size="11" letter-spacing="3" opacity="0.7">CONCILIACIÓN DIARIA</text>
+</svg>

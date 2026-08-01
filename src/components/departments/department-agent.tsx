@@ -12,7 +12,16 @@ export type DepartmentAgent = {
   initials: string;
   color: string;
   colorSoft: string;
-  avatarStyle: "strategic" | "commercial" | "creative";
+  avatarStyle:
+    | "strategic"
+    | "commercial"
+    | "creative"
+    | "operational"
+    | "support"
+    | "analytic"
+    | "administrative"
+    | "people"
+    | "logistics";
   catchphrase: string;
   intro: string;
   scripts: AgentScript[];
@@ -372,23 +381,157 @@ function renderAvatarPattern(style: DepartmentAgent["avatarStyle"], color: strin
       </g>
     );
   }
-  // Spiral para Contenido
-  return (
-    <g>
-      {Array.from({ length: 30 }).map((_, i) => {
-        const angle = i * 0.5;
-        const r = i * 0.5;
-        return (
+  if (style === "creative") {
+    // Spiral para Contenido
+    return (
+      <g>
+        {Array.from({ length: 30 }).map((_, i) => {
+          const angle = i * 0.5;
+          const r = i * 0.5;
+          return (
+            <circle
+              key={i}
+              cx={20 + Math.cos(angle) * r}
+              cy={20 + Math.sin(angle) * r}
+              r="0.8"
+              fill={color}
+              opacity={1 - i / 30}
+            />
+          );
+        })}
+      </g>
+    );
+  }
+  if (style === "operational") {
+    // Concentric gears + rings para Operaciones
+    return (
+      <g>
+        <circle cx="20" cy="20" r="14" fill="none" stroke={color} strokeWidth="0.5" opacity="0.45" />
+        <circle cx="20" cy="20" r="10" fill="none" stroke={color} strokeWidth="0.5" opacity="0.55" />
+        <circle cx="20" cy="20" r="6" fill="none" stroke={color} strokeWidth="0.5" opacity="0.7" />
+        {Array.from({ length: 8 }).map((_, i) => {
+          const angle = (i * Math.PI * 2) / 8;
+          return (
+            <line
+              key={i}
+              x1={20 + Math.cos(angle) * 12}
+              y1={20 + Math.sin(angle) * 12}
+              x2={20 + Math.cos(angle) * 16}
+              y2={20 + Math.sin(angle) * 16}
+              stroke={color}
+              strokeWidth="0.8"
+              opacity={0.7}
+            />
+          );
+        })}
+        <circle cx="20" cy="20" r="2" fill={color} />
+      </g>
+    );
+  }
+  if (style === "support") {
+    // Chat bubbles concéntricas para Atención al Cliente
+    return (
+      <g>
+        <rect x="6" y="10" width="18" height="10" rx="3" fill="none" stroke={color} strokeWidth="0.5" opacity="0.55" />
+        <rect x="16" y="20" width="18" height="10" rx="3" fill="none" stroke={color} strokeWidth="0.5" opacity="0.75" />
+        <circle cx="11" cy="15" r="0.9" fill={color} opacity={0.9} />
+        <circle cx="15" cy="15" r="0.9" fill={color} opacity={0.9} />
+        <circle cx="19" cy="15" r="0.9" fill={color} opacity={0.9} />
+        <circle cx="21" cy="25" r="0.7" fill={color} opacity={0.8} />
+        <circle cx="25" cy="25" r="0.7" fill={color} opacity={0.8} />
+        <circle cx="29" cy="25" r="0.7" fill={color} opacity={0.8} />
+      </g>
+    );
+  }
+  if (style === "analytic") {
+    // Lines + dots para SEO (curva de tendencia)
+    return (
+      <g>
+        <line x1="4" y1="32" x2="36" y2="32" stroke={color} strokeWidth="0.3" opacity="0.4" />
+        <line x1="4" y1="20" x2="4" y2="32" stroke={color} strokeWidth="0.3" opacity="0.4" />
+        {Array.from({ length: 9 }).map((_, i) => {
+          const x = 6 + i * 3.2;
+          const y = 30 - Math.abs(Math.sin(i * 0.6)) * 20;
+          return <circle key={i} cx={x} cy={y} r="1.1" fill={color} opacity={0.5 + i * 0.05} />;
+        })}
+        <polyline
+          points="6,28 9.2,24 12.4,26 15.6,20 18.8,22 22,14 25.2,18 28.4,10 31.6,12"
+          fill="none"
+          stroke={color}
+          strokeWidth="0.8"
+          opacity="0.9"
+        />
+      </g>
+    );
+  }
+  if (style === "people") {
+    // Tres figuras humanas estilizadas para RR.HH.
+    return (
+      <g fill="none" stroke={color} strokeWidth="0.8" opacity="0.85">
+        <circle cx="10" cy="14" r="3" />
+        <path d="M4 30 C 4 22, 16 22, 16 30" strokeLinecap="round" />
+        <circle cx="20" cy="12" r="3.4" fill={color} />
+        <path d="M13 32 C 13 22, 27 22, 27 32" strokeLinecap="round" />
+        <circle cx="30" cy="14" r="3" />
+        <path d="M24 30 C 24 22, 36 22, 36 30" strokeLinecap="round" />
+      </g>
+    );
+  }
+  if (style === "logistics") {
+    // Nodos conectados tipo supply chain para Logística
+    return (
+      <g>
+        <line x1="8" y1="8" x2="32" y2="32" stroke={color} strokeWidth="0.5" opacity="0.5" />
+        <line x1="8" y1="32" x2="32" y2="8" stroke={color} strokeWidth="0.5" opacity="0.5" />
+        <line x1="20" y1="4" x2="20" y2="36" stroke={color} strokeWidth="0.5" opacity="0.4" />
+        <line x1="4" y1="20" x2="36" y2="20" stroke={color} strokeWidth="0.5" opacity="0.4" />
+        <circle cx="20" cy="20" r="3.5" fill={color} />
+        <circle cx="20" cy="20" r="7" fill="none" stroke={color} strokeWidth="0.5" opacity="0.7" />
+        {[
+          [8, 8],
+          [32, 8],
+          [8, 32],
+          [32, 32],
+          [20, 6],
+          [20, 34],
+        ].map(([x, y], i) => (
           <circle
             key={i}
-            cx={20 + Math.cos(angle) * r}
-            cy={20 + Math.sin(angle) * r}
-            r="0.8"
+            cx={x!}
+            cy={y!}
+            r="1.6"
             fill={color}
-            opacity={1 - i / 30}
+            opacity={0.85}
           />
-        );
-      })}
+        ))}
+      </g>
+    );
+  }
+  // administrative — grid + check para Administración
+  return (
+    <g>
+      {Array.from({ length: 5 }).map((_, r) =>
+        Array.from({ length: 5 }).map((_, c) => (
+          <rect
+            key={`${r}-${c}`}
+            x={5 + c * 6}
+            y={5 + r * 6}
+            width="4"
+            height="4"
+            fill="none"
+            stroke={color}
+            strokeWidth="0.5"
+            opacity={(r + c) % 2 === 0 ? 0.45 : 0.2}
+          />
+        ))
+      )}
+      <polyline
+        points="11,21 17,27 29,12"
+        fill="none"
+        stroke={color}
+        strokeWidth="1.1"
+        opacity="0.95"
+      />
     </g>
   );
 }

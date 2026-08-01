@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { DepartmentGrid } from "@/components/departments/department-grid";
-import { departments, comingSoonDepartments } from "@/data/departments";
+import { departments } from "@/data/departments";
 import type { Metadata } from "next";
 import { brand } from "@/config/brand";
 
@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 };
 
 export default function DepartmentsIndex() {
+  const ordered = [...departments].sort((a, b) => a.ordering - b.ordering);
+
   return (
     <>
       {/* Hero */}
@@ -31,44 +33,9 @@ export default function DepartmentsIndex() {
       {/* Active departments */}
       <section className="border-b border-border">
         <Container width="wide" className="py-16 sm:py-20">
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            {departments.map((d) => (
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {ordered.map((d) => (
               <DepartmentGrid key={d.slug} department={d} />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Coming soon */}
-      <section>
-        <Container width="wide" className="py-16 sm:py-20">
-          <div className="flex items-end justify-between border-b border-border pb-4">
-            <div>
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
-                Próximamente
-              </p>
-              <h2 className="mt-3 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
-                Estamos formando los siguientes equipos
-              </h2>
-            </div>
-            <p className="hidden text-[0.875rem] text-muted sm:block">
-              {comingSoonDepartments.length} departamentos en preparación
-            </p>
-          </div>
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {comingSoonDepartments.map((d) => (
-              <div
-                key={d.slug}
-                className="rounded-xl border border-dashed border-border bg-surface-soft/40 p-5"
-              >
-                <p className="font-display text-[1.125rem] tracking-[-0.01em] text-foreground">
-                  {d.name}
-                </p>
-                <p className="mt-2 text-[0.875rem] text-muted text-pretty">{d.tagline}</p>
-                <p className="mt-3 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">
-                  En preparación
-                </p>
-              </div>
             ))}
           </div>
         </Container>

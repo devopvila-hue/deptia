@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Operaciones — entregables" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-out-ops" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101822"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+    <pattern id="grid-out-ops" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="rgba(242,240,233,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg-out-ops)"/>
+  <rect width="1280" height="720" fill="url(#grid-out-ops)"/>
+  <!-- KPI tiles -->
+  <g font-family="ui-monospace, monospace">
+    <g transform="translate(120,180)">
+      <rect width="240" height="140" rx="14" fill="#0c0e0a" stroke="rgba(105,180,255,0.25)"/>
+      <text x="24" y="40" font-size="11" letter-spacing="2" fill="#989b94">PROCESOS</text>
+      <text x="24" y="98" font-family="serif" font-size="48" fill="#69b4ff">312</text>
+      <text x="24" y="124" font-size="11" letter-spacing="2" fill="#989b94">ACTIVOS</text>
+    </g>
+    <g transform="translate(400,180)">
+      <rect width="240" height="140" rx="14" fill="#0c0e0a" stroke="rgba(105,180,255,0.25)"/>
+      <text x="24" y="40" font-size="11" letter-spacing="2" fill="#989b94">AUTOMAT.</text>
+      <text x="24" y="98" font-family="serif" font-size="48" fill="#69b4ff">84</text>
+      <text x="24" y="124" font-size="11" letter-spacing="2" fill="#989b94">REVERSIBLES</text>
+    </g>
+    <g transform="translate(680,180)">
+      <rect width="240" height="140" rx="14" fill="#0c0e0a" stroke="rgba(105,180,255,0.25)"/>
+      <text x="24" y="40" font-size="11" letter-spacing="2" fill="#989b94">REPORTES</text>
+      <text x="24" y="98" font-family="serif" font-size="48" fill="#69b4ff">12</text>
+      <text x="24" y="124" font-size="11" letter-spacing="2" fill="#989b94">RECURRENTES/MES</text>
+    </g>
+  </g>
+  <!-- timeline -->
+  <g transform="translate(120,420)" font-family="ui-monospace, monospace">
+    <text x="0" y="0" font-size="11" letter-spacing="2" fill="#989b94">LÍNEA OPERATIVA · 7 DÍAS</text>
+    <polyline points="0,180 150,170 280,140 380,150 500,90 620,120 760,60 900,80" fill="none" stroke="#69b4ff" stroke-width="2"/>
+    <line x1="0" y1="220" x2="900" y2="220" stroke="rgba(242,240,233,0.15)"/>
+    <g fill="#69b4ff">
+      <circle cx="0" cy="180" r="4"/>
+      <circle cx="150" cy="170" r="4"/>
+      <circle cx="280" cy="140" r="4"/>
+      <circle cx="380" cy="150" r="4"/>
+      <circle cx="500" cy="90" r="4"/>
+      <circle cx="620" cy="120" r="4"/>
+      <circle cx="760" cy="60" r="4"/>
+      <circle cx="900" cy="80" r="4"/>
+    </g>
+  </g>
+  <text x="40" y="40" font-family="ui-monospace, monospace" fill="#c2c4bc" font-size="11" letter-spacing="2" opacity="0.7">DEPT · OPERACIONES · OUTPUT</text>
+</svg>

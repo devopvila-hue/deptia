@@ -67,6 +67,12 @@ export interface Department {
     accent: string;
   };
   ordering: number;
+  /** Optional asset overrides — falls back to `/departments/{slug}/{hero|team|output}.png` */
+  assets?: {
+    hero?: string;
+    team?: string;
+    output?: string;
+  };
 }
 
 export interface PricingPlan {

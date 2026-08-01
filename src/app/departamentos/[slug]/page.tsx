@@ -170,7 +170,7 @@ function DepartmentHero({ department }: { department: (typeof departments)[numbe
 
           <div className="lg:col-span-5">
             <DepartmentImage
-              src={`/departments/${department.slug}/hero.png`}
+              src={department.assets?.hero ?? `/departments/${department.slug}/hero.png`}
               alt={`${department.name} — imagen editorial`}
               badge="Imagen editorial"
               ratio="video"
@@ -453,7 +453,7 @@ function DepartmentMembers({
         {/* Team image */}
         <div className="mt-8">
           <DepartmentImage
-            src={`/departments/${department.slug}/team.png`}
+            src={department.assets?.team ?? `/departments/${department.slug}/team.png`}
             alt={`${department.name} — equipo en sesión`}
             badge="En sesión"
             ratio="photo"
@@ -619,7 +619,7 @@ function DepartmentOutput({ department }: { department: (typeof departments)[num
           </div>
           <div className="lg:col-span-7">
             <DepartmentImage
-              src={`/departments/${department.slug}/output.png`}
+              src={department.assets?.output ?? `/departments/${department.slug}/output.png`}
               alt={`${department.name} — output visualizado`}
               badge="Output"
               ratio="video"

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { LoginForm } from "@/components/forms/login-form";
@@ -27,7 +28,10 @@ export default function AccessPage() {
           </div>
 
           <div className="mt-8 rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-6 sm:p-8">
-            <LoginForm />
+            {/* Suspense requerido por Next.js 14 al usar useSearchParams en cliente */}
+            <Suspense fallback={<div className="h-64 animate-pulse rounded-md bg-surface-soft/40" />}>
+              <LoginForm />
+            </Suspense>
           </div>
 
           <p className="mt-6 text-center text-[0.8125rem] text-muted">

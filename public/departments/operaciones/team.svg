@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-label="Operaciones — equipo en sesión" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-team-ops" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101822"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="640" fill="url(#bg-team-ops)"/>
+  <!-- table -->
+  <rect x="80" y="220" width="800" height="180" rx="10" fill="rgba(105,180,255,0.06)" stroke="rgba(105,180,255,0.25)"/>
+  <!-- members -->
+  <g>
+    <!-- 6 role badges around a table -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <g transform="translate(160,180)">
+        <rect width="120" height="60" rx="8" fill="#0c0e0a" stroke="rgba(105,180,255,0.4)"/>
+        <text x="14" y="28" fill="#69b4ff" font-size="11" letter-spacing="2">DO</text>
+        <text x="14" y="46" fill="#c2c4bc" font-size="11">DIRECCIÓN</text>
+      </g>
+      <g transform="translate(420,160)">
+        <rect width="120" height="60" rx="8" fill="#0c0e0a" stroke="rgba(105,180,255,0.4)"/>
+        <text x="14" y="28" fill="#69b4ff" font-size="11" letter-spacing="2">PR</text>
+        <text x="14" y="46" fill="#c2c4bc" font-size="11">PROCESOS</text>
+      </g>
+      <g transform="translate(680,180)">
+        <rect width="120" height="60" rx="8" fill="#0c0e0a" stroke="rgba(105,180,255,0.4)"/>
+        <text x="14" y="28" fill="#69b4ff" font-size="11" letter-spacing="2">DR</text>
+        <text x="14" y="46" fill="#c2c4bc" font-size="11">DATOS</text>
+      </g>
+      <g transform="translate(220,440)">
+        <rect width="120" height="60" rx="8" fill="#0c0e0a" stroke="rgba(105,180,255,0.4)"/>
+        <text x="14" y="28" fill="#69b4ff" font-size="11" letter-spacing="2">AT</text>
+        <text x="14" y="46" fill="#c2c4bc" font-size="11">AUTO</text>
+      </g>
+      <g transform="translate(440,460)">
+        <rect width="120" height="60" rx="8" fill="#0c0e0a" stroke="rgba(105,180,255,0.4)"/>
+        <text x="14" y="28" fill="#69b4ff" font-size="11" letter-spacing="2">IT</text>
+        <text x="14" y="46" fill="#c2c4bc" font-size="11">INTEGRACIONES</text>
+      </g>
+      <g transform="translate(660,440)">
+        <rect width="120" height="60" rx="8" fill="#0c0e0a" stroke="rgba(105,180,255,0.4)"/>
+        <text x="14" y="28" fill="#69b4ff" font-size="11" letter-spacing="2">QA</text>
+        <text x="14" y="46" fill="#c2c4bc" font-size="11">CALIDAD</text>
+      </g>
+    </g>
+  </g>
+  <!-- connectors -->
+  <g stroke="rgba(105,180,255,0.35)" stroke-width="1" fill="none">
+    <path d="M220 240 L420 220"/>
+    <path d="M540 220 L680 240"/>
+    <path d="M220 300 L160 460"/>
+    <path d="M340 300 L440 480"/>
+    <path d="M620 300 L660 460"/>
+    <path d="M680 300 L760 460"/>
+  </g>
+  <text x="40" y="40" font-family="ui-monospace, monospace" fill="#c2c4bc" font-size="11" letter-spacing="2" opacity="0.7">OPS · TEAM BOARD</text>
+  <text x="920" y="40" text-anchor="end" font-family="ui-monospace, monospace" fill="#989b94" font-size="11" letter-spacing="2" opacity="0.6">6 ROLES · 1 OPERACIÓN</text>
+</svg>

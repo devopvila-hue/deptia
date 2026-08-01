@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="RRHH — entregables" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-out-rrhh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d1810"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg-out-rrhh)"/>
+  <!-- KPIs -->
+  <g font-family="ui-monospace, monospace">
+    <g transform="translate(120,160)">
+      <rect width="260" height="120" rx="14" fill="#0c0e0a" stroke="rgba(245,168,102,0.3)"/>
+      <text x="24" y="40" font-size="11" letter-spacing="3" fill="#989b94">COBERTURA</text>
+      <text x="24" y="90" font-family="serif" font-size="38" fill="#f5a866">21d</text>
+    </g>
+    <g transform="translate(420,160)">
+      <rect width="260" height="120" rx="14" fill="#0c0e0a" stroke="rgba(245,168,102,0.3)"/>
+      <text x="24" y="40" font-size="11" letter-spacing="3" fill="#989b94">ONBOARDING</text>
+      <text x="24" y="90" font-family="serif" font-size="38" fill="#f5a866">30d</text>
+    </g>
+    <g transform="translate(720,160)">
+      <rect width="260" height="120" rx="14" fill="#0c0e0a" stroke="rgba(245,168,102,0.3)"/>
+      <text x="24" y="40" font-size="11" letter-spacing="3" fill="#989b94">RETENCIÓN</text>
+      <text x="24" y="90" font-family="serif" font-size="38" fill="#7ce5a3">92%</text>
+    </g>
+  </g>
+  <!-- candidate funnel -->
+  <g transform="translate(120,360)" font-family="ui-monospace, monospace" fill="#c2c4bc">
+    <text x="0" y="0" font-size="11" letter-spacing="2" opacity="0.7">FUNNEL · ÚLTIMOS 90 DÍAS</text>
+    <g transform="translate(0,30)">
+      <rect x="0" y="0" width="960" height="36" rx="6" fill="#0c0e0a" stroke="rgba(245,168,102,0.25)"/>
+      <rect x="0" y="0" width="960" height="36" rx="6" fill="rgba(245,168,102,0.4)"/>
+      <text x="14" y="22" fill="#0a0c08" font-size="13" font-weight="500">Aplicantes 624</text>
+    </g>
+    <g transform="translate(0,76)">
+      <rect x="0" y="0" width="720" height="36" rx="6" fill="#0c0e0a" stroke="rgba(245,168,102,0.25)"/>
+      <rect x="0" y="0" width="720" height="36" rx="6" fill="rgba(245,168,102,0.4)"/>
+      <text x="14" y="22" fill="#0a0c08" font-size="13" font-weight="500">Cualificados 412</text>
+    </g>
+    <g transform="translate(0,122)">
+      <rect x="0" y="0" width="420" height="36" rx="6" fill="#0c0e0a" stroke="rgba(245,168,102,0.25)"/>
+      <rect x="0" y="0" width="420" height="36" rx="6" fill="rgba(245,168,102,0.4)"/>
+      <text x="14" y="22" fill="#0a0c08" font-size="13" font-weight="500">Entrevistados 184</text>
+    </g>
+    <g transform="translate(0,168)">
+      <rect x="0" y="0" width="180" height="36" rx="6" fill="#0c0e0a" stroke="rgba(245,168,102,0.25)"/>
+      <rect x="0" y="0" width="180" height="36" rx="6" fill="#f5a866"/>
+      <text x="14" y="22" fill="#0a0c08" font-size="13" font-weight="500">Contratados 38</text>
+    </g>
+  </g>
+  <text x="40" y="40" font-family="ui-monospace, monospace" fill="#c2c4bc" font-size="11" letter-spacing="2" opacity="0.7">RR.HH. · OUTPUT</text>
+</svg>

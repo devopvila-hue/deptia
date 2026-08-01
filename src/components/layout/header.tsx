@@ -8,7 +8,8 @@ import { useScrollPosition } from "@/hooks/use-scroll-position";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import { brand } from "@/config/brand";
-import { mainNavigation, mobileNavigation } from "@/config/navigation";
+import { mainNavigation, mobileNavigation, departmentsNavigation } from "@/config/navigation";
+import { DepartmentsDropdown } from "@/components/layout/departments-dropdown";
 import { cn } from "@/lib/utils";
 
 function BrandMark({ className }: { className?: string }) {
@@ -87,15 +88,18 @@ export function Header() {
             aria-label="Principal"
             className="hidden items-center gap-1 lg:flex"
           >
-            {mainNavigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="rounded-md px-3 py-1.5 text-[0.9375rem] text-muted transition-colors hover:bg-surface-soft/60 hover:text-foreground"
-              >
-                {item.label}
-              </Link>
-            ))}
+            <DepartmentsDropdown />
+            {mainNavigation
+              .filter((item) => item.href !== "/departamentos")
+              .map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-md px-3 py-1.5 text-[0.9375rem] text-muted transition-colors hover:bg-surface-soft/60 hover:text-foreground"
+                >
+                  {item.label}
+                </Link>
+              ))}
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
@@ -208,39 +212,56 @@ function MobileMenu({ onClose, isMobile }: { onClose: () => void; isMobile: bool
           <div className="flex flex-col gap-6">
             <div>
               <p className="mb-4 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-muted">
-                Departamentos activos
+                Departamentos
               </p>
               <ul className="grid grid-cols-1 gap-2">
-                {[
-                  { name: "Marketing", href: "/departamentos/marketing" },
-                  { name: "Ventas", href: "/departamentos/ventas" },
-                  { name: "Contenido", href: "/departamentos/contenido" },
-                ].map((d, i) => (
+                {departmentsNavigation.map((d, i) => (
                   <motion.li
                     key={d.href}
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.16 + i * 0.05, duration: 0.35 }}
+                    transition={{ delay: 0.16 + i * 0.04, duration: 0.35 }}
                   >
                     <Link
                       href={d.href}
                       onClick={onClose}
-                      className="flex items-center justify-between rounded-md border border-border bg-surface-soft/40 px-4 py-3 text-[0.9375rem] text-foreground transition-colors hover:bg-surface-soft"
+                      className="flex items-center justify-between gap-3 rounded-md border border-border bg-surface-soft/40 px-4 py-3 text-[0.9375rem] text-foreground transition-colors hover:bg-surface-soft"
                     >
-                      <span>{d.name}</span>
-                      <span className="text-[0.6875rem] font-mono uppercase tracking-[0.14em] text-muted">
+                      <div className="min-w-0">
+                        <span className="block truncate">{d.label}</span>
+                        {d.description && (
+                          <span className="block truncate text-[0.75rem] text-muted">
+                            {d.description}
+                          </span>
+                        )}
+                      </div>
+                      <span className="shrink-0 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-muted">
                         Disponible
                       </span>
                     </Link>
                   </motion.li>
                 ))}
+                <motion.li
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.16 + departmentsNavigation.length * 0.04, duration: 0.35 }}
+                >
+                  <Link
+                    href="/departamentos"
+                    onClick={onClose}
+                    className="flex items-center justify-between rounded-md border border-dashed border-border px-4 py-3 text-[0.875rem] text-foreground/80 transition-colors hover:bg-surface-soft/40"
+                  >
+                    <span>Ver todos los departamentos</span>
+                    <ArrowUpRight className="h-4 w-4 text-muted" />
+                  </Link>
+                </motion.li>
               </ul>
             </div>
 
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.35 }}
+              transition={{ delay: 0.4, duration: 0.35 }}
               className="rounded-xl border border-border bg-gradient-to-b from-surface-soft/60 to-surface p-5"
             >
               <p className="text-[0.875rem] text-muted">

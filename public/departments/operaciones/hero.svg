@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Operaciones — sala de control" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-ops" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101822"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+    <radialGradient id="glow-ops" cx="0.5" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="rgba(105,180,255,0.22)"/>
+      <stop offset="0.5" stop-color="rgba(105,180,255,0.08)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <pattern id="grid-ops" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(242,240,233,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg-ops)"/>
+  <rect width="1280" height="720" fill="url(#grid-ops)" opacity="0.6"/>
+  <rect width="1280" height="720" fill="url(#glow-ops)"/>
+  <!-- central console -->
+  <g transform="translate(640,360)">
+    <circle r="180" fill="none" stroke="rgba(105,180,255,0.35)" stroke-width="1"/>
+    <circle r="130" fill="none" stroke="rgba(105,180,255,0.5)" stroke-width="1"/>
+    <circle r="80" fill="none" stroke="rgba(105,180,255,0.7)" stroke-width="1"/>
+    <circle r="34" fill="rgba(105,180,255,0.15)" stroke="#69b4ff" stroke-width="1.5"/>
+    <circle r="6" fill="#69b4ff"/>
+    <!-- spokes -->
+    <g stroke="#69b4ff" stroke-width="1" opacity="0.7">
+      <line x1="-220" y1="0" x2="-180" y2="0"/>
+      <line x1="220" y1="0" x2="180" y2="0"/>
+      <line x1="0" y1="-220" x2="0" y2="-180"/>
+      <line x1="0" y1="220" x2="0" y2="180"/>
+      <line x1="-155" y1="-155" x2="-127" y2="-127"/>
+      <line x1="155" y1="-155" x2="127" y2="-127"/>
+      <line x1="-155" y1="155" x2="-127" y2="127"/>
+      <line x1="155" y1="155" x2="127" y2="127"/>
+    </g>
+    <!-- nodes -->
+    <g fill="#69b4ff">
+      <circle cx="220" cy="0" r="5"/>
+      <circle cx="-220" cy="0" r="5"/>
+      <circle cx="0" cy="-220" r="5"/>
+      <circle cx="0" cy="220" r="5"/>
+    </g>
+    <g fill="rgba(105,180,255,0.6)">
+      <circle cx="155" cy="-155" r="3.5"/>
+      <circle cx="-155" cy="-155" r="3.5"/>
+      <circle cx="155" cy="155" r="3.5"/>
+      <circle cx="-155" cy="155" r="3.5"/>
+    </g>
+  </g>
+  <!-- top label -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" fill="#c2c4bc">
+    <text x="40" y="48" font-size="11" letter-spacing="3" opacity="0.7">DEPT · OPERACIONES</text>
+    <text x="40" y="68" font-size="11" letter-spacing="2" opacity="0.4">CONTROL ROOM · LIVE</text>
+    <text x="1240" y="48" font-size="11" letter-spacing="3" text-anchor="end" opacity="0.7">OPS / 001</text>
+  </g>
+  <!-- bottom data tickers -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" fill="#989b94">
+    <text x="40" y="690" font-size="11" letter-spacing="2" opacity="0.6">PROC 312 · OK</text>
+    <text x="640" y="690" font-size="11" letter-spacing="2" text-anchor="middle" opacity="0.6">SYNC 0.4s · BASELINE 21ms</text>
+    <text x="1240" y="690" font-size="11" letter-spacing="2" text-anchor="end" opacity="0.6">RUN OK · GREEN</text>
+  </g>
+  <!-- corner ticks -->
+  <g stroke="rgba(242,240,233,0.3)" stroke-width="1" fill="none">
+    <path d="M24 24 H48 M24 24 V48"/>
+    <path d="M1256 24 H1232 M1256 24 V48"/>
+    <path d="M24 696 H48 M24 696 V672"/>
+    <path d="M1256 696 H1232 M1256 696 V672"/>
+  </g>
+</svg>

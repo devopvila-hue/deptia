@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Atención al cliente — hilos en vivo" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-spt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#191524"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+    <radialGradient id="glow-spt" cx="0.5" cy="0.45" r="0.5">
+      <stop offset="0" stop-color="rgba(196,163,255,0.20)"/>
+      <stop offset="0.6" stop-color="rgba(196,163,255,0.06)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <pattern id="grid-spt" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(242,240,233,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg-spt)"/>
+  <rect width="1280" height="720" fill="url(#grid-spt)" opacity="0.5"/>
+  <rect width="1280" height="720" fill="url(#glow-spt)"/>
+  <!-- conversation threads -->
+  <g font-family="ui-monospace, monospace">
+    <g transform="translate(160,160)">
+      <rect width="380" height="120" rx="14" fill="#101210" stroke="rgba(196,163,255,0.3)"/>
+      <circle cx="36" cy="40" r="14" fill="rgba(196,163,255,0.18)" stroke="#c4a3ff"/>
+      <text x="64" y="36" font-size="11" letter-spacing="2" fill="#989b94">CLIENTE · MARTA</text>
+      <text x="64" y="56" font-size="13" fill="#f2f0e9">¿Cuándo llega mi pedido #2314?</text>
+      <text x="64" y="78" font-size="11" letter-spacing="2" fill="#989b94">HILO 1 · STATUS OPEN</text>
+    </g>
+    <g transform="translate(740,200)">
+      <rect width="380" height="120" rx="14" fill="#101210" stroke="rgba(196,163,255,0.45)"/>
+      <circle cx="36" cy="40" r="14" fill="rgba(196,163,255,0.18)" stroke="#c4a3ff"/>
+      <text x="64" y="36" font-size="11" letter-spacing="2" fill="#989b94">CLIENTE · PABLO</text>
+      <text x="64" y="56" font-size="13" fill="#f2f0e9">Necesito factura con datos de la empresa</text>
+      <text x="64" y="78" font-size="11" letter-spacing="2" fill="#c4a3ff">HILO 2 · DRAFTING</text>
+    </g>
+    <g transform="translate(160,360)">
+      <rect width="380" height="120" rx="14" fill="#101210" stroke="rgba(196,163,255,0.55)"/>
+      <circle cx="36" cy="40" r="14" fill="rgba(196,163,255,0.18)" stroke="#c4a3ff"/>
+      <text x="64" y="36" font-size="11" letter-spacing="2" fill="#989b94">CLIENTE · LUCÍA</text>
+      <text x="64" y="56" font-size="13" fill="#f2f0e9">Quiero cancelar mi suscripción</text>
+      <text x="64" y="78" font-size="11" letter-spacing="2" fill="#ff6961">HILO 3 · ESCALATED</text>
+    </g>
+    <g transform="translate(740,400)">
+      <rect width="380" height="120" rx="14" fill="#101210" stroke="rgba(196,163,255,0.3)"/>
+      <circle cx="36" cy="40" r="14" fill="rgba(196,163,255,0.18)" stroke="#c4a3ff"/>
+      <text x="64" y="36" font-size="11" letter-spacing="2" fill="#989b94">CLIENTE · HUGO</text>
+      <text x="64" y="56" font-size="13" fill="#f2f0e9">¿Tenéis integración con Slack?</text>
+      <text x="64" y="78" font-size="11" letter-spacing="2" fill="#7ce5a3">HILO 4 · RESOLVED</text>
+    </g>
+  </g>
+  <text x="40" y="48" font-family="ui-monospace, monospace" fill="#c2c4bc" font-size="11" letter-spacing="3" opacity="0.7">DEPT · SOPORTE</text>
+  <text x="1240" y="48" text-anchor="end" font-family="ui-monospace, monospace" fill="#989b94" font-size="11" letter-spacing="3" opacity="0.7">24/7 · LATENCY &lt; 15min</text>
+</svg>

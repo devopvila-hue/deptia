@@ -5,10 +5,11 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, ChevronRight, ChevronLeft, Sparkles, Building2, KeyRound, ShieldCheck } from "lucide-react";
+import { Check, ChevronRight, ChevronLeft, Sparkles, Building2, KeyRound, ShieldCheck, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { departments, listAvailableDepartments } from "@/data/departments";
+import { signUp, type AuthError } from "@/lib/auth";
 
 const accountSchema = z.object({
   name: z.string().min(2, "Necesitamos tu nombre"),
@@ -162,6 +163,7 @@ export function RegistrationFlow() {
 }
 
 function AccountStep({ onComplete }: { onComplete: () => void }) {
+  const [serverError, setServerError] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -170,8 +172,28 @@ function AccountStep({ onComplete }: { onComplete: () => void }) {
     resolver: zodResolver(accountSchema),
   });
 
-  const onSubmit = async () => {
-    await new Promise((r) => setTimeout(r, 400));
+  const onSubmit = async (values: AccountValues) => {
+    setServerError(null);
+    const result = await signUp({
+      email: values.email,
+      password: values.password,
+      fullName: values.name,
+      companyName: values.company,
+    });
+
+    if (!result.ok) {
+      // Si Supabase aún no está configurado, dejamos al usuario continuar
+      // con el flujo de demo: es un entorno de previsualización.
+      if (result.error.kind === "not_configured") {
+        setServerError(result.error.message);
+        // No bloqueamos la demo. Avanzamos tras mostrar el aviso.
+        await new Promise((r) => setTimeout(r, 600));
+        onComplete();
+        return;
+      }
+      setServerError(formatAuthError(result.error));
+      return;
+    }
     onComplete();
   };
 
@@ -192,6 +214,16 @@ function AccountStep({ onComplete }: { onComplete: () => void }) {
           Cuéntanos quién eres
         </h2>
       </header>
+
+      {serverError && (
+        <div
+          role="alert"
+          className="flex items-start gap-2 rounded-md border border-warning/40 bg-warning/10 p-3 text-[0.8125rem] text-foreground"
+        >
+          <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-warning" aria-hidden />
+          <span className="text-pretty">{serverError}</span>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <FieldRow label="Nombre" error={errors.name?.message}>
@@ -707,7 +739,7 @@ function ReadyStep() {
       </div>
 
       <div className="grid w-full max-w-md grid-cols-1 gap-2 sm:grid-cols-2">
-        <Button href="/demo" variant="primary" size="md" rightIcon={<ChevronRight className="h-3.5 w-3.5" />}>
+        <Button href="/panel" variant="primary" size="md" rightIcon={<ChevronRight className="h-3.5 w-3.5" />}>
           Ir al panel
         </Button>
         <Button href="/contacto" variant="ghost" size="md">
@@ -749,6 +781,21 @@ function FieldRow({
       )}
     </div>
   );
+}
+
+function formatAuthError(err: AuthError): string {
+  switch (err.kind) {
+    case "not_configured":
+      return err.message;
+    case "invalid_credentials":
+      return err.message;
+    case "rate_limited":
+      return err.message;
+    case "validation":
+      return err.message;
+    case "unknown":
+      return "No hemos podido crear la cuenta. Inténtalo de nuevo en unos minutos.";
+  }
 }
 
 function Consent({

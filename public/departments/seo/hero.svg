@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="SEO — panel de autoridad" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg-seo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f1b16"/>
+      <stop offset="1" stop-color="#080908"/>
+    </linearGradient>
+    <radialGradient id="glow-seo" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="rgba(110,211,160,0.18)"/>
+      <stop offset="0.5" stop-color="rgba(110,211,160,0.06)"/>
+      <stop offset="1" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <pattern id="grid-seo" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(242,240,233,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg-seo)"/>
+  <rect width="1280" height="720" fill="url(#grid-seo)" opacity="0.5"/>
+  <rect width="1280" height="720" fill="url(#glow-seo)"/>
+  <!-- growth chart -->
+  <g transform="translate(160,420)" font-family="ui-monospace, monospace">
+    <line x1="0" y1="0" x2="900" y2="0" stroke="rgba(242,240,233,0.15)"/>
+    <line x1="0" y1="0" x2="0" y2="-280" stroke="rgba(242,240,233,0.15)"/>
+    <polyline points="0,-40 100,-60 200,-90 300,-130 400,-160 500,-180 600,-200 700,-240 800,-280" fill="none" stroke="#6ed3a0" stroke-width="2.5"/>
+    <g fill="#6ed3a0">
+      <circle cx="0" cy="-40" r="5"/>
+      <circle cx="100" cy="-60" r="5"/>
+      <circle cx="200" cy="-90" r="5"/>
+      <circle cx="300" cy="-130" r="5"/>
+      <circle cx="400" cy="-160" r="5"/>
+      <circle cx="500" cy="-180" r="5"/>
+      <circle cx="600" cy="-200" r="5"/>
+      <circle cx="700" cy="-240" r="5"/>
+      <circle cx="800" cy="-280" r="5"/>
+    </g>
+    <text x="0" y="36" fill="#989b94" font-size="11" letter-spacing="2">M1</text>
+    <text x="200" y="36" fill="#989b94" font-size="11" letter-spacing="2">M3</text>
+    <text x="400" y="36" fill="#989b94" font-size="11" letter-spacing="2">M5</text>
+    <text x="600" y="36" fill="#989b94" font-size="11" letter-spacing="2">M7</text>
+    <text x="800" y="36" fill="#989b94" font-size="11" letter-spacing="2">M9</text>
+    <text x="-20" y="0" fill="#989b94" font-size="11" text-anchor="end" letter-spacing="2">0</text>
+    <text x="-20" y="-140" fill="#989b94" font-size="11" text-anchor="end" letter-spacing="2">50</text>
+    <text x="-20" y="-280" fill="#989b94" font-size="11" text-anchor="end" letter-spacing="2">100</text>
+  </g>
+  <!-- KPI cards -->
+  <g font-family="ui-monospace, monospace">
+    <g transform="translate(160,140)">
+      <rect width="260" height="120" rx="14" fill="#0c0e0a" stroke="rgba(110,211,160,0.3)"/>
+      <text x="24" y="38" font-size="11" letter-spacing="3" fill="#989b94">DR</text>
+      <text x="24" y="90" font-family="serif" font-size="38" fill="#6ed3a0">68</text>
+      <text x="100" y="90" font-family="serif" font-size="13" fill="#7ce5a3">+12</text>
+    </g>
+    <g transform="translate(460,140)">
+      <rect width="260" height="120" rx="14" fill="#0c0e0a" stroke="rgba(110,211,160,0.3)"/>
+      <text x="24" y="38" font-size="11" letter-spacing="3" fill="#989b94">KW POS</text>
+      <text x="24" y="90" font-family="serif" font-size="38" fill="#6ed3a0">412</text>
+      <text x="120" y="90" font-family="serif" font-size="13" fill="#7ce5a3">+34%</text>
+    </g>
+    <g transform="translate(760,140)">
+      <rect width="260" height="120" rx="14" fill="#0c0e0a" stroke="rgba(110,211,160,0.3)"/>
+      <text x="24" y="38" font-size="11" letter-spacing="3" fill="#989b94">BACKLINKS</text>
+      <text x="24" y="90" font-family="serif" font-size="38" fill="#6ed3a0">1.4k</text>
+      <text x="124" y="90" font-family="serif" font-size="13" fill="#7ce5a3">+8%</text>
+    </g>
+  </g>
+  <text x="40" y="48" font-family="ui-monospace, monospace" fill="#c2c4bc" font-size="11" letter-spacing="3" opacity="0.7">DEPT · SEO</text>
+  <text x="1240" y="48" text-anchor="end" font-family="ui-monospace, monospace" fill="#989b94" font-size="11" letter-spacing="3" opacity="0.7">9-MONTH VIEW</text>
+</svg>

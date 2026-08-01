@@ -7,11 +7,13 @@ import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { MemberPattern } from "@/components/visualizations/member-pattern";
-import { departments, comingSoonDepartments } from "@/data/departments";
+import { departments } from "@/data/departments";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function DepartmentsCatalog() {
+  const ordered = [...departments].sort((a, b) => a.ordering - b.ordering);
+
   return (
     <section id="departamentos" className="relative border-b border-border">
       <Container width="wide" className="py-24 sm:py-32">
@@ -19,36 +21,33 @@ export function DepartmentsCatalog() {
           <div className="max-w-xl">
             <Eyebrow index="03">Catálogo</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-              Tres departamentos listos. Los demás se activan a medida que los necesitas.
+              Siete departamentos listos. Combínalos según el momento de tu empresa.
             </h2>
           </div>
           <p className="max-w-sm text-[0.9375rem] text-muted text-pretty">
             Cada departamento es un equipo completo con miembros, tareas, memoria y entregables.
-            Puedes combinarlos según el momento de tu empresa.
+            Activa los que necesitas hoy. Los demás se incorporarán cuando los contrates.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {departments.map((d, i) => (
+        <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {ordered.map((d, i) => (
             <DepartmentCard key={d.slug} department={d} index={i} />
           ))}
         </div>
 
-        <div className="mt-12">
+        <div className="mt-10 flex items-center justify-between border-t border-border pt-6">
           <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
-            Próximamente
+            {ordered.length} departamentos · todos disponibles
           </p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {comingSoonDepartments.map((d) => (
-              <span
-                key={d.slug}
-                className="inline-flex items-center gap-2 rounded-md border border-dashed border-border bg-surface-soft/40 px-3 py-1.5 text-[0.8125rem] text-muted"
-              >
-                <span className="h-1 w-1 rounded-full bg-muted/40" />
-                {d.name}
-              </span>
-            ))}
-          </div>
+          <Link
+            href="/departamentos"
+            onClick={() => track("department_viewed", { department: "all" })}
+            className="group inline-flex items-center gap-1.5 text-[0.875rem] text-foreground/80 transition-colors hover:text-foreground"
+          >
+            Ver todos los departamentos
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </Container>
     </section>
