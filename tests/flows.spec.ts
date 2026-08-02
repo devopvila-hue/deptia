@@ -47,7 +47,7 @@ test.describe("SEO", () => {
     await page.goto("/");
     const ogTitle = await page.locator('meta[property="og:title"]').getAttribute("content");
     expect(ogTitle).toBeTruthy();
-    expect(ogTitle).toContain("DEPT.IA");
+    expect(ogTitle).toContain("Deptify");
   });
 
   test("JSON-LD Organization presente en home", async ({ page }) => {
@@ -60,14 +60,14 @@ test.describe("SEO", () => {
     await page.goto("/departamentos/marketing");
     const title = await page.title();
     expect(title).toContain("Marketing");
-    expect(title).toContain("DEPT.IA");
+    expect(title).toContain("Deptify");
   });
 
   test("Sitemap.xml accesible", async ({ page }) => {
     const response = await page.goto("/sitemap.xml");
     expect(response?.status()).toBe(200);
     const body = await page.content();
-    expect(body).toContain("dept.ia");
+    expect(body).toContain("deptify.com");
   });
 });
 
