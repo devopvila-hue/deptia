@@ -1,10 +1,10 @@
 // Centralised brand configuration. Update here to rebrand the entire site.
 export const brand = {
-  name: "Deptify",
-  tagline: "The operating system for modern companies.",
-  shortTagline: "The operating system for modern companies.",
+  name: "DEPARTIFY",
+  tagline: "Business Operating System",
+  shortTagline: "Business Operating System",
   description:
-    "Deptify is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
+    "DEPARTIFY is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
   domain: "deptify.com",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://deptify.com",
   contactEmail: "hola@deptify.com",

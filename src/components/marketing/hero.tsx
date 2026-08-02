@@ -34,7 +34,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Eyebrow index="01">Workforce / Deptify</Eyebrow>
+              <Eyebrow index="01">DEPARTIFY · Business Operating System</Eyebrow>
             </motion.div>
 
             <motion.h1

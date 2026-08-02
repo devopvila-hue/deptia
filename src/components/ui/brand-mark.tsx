@@ -1,8 +1,8 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Nexus brand mark — text scales with the parent font size.
- * The N mark is inline SVG (currentColor), the wordmark + tagline
+ * DEPARTIFY brand mark — text scales with the parent font size.
+ * The square mark is inline SVG (currentColor), the wordmark + tagline
  * use the project's font stack so it stays legible at any size.
  */
 export function BrandMark({
@@ -39,10 +39,7 @@ export function BrandMark({
       <div className={cn("flex flex-col gap-1", textClassName)}>
         <span className="flex items-baseline gap-2">
           <span className="text-[1.05em] font-semibold tracking-[-0.02em]">
-            Nexus
-          </span>
-          <span className="text-[0.55em] font-medium uppercase tracking-[0.18em] opacity-70">
-            AI Systems
+            DEPARTIFY
           </span>
         </span>
         {showTagline && (
