@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/layout/legal-page";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
-  description: "Cómo tratamos los datos personales en DEPT.IA.",
+  description: "Cómo tratamos los datos personales en Deptify.",
 };
 
 const UPDATED = "1 de octubre de 2025";
@@ -13,7 +13,7 @@ export default function PrivacyPage() {
     <LegalPage
       index="01"
       title="Política de privacidad"
-      description="Cómo recopilamos, tratamos y protegemos los datos personales de las personas que usan DEPT.IA."
+      description="Cómo recopilamos, tratamos y protegemos los datos personales de las personas que usan Deptify."
       updated={UPDATED}
       sections={[
         {
@@ -22,13 +22,13 @@ export default function PrivacyPage() {
             <>
               <p>
                 El responsable del tratamiento de los datos personales recogidos a través de este
-                sitio web y de los servicios asociados es <strong>DEPT.IA Technologies, S.L.</strong>{" "}
-                (en adelante, «DEPT.IA»), con sede en España y NIF B-00000000.
+                sitio web y de los servicios asociados es <strong>Deptify Technologies, S.L.</strong>{" "}
+                (en adelante, «Deptify»), con sede en España y NIF B-00000000.
               </p>
               <p>
                 Para cualquier cuestión relacionada con privacidad, puedes escribir a{" "}
-                <a href="mailto:privacidad@dept.ia" className="text-foreground underline">
-                  privacidad@dept.ia
+                <a href="mailto:privacidad@deptify.com" className="text-foreground underline">
+                  privacidad@deptify.com
                 </a>
                 .
               </p>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           content: (
             <>
               <p>
-                DEPT.IA trata las siguientes categorías de datos personales, dependiendo de cómo
+                Deptify trata las siguientes categorías de datos personales, dependiendo de cómo
                 interactúas con la plataforma:
               </p>
               <ul className="list-disc pl-5">
@@ -91,7 +91,7 @@ export default function PrivacyPage() {
           title: "Encargados del tratamiento",
           content: (
             <p>
-              DEPT.IA trabaja con proveedores de infraestructura, analítica y atención al cliente
+              Deptify trabaja con proveedores de infraestructura, analítica y atención al cliente
               que pueden tratar datos por cuenta de la plataforma. Todos los proveedores
               firman acuerdos de tratamiento conforme al RGPD.
             </p>
@@ -103,8 +103,8 @@ export default function PrivacyPage() {
             <p>
               Puedes ejercer en cualquier momento los derechos de acceso, rectificación,
               supresión, oposición, limitación del tratamiento y portabilidad escribiendo a{" "}
-              <a href="mailto:privacidad@dept.ia" className="text-foreground underline">
-                privacidad@dept.ia
+              <a href="mailto:privacidad@deptify.com" className="text-foreground underline">
+                privacidad@deptify.com
               </a>
               . También puedes presentar una reclamación ante la autoridad de control
               competente.

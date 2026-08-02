@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Recursos",
-  description: "Guías, casos de uso y material para entender mejor cómo DEPT.IA puede ayudar a tu empresa.",
+  description: "Guías, casos de uso y material para entender mejor cómo Deptify puede ayudar a tu empresa.",
 };
 
 const RESOURCES = [
@@ -66,7 +66,7 @@ export default function ResourcesPage() {
             Ideas, guías y casos para integrar departamentos digitales.
           </h1>
           <p className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-muted text-pretty">
-            Material práctico para entender cómo DEPT.IA puede encajar en la operativa de tu
+            Material práctico para entender cómo Deptify puede encajar en la operativa de tu
             empresa. Sin jerga, sin promesas exageradas.
           </p>
         </Container>

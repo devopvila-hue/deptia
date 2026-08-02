@@ -1,4 +1,4 @@
-# Modelo de contenido · DEPT.IA
+# Modelo de contenido · Deptify
 
 Cómo se estructura el contenido para que sea fácil de mantener, traducir y evolucionar.
 
@@ -159,7 +159,7 @@ Para añadir otro idioma:
 ## SEO por página
 
 Cada página define su `metadata` con:
-- `title` (será sufijado con `· DEPT.IA` por el template)
+- `title` (será sufijado con `· Deptify` por el template)
 - `description`
 - Open Graph (heredado del root)
 - Twitter (heredado del root)

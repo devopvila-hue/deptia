@@ -78,7 +78,7 @@ export function ContactForm() {
           </h2>
           <p className="max-w-md text-[0.9375rem] text-muted text-pretty">
             Te respondemos en horario laboral en menos de 24 horas. Si la consulta es urgente,
-            escríbenos a hola@dept.ia.
+            escríbenos a hola@deptify.com.
           </p>
           <button
             type="button"

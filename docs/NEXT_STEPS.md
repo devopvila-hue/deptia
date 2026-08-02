@@ -1,4 +1,4 @@
-# Próximos pasos · DEPT.IA
+# Próximos pasos · Deptify
 
 Roadmap de las siguientes tareas para llevar el producto a producción.
 
@@ -132,7 +132,7 @@ Roadmap de las siguientes tareas para llevar el producto a producción.
 - [ ] Auditoría Lighthouse (perf > 90, a11y > 95)
 - [ ] Probar en Safari, Chrome, Firefox, Edge
 - [ ] Probar en iOS y Android reales
-- [ ] Configurar dominio `dept.ia`
+- [ ] Configurar dominio `deptify.com`
 - [ ] Configurar emails transaccionales (Resend, Postmark)
 - [ ] Crear plantillas de email para bienvenida, provisioning, facturas, etc.
 

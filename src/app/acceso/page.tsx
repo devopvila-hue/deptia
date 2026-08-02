@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Acceder",
-  description: "Accede al panel de tu empresa en DEPT.IA.",
+  description: "Accede al panel de tu empresa en Deptify.",
 };
 
 export default function AccessPage() {

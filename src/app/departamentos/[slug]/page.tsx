@@ -76,7 +76,7 @@ export default async function DepartmentPage({
       <FinalCta />
       {agent && <DepartmentAgent agent={agent} />}
       <ProductJsonLd
-        name={`${department.name} — DEPT.IA`}
+        name={`${department.name} — Deptify`}
         description={department.promise}
         price={department.priceFrom}
       />

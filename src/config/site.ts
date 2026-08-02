@@ -1,10 +1,10 @@
 // Centralised site copy, organised by surface. Spanish (Spain) primary.
 export const copy = {
   hero: {
-    eyebrow: "DEPT.IA / Workforce",
+    eyebrow: "Deptify / Workforce",
     title: "The operating system for modern companies.",
     subtitle:
-      "Nexus AI Systems is no longer an agency. It is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
+      "Deptify is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
     primaryCta: "Crear mi equipo",
     secondaryCta: "Ver cómo trabaja",
     microtext: "Instancia privada · Configuración guiada · Cancela cuando quieras",

@@ -5,7 +5,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 
 export const metadata: Metadata = {
   title: "Panel",
-  description: "Resumen operativo de tu cuenta en DEPT.IA.",
+  description: "Resumen operativo de tu cuenta en Deptify.",
 };
 
 export default async function PanelOverview() {

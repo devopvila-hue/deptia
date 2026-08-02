@@ -35,7 +35,7 @@ export default function HomePage() {
       <FaqSection />
       <FinalCta />
       <ProductJsonLd
-        name="DEPT.IA — Departamentos de IA para empresas"
+        name="Deptify — Departamentos de IA para empresas"
         description="Departamentos empresariales operados mediante inteligencia artificial: marketing, ventas, contenido. Instancia privada, control real, cancelación sencilla."
         price={99}
       />

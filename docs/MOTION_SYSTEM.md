@@ -1,4 +1,4 @@
-# Sistema de movimiento · DEPT.IA
+# Sistema de movimiento · Deptify
 
 El movimiento cuenta la historia del producto: **una organización viva, no un sitio estático**.
 

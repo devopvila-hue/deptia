@@ -1,4 +1,4 @@
-# Componentes · DEPT.IA
+# Componentes · Deptify
 
 Inventario de todos los componentes del proyecto, agrupados por responsabilidad.
 

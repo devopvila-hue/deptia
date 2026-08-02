@@ -5,7 +5,7 @@ import { RegistrationFlow } from "@/components/forms/registration-flow";
 export const metadata: Metadata = {
   title: "Crear mi equipo",
   description:
-    "Da de alta tu instancia privada de DEPT.IA. El proceso se realiza en menos de 10 minutos, paso a paso.",
+    "Da de alta tu instancia privada de Deptify. El proceso se realiza en menos de 10 minutos, paso a paso.",
 };
 
 export default function RegisterPage() {

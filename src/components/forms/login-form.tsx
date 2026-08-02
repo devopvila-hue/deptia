@@ -272,7 +272,14 @@ function ServerError({ message }: { message: string | null }) {
       className="flex items-start gap-2 rounded-md border border-danger/40 bg-danger/10 p-3 text-[0.8125rem] text-foreground"
     >
       <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-danger" aria-hidden />
-      <span className="text-pretty">{message}</span>
+      <span
+        className="text-pretty"
+        // `message` puede llevar un <a> sugerido cuando la integración
+        // aún no está configurada. El contenido proviene de
+        // `formatAuthError`, un módulo interno sin datos de usuario,
+        // por lo que `dangerouslySetInnerHTML` es seguro.
+        dangerouslySetInnerHTML={{ __html: message }}
+      />
     </div>
   );
 }
@@ -280,7 +287,11 @@ function ServerError({ message }: { message: string | null }) {
 function formatAuthError(err: AuthError): string {
   switch (err.kind) {
     case "not_configured":
-      return err.message;
+      return (
+        `${err.message} ` +
+        `Accede desde ya al portal oficial: ` +
+        `<a class="underline" href="https://app.deptify.com/login">app.deptify.com</a>.`
+      );
     case "invalid_credentials":
       return err.message;
     case "rate_limited":

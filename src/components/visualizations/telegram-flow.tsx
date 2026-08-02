@@ -110,7 +110,7 @@ export function TelegramFlow({ className }: { className?: string }) {
               D
             </div>
             <div>
-              <p className="text-[0.8125rem] font-medium text-foreground">DEPT.IA · Marketing</p>
+              <p className="text-[0.8125rem] font-medium text-foreground">Deptify · Marketing</p>
               <p className="font-mono text-[0.6rem] text-muted">en línea</p>
             </div>
           </div>

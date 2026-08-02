@@ -13,7 +13,7 @@ export default function CookiesPage() {
     <LegalPage
       index="03"
       title="Política de cookies"
-      description="Información sobre las cookies que utilizamos en DEPT.IA y cómo puedes gestionarlas."
+      description="Información sobre las cookies que utilizamos en Deptify y cómo puedes gestionarlas."
       updated={UPDATED}
       sections={[
         {
@@ -31,7 +31,7 @@ export default function CookiesPage() {
           content: (
             <>
               <p>
-                En DEPT.IA utilizamos tres categorías de cookies, siempre con el objetivo de
+                En Deptify utilizamos tres categorías de cookies, siempre con el objetivo de
                 mejorar tu experiencia y proteger la plataforma.
               </p>
               <ul className="list-disc pl-5">

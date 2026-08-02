@@ -221,7 +221,14 @@ function AccountStep({ onComplete }: { onComplete: () => void }) {
           className="flex items-start gap-2 rounded-md border border-warning/40 bg-warning/10 p-3 text-[0.8125rem] text-foreground"
         >
           <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-warning" aria-hidden />
-          <span className="text-pretty">{serverError}</span>
+          <span
+            className="text-pretty"
+            // `serverError` puede incluir un <a> sugerido cuando la
+            // integración aún no está configurada. El contenido
+            // proviene de `formatAuthError`, sin input de usuario, así
+            // que `dangerouslySetInnerHTML` es seguro.
+            dangerouslySetInnerHTML={{ __html: serverError }}
+          />
         </div>
       )}
 
@@ -786,7 +793,11 @@ function FieldRow({
 function formatAuthError(err: AuthError): string {
   switch (err.kind) {
     case "not_configured":
-      return err.message;
+      return (
+        `${err.message} ` +
+        `Regístrate desde ya en el portal oficial: ` +
+        `<a class="underline" href="https://app.deptify.com/register">app.deptify.com/register</a>.`
+      );
     case "invalid_credentials":
       return err.message;
     case "rate_limited":
