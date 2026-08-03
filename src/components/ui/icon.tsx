@@ -21,7 +21,12 @@ export type IconCode =
   | "OPT-06"
   | "ADM-07"
   | "PPL-08"
-  | "LOG-09";
+  | "LOG-09"
+  | "GRW-10"
+  | "ANL-11"
+  | "FIN-12"
+  | "LGL-13"
+  | "GOV-14";
 
 type IconProps = {
   code: IconCode;
@@ -113,6 +118,49 @@ const PATHS: Record<IconCode, JSX.Element> = {
       <path d="M7.5 5l9 4" />
     </>
   ),
+  // GRW-10 — Growth · rocket
+  "GRW-10": (
+    <>
+      <path d="M5 13l-2 8 8-2" />
+      <path d="M14 7l3-3 3 3-3 3" />
+      <path d="M5 13c1-4 4-7 8-8 1 1 2 2 3 3-1 4-4 7-8 8a3 3 0 0 1-3-3z" />
+      <circle cx="14" cy="10" r="1.5" fill="currentColor" stroke="none" />
+    </>
+  ),
+  // ANL-11 — Analytics · bar chart
+  "ANL-11": (
+    <>
+      <line x1="3" y1="20" x2="21" y2="20" />
+      <rect x="5" y="12" width="3" height="8" />
+      <rect x="10.5" y="8" width="3" height="12" />
+      <rect x="16" y="4" width="3" height="16" />
+    </>
+  ),
+  // FIN-12 — Finance · coins / trend up
+  "FIN-12": (
+    <>
+      <path d="M3 17l6-6 4 4 8-8" />
+      <path d="M14 7h7v7" />
+      <line x1="3" y1="21" x2="21" y2="21" />
+    </>
+  ),
+  // LGL-13 — Legal · scale / gavel
+  "LGL-13": (
+    <>
+      <path d="M12 3v18" />
+      <path d="M5 7h14" />
+      <path d="M5 7l-2 5a3 3 0 0 0 6 0z" />
+      <path d="M19 7l-2 5a3 3 0 0 0 6 0z" />
+      <path d="M8 21h8" />
+    </>
+  ),
+  // GOV-14 — Governance · shield with checkmark
+  "GOV-14": (
+    <>
+      <path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" />
+      <path d="M9 12l2 2 4-4" />
+    </>
+  ),
 };
 
 export function Icon({ code, className, strokeWidth = 2 }: IconProps) {
@@ -145,4 +193,11 @@ export const AGENT_ICONS: Record<string, IconCode> = {
   administracion: "ADM-07",
   rrhh: "PPL-08",
   logistica: "LOG-09",
+  // Sprint 3 — 6 new departments to reach the 15-dept catalog.
+  growth: "GRW-10",
+  analitica: "ANL-11",
+  finanzas: "FIN-12",
+  legal: "LGL-13",
+  gobierno: "GOV-14",
+  // 'soporte' is already covered above; 'atencion-cliente' too.
 };

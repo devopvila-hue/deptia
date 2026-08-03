@@ -1,7 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" role="img" aria-label="Deptify">
-  <title>Deptify</title>
-  <!-- Mark -->
-  <g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 90" role="img" aria-label="DEPARTIFY">
+  <title>DEPARTIFY</title>
+  <!-- Mark — same anatomy as the Portal's <Logo /> and the
+       landing's <BrandMark />. -->
+  <g transform="translate(0, 13)">
     <rect width="64" height="64" rx="14" ry="14" fill="#FFFFFF"/>
     <g fill="#101214">
       <rect x="15" y="14" width="6" height="36"/>
@@ -11,9 +12,7 @@
   </g>
   <!-- Wordmark -->
   <g transform="translate(84, 0)" fill="#101214" font-family="Inter, 'Helvetica Neue', Arial, sans-serif">
-    <text x="0" y="40" font-size="28" font-weight="600" letter-spacing="-0.6">Nexus</text>
-    <text x="0" y="58" font-size="11" font-weight="500" letter-spacing="2.4" opacity="0.78">AI SYSTEMS</text>
+    <text x="0" y="42" font-size="30" font-weight="600" letter-spacing="-0.6">DEPARTIFY</text>
+    <text x="0" y="62" font-size="10" font-weight="500" letter-spacing="2.4" opacity="0.78">BUSINESS OPERATING SYSTEM</text>
   </g>
-  <!-- Tagline -->
-  <text x="84" y="82" fill="#101214" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="400" letter-spacing="1.6" opacity="0.72">BUSINESS OPERATING SYSTEM</text>
 </svg>

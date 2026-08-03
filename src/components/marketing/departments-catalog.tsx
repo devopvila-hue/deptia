@@ -22,7 +22,7 @@ export function DepartmentsCatalog() {
           <div className="max-w-xl">
             <Eyebrow index="03">Catálogo</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-              Siete departamentos listos. Combínalos según el momento de tu empresa.
+              Quince departamentos en el catálogo. Activa los que necesitas hoy.
             </h2>
           </div>
           <p className="max-w-sm text-[0.9375rem] text-muted text-pretty">
@@ -39,7 +39,7 @@ export function DepartmentsCatalog() {
 
         <div className="mt-10 flex items-center justify-between border-t border-border pt-6">
           <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
-            {ordered.length} departamentos · todos disponibles
+            {ordered.length} departamentos · todos disponibles · pronto más
           </p>
           <Link
             href="/departamentos"

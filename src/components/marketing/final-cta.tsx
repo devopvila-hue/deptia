@@ -5,6 +5,7 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics";
+import { DEPARTIFY_DEPARTMENTS } from "@/config/departments";
 
 export function FinalCta() {
   return (
@@ -89,9 +90,9 @@ export function FinalCta() {
           </motion.p>
         </div>
 
-        {/* Decorative tickers */}
-        <div className="mt-20 hidden items-center justify-center gap-3 sm:flex">
-          {["Marketing", "Ventas", "Contenido", "Operaciones", "Atención", "SEO"].map((d, i) => (
+        {/* Decorative tickers — consume the official 15-department catalog. */}
+        <div className="mt-20 hidden flex-wrap items-center justify-center gap-3 sm:flex">
+          {DEPARTIFY_DEPARTMENTS.map((d, i) => (
             <motion.span
               key={d}
               initial={{ opacity: 0, y: 8 }}

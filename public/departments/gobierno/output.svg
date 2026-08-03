@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Gobierno — output visualizado">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#080908"/>
+      <stop offset="1" stop-color="#101210"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#fbbf24" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg3)"/>
+  <text x="80" y="120" font-family="Inter, sans-serif" font-size="14" font-weight="500" fill="#989b94" letter-spacing="3.0" opacity="0.7">DEPARTIFY · DEPARTMENT OUTPUT</text>
+  <text x="80" y="190" font-family="Inter, sans-serif" font-size="42" font-weight="600" fill="#f2f0e9" letter-spacing="-1.0">Resultados de Gobierno</text>
+  <g transform="translate(80, 280)">
+    <rect width="320" height="200" rx="14" fill="#151815" stroke="#1b1f1b" stroke-width="1"/>
+    <text x="20" y="36" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#989b94" letter-spacing="2.4" opacity="0.7">ENTREGABLES</text>
+    <text x="20" y="120" font-family="Inter, sans-serif" font-size="64" font-weight="700" fill="#fbbf24">24</text>
+    <text x="20" y="160" font-family="Inter, sans-serif" font-size="14" fill="#c2c4bc">esta semana</text>
+  </g>
+  <g transform="translate(420, 280)">
+    <rect width="320" height="200" rx="14" fill="#151815" stroke="#1b1f1b" stroke-width="1"/>
+    <text x="20" y="36" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#989b94" letter-spacing="2.4" opacity="0.7">APROBACIONES</text>
+    <text x="20" y="120" font-family="Inter, sans-serif" font-size="64" font-weight="700" fill="#d8ff62">12</text>
+    <text x="20" y="160" font-family="Inter, sans-serif" font-size="14" fill="#c2c4bc">esperando tu OK</text>
+  </g>
+  <g transform="translate(760, 280)">
+    <rect width="320" height="200" rx="14" fill="#151815" stroke="#1b1f1b" stroke-width="1"/>
+    <text x="20" y="36" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#989b94" letter-spacing="2.4" opacity="0.7">TIEMPO MEDIO</text>
+    <text x="20" y="120" font-family="Inter, sans-serif" font-size="64" font-weight="700" fill="#f2f0e9">3.2d</text>
+    <text x="20" y="160" font-family="Inter, sans-serif" font-size="14" fill="#c2c4bc">desde la solicitud</text>
+  </g>
+  <g transform="translate(80, 540)">
+    <rect width="1000" height="280" rx="14" fill="#151815" stroke="#1b1f1b" stroke-width="1"/>
+    <text x="20" y="36" font-family="Inter, sans-serif" font-size="12" font-weight="500" fill="#989b94" letter-spacing="2.4" opacity="0.7">ACTIVIDAD SEMANAL</text>
+    <g transform="translate(20, 80)">
+      <rect x="0"   y="60" width="60" height="100" rx="6" fill="url(#bar)"/>
+      <rect x="80"  y="40" width="60" height="120" rx="6" fill="url(#bar)"/>
+      <rect x="160" y="20" width="60" height="140" rx="6" fill="url(#bar)"/>
+      <rect x="240" y="50" width="60" height="110" rx="6" fill="url(#bar)"/>
+      <rect x="320" y="10" width="60" height="150" rx="6" fill="url(#bar)"/>
+      <rect x="400" y="30" width="60" height="130" rx="6" fill="url(#bar)"/>
+      <rect x="480" y="0"  width="60" height="160" rx="6" fill="url(#bar)"/>
+    </g>
+  </g>
+</svg>

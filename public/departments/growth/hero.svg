@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Crecimiento — imagen editorial">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080908"/>
+      <stop offset="1" stop-color="#151815"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.6">
+      <stop offset="0" stop-color="#f472b6" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#f472b6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#1b1f1b" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.6"/>
+  <ellipse cx="800" cy="450" rx="700" ry="420" fill="url(#glow)"/>
+  <g transform="translate(120, 120)">
+    <rect width="120" height="120" rx="26" fill="#f472b6" opacity="0.92"/>
+    <g fill="#080908" opacity="0.9">
+      <rect x="28" y="26" width="11" height="68"/>
+      <rect x="81" y="26" width="11" height="68"/>
+      <polygon points="28,26 39,26 92,94 81,94"/>
+    </g>
+  </g>
+  <text x="120" y="780" font-family="Inter, sans-serif" font-size="48" font-weight="600" fill="#f2f0e9" letter-spacing="-1.2">DEPARTIFY</text>
+  <text x="120" y="828" font-family="Inter, sans-serif" font-size="18" font-weight="500" fill="#989b94" letter-spacing="3.6" opacity="0.7">DEPARTMENT · CRECIMIENTO</text>
+</svg>
