@@ -6,7 +6,7 @@ import { FAQ } from "@/components/ui/faq";
 import { LinkButton } from "@/components/ui/link-button";
 import { copy } from "@/config/site";
 
-// FAQ breve. Solo las objeciones reales de un Manolo.
+// FAQ breve. Sin nombrar competidores.
 const HOME_FAQ = [
   {
     question: "¿Necesito saber de tecnología?",
@@ -14,9 +14,9 @@ const HOME_FAQ = [
       "No. Si sabes usar WhatsApp y Gmail, sabes usar Departify. Le hablas como le hablarías a una persona.",
   },
   {
-    question: "¿Y si no funciona para mi negocio?",
+    question: "¿Cuánto cuesta?",
     answer:
-      "Tienes 14 días gratis. Si en ese tiempo no te convence, no pagas nada. Sin tarjeta al principio.",
+      "7 días de prueba con tarjeta. Después, desde 49€/mes. Sin permanencia. Cancelas cuando quieras.",
   },
   {
     question: "¿Mis datos están seguros?",
@@ -29,9 +29,9 @@ const HOME_FAQ = [
       "Solo si tú lo has autorizado antes. Tú decides qué puede hacer solo y qué necesita tu OK. Siempre.",
   },
   {
-    question: "¿Es lo mismo que un chatbot?",
+    question: "¿Necesito instalar algo?",
     answer:
-      "No. Un chatbot responde preguntas. Departify ejecuta tareas completas: redacta, envía, programa, organiza, mide. Y recuerda lo que hizo.",
+      "No. Departify trabaja en la nube. Solo necesitas el navegador. Y se conecta con tus herramientas (Gmail, calendario, etc.) sin tocar tu ordenador.",
   },
   {
     question: "¿Puedo cancelar cuando quiera?",

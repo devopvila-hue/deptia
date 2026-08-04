@@ -11,7 +11,7 @@ import { track } from "@/lib/analytics";
 import { copy } from "@/config/site";
 
 // Hero: SOLO responde "¿qué hace Departify?"
-// Una sola pregunta. Una sola promesa.
+// Test de mi madre: una persona sin contexto debe entender qué es en 5 segundos.
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
@@ -116,11 +116,11 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                    Departify · entendiendo
+                    Departify · trabajando
                   </span>
                 </div>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-foreground/70">
-                  Fase 1
+                  Ahora
                 </span>
               </div>
               <div className="pt-8">
