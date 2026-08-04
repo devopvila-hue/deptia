@@ -10,6 +10,8 @@ import { CompanyOrb } from "@/components/visualizations/company-orb";
 import { track } from "@/lib/analytics";
 import { copy } from "@/config/site";
 
+// Hero: SOLO responde "¿qué hace Departify?"
+// Una sola pregunta. Una sola promesa.
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
@@ -91,6 +93,15 @@ export function Hero() {
                 <Shield className="h-3 w-3" /> {copy.hero.microtext}
               </span>
             </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="mt-3 text-[0.875rem] text-foreground/80 text-pretty"
+            >
+              {copy.hero.socialProof}
+            </motion.p>
           </div>
 
           {/* Visual */}
@@ -105,11 +116,11 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                    Departify · trabajando
+                    Departify · entendiendo
                   </span>
                 </div>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-foreground/70">
-                  Ahora
+                  Fase 1
                 </span>
               </div>
               <div className="pt-8">

@@ -1,65 +1,76 @@
 // Centralised site copy, organised by surface. Spanish (Spain) primary.
+// VENDING MACHINE V3 — Categoría nueva: un compañero de trabajo
+// que primero entiende tu negocio y después trabaja contigo.
+// Sin competir con ChatGPT. Sin nombrar competidores.
 export const copy = {
   hero: {
-    // QUÉ ES (promesa concreta, no jerga). Manolo lo entiende en 5 segundos.
-    // Sin "operating system", sin "IA", sin metáforas técnicas.
+    // QUÉ ES (la categoría, no el rival).
+    // Departify es un compañero de trabajo.
     eyebrow: "DEPARTIFY",
-    title: "Trabaja menos. Tu empresa, no.",
+    title: "Antes de ayudarte, te entendemos.",
     subtitle:
-      "Dile qué quieres conseguir — vender más, responder clientes, crear contenido — y Departify lo hace por ti, como si tuvieras un equipo que nunca duerme.",
+      "Departify pasa dos días aprendiendo cómo funciona tu negocio. Solo entonces empieza a trabajar contigo. Y cuanto más pasa, mejor te conoce.",
     primaryCta: "Probar gratis 14 días",
     secondaryCta: "Ver cómo funciona",
-    microtext: "Sin tarjeta. Cancelas cuando quieras.",
+    microtext: "Sin tarjeta. Configuración guiada. Cancela cuando quieras.",
     socialProof:
-      "Manolo y cientos de pequeños empresarios ya delegan su trabajo en Departify.",
+      "Ferreterías, asesorías, academias y tiendas online ya trabajan con Departify a diario.",
   },
 
-  // POR QUÉ ME SIRVE — los 3 problemas que Manolo siente cada día.
+  // WOW — LA DIFERENCIA. Esta es la sección central.
+  // Un compañero de trabajo que primero entiende, después trabaja,
+  // y cada día te conoce mejor. Eso es la categoría.
+  wow: {
+    eyebrow: "Cómo trabaja",
+    title: "Primero entiende. Después trabaja. Y cada día te conoce mejor.",
+    subtitle:
+      "Departify no es una herramienta que responde. Es un compañero que conoce tu empresa, trabaja contigo bajo tus reglas, y aprende cómo lo haces para ayudarte cada vez mejor.",
+    steps: [
+      {
+        n: "01",
+        head: "Nos cuentas tu negocio.",
+        body: "Respondes unas preguntas. Nada técnico. Qué haces, qué quieres conseguir, qué te frena hoy.",
+      },
+      {
+        n: "02",
+        head: "Departify aprende tu realidad.",
+        body: "Dos días. Conecta con tus herramientas. Lee lo que tienes. Entiende cómo trabajas hoy, no cómo debería ser.",
+      },
+      {
+        n: "03",
+        head: "Te propone, no te impone.",
+        body: "Te dice exactamente qué puede hacer por ti. Tú eliges qué activar. Lo que no quieras, no se hace.",
+      },
+      {
+        n: "04",
+        head: "Cada día te conoce mejor.",
+        body: "Con el tiempo, Departify trabaja mejor. Recuerda tus decisiones, tus reglas, tus prioridades. Como un compañero que ya sabe cómo lo haces.",
+      },
+    ],
+  },
+
+  // POR QUÉ ME SIRVE — problemas reales, sin nombrar competidores.
   painPoints: {
     eyebrow: "El problema",
     title: "Lo que te pasa ahora mismo.",
-    subtitle: "Si te identificas con cualquiera de estas, Departify es para ti.",
+    subtitle: "Si te identificas con cualquiera de estas, sigue leyendo.",
     items: [
       {
-        head: "Tienes más trabajo que horas.",
-        body: "Clientes esperando, ideas sin ejecutar, tareas que se acumulan. Y tú solo no llegas.",
+        head: "Tienes más trabajo del que puedes hacer solo.",
+        body: "Clientes esperando, ideas sin ejecutar, tareas que se acumulan. Y el día solo tiene 24 horas.",
       },
       {
         head: "Contratar es caro y lento.",
         body: "Un buen empleado cuesta 2.000€ al mes. Y hasta que rinda, pasan meses. Si lo encuentras.",
       },
       {
-        head: "Ya probaste chatbots y no sirven.",
-        body: "Responden preguntas. Pero no ejecutan. No recuerdan. No terminan nada.",
+        head: "Sigues haciendo trabajo que otros podrían hacer por ti.",
+        body: "Tareas repetitivas que quitan tiempo a lo importante. Trabajo que sabes hacer pero no deberías tener que hacer.",
       },
     ],
   },
 
-  // QUÉ ES — qué hace, en lenguaje de empresario.
-  whatIs: {
-    eyebrow: "Qué es",
-    title: "Departify trabaja por ti. Tú decides.",
-    subtitle:
-      "Departify no es un chat. Es un equipo completo que ejecuta tareas reales: marketing, ventas, soporte, operaciones. Tú mandas. Ellos trabajan.",
-    bullets: [
-      "Le dices qué quieres conseguir.",
-      "Departify monta el equipo que lo hace.",
-      "Tú apruebas lo importante. Lo demás se hace solo.",
-    ],
-  },
-
-  // POR QUÉ CONFIAR — lo que elimina el miedo.
-  trust: {
-    eyebrow: "Por qué confiar",
-    title: "Tú tienes el control. Siempre.",
-    items: [
-      "Solo trabaja con la información que tú le das.",
-      "Tú apruebas cada gasto y cada acción importante.",
-      "Si no te convence, te vas. Sin contratos.",
-    ],
-  },
-
-  // CÓMO EMPIEZO — los 3 pasos.
+  // CÓMO EMPIEZO — los 3 pasos reales.
   howToStart: {
     eyebrow: "Cómo empezar",
     title: "De cero a funcionando en 10 minutos.",
@@ -71,34 +82,40 @@ export const copy = {
       },
       {
         n: "02",
-        title: "Dile a Departify qué necesitas.",
-        body: "Respondes unas preguntas. Departify entiende tu negocio.",
+        title: "Cuéntanos qué necesitas.",
+        body: "Respondes unas preguntas. Departify entiende tu negocio en 48h.",
       },
       {
         n: "03",
         title: "Empieza a delegar.",
-        body: "Pide tu primera tarea. Approvas. Listo. Tu empresa trabaja sola.",
+        body: "Recibes tu primera propuesta. Apruebas. Departify trabaja. Tú llegas a casa antes.",
       },
     ],
   },
 
-  // PRECIO — el momento de la verdad.
-  pricing: {
-    eyebrow: "Precio",
-    title: "Lo que cuesta tener un equipo que trabaja solo.",
-    subtitle: "14 días gratis. Después, desde 49€/mes. Cancela cuando quieras.",
-    note: "Sin permanencia. Sin letra pequeña.",
+  // PRUEBA SOCIAL — sectores reales.
+  proof: {
+    eyebrow: "Quién lo usa",
+    title: "Quién ya trabaja con Departify.",
+    items: [
+      { type: "Ferreterías", detail: "que automatizan pedidos y atención" },
+      { type: "Asesorias", detail: "que delegan seguimiento de clientes" },
+      { type: "Academias", detail: "que programan contenidos solos" },
+      { type: "Tiendas online", detail: "que responden clientes 24h" },
+    ],
   },
 
-  // FAQ — las objeciones que faltan resolver.
+  // FAQ — objeciones reales, sin nombrar ChatGPT.
   faqTitle: "Las preguntas que nos hace todo el mundo.",
 
-  // CTA FINAL — la última oportunidad.
+  // CTA FINAL — con precio y urgencia.
   finalCta: {
-    title: "Deja de hacerlo todo tú.",
-    subtitle: "14 días gratis. Después decides.",
+    badge: "Última oportunidad",
+    title: "Los próximos 14 días son gratis. Después, desde 49€/mes.",
+    subtitle: "Sin tarjeta. Cancelas cuando quieras. Tus datos son tuyos.",
     primaryCta: "Crear mi cuenta gratis",
     secondaryCta: "Hablar con el equipo",
+    note: "Si no te convence, no pagas nada. Y no pierdes nada.",
   },
 
   // Generic copy used across shared components

@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { copy } from "@/config/site";
 
 // POR QUÉ ME SIRVE — los 3 problemas que Manolo siente cada día.
+// No compite con ChatGPT ni con chatbots. Compite con "seguir haciéndolo todo tú".
 export function PainPoints() {
   return (
     <section className="border-b border-border bg-background">
