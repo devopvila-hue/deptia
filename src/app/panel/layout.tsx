@@ -13,7 +13,7 @@ export default async function PanelLayout({ children }: { children: ReactNode })
   const session = await resolveSession();
 
   if (!session.user.id) {
-    redirect("/acceso?next=/panel");
+    redirect("https://app.departify.app/login?next=/panel");
   }
 
   const isAdmin = sessionCan(session, "*") || session.role === "super_admin";

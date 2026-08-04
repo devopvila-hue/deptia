@@ -117,7 +117,7 @@ export function LoginForm() {
                 {isPending ? "Enviando…" : "Enviar enlace de recuperación"}
               </button>
               <a
-                href="/acceso"
+                href="https://app.departify.app/login"
                 className="block text-center font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted hover:text-foreground"
               >
                 Volver a iniciar sesión
@@ -186,7 +186,7 @@ export function LoginForm() {
                   Contraseña
                 </label>
                 <a
-                  href="/acceso?recuperar=1"
+                  href="https://app.departify.app/login?recuperar=1"
                   className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted hover:text-foreground"
                 >
                   ¿La has olvidado?

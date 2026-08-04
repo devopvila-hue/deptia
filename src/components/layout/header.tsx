@@ -96,11 +96,11 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <Button href="/acceso" variant="ghost" size="sm" className="h-9 px-3 text-[0.875rem]">
+            <Button href="https://app.departify.app/login" variant="ghost" size="sm" className="h-9 px-3 text-[0.875rem]">
               Acceder
             </Button>
             <Button
-              href="/registro"
+              href="https://app.departify.app/signup"
               variant="primary"
               size="sm"
               className="h-9 px-4 text-[0.875rem]"
@@ -262,7 +262,7 @@ function MobileMenu({ onClose, isMobile }: { onClose: () => void; isMobile: bool
               </p>
               <div className="mt-4 flex flex-col gap-2">
                 <Button
-                  href="/registro"
+                  href="https://app.departify.app/signup"
                   onClick={onClose}
                   variant="primary"
                   size="md"
@@ -270,7 +270,7 @@ function MobileMenu({ onClose, isMobile }: { onClose: () => void; isMobile: bool
                 >
                   Crear mi equipo
                 </Button>
-                <Button href="/acceso" onClick={onClose} variant="ghost" size="md">
+                <Button href="https://app.departify.app/login" onClick={onClose} variant="ghost" size="md">
                   Ya tengo cuenta
                 </Button>
               </div>

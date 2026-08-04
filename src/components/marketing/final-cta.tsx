@@ -62,7 +62,7 @@ export function FinalCta() {
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
             <Button
-              href="/registro"
+              href="https://app.departify.app/signup"
               variant="primary"
               size="xl"
               onClick={() => track("hero_cta_clicked", { source: "final_cta" })}

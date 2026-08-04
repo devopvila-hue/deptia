@@ -48,10 +48,11 @@ export async function middleware(request: NextRequest) {
   const isAuthPage = AUTH_PAGES.some((p) => path === p || path.startsWith(p + "/"));
 
   if (isProtected && !user) {
-    const redirect = request.nextUrl.clone();
-    redirect.pathname = "/acceso";
-    redirect.searchParams.set("next", path);
-    return NextResponse.redirect(redirect);
+    // Sprint P0 — Funnel Integrity: rutas protegidas redirigen
+    // directamente al Portal de auth. La landing NO autentica.
+    const portalUrl = new URL("https://app.departify.app/login");
+    portalUrl.searchParams.set("next", path);
+    return NextResponse.redirect(portalUrl, { status: 307 });
   }
 
   if (isAuthPage && user) {

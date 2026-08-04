@@ -62,7 +62,7 @@ export function Hero() {
               className="mt-9 flex flex-wrap items-center gap-3"
             >
               <Button
-                href="/registro"
+                href="https://app.departify.app/signup"
                 variant="primary"
                 size="lg"
                 onClick={() => track("hero_cta_clicked")}

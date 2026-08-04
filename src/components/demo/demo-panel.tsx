@@ -290,7 +290,7 @@ export function DemoPanel() {
             </p>
           </div>
           <div className="flex gap-2">
-            <Button href="/registro" variant="primary" size="md" rightIcon={<ArrowUpRight className="h-3.5 w-3.5" />}>
+            <Button href="https://app.departify.app/signup" variant="primary" size="md" rightIcon={<ArrowUpRight className="h-3.5 w-3.5" />}>
               Crear mi equipo
             </Button>
             <Button href="/como-funciona" variant="ghost" size="md">

@@ -50,7 +50,7 @@ export function MidCta({ variant }: { variant?: "alt" }) {
           </div>
           <div className="flex flex-wrap gap-3">
             <Button
-              href="/registro"
+              href="https://app.departify.app/signup"
               variant="primary"
               size="md"
               onClick={() => track("mid_cta_clicked", { variant: variant ?? "default" })}

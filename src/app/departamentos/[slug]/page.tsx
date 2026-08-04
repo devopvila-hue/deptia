@@ -149,7 +149,7 @@ function DepartmentHero({ department }: { department: (typeof departments)[numbe
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
-                href="/registro"
+                href="https://app.departify.app/signup"
                 variant="primary"
                 size="lg"
                 rightIcon={<ArrowUpRight className="h-4 w-4" />}
@@ -788,7 +788,7 @@ function DepartmentPricing({
               </ul>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button
-                  href="/registro"
+                  href="https://app.departify.app/signup"
                   variant="primary"
                   size="lg"
                   rightIcon={<ArrowUpRight className="h-4 w-4" />}

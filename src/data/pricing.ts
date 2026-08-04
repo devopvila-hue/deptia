@@ -15,7 +15,7 @@ export const pricingPlans: PricingPlan[] = [
       "Borradores, tareas e informes",
       "Uso mensual incluido para el alcance habitual",
     ],
-    cta: { label: "Empezar con un departamento", href: "/registro?plan=starter" },
+    cta: { label: "Empezar con un departamento", href: "https://app.departify.app/signup?plan=starter" },
   },
   {
     slug: "business",
@@ -31,7 +31,7 @@ export const pricingPlans: PricingPlan[] = [
       "Informes avanzados y métricas por canal",
       "Soporte prioritario en horario laboral",
     ],
-    cta: { label: "Crear mi equipo", href: "/registro?plan=business" },
+    cta: { label: "Crear mi equipo", href: "https://app.departify.app/signup?plan=business" },
     highlighted: true,
     badge: "Recomendado",
   },

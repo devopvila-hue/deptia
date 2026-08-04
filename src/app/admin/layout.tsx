@@ -15,7 +15,7 @@ export default async function AdminLayout({ children }: { children: ReactNode })
   const session = await resolveSession();
 
   if (!session.user.id) {
-    redirect("/acceso?next=/admin");
+    redirect("https://app.departify.app/login?next=/admin");
   }
 
   const isSuper = sessionCan(session, "*") || session.role === "super_admin";
