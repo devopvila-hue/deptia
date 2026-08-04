@@ -8,7 +8,8 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { copy } from "@/config/site";
 
-// CÓMO EMPIEZO — los 3 pasos.
+// CÓMO EMPEZAR — los 3 pasos del diagnóstico.
+// No "crear cuenta". No "elegir departamento". Escuchar primero.
 export function HowToStart() {
   return (
     <section className="border-b border-border bg-surface-soft/20">
@@ -50,7 +51,7 @@ export function HowToStart() {
             size="lg"
             rightIcon={<ArrowUpRight className="h-4 w-4" />}
           >
-            Empezar ahora — 14 días gratis
+            {copy.howToStart.cta}
           </Button>
         </div>
       </Container>

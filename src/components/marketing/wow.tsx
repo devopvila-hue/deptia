@@ -5,10 +5,7 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { copy } from "@/config/site";
 
-// WOW: Esta sección vende la CATEGORÍA, no compite con nada.
-// Responde UNA sola pregunta: "¿qué hace Departify?"
-// Respuesta: primero entiende, después trabaja, y cada día te conoce mejor.
-// Eso no es un chat. Es un compañero de trabajo.
+// EL ORDEN — primero te escuchamos. Después te recomendamos.
 export function Wow() {
   return (
     <section className="border-b border-border bg-surface-soft/20">

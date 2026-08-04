@@ -29,7 +29,7 @@ export function FinalCta() {
             className="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted"
           >
             <span className="h-1 w-1 rounded-full bg-accent" />
-            Siguiente paso
+            {copy.finalCta.badge}
             <span className="h-1 w-1 rounded-full bg-accent" />
           </motion.span>
 
@@ -84,9 +84,9 @@ export function FinalCta() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted"
+            className="mt-6 text-[0.875rem] text-muted text-pretty"
           >
-            Sin tarjeta · Sin permanencia · Cancela cuando quieras
+            {copy.finalCta.note}
           </motion.p>
         </div>
       </Container>

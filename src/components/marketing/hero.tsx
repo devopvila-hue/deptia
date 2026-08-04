@@ -10,14 +10,12 @@ import { CompanyOrb } from "@/components/visualizations/company-orb";
 import { track } from "@/lib/analytics";
 import { copy } from "@/config/site";
 
-// Hero: SOLO responde "¿qué hace Departify?"
-// Test de mi madre: una persona sin contexto debe entender qué es en 5 segundos.
+// Hero: no vende. Cuenta cómo es la vida de Manolo.
+// Y dice: "hay alguien que puede hacerlo por ti".
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      {/* Background grid */}
       <div className="absolute inset-0 grid-pattern-fine opacity-40 mask-radial-fade" aria-hidden />
-      {/* Glow */}
       <div
         className="absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-60"
         style={{
@@ -29,7 +27,6 @@ export function Hero() {
 
       <Container width="wide" className="relative pb-12 pt-20 sm:pb-20 sm:pt-28 lg:pt-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Text */}
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -43,7 +40,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-6 text-display text-[clamp(2.5rem,5.6vw,4.75rem)] leading-[1.0] tracking-[-0.03em] text-balance text-foreground"
+              className="mt-6 text-display text-[clamp(2.5rem,5.6vw,4.75rem)] leading-[1.05] tracking-[-0.03em] text-balance text-foreground"
             >
               {copy.hero.title}
             </motion.h1>
@@ -104,7 +101,6 @@ export function Hero() {
             </motion.p>
           </div>
 
-          {/* Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -116,11 +112,11 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                    Departify · trabajando
+                    Diagnóstico en curso
                   </span>
                 </div>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-foreground/70">
-                  Ahora
+                  5 min
                 </span>
               </div>
               <div className="pt-8">

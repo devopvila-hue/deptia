@@ -6,17 +6,27 @@ import { FAQ } from "@/components/ui/faq";
 import { LinkButton } from "@/components/ui/link-button";
 import { copy } from "@/config/site";
 
-// FAQ breve. Sin nombrar competidores.
+// FAQ breve. Sin nombrar competidores. Sin features técnicas.
 const HOME_FAQ = [
-  {
-    question: "¿Necesito saber de tecnología?",
-    answer:
-      "No. Si sabes usar WhatsApp y Gmail, sabes usar Departify. Le hablas como le hablarías a una persona.",
-  },
   {
     question: "¿Cuánto cuesta?",
     answer:
-      "7 días de prueba con tarjeta. Después, desde 49€/mes. Sin permanencia. Cancelas cuando quieras.",
+      "El diagnóstico es gratis. Sin compromiso. Si después decides activar algún departamento, te diremos exactamente cuánto cuesta antes de que confirmes.",
+  },
+  {
+    question: "¿Tengo que dar mi tarjeta para el diagnóstico?",
+    answer:
+      "No. El diagnóstico es gratis y sin tarjeta. Solo te la pediremos si decides activar un departamento.",
+  },
+  {
+    question: "¿Y si después del análisis no me convence?",
+    answer:
+      "No pasa nada. Solo habrás invertido 5 minutos en contarnos cómo es tu día. No hay compromiso, no hay coste.",
+  },
+  {
+    question: "¿Necesito saber de tecnología?",
+    answer:
+      "No. Si sabes usar WhatsApp y un email, sabes usar Departify. No necesitas instalar nada ni aprender software.",
   },
   {
     question: "¿Mis datos están seguros?",
@@ -24,19 +34,9 @@ const HOME_FAQ = [
       "Cada empresa tiene su propia instancia privada. Tus datos no se mezclan con los de otros clientes. Puedes borrarlo todo cuando quieras.",
   },
   {
-    question: "¿Hace cosas sin que yo se lo pida?",
+    question: "¿Puedo cancelar después?",
     answer:
-      "Solo si tú lo has autorizado antes. Tú decides qué puede hacer solo y qué necesita tu OK. Siempre.",
-  },
-  {
-    question: "¿Necesito instalar algo?",
-    answer:
-      "No. Departify trabaja en la nube. Solo necesitas el navegador. Y se conecta con tus herramientas (Gmail, calendario, etc.) sin tocar tu ordenador.",
-  },
-  {
-    question: "¿Puedo cancelar cuando quiera?",
-    answer:
-      "Sí. Sin permanencia, sin letra pequeña. Cancelas hoy y dejas de pagar mañana. Tus datos quedan disponibles 30 días para descargar.",
+      "Sí. Sin permanencia. Cancelas hoy y dejas de pagar mañana. Tus datos quedan disponibles 30 días para descargar.",
   },
 ];
 

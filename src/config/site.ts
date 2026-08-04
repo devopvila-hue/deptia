@@ -1,120 +1,167 @@
-// Centralised site copy, organised by surface. Spanish (Spain) primary.
-// VENDING MACHINE V3.1 — Hero que pasa el test de mi madre.
-// Oferta: 7 días con tarjeta. Nunca cambiar modelo de pago sin OK.
+// Centralised site copy. Spanish (Spain) primary.
+// V4 — From Catalog To Advisor.
+// Departify es "la persona que Manolo no puede contratar todavía".
+// La Landing vende criterio, no departamentos. Primero escucha. Después recomienda.
 export const copy = {
   hero: {
-    // QUÉ ES. Literal, no poético. Cualquier persona sabe qué hace esto.
+    // El Hero no vende. Cuenta cómo es la vida de Manolo ahora.
+    // Y dice: "hay alguien que puede hacerlo por ti. Primero queremos entender tu empresa."
     eyebrow: "DEPARTIFY",
-    title: "Un equipo que trabaja en tu empresa.",
+    title: "Contestas WhatsApps a las 11 de la noche. No porque quieras.",
     subtitle:
-      "Departify ejecuta tareas reales — atender clientes, enviar emails, publicar contenido, organizar pedidos — como empleados que no duermen. Tú mandas. Ellos trabajan.",
-    primaryCta: "Probar 7 días",
-    secondaryCta: "Ver cómo funciona",
-    microtext: "Con tarjeta. Cancela cuando quieras.",
+      "Hay alguien que puede hacerlo por ti. Antes de decirte qué necesitas, queremos entender cómo es tu día. Sin catálogo. Sin venta.",
+    primaryCta: "Cuéntanos cómo es tu día",
+    secondaryCta: "Cómo funciona el análisis",
+    microtext: "5 minutos. Sin compromiso. Sin tarjeta.",
     socialProof:
-      "Ferreterías, asesorías, academias y tiendas online ya trabajan con Departify a diario.",
+      "Ferreterías, clínicas, asesorías y tiendas online ya han pasado el diagnóstico.",
   },
 
-  // WOW — EL CÓMO. Diferenciador (entiende antes de ejecutar).
+  // WOW — el orden. Primero te escuchamos. Después te recomendamos.
   wow: {
-    eyebrow: "Cómo trabaja",
-    title: "Primero entiende. Después trabaja. Y cada día te conoce mejor.",
+    eyebrow: "El orden",
+    title: "Primero te escuchamos. Después te recomendamos.",
     subtitle:
-      "Departify no es una herramienta que responde. Es un compañero que conoce tu empresa, trabaja contigo bajo tus reglas, y aprende cómo lo haces para ayudarte cada vez mejor.",
+      "No vamos a venderte nada hasta que sepamos qué necesitas. Y para saberlo, primero tenemos que entender cómo funciona tu empresa.",
     steps: [
       {
         n: "01",
-        head: "Nos cuentas tu negocio.",
-        body: "Respondes unas preguntas. Qué haces, qué quieres conseguir, qué te frena hoy.",
+        head: "Nos cuentas cómo es tu día.",
+        body: "Respondes unas preguntas. Nada técnico. Qué haces, qué quieres conseguir, qué te frena hoy.",
       },
       {
         n: "02",
-        head: "Departify aprende tu realidad.",
-        body: "Dos días. Conecta con tus herramientas. Entiende cómo trabajas hoy, no cómo debería ser.",
+        head: "Analizamos cómo trabajas.",
+        body: "Procesos, herramientas, clientes, prioridades. Lo que funciona, lo que falta, lo que se puede delegar.",
       },
       {
         n: "03",
-        head: "Te propone, no te impone.",
-        body: "Te dice qué puede hacer por ti. Tú eliges qué activar. Lo que no quieras, no se hace.",
+        head: "Te decimos qué necesitas.",
+        body: "Solo después del análisis te recomendamos qué departamento te ayudaría. Y solo si lo necesitas.",
       },
       {
         n: "04",
-        head: "Cada día te conoce mejor.",
-        body: "Con el tiempo, Departify trabaja mejor. Recuerda tus decisiones, tus reglas, tus prioridades.",
+        head: "Y si quieres, lo activas.",
+        body: "Si lo que te recomendamos te convence, lo activas. Si no, no. Tu decisión, no la nuestra.",
       },
     ],
   },
 
-  // POR QUÉ ME SIRVE — problemas reales. Sin nombrar competidores.
+  // PAINPOINTS — los 30 momentos convertidos en vida real.
   painPoints: {
-    eyebrow: "El problema",
-    title: "Lo que te pasa ahora mismo.",
+    eyebrow: "Tu día a día",
+    title: "Esto es lo que vives ahora.",
     subtitle: "Si te identificas con cualquiera de estas, sigue leyendo.",
     items: [
       {
-        head: "Tienes más trabajo del que puedes hacer solo.",
-        body: "Clientes esperando, ideas sin ejecutar, tareas que se acumulan. Y el día solo tiene 24 horas.",
+        head: "Contestas WhatsApps a las 11 de la noche.",
+        body: "Porque si no contestas, mañana ese cliente ya no te recuerda. Nadie más puede hacerlo.",
       },
       {
-        head: "Contratar es caro y lento.",
-        body: "Un buen empleado cuesta 2.000€ al mes. Y hasta que rinda, pasan meses. Si lo encuentras.",
+        head: "Pierdes clientes por tardar tres días en responder.",
+        body: "Te escriben, te ocupas de otra cosa, dos días después ya no te escriben más.",
       },
       {
-        head: "Sigues haciendo trabajo que otros podrían hacer por ti.",
-        body: "Tareas repetitivas que quitan tiempo a lo importante. Trabajo que sabes hacer pero no deberías tener que hacer.",
+        head: "Tienes la sensación de que algo se te escapa siempre.",
+        body: "Un presupuesto sin seguimiento, una factura sin cobrar, un pedido que se quedó a medias. Nunca sabes qué.",
+      },
+      {
+        head: "Empiezas cada lunes sin saber por dónde empezar.",
+        body: "La semana tiene 5 días y la lista de pendientes tiene 50 cosas. Nunca sabes cuál es la importante.",
+      },
+      {
+        head: "No publicas en redes porque no sabes qué decir.",
+        body: "Y sabes que si no publicas, no existes. Pero cada día se te pasa.",
       },
     ],
   },
 
-  // CÓMO EMPIEZO — los 3 pasos reales.
+  // DIAGNÓSTICO — qué miramos.
+  diagnostics: {
+    eyebrow: "Qué miramos",
+    title: "Para decirte qué necesitas, primero miramos esto.",
+    subtitle:
+      "Esto es lo que analizamos cuando estudiamos tu empresa. Sin compromiso. Sin venta. Solo entender.",
+    areas: [
+      {
+        title: "Cómo es tu día hoy.",
+        body: "Qué tareas haces, cuáles te gustan, cuáles te agotan, cuáles podrías delegar.",
+      },
+      {
+        title: "Con quién trabajas.",
+        body: "Clientes, proveedores, equipo. Quién te contacta, qué necesita, qué se te queda sin atender.",
+      },
+      {
+        title: "Qué herramientas usas.",
+        body: "WhatsApp, email, hojas de cálculo, agenda. Dónde está la información. Dónde se pierde.",
+      },
+      {
+        title: "Qué quieres conseguir.",
+        body: "Vender más, responder mejor, tener más tiempo. Lo que tú definas, no lo que nosotros supongamos.",
+      },
+      {
+        title: "Qué te frena.",
+        body: "Lo que te impide llegar a lo que quieres. Lo que te roba tiempo. Lo que te tiene hasta las 11 de la noche.",
+      },
+    ],
+  },
+
+  // RECOMENDACIÓN — consecuencia, no catálogo.
+  recommendation: {
+    eyebrow: "Qué podríamos recomendarte",
+    title: "Tras el análisis, te diremos qué necesitas.",
+    subtitle:
+      "Pero no te recomendamos nada antes. Porque no queremos venderte lo que no necesitas. Esto es lo que recomendamos con más frecuencia:",
+    departments: [
+      "Atención al Cliente",
+      "Marketing",
+      "Ventas",
+      "Operaciones",
+      "Administración",
+      "Contenido",
+    ],
+    footnote:
+      "Pero no te recomendamos activar ningún departamento hasta que sepamos qué necesitas. Empieza por el diagnóstico.",
+  },
+
+  // CÓMO EMPIEZO — los 3 pasos del diagnóstico.
   howToStart: {
     eyebrow: "Cómo empezar",
-    title: "De cero a funcionando en 10 minutos.",
+    title: "De cero a escuchado en 5 minutos.",
     steps: [
       {
         n: "01",
-        title: "Crea tu cuenta.",
-        body: "Email y contraseña. Con tarjeta. Cancelas cuando quieras.",
+        title: "Cuéntanos cómo es tu día.",
+        body: "Email y contraseña. Sin tarjeta. 5 minutos de preguntas, nada técnico.",
       },
       {
         n: "02",
-        title: "Cuéntanos qué necesitas.",
-        body: "Respondes unas preguntas. Departify entiende tu negocio en 48h.",
+        title: "Analizamos cómo trabajas.",
+        body: "Procesos, herramientas, clientes. Lo que funciona, lo que falta.",
       },
       {
         n: "03",
-        title: "Empieza a delegar.",
-        body: "Recibes tu primera propuesta. Apruebas. Departify trabaja. Tú llegas a casa antes.",
+        title: "Te decimos qué necesitas.",
+        body: "Tras el análisis, te recomendamos qué departamento te ayudaría. Solo si lo necesitas.",
       },
     ],
+    cta: "Empezar el diagnóstico",
   },
 
-  // PRUEBA SOCIAL — sectores reales.
-  proof: {
-    eyebrow: "Quién lo usa",
-    title: "Quién ya trabaja con Departify.",
-    items: [
-      { type: "Ferreterías", detail: "que automatizan pedidos y atención" },
-      { type: "Asesorias", detail: "que delegan seguimiento de clientes" },
-      { type: "Academias", detail: "que programan contenidos solos" },
-      { type: "Tiendas online", detail: "que responden clientes 24h" },
-    ],
-  },
-
-  // FAQ — objeciones reales. Sin nombrar competidores.
+  // FAQ — objeciones reales.
   faqTitle: "Las preguntas que nos hace todo el mundo.",
 
-  // CTA FINAL — con precio y urgencia.
+  // CTA FINAL — cierre con conversación.
   finalCta: {
-    badge: "Oferta de lanzamiento",
-    title: "7 días de prueba. Después, desde 49€/mes.",
-    subtitle: "Con tarjeta. Cancelas cuando quieras. Tus datos son tuyos.",
-    primaryCta: "Probar 7 días",
-    secondaryCta: "Hablar con el equipo",
-    note: "Si no te convence, cancelas y no pagas más. Sin letra pequeña.",
+    badge: "Empieza por aquí",
+    title: "Cuéntanos cómo es tu día.",
+    subtitle: "5 minutos. Sin compromiso. Sin venta. Solo entender qué necesitas.",
+    primaryCta: "Cuéntanos cómo es tu día",
+    secondaryCta: "Hablar con alguien del equipo",
+    note: "Si después del análisis decides que no es para ti, no pasa nada. Solo habrás invertido 5 minutos.",
   },
 
-  // Generic copy used across shared components
+  // Generic copy
   shared: {
     learnMore: "Conocer más",
     seeDemo: "Ver demo",
