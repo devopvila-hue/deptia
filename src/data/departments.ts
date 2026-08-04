@@ -500,6 +500,11 @@ export const departments: Department[] = [
       base: "#d8ff62",
       accent: "rgba(216, 255, 98, 0.18)",
     },
+    assets: {
+      hero: "/departments/marketing/hero.jpg",
+      team: "/departments/marketing/team.jpg",
+      output: "/departments/marketing/output.jpg",
+    },
     ordering: 1,
   },
   {
@@ -671,6 +676,11 @@ export const departments: Department[] = [
     color: {
       base: "#7ce5a3",
       accent: "rgba(124, 229, 163, 0.16)",
+    },
+    assets: {
+      hero: "/departments/ventas/hero.jpg",
+      team: "/departments/ventas/team.jpg",
+      output: "/departments/ventas/output.jpg",
     },
     ordering: 2,
   },

@@ -14,7 +14,9 @@ export type AnalyticsEvent =
   | "permission_changed"
   | "approval_clicked"
   | "menu_opened"
-  | "section_viewed";
+  | "section_viewed"
+  | "mid_cta_clicked"
+  | "final_cta_clicked";
 
 export type AnalyticsPayload = Record<string, string | number | boolean | undefined>;
 

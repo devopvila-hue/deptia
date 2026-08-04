@@ -25,7 +25,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <Container width="wide" className="relative pb-16 pt-20 sm:pb-24 sm:pt-28 lg:pt-32">
+      <Container width="wide" className="relative pb-16 pt-24 sm:pb-24 sm:pt-32 lg:pt-36">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Text */}
           <div className="lg:col-span-7">
@@ -34,36 +34,23 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Eyebrow index="01">DEPARTIFY · Business Operating System</Eyebrow>
+              <Eyebrow>{copy.hero.eyebrow}</Eyebrow>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-6 text-display text-[clamp(2.75rem,6.4vw,5.5rem)] leading-[0.95] tracking-[-0.035em] text-balance text-foreground"
+              className="mt-6 text-display text-[clamp(2.5rem,5.6vw,4.75rem)] leading-[1.0] tracking-[-0.03em] text-balance text-foreground"
             >
-              {copy.hero.title.split(" ").map((word, i, arr) => (
-                <span key={i}>
-                  <span className="inline-block">
-                    {i === 2 ? (
-                      <span className="italic text-muted/90">{word}</span>
-                    ) : i === 3 ? (
-                      <span className="text-foreground">{word}</span>
-                    ) : (
-                      <>{word}</>
-                    )}
-                  </span>
-                  {i < arr.length - 1 && " "}
-                </span>
-              ))}
+              {copy.hero.title}
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="mt-8 max-w-xl text-[clamp(1rem,1.4vw,1.1875rem)] leading-relaxed text-muted text-pretty"
+              className="mt-7 max-w-xl text-[clamp(1rem,1.4vw,1.1875rem)] leading-relaxed text-muted text-pretty"
             >
               {copy.hero.subtitle}
             </motion.p>
@@ -72,7 +59,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="mt-10 flex flex-wrap items-center gap-3"
+              className="mt-9 flex flex-wrap items-center gap-3"
             >
               <Button
                 href="/registro"
@@ -94,6 +81,7 @@ export function Hero() {
               </Button>
             </motion.div>
 
+            {/* Micro-confianza — línea que cubre objeciones rápidas */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -108,6 +96,29 @@ export function Hero() {
               <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
               <span>Cancela cuando quieras</span>
             </motion.p>
+
+            {/* Prueba social honesta — placeholder editable */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.55 }}
+              className="mt-7 flex items-center gap-3 rounded-lg border border-border/60 bg-surface-soft/40 px-4 py-3"
+            >
+              <div className="flex -space-x-2">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-background bg-foreground/10 text-[0.65rem] font-medium text-foreground/80">
+                  EM
+                </span>
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-background bg-foreground/15 text-[0.65rem] font-medium text-foreground/80">
+                  ST
+                </span>
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-background bg-foreground/20 text-[0.65rem] font-medium text-foreground/80">
+                  +
+                </span>
+              </div>
+              <p className="text-[0.8125rem] text-foreground/85 text-pretty">
+                {copy.hero.socialProof}
+              </p>
+            </motion.div>
           </div>
 
           {/* Visual */}
@@ -148,30 +159,6 @@ export function Hero() {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Stats strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-20 grid grid-cols-2 gap-4 border-t border-border pt-8 sm:grid-cols-4"
-        >
-          {[
-            { k: "01", v: "Instancia privada", d: "Por cada empresa" },
-            { k: "02", v: "Onboarding < 30 min", d: "Conversación guiada" },
-            { k: "03", v: "Aprobaciones", d: "En cada acción sensible" },
-            { k: "04", v: "Web + Telegram", d: "Mismo panel" },
-          ].map((s) => (
-            <div key={s.k} className="flex flex-col gap-1.5">
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
-                {s.k}
-              </span>
-              <span className="text-[0.9375rem] font-medium text-foreground">{s.v}</span>
-              <span className="text-[0.8125rem] text-muted">{s.d}</span>
-            </div>
-          ))}
-        </motion.div>
       </Container>
     </section>
   );

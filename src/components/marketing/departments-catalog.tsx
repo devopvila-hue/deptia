@@ -20,7 +20,7 @@ export function DepartmentsCatalog() {
       <Container width="wide" className="py-24 sm:py-32">
         <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
           <div className="max-w-xl">
-            <Eyebrow index="03">Catálogo</Eyebrow>
+            <Eyebrow>Catálogo</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
               Quince departamentos en el catálogo. Activa los que necesitas hoy.
             </h2>

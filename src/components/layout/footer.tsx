@@ -20,8 +20,8 @@ export function Footer() {
               {brand.name}. {brand.tagline}
             </p>
             <p className="mt-3 max-w-md text-[0.9375rem] text-muted text-pretty">
-              Equipos de IA especializados que conocen tu empresa, trabajan con tus herramientas
-              y ejecutan tareas bajo tu control.
+              Departamentos digitales que conocen tu empresa, trabajan con tus herramientas
+              y ejecutan tareas bajo tus reglas. Sin contratar, sin formación, sin perder el control.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

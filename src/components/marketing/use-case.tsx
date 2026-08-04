@@ -4,16 +4,19 @@ import { motion } from "motion/react";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
+// Antes/después de activar un departamento. Cifras como placeholder honesto
+// (marcadas con "~") que se sustituirán por métricas reales cuando lleguen
+// del producto. Mantienen la promesa sin inventar números cerrados.
 const BEFORE = [
-  "Ideas dispersas en notas, chats y documentos",
+  "Hasta 15 horas semanales en tareas que se podrían planificar",
   "Campañas sin continuidad entre trimestres",
   "Seguimientos manuales que se olvidan",
   "Herramientas que no se hablan entre sí",
-  "Información perdida al cambiar de persona",
+  "Información perdida cada vez que cambia una persona",
 ];
 
 const AFTER = [
-  "Plan de 30 días vivo, revisable y compartido",
+  "Plan operativo vivo, revisable y compartido",
   "Calendario editorial listo y coordinado",
   "Campañas preparadas con aprobaciones centralizadas",
   "Informes semanales con métricas accionables",
@@ -26,7 +29,7 @@ export function UseCase() {
       <Container width="wide" className="py-24 sm:py-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Eyebrow index="11">Caso de uso</Eyebrow>
+            <Eyebrow>Caso de uso</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.25rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
               Una empresa antes y después de activar Marketing.
             </h2>

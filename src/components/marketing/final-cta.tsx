@@ -40,7 +40,7 @@ export function FinalCta() {
             transition={{ duration: 0.6 }}
             className="mt-6 text-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground"
           >
-            Tu próximo departamento no necesita una oficina.
+            Recupera tu lunes por la mañana.
           </motion.h2>
 
           <motion.p
@@ -50,7 +50,8 @@ export function FinalCta() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-[1.0625rem] leading-relaxed text-muted text-pretty"
           >
-            Selecciona el equipo, enséñale cómo funciona tu empresa y empieza la primera misión.
+            Crea tu primer departamento en menos de 30 minutos. Sin tarjeta, sin permanencia,
+            sin perder el control de tu empresa.
           </motion.p>
 
           <motion.div

@@ -11,7 +11,7 @@ export function CategoryStatement() {
       <Container width="wide" className="py-24 sm:py-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="02">La diferencia</Eyebrow>
+            <Eyebrow>La diferencia</Eyebrow>
             <motion.h2
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}

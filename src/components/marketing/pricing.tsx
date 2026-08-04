@@ -23,7 +23,7 @@ export function Pricing({ hideHeader = false }: { hideHeader?: boolean }) {
         {!hideHeader && (
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <div className="max-w-xl">
-              <Eyebrow index="10">Precios</Eyebrow>
+              <Eyebrow>Precios</Eyebrow>
               <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
                 Tres planes. Sin sorpresas. Cancela cuando quieras.
               </h2>

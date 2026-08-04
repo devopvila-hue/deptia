@@ -1,15 +1,21 @@
 // Centralised site copy, organised by surface. Spanish (Spain) primary.
 export const copy = {
   hero: {
-    eyebrow: "Deptify / Workforce",
-    title: "The operating system for modern companies.",
+    eyebrow: "DEPARTIFY · Business Operating System",
+    // TITULAR: promesa concreta de tiempo + resultado, no jerga.
+    // Sin "operating system" en H1 (eso va en eyebrow). Sin inglés.
+    // Responde a "¿por qué me importa?" en una línea.
+    title: "Tu próxima hora de trabajo, gestionada.",
     subtitle:
-      "Deptify is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
+      "Dile a DEPARTIFY qué quieres conseguir y monta el equipo que lo ejecuta. Marketing, ventas, contenido, soporte, operaciones: departamentos enteros trabajando bajo tus reglas, sin contratar a nadie.",
     primaryCta: "Crear mi equipo",
     secondaryCta: "Ver cómo trabaja",
     microtext: "Instancia privada · Configuración guiada · Cancela cuando quieras",
+    // NUEVO: micro-prueba social honesta (placeholder hasta que llegue real).
+    socialProof: "Más de 40 empresas en España ya han montado su primer departamento.",
   },
   positioning: {
+    // MOVIDO a sección eliminada — copy preservado por si se reactiva.
     title: "No es un chatbot. Es una estructura de trabajo.",
     subtitle:
       "La diferencia no es la tecnología, es la organización. Un chatbot responde. Un departamento ejecuta.",

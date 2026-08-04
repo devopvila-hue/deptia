@@ -74,7 +74,7 @@ export function FaqSection() {
       <Container width="wide" className="py-24 sm:py-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Eyebrow index="12">Preguntas</Eyebrow>
+            <Eyebrow>Preguntas</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
               Dudas habituales, sin rodeos.
             </h2>

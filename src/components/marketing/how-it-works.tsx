@@ -14,7 +14,7 @@ export function HowItWorks() {
       <Container width="wide" className="py-24 sm:py-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="04">Activación</Eyebrow>
+            <Eyebrow>Activación</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
               De la contratación a la primera misión, en menos de una hora.
             </h2>

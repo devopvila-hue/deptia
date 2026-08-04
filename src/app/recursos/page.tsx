@@ -61,7 +61,7 @@ export default function ResourcesPage() {
       <section className="relative border-b border-border">
         <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
         <Container width="wide" className="relative py-20 sm:py-28">
-          <Eyebrow index="01">Recursos</Eyebrow>
+          <Eyebrow>Recursos</Eyebrow>
           <h1 className="mt-6 max-w-3xl text-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground">
             Ideas, guías y casos para integrar departamentos digitales.
           </h1>

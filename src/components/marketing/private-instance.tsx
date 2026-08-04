@@ -11,7 +11,7 @@ export function PrivateInstance() {
       <Container width="wide" className="py-24 sm:py-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow index="08">Privacidad</Eyebrow>
+            <Eyebrow>Privacidad</Eyebrow>
             <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
               Tu empresa no comparte oficina digital con nadie.
             </h2>
