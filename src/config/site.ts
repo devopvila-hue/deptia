@@ -1,40 +1,106 @@
 // Centralised site copy, organised by surface. Spanish (Spain) primary.
 export const copy = {
   hero: {
-    eyebrow: "DEPARTIFY · Business Operating System",
-    // TITULAR: promesa concreta de tiempo + resultado, no jerga.
-    // Sin "operating system" en H1 (eso va en eyebrow). Sin inglés.
-    // Responde a "¿por qué me importa?" en una línea.
-    title: "Tu próxima hora de trabajo, gestionada.",
+    // QUÉ ES (promesa concreta, no jerga). Manolo lo entiende en 5 segundos.
+    // Sin "operating system", sin "IA", sin metáforas técnicas.
+    eyebrow: "DEPARTIFY",
+    title: "Trabaja menos. Tu empresa, no.",
     subtitle:
-      "Dile a DEPARTIFY qué quieres conseguir y monta el equipo que lo ejecuta. Marketing, ventas, contenido, soporte, operaciones: departamentos enteros trabajando bajo tus reglas, sin contratar a nadie.",
-    primaryCta: "Crear mi equipo",
-    secondaryCta: "Ver cómo trabaja",
-    microtext: "Instancia privada · Configuración guiada · Cancela cuando quieras",
-    // NUEVO: micro-prueba social honesta (placeholder hasta que llegue real).
-    socialProof: "Más de 40 empresas en España ya han montado su primer departamento.",
+      "Dile qué quieres conseguir — vender más, responder clientes, crear contenido — y Departify lo hace por ti, como si tuvieras un equipo que nunca duerme.",
+    primaryCta: "Probar gratis 14 días",
+    secondaryCta: "Ver cómo funciona",
+    microtext: "Sin tarjeta. Cancelas cuando quieras.",
+    socialProof:
+      "Manolo y cientos de pequeños empresarios ya delegan su trabajo en Departify.",
   },
-  positioning: {
-    // MOVIDO a sección eliminada — copy preservado por si se reactiva.
-    title: "No es un chatbot. Es una estructura de trabajo.",
+
+  // POR QUÉ ME SIRVE — los 3 problemas que Manolo siente cada día.
+  painPoints: {
+    eyebrow: "El problema",
+    title: "Lo que te pasa ahora mismo.",
+    subtitle: "Si te identificas con cualquiera de estas, Departify es para ti.",
+    items: [
+      {
+        head: "Tienes más trabajo que horas.",
+        body: "Clientes esperando, ideas sin ejecutar, tareas que se acumulan. Y tú solo no llegas.",
+      },
+      {
+        head: "Contratar es caro y lento.",
+        body: "Un buen empleado cuesta 2.000€ al mes. Y hasta que rinda, pasan meses. Si lo encuentras.",
+      },
+      {
+        head: "Ya probaste chatbots y no sirven.",
+        body: "Responden preguntas. Pero no ejecutan. No recuerdan. No terminan nada.",
+      },
+    ],
+  },
+
+  // QUÉ ES — qué hace, en lenguaje de empresario.
+  whatIs: {
+    eyebrow: "Qué es",
+    title: "Departify trabaja por ti. Tú decides.",
     subtitle:
-      "La diferencia no es la tecnología, es la organización. Un chatbot responde. Un departamento ejecuta.",
-    leftColumn: {
-      label: "Chatbot",
-      items: ["Responde preguntas."] as string[],
-    },
-    rightColumn: {
-      label: "Departamento",
-      items: [
-        "Comprende objetivos.",
-        "Planifica.",
-        "Coordina.",
-        "Ejecuta.",
-        "Mide.",
-        "Recuerda.",
-      ] as string[],
-    },
+      "Departify no es un chat. Es un equipo completo que ejecuta tareas reales: marketing, ventas, soporte, operaciones. Tú mandas. Ellos trabajan.",
+    bullets: [
+      "Le dices qué quieres conseguir.",
+      "Departify monta el equipo que lo hace.",
+      "Tú apruebas lo importante. Lo demás se hace solo.",
+    ],
   },
+
+  // POR QUÉ CONFIAR — lo que elimina el miedo.
+  trust: {
+    eyebrow: "Por qué confiar",
+    title: "Tú tienes el control. Siempre.",
+    items: [
+      "Solo trabaja con la información que tú le das.",
+      "Tú apruebas cada gasto y cada acción importante.",
+      "Si no te convence, te vas. Sin contratos.",
+    ],
+  },
+
+  // CÓMO EMPIEZO — los 3 pasos.
+  howToStart: {
+    eyebrow: "Cómo empezar",
+    title: "De cero a funcionando en 10 minutos.",
+    steps: [
+      {
+        n: "01",
+        title: "Crea tu cuenta.",
+        body: "Email y contraseña. Sin tarjeta. Sin instalar nada.",
+      },
+      {
+        n: "02",
+        title: "Dile a Departify qué necesitas.",
+        body: "Respondes unas preguntas. Departify entiende tu negocio.",
+      },
+      {
+        n: "03",
+        title: "Empieza a delegar.",
+        body: "Pide tu primera tarea. Approvas. Listo. Tu empresa trabaja sola.",
+      },
+    ],
+  },
+
+  // PRECIO — el momento de la verdad.
+  pricing: {
+    eyebrow: "Precio",
+    title: "Lo que cuesta tener un equipo que trabaja solo.",
+    subtitle: "14 días gratis. Después, desde 49€/mes. Cancela cuando quieras.",
+    note: "Sin permanencia. Sin letra pequeña.",
+  },
+
+  // FAQ — las objeciones que faltan resolver.
+  faqTitle: "Las preguntas que nos hace todo el mundo.",
+
+  // CTA FINAL — la última oportunidad.
+  finalCta: {
+    title: "Deja de hacerlo todo tú.",
+    subtitle: "14 días gratis. Después decides.",
+    primaryCta: "Crear mi cuenta gratis",
+    secondaryCta: "Hablar con el equipo",
+  },
+
   // Generic copy used across shared components
   shared: {
     learnMore: "Conocer más",

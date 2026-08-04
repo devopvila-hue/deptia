@@ -5,7 +5,7 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics";
-import { DEPARTIFY_DEPARTMENTS } from "@/config/departments";
+import { copy } from "@/config/site";
 
 export function FinalCta() {
   return (
@@ -19,7 +19,7 @@ export function FinalCta() {
         aria-hidden
       />
 
-      <Container width="wide" className="relative py-32 sm:py-40">
+      <Container width="wide" className="relative py-24 sm:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <motion.span
             initial={{ opacity: 0, y: 6 }}
@@ -40,7 +40,7 @@ export function FinalCta() {
             transition={{ duration: 0.6 }}
             className="mt-6 text-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground"
           >
-            Recupera tu lunes por la mañana.
+            {copy.finalCta.title}
           </motion.h2>
 
           <motion.p
@@ -50,8 +50,7 @@ export function FinalCta() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-[1.0625rem] leading-relaxed text-muted text-pretty"
           >
-            Crea tu primer departamento en menos de 30 minutos. Sin tarjeta, sin permanencia,
-            sin perder el control de tu empresa.
+            {copy.finalCta.subtitle}
           </motion.p>
 
           <motion.div
@@ -68,15 +67,15 @@ export function FinalCta() {
               onClick={() => track("hero_cta_clicked", { source: "final_cta" })}
               rightIcon={<ArrowUpRight className="h-4 w-4" />}
             >
-              Crear mi equipo
+              {copy.finalCta.primaryCta}
             </Button>
             <Button
-              href="/demo"
+              href="/contacto"
               variant="secondary"
               size="xl"
               leftIcon={<Play className="h-3.5 w-3.5 fill-current" />}
             >
-              Ver una demostración
+              {copy.finalCta.secondaryCta}
             </Button>
           </motion.div>
 
@@ -87,25 +86,8 @@ export function FinalCta() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted"
           >
-            Instancia privada · Onboarding guiado · Cancela cuando quieras
+            Sin tarjeta · Sin permanencia · Cancela cuando quieras
           </motion.p>
-        </div>
-
-        {/* Decorative tickers — consume the official 15-department catalog. */}
-        <div className="mt-20 hidden flex-wrap items-center justify-center gap-3 sm:flex">
-          {DEPARTIFY_DEPARTMENTS.map((d, i) => (
-            <motion.span
-              key={d}
-              initial={{ opacity: 0, y: 8 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 + i * 0.05, duration: 0.4 }}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface-soft/40 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted"
-            >
-              <span className="h-1 w-1 rounded-full bg-accent" />
-              {d}
-            </motion.span>
-          ))}
         </div>
       </Container>
     </section>

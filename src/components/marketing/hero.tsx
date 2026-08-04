@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ArrowUpRight, Play, Shield, Sparkles } from "lucide-react";
+import { ArrowUpRight, Play, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
@@ -25,7 +25,7 @@ export function Hero() {
         aria-hidden
       />
 
-      <Container width="wide" className="relative pb-16 pt-24 sm:pb-24 sm:pt-32 lg:pt-36">
+      <Container width="wide" className="relative pb-12 pt-20 sm:pb-20 sm:pt-28 lg:pt-32">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Text */}
           <div className="lg:col-span-7">
@@ -81,7 +81,6 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Micro-confianza — línea que cubre objeciones rápidas */}
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -89,36 +88,9 @@ export function Hero() {
               className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted"
             >
               <span className="inline-flex items-center gap-1.5">
-                <Shield className="h-3 w-3" /> Instancia privada
+                <Shield className="h-3 w-3" /> {copy.hero.microtext}
               </span>
-              <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
-              <span>Configuración guiada</span>
-              <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
-              <span>Cancela cuando quieras</span>
             </motion.p>
-
-            {/* Prueba social honesta — placeholder editable */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.55 }}
-              className="mt-7 flex items-center gap-3 rounded-lg border border-border/60 bg-surface-soft/40 px-4 py-3"
-            >
-              <div className="flex -space-x-2">
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-background bg-foreground/10 text-[0.65rem] font-medium text-foreground/80">
-                  EM
-                </span>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-background bg-foreground/15 text-[0.65rem] font-medium text-foreground/80">
-                  ST
-                </span>
-                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-background bg-foreground/20 text-[0.65rem] font-medium text-foreground/80">
-                  +
-                </span>
-              </div>
-              <p className="text-[0.8125rem] text-foreground/85 text-pretty">
-                {copy.hero.socialProof}
-              </p>
-            </motion.div>
           </div>
 
           {/* Visual */}
@@ -133,30 +105,17 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                    Atlas · sala de control
+                    Departify · trabajando
                   </span>
                 </div>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-foreground/70">
-                  En vivo
+                  Ahora
                 </span>
               </div>
               <div className="pt-8">
                 <CompanyOrb />
               </div>
             </div>
-
-            {/* Floating chip */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute -bottom-4 left-4 hidden items-center gap-2 rounded-lg border border-border bg-[#0c0e0a] px-3 py-2 shadow-2xl sm:flex"
-            >
-              <Sparkles className="h-3.5 w-3.5 text-accent" />
-              <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-foreground">
-                3 departamentos · 1 aprobación
-              </span>
-            </motion.div>
           </motion.div>
         </div>
       </Container>

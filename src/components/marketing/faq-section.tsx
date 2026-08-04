@@ -4,83 +4,54 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { FAQ } from "@/components/ui/faq";
 import { LinkButton } from "@/components/ui/link-button";
+import { copy } from "@/config/site";
 
+// FAQ breve. Solo las objeciones reales de un Manolo.
 const HOME_FAQ = [
   {
-    question: "¿Es un chatbot?",
+    question: "¿Necesito saber de tecnología?",
     answer:
-      "No. Es un departamento con dirección, miembros, procesos, memoria y entregables. La diferencia es que propone y ejecuta, no solo responde.",
+      "No. Si sabes usar WhatsApp y Gmail, sabes usar Departify. Le hablas como le hablarías a una persona.",
   },
   {
-    question: "¿Qué ocurre después de contratar?",
+    question: "¿Y si no funciona para mi negocio?",
     answer:
-      "En menos de una hora se crea tu instancia privada, se prepara el espacio de trabajo y se inicia un onboarding guiado con el Director de Incorporación.",
+      "Tienes 14 días gratis. Si en ese tiempo no te convence, no pagas nada. Sin tarjeta al principio.",
   },
   {
-    question: "¿Cada empresa tiene una instancia independiente?",
+    question: "¿Mis datos están seguros?",
     answer:
-      "Sí. Cada empresa opera sobre una instancia con datos, credenciales y memoria separadas. Nada se comparte entre clientes.",
+      "Cada empresa tiene su propia instancia privada. Tus datos no se mezclan con los de otros clientes. Puedes borrarlo todo cuando quieras.",
   },
   {
-    question: "¿Puede publicar o enviar correos automáticamente?",
+    question: "¿Hace cosas sin que yo se lo pida?",
     answer:
-      "No sin tu aprobación. El equipo prepara borradores y solicitudes que tú apruebas desde el panel, Telegram o email.",
+      "Solo si tú lo has autorizado antes. Tú decides qué puede hacer solo y qué necesita tu OK. Siempre.",
   },
   {
-    question: "¿Puedo controlar sus permisos?",
+    question: "¿Es lo mismo que un chatbot?",
     answer:
-      "Sí. Cada acción del equipo se clasifica en tres niveles: puede hacerlo, necesita aprobación, o está bloqueada. Tú decides la política.",
+      "No. Un chatbot responde preguntas. Departify ejecuta tareas completas: redacta, envía, programa, organiza, mide. Y recuerda lo que hizo.",
   },
   {
-    question: "¿Qué herramientas puedo conectar?",
+    question: "¿Puedo cancelar cuando quiera?",
     answer:
-      "Gmail, Google Calendar, Google Drive, HubSpot, Pipedrive, WordPress, Buffer, Telegram, Meta, LinkedIn, Canva, YouTube y seguimos añadiendo.",
-  },
-  {
-    question: "¿Puedo usarlo desde Telegram?",
-    answer:
-      "Sí. Puedes pedir informes, aprobar publicaciones y recibir alertas desde un chat sincronizado con el panel web.",
-  },
-  {
-    question: "¿Puede aprender mi marca?",
-    answer:
-      "Sí. Durante el onboarding el equipo aprende tu tono, paleta, tipografías, casos de éxito y reglas de comunicación.",
-  },
-  {
-    question: "¿Puedo contratar varios departamentos?",
-    answer:
-      "Sí. El plan Business incluye hasta tres departamentos simultáneos coordinados entre sí, con una dirección común.",
-  },
-  {
-    question: "¿Qué ocurre con mis datos si cancelo?",
-    answer:
-      "Tienes 30 días para reactivar o exportar toda la información. Pasado ese plazo, la instancia y los datos asociados se eliminan.",
-  },
-  {
-    question: "¿El departamento reemplaza asesoramiento profesional?",
-    answer:
-      "No. La plataforma ejecuta operativa bajo tus reglas. Decisiones estratégicas, legales o financieras siguen requiriendo criterio humano.",
-  },
-  {
-    question: "¿Existen límites de uso?",
-    answer:
-      "Cada plan incluye un uso mensual adecuado al alcance habitual. Consumos intensivos de generación de vídeo, audio o campañas masivas pueden requerir créditos adicionales.",
+      "Sí. Sin permanencia, sin letra pequeña. Cancelas hoy y dejas de pagar mañana. Tus datos quedan disponibles 30 días para descargar.",
   },
 ];
 
 export function FaqSection() {
   return (
     <section className="relative border-b border-border">
-      <Container width="wide" className="py-24 sm:py-32">
+      <Container width="wide" className="py-20 sm:py-24">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <Eyebrow>Preguntas</Eyebrow>
-            <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-              Dudas habituales, sin rodeos.
+            <h2 className="mt-5 text-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
+              {copy.faqTitle}
             </h2>
             <p className="mt-5 text-[0.9375rem] text-muted text-pretty">
-              Si no encuentras la respuesta que buscas, escríbenos. Respondemos en horario
-              laboral en menos de 24 horas.
+              Si te queda alguna duda, escríbenos. Respondemos en menos de 24 horas.
             </p>
 
             <div className="mt-6">

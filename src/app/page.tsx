@@ -1,42 +1,36 @@
 import { Hero } from "@/components/marketing/hero";
-import { TrustStrip } from "@/components/marketing/trust-strip";
-import { DepartmentsCatalog } from "@/components/marketing/departments-catalog";
-import { HowItWorks } from "@/components/marketing/how-it-works";
-import { DemoConversation } from "@/components/marketing/demo-conversation";
-import { ControlPermissions } from "@/components/marketing/control-permissions";
-import { Integrations } from "@/components/marketing/integrations";
-import { PrivateInstance } from "@/components/marketing/private-instance";
-import { TelegramAccess } from "@/components/marketing/telegram-access";
-import { Pricing } from "@/components/marketing/pricing";
-import { UseCase } from "@/components/marketing/use-case";
+import { PainPoints } from "@/components/marketing/pain-points";
+import { WhatIs } from "@/components/marketing/what-is";
+import { Trust } from "@/components/marketing/trust";
+import { HowToStart } from "@/components/marketing/how-to-start";
 import { FaqSection } from "@/components/marketing/faq-section";
 import { FinalCta } from "@/components/marketing/final-cta";
-import { MidCta } from "@/components/marketing/mid-cta";
 import { ProductJsonLd, FAQJsonLd } from "@/components/layout/json-ld";
 import { HOME_FAQ_DATA } from "@/data/home-faq";
 
+// VENDING MACHINE V2 — Home optimizada para conversión.
+// 5 secciones que responden a las 4 preguntas del cliente:
+// 1. Hero → ¿Qué es?
+// 2. PainPoints → ¿Por qué me sirve?
+// 3. WhatIs + Trust → ¿Qué es? (en detalle) + ¿Por qué confiar?
+// 4. HowToStart → ¿Cómo empiezo?
+// 5. Faq + FinalCta → últimas objeciones + decisión
+//
+// Departamentos viven en su propia sección (/departamentos), no en Home.
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <TrustStrip />
-      <DepartmentsCatalog />
-      <MidCta />
-      <HowItWorks />
-      <DemoConversation />
-      <MidCta variant="alt" />
-      <ControlPermissions />
-      <Integrations />
-      <PrivateInstance />
-      <TelegramAccess />
-      <UseCase />
-      <Pricing />
+      <PainPoints />
+      <WhatIs />
+      <Trust />
+      <HowToStart />
       <FaqSection />
       <FinalCta />
       <ProductJsonLd
-        name="Deptify — Departamentos de IA para empresas"
-        description="Departamentos empresariales operados mediante inteligencia artificial: marketing, ventas, contenido. Instancia privada, control real, cancelación sencilla."
-        price={99}
+        name="Departify — Tu empresa trabajando sola"
+        description="Departify ejecuta tareas reales de tu empresa — marketing, ventas, soporte, operaciones — como si tuvieras un equipo que nunca duerme. Tú decides, ellos trabajan."
+        price={49}
       />
       <FAQJsonLd items={HOME_FAQ_DATA} />
     </>
