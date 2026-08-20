@@ -6,11 +6,20 @@ import { FinalCta } from "@/components/marketing/final-cta";
 import { IsolatedInstances } from "@/components/visualizations/isolated-instances";
 import { ShieldCheck, Lock, Database, FileLock, Users, Eye, MailCheck, KeyRound } from "lucide-react";
 import Link from "next/link";
+import { brand } from "@/config/brand";
 
 export const metadata: Metadata = {
   title: "Seguridad",
   description:
     "Tu instancia privada, tus credenciales, tu memoria. Cómo protegemos los datos de tu empresa.",
+  alternates: { canonical: "/seguridad" },
+  openGraph: {
+    title: `Seguridad · ${brand.name}`,
+    description:
+      "Instancia privada por cliente, claves de cifrado propias, permisos por acción. Cómo protegemos tus datos.",
+    url: "/seguridad",
+    type: "website",
+  },
 };
 
 const PILLARS = [

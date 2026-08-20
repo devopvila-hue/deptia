@@ -26,7 +26,7 @@ export type AuthError =
 const NOT_CONFIGURED: AuthError = {
   kind: "not_configured",
   message:
-    "La autenticación aún no está conectada. El equipo de Deptify activará Supabase en breve.",
+    "La autenticación aún no está conectada. El equipo de Departify activará Supabase en breve.",
 };
 
 function notConfigured(): AuthError {
@@ -136,7 +136,7 @@ export async function requestPasswordRecovery(
   if (!supabase) return { ok: false, error: notConfigured() };
 
   const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://deptify.com";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://departify.app";
   const { error } = await supabase.auth.resetPasswordForEmail(
     email.trim().toLowerCase(),
     { redirectTo: `${siteUrl}/acceso?reset=true` }

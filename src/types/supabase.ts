@@ -1,5 +1,5 @@
 /**
- * Tipos del modelo de datos de Supabase para Deptify.
+ * Tipos del modelo de datos de Supabase para Departify.
  *
  * Convenciones:
  * - `id` siempre UUID v4 (`uuid` en Postgres, gen_random_uuid()).

@@ -6,11 +6,20 @@ import { InstanceBuild } from "@/components/visualizations/instance-build";
 import { VideoPlaceholder } from "@/components/visualizations/video-placeholder";
 import { FinalCta } from "@/components/marketing/final-cta";
 import { ArrowUpRight } from "lucide-react";
+import { brand } from "@/config/brand";
 
 export const metadata: Metadata = {
   title: "Cómo funciona",
   description:
     "De la contratación a la primera misión en menos de una hora. Sin desplegar nada. Te explicamos el proceso completo.",
+  alternates: { canonical: "/como-funciona" },
+  openGraph: {
+    title: `Cómo funciona · ${brand.name}`,
+    description:
+      "De la contratación a la primera misión en menos de una hora. Cuatro pasos, sin desplegar nada.",
+    url: "/como-funciona",
+    type: "website",
+  },
 };
 
 const STEPS = [

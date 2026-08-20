@@ -3,7 +3,9 @@ import { LegalPage } from "@/components/layout/legal-page";
 
 export const metadata: Metadata = {
   title: "Términos de servicio",
-  description: "Condiciones que rigen el uso de Deptify.",
+  description: "Condiciones que rigen el uso de Departify.",
+  alternates: { canonical: "/terminos" },
+  robots: { index: false, follow: true },
 };
 
 const UPDATED = "1 de octubre de 2025";
@@ -13,14 +15,14 @@ export default function TermsPage() {
     <LegalPage
       index="02"
       title="Términos de servicio"
-      description="Las condiciones que rigen el acceso y uso de Deptify por parte de empresas y profesionales."
+      description="Las condiciones que rigen el acceso y uso de Departify por parte de empresas y profesionales."
       updated={UPDATED}
       sections={[
         {
           title: "Aceptación",
           content: (
             <p>
-              Al contratar o usar Deptify aceptas estos términos. Si actúas en nombre de una
+              Al contratar o usar Departify aceptas estos términos. Si actúas en nombre de una
               empresa, declaras tener facultades para vincularla.
             </p>
           ),
@@ -29,7 +31,7 @@ export default function TermsPage() {
           title: "Objeto",
           content: (
             <p>
-              Deptify presta servicios de operación de departamentos mediante inteligencia
+              Departify presta servicios de operación de departamentos mediante inteligencia
               artificial, accesibles desde el panel web y desde Telegram, con instancia
               privada por cliente.
             </p>
@@ -68,7 +70,7 @@ export default function TermsPage() {
           title: "Propiedad intelectual",
           content: (
             <p>
-              Deptify conserva todos los derechos sobre el software, la marca, los diseños y
+              Departify conserva todos los derechos sobre el software, la marca, los diseños y
               los materiales del sitio. El cliente conserva la propiedad de los contenidos que
               carga o genera a través del servicio.
             </p>
@@ -78,7 +80,7 @@ export default function TermsPage() {
           title: "Limitación de responsabilidad",
           content: (
             <p>
-              Deptify no será responsable de daños indirectos, lucro cesante o pérdida de
+              Departify no será responsable de daños indirectos, lucro cesante o pérdida de
               datos derivada del uso del servicio más allá de lo exigido por la ley. La
               plataforma es una herramienta de apoyo a la operativa; las decisiones
               estratégicas y legalmente relevantes siguen siendo responsabilidad del cliente.

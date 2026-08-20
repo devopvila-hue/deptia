@@ -1,4 +1,4 @@
-# Sistema de diseño · Deptify
+# Sistema de diseño · Departify
 
 Sistema visual creado para que la web se sienta como una **organización viva**, no como una landing más. Inspirado en organigramas, salas de control, señalética corporativa y software de nueva generación.
 

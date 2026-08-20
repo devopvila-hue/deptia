@@ -4,11 +4,20 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { Pricing } from "@/components/marketing/pricing";
 import { FAQ } from "@/components/ui/faq";
 import { FinalCta } from "@/components/marketing/final-cta";
+import { brand } from "@/config/brand";
 
 export const metadata: Metadata = {
   title: "Precios",
   description:
     "Tres planes para incorporar departamentos de IA en tu empresa. Sin sorpresas, cancela cuando quieras.",
+  alternates: { canonical: "/precios" },
+  openGraph: {
+    title: `Precios · ${brand.name}`,
+    description:
+      "Tres planes para incorporar departamentos de IA. Mensuales o anuales, sin permanencia.",
+    url: "/precios",
+    type: "website",
+  },
 };
 
 const PRICING_FAQ = [

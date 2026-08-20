@@ -7,6 +7,13 @@ import { brand } from "@/config/brand";
 export const metadata: Metadata = {
   title: "Contacto",
   description: `Habla con el equipo de ${brand.name}. Respondemos en horario laboral en menos de 24 horas.`,
+  alternates: { canonical: "/contacto" },
+  openGraph: {
+    title: `Contacto · ${brand.name}`,
+    description: `Habla con el equipo de ${brand.name}. Respondemos en menos de 24 horas.`,
+    url: "/contacto",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

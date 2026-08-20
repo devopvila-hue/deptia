@@ -1,20 +1,20 @@
 // Centralised brand configuration. Update here to rebrand the entire site.
 export const brand = {
-  name: "DEPARTIFY",
-  tagline: "Business Operating System",
-  shortTagline: "Business Operating System",
+  name: "Departify",
+  tagline: "Te devolvemos tiempo",
+  shortTagline: "Te devolvemos tiempo",
   description:
-    "DEPARTIFY is the platform that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.",
-  domain: "deptify.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://deptify.com",
-  contactEmail: "hola@deptify.com",
-  securityEmail: "seguridad@deptify.com",
-  legalName: "Deptify Technologies, S.L.",
+    "Departify incorpora departamentos que conocen tu empresa, trabajan con las herramientas que ya utilizas y se ocupan de tareas que hoy dependen de ti. Tú decides qué delegar. Tú apruebas lo importante.",
+  domain: "departify.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://departify.app",
+  contactEmail: "hola@departify.app",
+  securityEmail: "seguridad@departify.app",
+  legalName: "Departify, S.L.",
   country: "España",
   foundedYear: 2025,
   social: {
-    linkedin: "https://www.linkedin.com/company/deptify",
-    x: "https://x.com/deptify",
+    linkedin: "https://www.linkedin.com/company/departify",
+    x: "https://x.com/departify",
   },
 } as const;
 

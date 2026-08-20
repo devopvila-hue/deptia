@@ -175,7 +175,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 text-[0.8125rem] text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} DEPARTIFY</p>
+          <p>© {new Date().getFullYear()} Departify</p>
           <p className="font-mono uppercase tracking-[0.14em]">Made in Spain</p>
         </div>
       </Container>

@@ -1,0 +1,31 @@
+# Departify
+
+> Departify is a Business Operating System that runs a company's operations through an Executive Director and intelligent business departments — quiet, structural, and built to scale.
+
+Founded 2025 in Spain by Departify, S.L. CEO-facing product: not a chatbot, not a single-agent tool — a structured operating model where each department (Marketing, Ventas, Contenido, Operaciones, Atención al Cliente, SEO, Administración, RRHH, Logística, Growth, Analítica, Finanzas, Soporte, Legal and more) is a self-contained team with direction, specialised members, brand memory, tasks, deliverables, and a three-level permission system (can / approval / never).
+
+## Departments
+
+Each department is operated by an AI team with its own director, specialised members, and guardrails. Departments are sold and provisioned independently — each customer runs on an isolated instance with its own encryption keys and database.
+
+- [Marketing](https://departify.app/departamentos/marketing): estrategia, campañas y crecimiento.
+- [Ventas](https://departify.app/departamentos/ventas): pipeline activo y seguimiento.
+- [Contenido](https://departify.app/departamentos/contenido): dirección creativa, guiones y producción.
+- [Operaciones](https://departify.app/departamentos/operaciones): procesos y datos.
+- [Atención al Cliente](https://departify.app/departamentos/atencion-cliente): soporte con memoria y tono.
+- [SEO](https://departify.app/departamentos/seo): auditorías y autoridad a largo plazo.
+- [Administración](https://departify.app/departamentos/administracion): facturación y reporting.
+- [RRHH](https://departify.app/departamentos/rrhh): personas y cultura.
+- [Logística](https://departify.app/departamentos/logistica): inventario y rutas.
+- [Growth](https://departify.app/departamentos/growth): experimentación y demanda.
+- [Analítica](https://departify.app/departamentos/analitica): datos vivos y alertas.
+- [Finanzas](https://departify.app/departamentos/finanzas): cuentas y presupuestos.
+- [Soporte](https://departify.app/departamentos/soporte): atención consistente.
+- [Legal](https://departify.app/departamentos/legal): contratos y cumplimiento.
+
+## Optional
+
+- [Precios](https://departify.app/precios): tres planes mensuales o anuales, sin permanencia.
+- [Cómo funciona](https://departify.app/como-funciona): del alta a la primera misión en menos de una hora.
+- [Seguridad](https://departify.app/seguridad): instancia privada, claves propias, permisos por acción.
+- [Demo](https://departify.app/demo): vista previa del panel con datos de ejemplo.

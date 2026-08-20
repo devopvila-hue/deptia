@@ -1,4 +1,4 @@
-// DEPARTIFY official department catalog — single source of truth.
+// Departify official department catalog — single source of truth.
 //
 // The Portal (opencloud-client), the Marketing site (this repo),
 // the Marketplace, the Pricing page, the video scripts and every

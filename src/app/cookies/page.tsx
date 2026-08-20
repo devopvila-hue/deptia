@@ -4,6 +4,8 @@ import { LegalPage } from "@/components/layout/legal-page";
 export const metadata: Metadata = {
   title: "Política de cookies",
   description: "Qué cookies utilizamos y cómo gestionarlas.",
+  alternates: { canonical: "/cookies" },
+  robots: { index: false, follow: true },
 };
 
 const UPDATED = "1 de octubre de 2025";
@@ -13,7 +15,7 @@ export default function CookiesPage() {
     <LegalPage
       index="03"
       title="Política de cookies"
-      description="Información sobre las cookies que utilizamos en Deptify y cómo puedes gestionarlas."
+      description="Información sobre las cookies que utilizamos en Departify y cómo puedes gestionarlas."
       updated={UPDATED}
       sections={[
         {
@@ -31,7 +33,7 @@ export default function CookiesPage() {
           content: (
             <>
               <p>
-                En Deptify utilizamos tres categorías de cookies, siempre con el objetivo de
+                En Departify utilizamos tres categorías de cookies, siempre con el objetivo de
                 mejorar tu experiencia y proteger la plataforma.
               </p>
               <ul className="list-disc pl-5">

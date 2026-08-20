@@ -8,6 +8,13 @@ import { brand } from "@/config/brand";
 export const metadata: Metadata = {
   title: "Departamentos",
   description: `Catálogo completo de departamentos operados con IA. ${brand.description}`,
+  alternates: { canonical: "/departamentos" },
+  openGraph: {
+    title: `Departamentos · ${brand.name}`,
+    description: `Catálogo completo de departamentos operados con IA. Cada uno con dirección, miembros especializados y aprobaciones.`,
+    url: "/departamentos",
+    type: "website",
+  },
 };
 
 export default function DepartmentsIndex() {

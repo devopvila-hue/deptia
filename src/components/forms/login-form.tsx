@@ -290,7 +290,7 @@ function formatAuthError(err: AuthError): string {
       return (
         `${err.message} ` +
         `Accede desde ya al portal oficial: ` +
-        `<a class="underline" href="https://app.deptify.com/login">app.deptify.com</a>.`
+        `<a class="underline" href="https://app.departify.app/login">app.departify.app</a>.`
       );
     case "invalid_credentials":
       return err.message;

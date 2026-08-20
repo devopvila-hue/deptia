@@ -1,4 +1,4 @@
-# Fuentes UI · Deptify
+# Fuentes UI · Departify
 
 Registro de las influencias y referencias utilizadas para construir los componentes. No copiamos páginas completas ni dependemos de ejecución remota de ningún servicio.
 

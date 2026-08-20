@@ -1,0 +1,95 @@
+# Departify — Full Reference
+
+> Business Operating System. Quiet, structural, and built to scale.
+
+Departify operates a company through an Executive Director and a roster of intelligent business departments. Each department is an independent AI team with its own director, specialised members, brand memory, tasks, deliverables, and a three-level permission system: `can`, `approval`, `never`. The default stance is conservative: destructive or externally-visible actions always require human approval.
+
+The product is positioned for founders and operating teams who want to delegate operational work to structured AI teams without losing control. It is not a chatbot, not a single-agent tool, and not a workflow automation suite — it is an operating model.
+
+## Company
+
+- Legal name: Departify, S.L.
+- Country: España
+- Founded: 2025
+- Website: https://departify.app
+- Email: hola@departify.app
+- Security: seguridad@departify.app
+- Social: https://www.linkedin.com/company/departify · https://x.com/departify
+
+## How it works
+
+1. The customer chooses a plan and a department. The purchase happens online with no mandatory sales calls.
+2. A private instance is provisioned: dedicated resources, isolated database, customer-specific encryption keys.
+3. An Onboarding Director runs a guided conversation to understand the company, brand voice, goals and operating rules.
+4. Connections are set up to internal tools (CRM, accounting, comms, channels).
+5. The department starts operating inside the company, producing real work and awaiting human approval where required.
+
+Average time from purchase to first mission: under one hour.
+
+## Departments (live)
+
+| Slug | Name | Tagline |
+| --- | --- | --- |
+| `marketing` | Departamento de Marketing | Estrategia, campañas y crecimiento en un solo equipo. |
+| `ventas` | Departamento de Ventas | Pipeline activo, seguimiento constante, propuestas listas. |
+| `contenido` | Departamento de Contenido | Dirección creativa, guiones, creatividades y producción coordinada. |
+| `operaciones` | Departamento de Operaciones | Procesos, datos y optimización de la operativa diaria. |
+| `atencion-cliente` | Departamento de Atención al Cliente | Soporte consistente, con memoria y tono de marca. |
+| `seo` | Departamento SEO | Auditorías, contenidos y autoridad construida a largo plazo. |
+| `administracion` | Departamento Administrativo | Facturación, conciliaciones y reporting financiero controlado. |
+| `rrhh` | Departamento de Recursos Humanos | Personas, selección, onboarding y cultura, ejecutados con tu voz. |
+| `logistica` | Departamento de Logística | Inventario, rutas y proveedores coordinados bajo control humano. |
+| `growth` | Departamento de Crecimiento | Experimentación, demanda y aprendizaje continuo sobre cada canal. |
+| `analitica` | Departamento de Analítica | Datos vivos, alertas accionables y aprendizaje continuo. |
+| `finanzas` | Departamento de Finanzas | Cuentas conciliadas, presupuestos vivos y reporting sin sorpresas. |
+| `soporte` | Departamento de Soporte | Atención consistente, base viva y clientes en riesgo detectados a tiempo. |
+| `legal` | Departamento Legal | Contratos, cumplimiento y revisión documental bajo control humano. |
+
+## Permission model (default for every department)
+
+| Level | Meaning | Example |
+| --- | --- | --- |
+| `can` | The department acts without asking. | Investigate market and competitors; draft content. |
+| `approval` | The department proposes and waits for human sign-off. | Publish to social channels; modify CRM; send emails. |
+| `never` | The department does not have access. | Execute payments; sign contracts; delete customer data. |
+
+The three levels are visible to the customer before purchase and editable after provisioning.
+
+## Security posture
+
+- Each customer runs on an isolated instance with dedicated resources.
+- Encryption keys are unique per instance and customer-controlled.
+- Data is partitioned per company; no cross-customer leakage.
+- Every sensitive action goes through the approval layer.
+- Audit log of every privileged action is available to the admin role.
+
+## Pricing
+
+Three plans (monthly or annual, no lock-in). Card, bank transfer (annual) and SEPA (European companies) accepted. Detailed plans are listed at https://departify.app/precios.
+
+## API & integrations
+
+The Executive Director coordinates internal departments. Each department integrates with a curated set of channels (Telegram, web panel) and external tools (CRMs, accounting, marketing platforms). A typed internal API is documented at https://departify.app/docs (private).
+
+## Public routes
+
+- `/` — Home
+- `/departamentos` — Catalogue of all departments
+- `/departamentos/[slug]` — Department detail
+- `/precios` — Plans
+- `/como-funciona` — Onboarding flow
+- `/seguridad` — Security posture
+- `/demo` — Interactive panel preview
+- `/recursos` — Guides and case studies
+- `/contacto` — Contact form
+- `/privacidad`, `/terminos`, `/cookies` — Legal
+
+The areas `/admin/*` and `/panel/*` are reserved for authenticated users and are not indexed.
+
+## Differentiators (vs. chatbots, single-agent tools, automation suites)
+
+1. **Structural, not conversational.** A department is a team, not a chat window.
+2. **Permissioned by default.** Three levels enforced across every action.
+3. **Customer-owned instance.** Encryption keys, database and memory leave with the customer.
+4. **Executive Director layer.** Departments coordinate; they don't operate in silos.
+5. **Operational depth.** Designed for sustained operating work, not one-off prompts.

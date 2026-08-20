@@ -4,10 +4,18 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { FinalCta } from "@/components/marketing/final-cta";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { brand } from "@/config/brand";
 
 export const metadata: Metadata = {
   title: "Recursos",
-  description: "Guías, casos de uso y material para entender mejor cómo Deptify puede ayudar a tu empresa.",
+  description: "Guías, casos de uso y material para entender mejor cómo Departify puede ayudar a tu empresa.",
+  alternates: { canonical: "/recursos" },
+  openGraph: {
+    title: `Recursos · ${brand.name}`,
+    description: `Guías, casos de uso y material para entender cómo ${brand.name} puede ayudar a tu empresa.`,
+    url: "/recursos",
+    type: "website",
+  },
 };
 
 const RESOURCES = [
@@ -66,7 +74,7 @@ export default function ResourcesPage() {
             Ideas, guías y casos para integrar departamentos digitales.
           </h1>
           <p className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-muted text-pretty">
-            Material práctico para entender cómo Deptify puede encajar en la operativa de tu
+            Material práctico para entender cómo Departify puede encajar en la operativa de tu
             empresa. Sin jerga, sin promesas exageradas.
           </p>
         </Container>

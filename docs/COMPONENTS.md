@@ -1,4 +1,4 @@
-# Componentes · Deptify
+# Componentes · Departify
 
 Inventario de todos los componentes del proyecto, agrupados por responsabilidad.
 

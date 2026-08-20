@@ -30,7 +30,7 @@ test.describe("Smoke tests — todas las rutas", () => {
     test(`GET ${path} → 200 + título correcto`, async ({ page }) => {
       const response = await page.goto(path);
       expect(response?.status(), `${path} status`).toBe(200);
-      await expect(page).toHaveTitle(/DEPT\.IA/);
+      await expect(page).toHaveTitle(/Departify/);
     });
   }
 });
@@ -47,7 +47,7 @@ test.describe("SEO", () => {
     await page.goto("/");
     const ogTitle = await page.locator('meta[property="og:title"]').getAttribute("content");
     expect(ogTitle).toBeTruthy();
-    expect(ogTitle).toContain("Deptify");
+    expect(ogTitle).toContain("Departify");
   });
 
   test("JSON-LD Organization presente en home", async ({ page }) => {
@@ -60,21 +60,21 @@ test.describe("SEO", () => {
     await page.goto("/departamentos/marketing");
     const title = await page.title();
     expect(title).toContain("Marketing");
-    expect(title).toContain("Deptify");
+    expect(title).toContain("Departify");
   });
 
   test("Sitemap.xml accesible", async ({ page }) => {
     const response = await page.goto("/sitemap.xml");
     expect(response?.status()).toBe(200);
     const body = await page.content();
-    expect(body).toContain("deptify.com");
+    expect(body).toContain("departify.app");
   });
 });
 
 test.describe("Header y navegación", () => {
   test("Header contiene logo y links principales", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("link", { name: /DEPT\.IA — Inicio/ })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Departify — Inicio/ })).toBeVisible();
     await expect(page.getByRole("link", { name: "Precios" }).first()).toBeVisible();
   });
 

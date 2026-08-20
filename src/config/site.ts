@@ -6,7 +6,7 @@ export const copy = {
   hero: {
     // El Hero no vende. Cuenta cómo es la vida de Manolo ahora.
     // Y dice: "hay alguien que puede hacerlo por ti. Primero queremos entender tu empresa."
-    eyebrow: "DEPARTIFY",
+    eyebrow: "Departify",
     title: "Contestas WhatsApps a las 11 de la noche. No porque quieras.",
     subtitle:
       "Hay alguien que puede hacerlo por ti. Antes de decirte qué necesitas, queremos entender cómo es tu día. Sin catálogo. Sin venta.",

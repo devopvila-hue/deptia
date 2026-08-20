@@ -1,4 +1,4 @@
-# Sistema de movimiento · Deptify
+# Sistema de movimiento · Departify
 
 El movimiento cuenta la historia del producto: **una organización viva, no un sitio estático**.
 
