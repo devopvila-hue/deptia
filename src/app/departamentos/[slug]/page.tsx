@@ -11,7 +11,7 @@ import { FAQ } from "@/components/ui/faq";
 import { FinalCta } from "@/components/marketing/final-cta";
 import { DepartmentAgent } from "@/components/departments/department-agent";
 import { DepartmentImage } from "@/components/departments/department-image";
-import { ProductJsonLd, FAQJsonLd } from "@/components/layout/json-ld";
+import { ProductJsonLd, FAQJsonLd, BreadcrumbJsonLd } from "@/components/layout/json-ld";
 import {
   departments,
   comingSoonDepartments,
@@ -35,12 +35,42 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const d = getDepartment(slug) ?? comingSoonDepartments.find((cd) => cd.slug === slug);
-  if (!d) return { title: "Departamento" };
+  const active = getDepartment(slug);
+  const coming = active ? null : comingSoonDepartments.find((cd) => cd.slug === slug);
+  if (!active && !coming) return { title: "Departamento" };
+  const d = active ?? coming!;
   const desc = "promise" in d ? d.promise : d.tagline;
+  const isComing = !active;
   return {
-    title: d.name,
+    title: isComing ? `${d.name} (próximamente)` : d.name,
     description: typeof desc === "string" ? desc : brand.description,
+    alternates: {
+      canonical: `/departamentos/${d.slug}`,
+    },
+    openGraph: {
+      title: `${d.name}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
+      description: typeof desc === "string" ? desc : brand.description,
+      url: `/departamentos/${d.slug}`,
+      type: "website",
+      // OG por departamento: Next 14 sirve /departamentos/<slug>/opengraph-image
+      // desde src/app/departamentos/[slug]/opengraph-image.tsx (edge runtime).
+      // Antes apuntaba a /og-default.png (404 confirmado).
+      images: [
+        {
+          url: `/departamentos/${d.slug}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${d.name} · ${brand.name}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${d.name}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
+      description: typeof desc === "string" ? desc : brand.description,
+      images: [`/departamentos/${d.slug}/opengraph-image`],
+    },
+    ...(isComing ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
@@ -76,11 +106,18 @@ export default async function DepartmentPage({
       <FinalCta />
       {agent && <DepartmentAgent agent={agent} />}
       <ProductJsonLd
-        name={`${department.name} — Deptify`}
+        name={`${department.name} — Departify`}
         description={department.promise}
         price={department.priceFrom}
       />
       <FAQJsonLd items={department.faq} />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Inicio", url: "/" },
+          { name: "Departamentos", url: "/departamentos" },
+          { name: department.name, url: `/departamentos/${department.slug}` },
+        ]}
+      />
     </>
   );
 }

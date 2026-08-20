@@ -1,8 +1,19 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { resolveSession, sessionCan } from "@/lib/access";
 import { Container } from "@/components/ui/container";
 import { brand } from "@/config/brand";
+
+/**
+ * El panel autenticado no debe aparecer en resultados de Google.
+ * La redirección server-side protege el acceso; esta metadata
+ * protege contra indexación accidental.
+ */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  title: { default: `Panel · ${brand.name}`, template: `%s · Panel · ${brand.name}` },
+};
 
 /**
  * Layout del panel privado. Protege toda la sección: si no hay sesión,

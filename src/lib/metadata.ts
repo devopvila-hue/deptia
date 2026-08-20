@@ -21,10 +21,14 @@ export const siteMetadata: Metadata = {
   authors: [{ name: brand.name, url: brand.url }],
   creator: brand.name,
   publisher: brand.name,
+  // canonical se omite a propósito: cada page.tsx define el suyo
+  // (/, /precios, /departamentos/<slug>, etc.). Definirlo aquí forzaba
+  // que TODAS las páginas indexaran la home como canónica (bug SEO).
+  // languages queda como fallback global para hreflang.
   alternates: {
-    canonical: "/",
     languages: {
       "es-ES": "/",
+      "x-default": "/",
     },
   },
   openGraph: {
@@ -34,11 +38,23 @@ export const siteMetadata: Metadata = {
     siteName: brand.name,
     title: `${brand.name} — ${brand.tagline}`,
     description: brand.description,
+    // Next 14 genera /og.png y /twitter-image.png desde los archivos
+    // src/app/opengraph-image.tsx y src/app/twitter-image.tsx.
+    // Mantener rutas explícitas acelera el render de redes sociales.
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${brand.name} — ${brand.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${brand.name} — ${brand.tagline}`,
     description: brand.description,
+    images: ["/og.png"],
   },
   robots: {
     index: true,

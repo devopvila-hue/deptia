@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { brand } from "@/config/brand";
-import { departments, comingSoonDepartments } from "@/data/departments";
+import { departments } from "@/data/departments";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = brand.url;
@@ -12,7 +12,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/como-funciona`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/seguridad`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/precios`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${base}/demo`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    // /demo se omite del sitemap: robots.ts lo bloquea (Disallow: /demo).
+    // Mantenerlo aquí generaba señal contradictoria para Google.
     { url: `${base}/contacto`, lastModified: now, changeFrequency: "yearly", priority: 0.5 },
     { url: `${base}/privacidad`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${base}/terminos`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
@@ -26,12 +27,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     })),
-    ...comingSoonDepartments.map((d) => ({
-      url: `${base}/departamentos/${d.slug}`,
-      lastModified: now,
-      changeFrequency: "monthly" as const,
-      priority: 0.3,
-    })),
+    // comingSoonDepartments se excluyen del sitemap para evitar
+    // indexar funcionalidades no entregadas (riesgo de Helpful Content).
+    // Las páginas siguen accesibles, pero con metadata noindex.
   ];
 
   return [...staticPages, ...departmentPages];

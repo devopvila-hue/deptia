@@ -1,8 +1,18 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { resolveSession, sessionCan } from "@/lib/access";
 import { Container } from "@/components/ui/container";
 import { brand } from "@/config/brand";
+
+/**
+ * La consola interna no debe aparecer en resultados de Google.
+ * robots.txt es solo una pista; esta metadata es la garantía dura.
+ */
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+  title: { default: `Administración · ${brand.name}`, template: `%s · Administración · ${brand.name}` },
+};
 
 /**
  * Layout del panel de administración.
