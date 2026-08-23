@@ -3,10 +3,10 @@
 // Empresas que contratan trabajo real, no infraestructura de IA.
 export const copy = {
   hero: {
-    // El Hero no vende. Cuenta cómo es la vida de Manolo ahora.
-    // Y dice: "hay alguien que puede hacerlo por ti. Primero queremos entender tu empresa."
-    eyebrow: "Departify",
-    title: "Contestas WhatsApps a las 11 de la noche. No porque quieras.",
+    // El Hero explica el producto en una línea.
+    // Departamentos con IA que trabajan para tu empresa 24/7.
+    eyebrow: "TU EMPRESA. MÁS EQUIPO.",
+    title: "Departamentos con IA que trabajan para tu empresa 24/7.",
     subtitle:
       "Marketing, SEO y más departamentos especializados que ejecutan trabajo, monitorizan tu negocio y te mantienen informado de lo que importa.",
     primaryCta: "Empieza con Departify",

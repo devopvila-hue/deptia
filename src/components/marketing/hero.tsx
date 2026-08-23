@@ -6,12 +6,12 @@ import { ArrowUpRight, Play, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { ChatPreview } from "@/components/visualizations/chat-preview";
+import { CompanyOrb } from "@/components/visualizations/company-orb";
 import { track } from "@/lib/analytics";
 import { copy } from "@/config/site";
 
-// Hero: no vende. Cuenta cómo es la vida de Manolo.
-// Y dice: "hay alguien que puede hacerlo por ti".
+// Hero: explica el producto en una línea.
+// Departamentos con IA que trabajan para tu empresa 24/7.
 export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border">
@@ -120,7 +120,7 @@ export function Hero() {
                   24 / 7
                 </span>
               </div>
-              <ChatPreview className="min-h-0 flex-1" />
+              <CompanyOrb className="min-h-0 flex-1" />
             </div>
           </motion.div>
         </div>
