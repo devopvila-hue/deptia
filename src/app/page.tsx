@@ -9,10 +9,9 @@ import { FinalCta } from "@/components/marketing/final-cta";
 import { ProductJsonLd, FAQJsonLd } from "@/components/layout/json-ld";
 import { HOME_FAQ_DATA } from "@/data/home-faq";
 
-// V4 — From Catalog To Advisor.
-// La Landing vende criterio, no departamentos.
-// Primero escucha. Después recomienda.
-// Cada sección responde UNA sola pregunta.
+// V5 — Departments as the product.
+// Cada departamento ejecuta trabajo real y monitoriza el negocio.
+// Tú marcas los objetivos, decides y mantienes el control.
 export default function HomePage() {
   return (
     <>
@@ -25,9 +24,9 @@ export default function HomePage() {
       <FaqSection />
       <FinalCta />
       <ProductJsonLd
-        name="Departify — La persona que tu empresa necesita"
-        description="Antes de recomendarte nada, Departify analiza cómo funciona tu empresa y solo entonces te dice qué necesitas. Sin catálogo. Sin venta. Solo entender."
-        price={49}
+        name="Departify — Departamentos con IA para tu empresa"
+        description="Marketing, SEO y más departamentos especializados que ejecutan trabajo, monitorizan tu negocio y te mantienen informado de lo que importa."
+        price={99}
       />
       <FAQJsonLd items={HOME_FAQ_DATA} />
     </>

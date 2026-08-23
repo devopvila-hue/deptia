@@ -5,8 +5,9 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { copy } from "@/config/site";
 
-// RECOMENDACIÓN — departamentos como consecuencia, no como catálogo.
-// Lista simple. Sin botones individuales. Sin "comprar".
+// RECOMENDACIÓN — departamentos disponibles y próximamente.
+// Mantiene la estructura de grid del original (max-w-2xl, sm:grid-cols-2).
+// Los disponibles van primero; los Próximamente, a continuación.
 export function Recommendation() {
   return (
     <section className="border-b border-border bg-surface-soft/20">
@@ -21,26 +22,61 @@ export function Recommendation() {
           </p>
         </div>
 
-        <motion.ul
+        {/* Departamentos disponibles hoy */}
+        <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="mx-auto mt-14 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2"
         >
-          {copy.recommendation.departments.map((dept, i) => (
-            <motion.li
-              key={dept}
+          {copy.recommendation.available.map((dept, i) => (
+            <motion.div
+              key={dept.name}
               initial={{ opacity: 0, x: -8 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.4 }}
-              className="rounded-lg border border-border bg-background px-4 py-3 font-display text-[1rem] text-foreground"
+              className="flex flex-col gap-2 rounded-lg border border-border bg-background p-4"
             >
-              {dept}
-            </motion.li>
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-display text-[1rem] text-foreground">
+                  {dept.name}
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-success/40 bg-success/10 px-2 py-0.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-success">
+                  <span className="h-1 w-1 rounded-full bg-success" />
+                  Disponible
+                </span>
+              </div>
+              <p className="text-[0.8125rem] leading-relaxed text-muted text-pretty">
+                {dept.description}
+              </p>
+            </motion.div>
           ))}
-        </motion.ul>
+        </motion.div>
+
+        {/* Próximamente */}
+        <div className="mx-auto mt-12 max-w-2xl">
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
+            Próximamente
+          </p>
+          <motion.ul
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-4 flex flex-wrap gap-2"
+          >
+            {copy.recommendation.comingSoon.map((dept) => (
+              <li
+                key={dept}
+                className="rounded-md border border-dashed border-border bg-surface-soft/30 px-3 py-1.5 font-display text-[0.875rem] text-muted"
+              >
+                {dept}
+              </li>
+            ))}
+          </motion.ul>
+        </div>
 
         <motion.p
           initial={{ opacity: 0 }}

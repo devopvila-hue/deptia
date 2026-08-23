@@ -1,62 +1,62 @@
 export const HOME_FAQ_DATA = [
   {
+    question: "¿Qué es Departify exactamente?",
+    answer:
+      "Departamentos especializados que ejecutan trabajo real para tu empresa. Hoy puedes activar Marketing o SEO. Cada departamento propone, ejecuta y monitoriza bajo tus reglas.",
+  },
+  {
+    question: "¿Trabaja sólo o necesita que le diga qué hacer?",
+    answer:
+      "Tú marcas los objetivos y las reglas. El departamento investiga, prepara borradores y propone. Cuando una acción importante necesita aprobación, te consulta antes de ejecutarla.",
+  },
+  {
+    question: "¿Trabaja sin parar?",
+    answer:
+      "Sí. Tu negocio no deja de moverse y los departamentos tampoco. Monitorizan lo importante y te avisan cuando hace falta decidir algo.",
+  },
+  {
+    question: "¿Con qué herramientas trabaja?",
+    answer:
+      "Correo, calendario, CRM, Drive, redes sociales, hojas de cálculo, herramientas de diseño. Trabaja con las que ya utiliza tu empresa.",
+  },
+  {
+    question: "¿Necesito saber de tecnología?",
+    answer:
+      "No. Si sabes usar el email y un calendario, sabes usar Departify. No hay nada que instalar ni configurar.",
+  },
+  {
+    question: "¿Mantengo el control?",
+    answer:
+      "Siempre. Tú decides qué puede hacer solo, qué necesita tu aprobación y qué está bloqueado. Cambias los límites cuando quieras.",
+  },
+  {
+    question: "¿Cada empresa tiene su propio espacio?",
+    answer:
+      "Sí. Tu instancia es privada: datos separados, memoria propia, credenciales propias. Nada se mezcla con otros clientes.",
+  },
+  {
+    question: "¿Qué pasa con mis datos si me voy?",
+    answer:
+      "Tienes 30 días para descargar todo. Pasado ese plazo, la instancia y los datos asociados se eliminan. Sin permanencias, sin letra pequeña.",
+  },
+  {
+    question: "¿Cuánto cuesta?",
+    answer:
+      "Activación mensual desde 99 € por departamento. Cancela cuando quieras. Te diremos el coste exacto antes de que confirmes.",
+  },
+  {
+    question: "¿Puedo empezar con un solo departamento?",
+    answer:
+      "Sí. Empieza con Marketing o SEO y suma más departamentos según los necesites. Cada uno trabaja coordinado con los demás.",
+  },
+  {
     question: "¿Es un chatbot?",
     answer:
-      "No. Es un departamento con dirección, miembros, procesos, memoria y entregables. La diferencia es que propone y ejecuta, no solo responde.",
+      "No. Es un equipo con dirección, miembros, memoria, tareas y entregables. La diferencia es que propone y ejecuta, no se limita a contestar.",
   },
   {
-    question: "¿Qué ocurre después de contratar?",
+    question: "¿Necesito aprobación para cada cosa?",
     answer:
-      "En menos de una hora se crea tu instancia privada, se prepara el espacio de trabajo y se inicia un onboarding guiado con el Director de Incorporación.",
-  },
-  {
-    question: "¿Cada empresa tiene una instancia independiente?",
-    answer:
-      "Sí. Cada empresa opera sobre una instancia con datos, credenciales y memoria separadas. Nada se comparte entre clientes.",
-  },
-  {
-    question: "¿Puede publicar o enviar correos automáticamente?",
-    answer:
-      "No sin tu aprobación. El equipo prepara borradores y solicitudes que tú apruebas desde el panel, Telegram o email.",
-  },
-  {
-    question: "¿Puedo controlar sus permisos?",
-    answer:
-      "Sí. Cada acción del equipo se clasifica en tres niveles: puede hacerlo, necesita aprobación, o está bloqueada. Tú decides la política.",
-  },
-  {
-    question: "¿Qué herramientas puedo conectar?",
-    answer:
-      "Gmail, Google Calendar, Google Drive, HubSpot, Pipedrive, WordPress, Buffer, Telegram, Meta, LinkedIn, Canva, YouTube y seguimos añadiendo.",
-  },
-  {
-    question: "¿Puedo usarlo desde Telegram?",
-    answer:
-      "Sí. Puedes pedir informes, aprobar publicaciones y recibir alertas desde un chat sincronizado con el panel web.",
-  },
-  {
-    question: "¿Puede aprender mi marca?",
-    answer:
-      "Sí. Durante el onboarding el equipo aprende tu tono, paleta, tipografías, casos de éxito y reglas de comunicación.",
-  },
-  {
-    question: "¿Puedo contratar varios departamentos?",
-    answer:
-      "Sí. El plan Business incluye hasta tres departamentos simultáneos coordinados entre sí, con una dirección común.",
-  },
-  {
-    question: "¿Qué ocurre con mis datos si cancelo?",
-    answer:
-      "Tienes 30 días para reactivar o exportar toda la información. Pasado ese plazo, la instancia y los datos asociados se eliminan.",
-  },
-  {
-    question: "¿El departamento reemplaza asesoramiento profesional?",
-    answer:
-      "No. La plataforma ejecuta operativa bajo tus reglas. Decisiones estratégicas, legales o financieras siguen requiriendo criterio humano.",
-  },
-  {
-    question: "¿Existen límites de uso?",
-    answer:
-      "Cada plan incluye un uso mensual adecuado al alcance habitual. Consumos intensivos de generación de vídeo, audio o campañas masivas pueden requerir créditos adicionales.",
+      "Solo para lo que importa. El departamento prepara borradores y los ejecuta cuando tú apruebas. Lo rutinario lo hace solo bajo tus reglas.",
   },
 ];

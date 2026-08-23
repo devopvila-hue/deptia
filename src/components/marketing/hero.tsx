@@ -70,7 +70,7 @@ export function Hero() {
                 {copy.hero.primaryCta}
               </Button>
               <Button
-                href="/como-funciona"
+                href="/departamentos"
                 variant="secondary"
                 size="lg"
                 onClick={() => track("secondary_hero_cta_clicked")}
@@ -112,11 +112,11 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                    Diagnóstico en curso
+                    Departamento activo
                   </span>
                 </div>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-foreground/70">
-                  5 min
+                  24 / 7
                 </span>
               </div>
               <div className="pt-8">
