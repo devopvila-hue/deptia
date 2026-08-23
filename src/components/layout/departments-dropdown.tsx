@@ -2,15 +2,26 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, ArrowUpRight, Sparkles } from "lucide-react";
-import { departmentsNavigation } from "@/config/navigation";
+import { departments } from "@/data/departments";
 import { Icon, AGENT_ICONS } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
+import { localePrefixPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/config";
 
 const HOVER_TOLERANCE_MS = 120;
 
-export function DepartmentsDropdown() {
+export function DepartmentsDropdown({ locale }: { locale: Locale }) {
+  const tNav = useTranslations("nav");
+  const tDepts = useTranslations("departamentos");
+  const tChrome = useTranslations("chrome");
+
+  const triggerLabel = tNav("main.0.label");
+  const seeAllLabel = tChrome("dropdownSeeAll");
+  const seeAllHint = tChrome("dropdownSeeAllHint");
+
   const [open, setOpen] = useState(false);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const openTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -26,7 +37,6 @@ export function DepartmentsDropdown() {
       if (e.key === "Escape") {
         e.preventDefault();
         setOpen(false);
-        // Restore focus to the trigger button
         const btn = document.getElementById(buttonId);
         btn?.focus();
       }
@@ -73,7 +83,6 @@ export function DepartmentsDropdown() {
     }, HOVER_TOLERANCE_MS);
   };
 
-  // Cleanup timeouts on unmount
   useEffect(() => {
     return () => {
       if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
@@ -97,7 +106,6 @@ export function DepartmentsDropdown() {
         onClick={() => setOpen((p) => !p)}
         onFocus={scheduleOpen}
         onBlur={(e) => {
-          // Only close if focus moves outside the container
           if (!containerRef.current?.contains(e.relatedTarget as Node | null)) {
             scheduleClose();
           }
@@ -108,7 +116,7 @@ export function DepartmentsDropdown() {
           open && "bg-surface-soft/60 text-foreground"
         )}
       >
-        Departamentos
+        {triggerLabel}
         <ChevronDown
           className={cn(
             "h-3.5 w-3.5 transition-transform duration-200",
@@ -136,59 +144,57 @@ export function DepartmentsDropdown() {
                 "ring-1 ring-inset ring-foreground/[0.08]"
               )}
             >
-              {/* soft top glow */}
               <div
                 className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent"
                 aria-hidden
               />
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2">
-                {departmentsNavigation.map((item) => {
-                  const slug = item.href.split("/").pop() ?? "";
-                  const iconCode = AGENT_ICONS[slug];
+                {departments.map((d) => {
+                  const iconCode = AGENT_ICONS[d.slug];
                   return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    role="menuitem"
-                    tabIndex={0}
-                    onClick={() => setOpen(false)}
-                    className={cn(
-                      "group relative flex items-start gap-3 rounded-xl border border-transparent px-3 py-3 transition-all",
-                      "hover:border-border hover:bg-surface-soft/40 focus-visible:border-border focus-visible:bg-surface-soft/40 focus-visible:outline-none"
-                    )}
-                  >
-                    <span
-                      className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-border bg-[#0c0e0a]"
-                      style={{ color: item.color }}
-                      aria-hidden
-                    >
-                      {iconCode ? (
-                        <Icon code={iconCode} className="h-4 w-4" strokeWidth={2} />
-                      ) : (
-                        <DepartmentMark index={0} />
+                    <Link
+                      key={d.slug}
+                      href={localePrefixPath(locale, `/departamentos/${d.slug}`)}
+                      role="menuitem"
+                      tabIndex={0}
+                      onClick={() => setOpen(false)}
+                      className={cn(
+                        "group relative flex items-start gap-3 rounded-xl border border-transparent px-3 py-3 transition-all",
+                        "hover:border-border hover:bg-surface-soft/40 focus-visible:border-border focus-visible:bg-surface-soft/40 focus-visible:outline-none"
                       )}
-                    </span>
-                    <span className="flex-1">
-                      <span className="flex items-center justify-between gap-2">
-                        <span className="text-[0.9375rem] font-medium text-foreground">
-                          {item.label}
+                    >
+                      <span
+                        className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-border bg-[#0c0e0a]"
+                        style={{ color: d.color.base }}
+                        aria-hidden
+                      >
+                        {iconCode ? (
+                          <Icon code={iconCode} className="h-4 w-4" strokeWidth={2} />
+                        ) : (
+                          <DepartmentMark index={0} />
+                        )}
+                      </span>
+                      <span className="flex-1">
+                        <span className="flex items-center justify-between gap-2">
+                          <span className="text-[0.9375rem] font-medium text-foreground">
+                            {tDepts(`dept.${d.slug}.shortName`)}
+                          </span>
+                          <ArrowUpRight
+                            className="h-3.5 w-3.5 text-muted opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100"
+                            aria-hidden
+                          />
                         </span>
-                        <ArrowUpRight
-                          className="h-3.5 w-3.5 text-muted opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100"
-                          aria-hidden
-                        />
+                        <span className="mt-0.5 block text-[0.8125rem] leading-snug text-muted text-pretty">
+                          {tDepts(`dept.${d.slug}.tagline`)}
+                        </span>
                       </span>
-                      <span className="mt-0.5 block text-[0.8125rem] leading-snug text-muted text-pretty">
-                        {item.description}
-                      </span>
-                    </span>
-                  </Link>
+                    </Link>
                   );
                 })}
               </div>
               <div className="border-t border-border/60 bg-surface-soft/80 px-4 py-3">
                 <Link
-                  href="/departamentos"
+                  href={localePrefixPath(locale, "/departamentos")}
                   role="menuitem"
                   tabIndex={0}
                   onClick={() => setOpen(false)}
@@ -199,12 +205,15 @@ export function DepartmentsDropdown() {
                 >
                   <span className="inline-flex items-center gap-2">
                     <Sparkles className="h-3.5 w-3.5 text-accent" aria-hidden />
-                    Ver todos los departamentos
+                    {seeAllLabel}
                   </span>
-                  <ArrowUpRight
-                    className="h-3.5 w-3.5 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    aria-hidden
-                  />
+                  <span className="inline-flex items-center gap-2 text-muted">
+                    <span className="hidden text-[0.75rem] sm:inline">{seeAllHint}</span>
+                    <ArrowUpRight
+                      className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      aria-hidden
+                    />
+                  </span>
                 </Link>
               </div>
             </div>
@@ -216,7 +225,6 @@ export function DepartmentsDropdown() {
 }
 
 function DepartmentMark({ index }: { index: number }) {
-  // Minimal SVG mark per slot (no theme dependency).
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden>
       <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" strokeWidth="1.2" opacity="0.4" />

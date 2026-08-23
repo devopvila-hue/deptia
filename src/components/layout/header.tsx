@@ -10,6 +10,7 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { Button } from "@/components/ui/button";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
+import { DepartmentsDropdown } from "@/components/layout/departments-dropdown";
 import { departments } from "@/data/departments";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
@@ -34,7 +35,6 @@ function BrandLink({ className, compact }: { className?: string; compact?: boole
 export function Header({ locale }: { locale: Locale }) {
   const tChrome = useTranslations("chrome");
   const tNav = useTranslations("nav");
-  const tLabel = tNav("main.0.label");
   const tSignIn = tChrome("signIn");
   const tCreate = tChrome("createTeam");
   const tOpenMenu = tChrome("openMenu");
@@ -84,12 +84,7 @@ export function Header({ locale }: { locale: Locale }) {
           <BrandLink compact={compact} />
 
           <nav aria-label={tHeaderAria} className="hidden items-center gap-1 lg:flex">
-            <Link
-              href={localePrefixPath(locale, "/departamentos")}
-              className="rounded-md px-3 py-1.5 text-[0.9375rem] text-muted transition-colors hover:bg-surface-soft/60 hover:text-foreground"
-            >
-              {tLabel}
-            </Link>
+            <DepartmentsDropdown locale={locale} />
             {mainItems
               .filter((item) => item.href !== "/departamentos")
               .map((item) => (

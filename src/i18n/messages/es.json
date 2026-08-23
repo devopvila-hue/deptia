@@ -37,6 +37,8 @@
     "mobileCreate": "Crear mi equipo",
     "mobileSignIn": "Ya tengo cuenta",
     "mobileVersion": "v1 · ES",
+    "dropdownSeeAll": "Ver todos los departamentos",
+    "dropdownSeeAllHint": "Catálogo completo",
     "signIn": "Acceder",
     "createTeam": "Crear mi equipo",
     "languageSwitcher": {
