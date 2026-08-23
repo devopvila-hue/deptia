@@ -6,7 +6,7 @@ import { ArrowUpRight, Play, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { CompanyOrb } from "@/components/visualizations/company-orb";
+import { ChatPreview } from "@/components/visualizations/chat-preview";
 import { track } from "@/lib/analytics";
 import { copy } from "@/config/site";
 
@@ -120,7 +120,7 @@ export function Hero() {
                   24 / 7
                 </span>
               </div>
-              <CompanyOrb className="min-h-0 flex-1" />
+              <ChatPreview className="min-h-0 flex-1" />
             </div>
           </motion.div>
         </div>
