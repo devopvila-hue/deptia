@@ -6,7 +6,7 @@ import { ArrowUpRight, Play, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { CompanyOrb } from "@/components/visualizations/company-orb";
+import { ChatPreview } from "@/components/visualizations/chat-preview";
 import { track } from "@/lib/analytics";
 import { copy } from "@/config/site";
 
@@ -107,8 +107,9 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:col-span-5"
           >
-            <div className="relative rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-4 sm:p-6">
-              <div className="absolute inset-x-4 top-0 flex items-center justify-between border-b border-border/60 pb-2">
+            <div className="relative flex h-full min-h-[460px] flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-4 sm:p-5">
+              {/* Status pill */}
+              <div className="mb-3 flex items-center justify-between border-b border-border/60 pb-2.5">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
@@ -119,9 +120,7 @@ export function Hero() {
                   24 / 7
                 </span>
               </div>
-              <div className="pt-8">
-                <CompanyOrb />
-              </div>
+              <ChatPreview className="min-h-0 flex-1" />
             </div>
           </motion.div>
         </div>

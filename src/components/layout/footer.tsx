@@ -13,20 +13,13 @@ export function Footer() {
           {/* Columna izquierda: marca + descripción + CTA */}
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3">
-              <div className="inline-grid h-7 w-7 grid-cols-2 grid-rows-2 gap-[2px]" aria-hidden>
-                <span className="rounded-[2px] bg-accent" />
-                <span className="rounded-[2px] border border-foreground/50" />
-                <span className="rounded-[2px] border border-foreground/50" />
-                <span className="rounded-[2px] bg-foreground" />
-              </div>
-              <div className="flex flex-col gap-0.5">
-                <span className="font-display text-[1.05rem] font-semibold tracking-[-0.02em] text-foreground">
-                  {brand.name}
-                </span>
-                <span className="font-mono text-[0.55rem] font-medium uppercase tracking-[0.22em] opacity-55">
-                  Business Operating System
-                </span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-light.svg"
+                alt="DEPARTIFY"
+                className="h-7 w-auto shrink-0 select-none"
+                draggable={false}
+              />
             </div>
 
             <p className="mt-6 max-w-md font-display text-[1.5rem] leading-[1.15] tracking-[-0.02em] text-foreground text-pretty sm:text-[1.75rem]">

@@ -19,12 +19,12 @@ function BrandLink({ className, compact }: { className?: string; compact?: boole
       href="/"
       className={cn(
         "group relative inline-flex items-center font-display text-foreground",
-        compact ? "text-[0.95rem]" : "text-[1.15rem]",
+        compact ? "h-7" : "h-8",
         className
       )}
       aria-label={`${brand.name} — Inicio`}
     >
-      <BrandMark showTagline={!compact} />
+      <BrandMark className={compact ? "h-7" : "h-8"} />
     </Link>
   );
 }

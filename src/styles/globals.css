@@ -215,3 +215,14 @@
     background-size: 20px 20px;
   }
 }
+
+/* ────────────────────────────────────────────────────────────────────
+   Regla global: reduce el hueco entre el menú sticky y el primer texto
+   en TODAS las páginas. Override de las utilidades pt-* de Tailwind
+   sobre la primera sección directa de <main> y sobre su Container
+   (que es donde los Hero/secciones montan pt-20 sm:pt-28 lg:pt-32).
+   ──────────────────────────────────────────────────────────────────── */
+main > section:first-of-type,
+main > section:first-of-type > div.relative {
+  padding-top: clamp(2rem, 4.5vw, 3.5rem) !important;
+}
