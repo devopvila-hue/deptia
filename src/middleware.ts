@@ -73,10 +73,13 @@ export const config = {
     /*
      * Aplica a todas las rutas excepto:
      *  - archivos estáticos, API, _next
-     *  - archivos servidos desde /public directamente (favicon, sitemap, robots)
+     *  - archivos servidos desde /public directamente (cualquier asset con
+     *    extensión: svg, png, jpg, jpeg, webp, ico, gif, avif, woff, woff2, css, js)
+     *    Sin esto, next-intl reescribe /logo-light.svg → /es/logo-light.svg y el
+     *    logo (y cualquier asset de /public) devuelve 404.
      *  - rutas de aplicación (/admin, /panel, /acceso, /registro): no son landing
      *    y no deben pasar por el middleware de i18n para preservar sus URLs originales.
      */
-    "/((?!api|_next/static|_next/image|favicon.svg|robots.txt|sitemap.xml|admin|panel|acceso|registro).*)",
+    "/((?!api|_next/static|_next/image|robots.txt|sitemap.xml|admin|panel|acceso|registro|.*\\.(?:svg|png|jpg|jpeg|webp|ico|gif|avif|woff2?|css|js|map|txt|xml)$).*)",
   ],
 };
