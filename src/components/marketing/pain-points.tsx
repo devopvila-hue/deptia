@@ -1,28 +1,26 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { copy } from "@/config/site";
 
-// TU DÍA A DÍA — los 30 momentos convertidos en problemas reales.
-// Sin features. Sin promesas. Solo lo que Manolo vive.
 export function PainPoints() {
+  const t = useTranslations("home.painPoints");
+  const items = t.raw("items") as { head: string; body: string }[];
   return (
     <section className="border-b border-border bg-background">
       <Container width="wide" className="py-20 sm:py-24">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>{copy.painPoints.eyebrow}</Eyebrow>
+          <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="mt-5 text-display text-[clamp(2rem,4vw,3rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-            {copy.painPoints.title}
+            {t("title")}
           </h2>
-          <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted">
-            {copy.painPoints.subtitle}
-          </p>
+          <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted">{t("subtitle")}</p>
         </div>
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {copy.painPoints.items.map((item, i) => (
+          {items.map((item, i) => (
             <motion.div
               key={item.head}
               initial={{ opacity: 0, y: 16 }}
@@ -37,9 +35,7 @@ export function PainPoints() {
               <h3 className="mt-4 font-display text-[1.25rem] leading-[1.2] tracking-[-0.015em] text-foreground">
                 {item.head}
               </h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
-                {item.body}
-              </p>
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{item.body}</p>
             </motion.div>
           ))}
         </div>

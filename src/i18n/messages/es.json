@@ -1,0 +1,272 @@
+{
+  "brand": {
+    "name": "Departify",
+    "tagline": "Te devolvemos tiempo",
+    "shortTagline": "Te devolvemos tiempo",
+    "description": "Departify incorpora departamentos que conocen tu empresa, trabajan con las herramientas que ya utilizas y se ocupan de tareas que hoy dependen de ti. Tú decides qué delegar. Tú apruebas lo importante.",
+    "titleTagline": "Departify. Business Operating System",
+    "footerCta": "Volver a departify.app →"
+  },
+
+  "nav": {
+    "main": [
+      { "label": "Departamentos", "description": "Equipos listos para tu empresa", "href": "/departamentos" },
+      { "label": "Cómo funciona", "description": "Activación en minutos", "href": "/como-funciona" },
+      { "label": "Seguridad", "description": "Instancia privada, control real", "href": "/seguridad" },
+      { "label": "Precios", "description": "Planes claros y previsibles", "href": "/precios" },
+      { "label": "Recursos", "description": "Guías, casos y actualizaciones", "href": "/recursos" }
+    ],
+    "mobileExtra": [
+      { "label": "Ver demo", "description": "Panel en vivo", "href": "/demo" },
+      { "label": "Contacto", "description": "Hablamos cuando quieras", "href": "/contacto" }
+    ]
+  },
+
+  "chrome": {
+    "skipToContent": "Saltar al contenido principal",
+    "headerAria": "Principal",
+    "openMenu": "Abrir menú",
+    "menuLabel": "Menú",
+    "closeMenu": "Cerrar menú",
+    "mobileMenuAria": "Menú principal",
+    "mobileSectionNav": "Navegación",
+    "mobileSectionDepts": "Departamentos",
+    "mobileSeeAll": "Ver todos los departamentos",
+    "mobileAvailableBadge": "Disponible",
+    "mobileInstanceHint": "Cada empresa dispone de una instancia privada, lista en menos de una hora.",
+    "mobileCreate": "Crear mi equipo",
+    "mobileSignIn": "Ya tengo cuenta",
+    "mobileVersion": "v1 · ES",
+    "signIn": "Acceder",
+    "createTeam": "Crear mi equipo",
+    "languageSwitcher": {
+      "label": "Idioma",
+      "es": "Español",
+      "en": "English"
+    }
+  },
+
+  "footer": {
+    "brandAlt": "DEPARTIFY",
+    "titleTagline": "Departify. Business Operating System",
+    "columns": [
+      {
+        "title": "Producto",
+        "links": [
+          { "label": "Departamentos", "href": "/departamentos" },
+          { "label": "Cómo funciona", "href": "/como-funciona" },
+          { "label": "Precios", "href": "/precios" },
+          { "label": "Recursos", "href": "/recursos" }
+        ]
+      },
+      {
+        "title": "Empresa",
+        "links": [
+          { "label": "Seguridad", "href": "/seguridad" },
+          { "label": "Privacidad", "href": "/privacidad" },
+          { "label": "Términos", "href": "/terminos" },
+          { "label": "Cookies", "href": "/cookies" }
+        ]
+      },
+      {
+        "title": "Ecosistema",
+        "links": [
+          { "label": "departify.app", "href": "https://departify.app" },
+          { "label": "app.departify.app", "href": "https://app.departify.app" },
+          { "label": "docs.departify.app", "href": "https://docs.departify.app" },
+          { "label": "api.departify.app", "href": "https://api.departify.app" }
+        ]
+      }
+    ],
+    "copyright": "© {year} Departify",
+    "madeIn": "Made in Spain"
+  },
+
+  "home": {
+    "hero": {
+      "eyebrow": "TU EMPRESA. MÁS EQUIPO.",
+      "title": "Departamentos con IA que trabajan para tu empresa 24/7.",
+      "subtitle": "Marketing, SEO y más departamentos especializados que ejecutan trabajo, monitorizan tu negocio y te mantienen informado de lo que importa.",
+      "primaryCta": "Empieza con Departify",
+      "secondaryCta": "Ver departamentos",
+      "microtext": "Sin tarjeta. Sin permanencia. Activa cuando quieras.",
+      "socialProof": "Tu empresa no necesita otro chatbot. Necesita que el trabajo se haga."
+    },
+    "wow": {
+      "eyebrow": "Cómo trabajan",
+      "title": "Tu negocio no deja de moverse. Tus departamentos tampoco.",
+      "subtitle": "Cada departamento ejecuta trabajo real, monitoriza lo importante y te mantiene al mando. Así se traduce eso en tu día a día:",
+      "steps": [
+        { "n": "01", "head": "Marcar los objetivos.", "body": "Tú defines qué necesita conseguir tu empresa. Sin tecnicismos. Sin formulario interminable." },
+        { "n": "02", "head": "El departamento empieza a trabajar.", "body": "Investiga, prepara borradores, planifica campañas, revisa datos. Tú recibes el trabajo hecho, no solo respuestas." },
+        { "n": "03", "head": "Monitoriza lo que importa.", "body": "El departamento vigila tus indicadores y te avisa cuando hay algo que requiere tu atención." },
+        { "n": "04", "head": "Tú apruebas lo que cuenta.", "body": "Cuando hace falta decidir, decides tú. El departamento propone. Tú mantienes el control." }
+      ]
+    },
+    "painPoints": {
+      "eyebrow": "Lo que se queda sin hacer",
+      "title": "Trabajo importante que siempre se queda pendiente.",
+      "subtitle": "Si te identificas con alguno, hay un departamento para esto.",
+      "items": [
+        { "head": "La semana empieza y nadie sabe por dónde.", "body": "Hay 50 cosas pendientes y nadie tiene la lista viva con prioridades claras." },
+        { "head": "Clientes que se enfrían sin que te enteres.", "body": "Un seguimiento que se olvidó, una respuesta a las 11 de la noche, una oferta que nadie cerró." },
+        { "head": "Campañas sin continuidad.", "body": "Empiezas fuerte, pierdes ritmo, abandonas. El siguiente trimestre empieza de cero otra vez." },
+        { "head": "Datos que nadie concilia.", "body": "El CRM dice una cosa, la facturación otra, el stock otra. Decides a ciegas." },
+        { "head": "Trabajo que solo vive en tu cabeza.", "body": "Procesos, decisiones y contexto que se pierden cuando alguien se va de vacaciones." }
+      ]
+    },
+    "diagnostics": {
+      "eyebrow": "Cómo se aprende tu negocio",
+      "title": "El departamento aprende tu empresa, no solo responde.",
+      "subtitle": "Cada departamento dedica sus primeras horas a entender tu marca, tus objetivos y tus reglas. Lo que aprende se queda en tu instancia privada.",
+      "areas": [
+        { "title": "Tu marca y tu tono.", "body": "Tono, paleta, tipografías, casos de éxito, manual de comunicación. Lo que hay que respetar siempre." },
+        { "title": "Tus objetivos del trimestre.", "body": "Qué quieres conseguir, qué prioridad tiene cada objetivo, qué ya probaste antes." },
+        { "title": "Tus herramientas de trabajo.", "body": "Correo, calendario, CRM, Drive, hojas de cálculo, calendario editorial. Trabaja con ellas." },
+        { "title": "Tus reglas de aprobación.", "body": "Qué puede hacer solo, qué necesita que le des OK, qué no hace nunca. Tú marcas los límites." },
+        { "title": "Lo que ya sabes.", "body": "Lo que tu equipo humano ya conoce. El departamento parte de ahí, no de cero cada lunes." }
+      ]
+    },
+    "recommendation": {
+      "eyebrow": "Hoy disponibles",
+      "title": "Incorpora el departamento que necesitas.",
+      "subtitle": "Hoy puedes activar estos dos departamentos. Los demás están terminando su formación interna y llegan en los próximos meses.",
+      "available": [
+        { "name": "Marketing", "description": "Estrategia, contenido, campañas y seguimiento del trabajo de marketing." },
+        { "name": "SEO", "description": "Auditoría, seguimiento y mejora continua de la visibilidad de tu negocio." }
+      ],
+      "comingSoon": ["Atención al Cliente", "Ventas", "Operaciones", "Administración", "Contenido"],
+      "availableBadge": "Disponible",
+      "comingSoonBadge": "Próximamente",
+      "footnote": "PRÓXIMAMENTE para el resto. Te avisamos cuando cada departamento esté listo para trabajar."
+    },
+    "howToStart": {
+      "eyebrow": "Cómo empezar",
+      "title": "Activa tu primer departamento en menos de una hora.",
+      "steps": [
+        { "n": "01", "title": "Elige el departamento que necesitas.", "body": "Marketing o SEO disponibles hoy. El resto, según vaya llegando." },
+        { "n": "02", "title": "El departamento aprende tu negocio.", "body": "Onboarding guiado de 30 minutos. Marca, objetivos, reglas, herramientas." },
+        { "n": "03", "title": "Empieza la primera misión.", "body": "Trabaja, monitoriza y propone. Tú apruebas lo importante. El departamento se encarga del resto." }
+      ],
+      "cta": "Empieza con Departify"
+    },
+    "faqTitle": "Las preguntas que nos hace todo el mundo.",
+    "faqEyebrow": "Preguntas",
+    "faqAfterTitle": "Si te queda alguna duda, escríbenos. Respondemos en menos de 24 horas.",
+    "faqTalkToTeam": "Hablar con el equipo",
+    "faq": [
+      { "q": "¿Qué es Departify exactamente?", "a": "Departamentos especializados que ejecutan trabajo real para tu empresa. Hoy puedes activar Marketing o SEO. Cada departamento propone, ejecuta y monitoriza bajo tus reglas." },
+      { "q": "¿Trabaja sólo o necesita que le diga qué hacer?", "a": "Tú marcas los objetivos y las reglas. El departamento investiga, prepara borradores y propone. Cuando una acción importante necesita aprobación, te consulta antes de ejecutarla." },
+      { "q": "¿Trabaja sin parar?", "a": "Sí. Tu negocio no deja de moverse y los departamentos tampoco. Monitorizan lo importante y te avisan cuando hace falta decidir algo." },
+      { "q": "¿Con qué herramientas trabaja?", "a": "Correo, calendario, CRM, Drive, redes sociales, hojas de cálculo, herramientas de diseño. Trabaja con las que ya utiliza tu empresa." },
+      { "q": "¿Necesito saber de tecnología?", "a": "No. Si sabes usar el email y un calendario, sabes usar Departify. No hay nada que instalar ni configurar." },
+      { "q": "¿Mantengo el control?", "a": "Siempre. Tú decides qué puede hacer solo, qué necesita tu aprobación y qué está bloqueado. Cambias los límites cuando quieras." },
+      { "q": "¿Cada empresa tiene su propio espacio?", "a": "Sí. Tu instancia es privada: datos separados, memoria propia, credenciales propias. Nada se mezcla con otros clientes." },
+      { "q": "¿Qué pasa con mis datos si me voy?", "a": "Tienes 30 días para descargar todo. Pasado ese plazo, la instancia y los datos asociados se eliminan. Sin permanencias, sin letra pequeña." },
+      { "q": "¿Cuánto cuesta?", "a": "Activación mensual desde 99 € por departamento. Cancela cuando quieras. Te diremos el coste exacto antes de que confirmes." },
+      { "q": "¿Puedo empezar con un solo departamento?", "a": "Sí. Empieza con Marketing o SEO y suma más departamentos según los necesites. Cada uno trabaja coordinado con los demás." },
+      { "q": "¿Es un chatbot?", "a": "No. Es un equipo con dirección, miembros, memoria, tareas y entregables. La diferencia es que propone y ejecuta, no se limita a contestar." },
+      { "q": "¿Necesito aprobación para cada cosa?", "a": "Solo para lo que importa. El departamento prepara borradores y los ejecuta cuando tú apruebas. Lo rutinario lo hace solo bajo tus reglas." }
+    ],
+    "finalCta": {
+      "badge": "Empieza hoy",
+      "title": "Tu empresa podría tener más equipo mañana mismo.",
+      "subtitle": "Activa Marketing o SEO y empieza a delegar trabajo real esta semana. Sin tarjeta. Sin permanencia.",
+      "primaryCta": "Empieza con Departify",
+      "secondaryCta": "Hablar con alguien del equipo",
+      "note": "Tú decides. Departify trabaja."
+    },
+    "productJsonLd": {
+      "name": "Departify — Departamentos con IA para tu empresa",
+      "description": "Marketing, SEO y más departamentos especializados que ejecutan trabajo, monitorizan tu negocio y te mantienen informado de lo que importa."
+    },
+    "visualization": {
+      "chatPreview": {
+        "headerTitle": "Conversación de tu empresa",
+        "newConversation": "Nueva conversación",
+        "compactContext": "Compactar contexto",
+        "bubbleFrom": "Departify",
+        "bubblePlan1": "Plan de Marketing listo.",
+        "bubblePlan2": "Guardado en {folder} con sus carpetas de trabajo y 0 documentos. Si ya existía algún elemento, lo he reutilizado para no duplicarlo.",
+        "openInDrive": "Abrir en Google Drive",
+        "taskDone": "Terminado",
+        "taskTitle": "Plan de Marketing listo",
+        "taskDescription": "Plan de Marketing guardado en {folder}.",
+        "inputPlaceholder": "Pregunta o pide algo a tu empresa…",
+        "sendAria": "Enviar",
+        "statusBadge": "Departamento activo",
+        "statusClock": "24 / 7"
+      }
+    }
+  },
+  "departamentos": {
+    "eyebrow": "Catálogo",
+    "title": "Cada departamento, un equipo completo. No un agente aislado.",
+    "subtitle": "Selecciona el equipo que necesita tu empresa. Cada uno incluye dirección, miembros especializados, memoria de marca, tareas, entregables y aprobaciones.",
+    "card": {
+      "available": "Disponible",
+      "since": "Desde",
+      "perMonth": "/ mes",
+      "enter": "Entrar"
+    },
+    "dept": {
+      "marketing": { "name": "Departamento de Marketing", "shortName": "Marketing", "promise": "Estrategia, campañas, email, análisis y coordinación de canales en un solo equipo.", "tagline": "Estrategia, campañas y crecimiento en un solo equipo.", "category": "Crecimiento" },
+      "ventas": { "name": "Departamento de Ventas", "shortName": "Ventas", "promise": "Pipeline activo, seguimiento constante y propuestas listas para cada cuenta.", "tagline": "Pipeline activo, seguimiento constante, propuestas listas.", "category": "Comercial" },
+      "contenido": { "name": "Departamento de Contenido", "shortName": "Contenido", "promise": "Dirección creativa, guiones, creatividades y producción coordinada.", "tagline": "Dirección creativa, guiones, creatividades y producción coordinada.", "category": "Creatividad" },
+      "operaciones": { "name": "Departamento de Operaciones", "shortName": "Operaciones", "promise": "Procesos, datos y optimización continua de la operativa diaria.", "tagline": "Procesos, datos y optimización de la operativa diaria.", "category": "Operaciones" },
+      "atencion-cliente": { "name": "Departamento de Atención al Cliente", "shortName": "Atención al cliente", "promise": "Soporte consistente con memoria y tono de marca las 24 horas.", "tagline": "Soporte consistente, con memoria y tono de marca.", "category": "Soporte" },
+      "seo": { "name": "Departamento SEO", "shortName": "SEO", "promise": "Auditorías, contenidos y autoridad construida a largo plazo.", "tagline": "Auditorías, contenidos y autoridad construida a largo plazo.", "category": "Crecimiento" },
+      "administracion": { "name": "Departamento Administrativo", "shortName": "Administración", "promise": "Facturación, conciliaciones y reporting financiero controlado.", "tagline": "Facturación, conciliaciones y reporting financiero controlado.", "category": "Finanzas" },
+      "rrhh": { "name": "Departamento de Recursos Humanos", "shortName": "Recursos Humanos", "promise": "Personas, selección, onboarding y cultura, ejecutados con tu voz.", "tagline": "Personas, selección, onboarding y cultura, ejecutados con tu voz.", "category": "Personas" },
+      "logistica": { "name": "Departamento de Logística", "shortName": "Logística", "promise": "Inventario, rutas y proveedores coordinados bajo control humano.", "tagline": "Inventario, rutas y proveedores coordinados bajo control humano.", "category": "Operaciones" },
+      "growth": { "name": "Departamento de Crecimiento", "shortName": "Crecimiento", "promise": "Experimentación continua, demanda outbound y aprendizaje sobre cada canal — bajo tu control.", "tagline": "Experimentación, demanda y aprendizaje continuo sobre cada canal.", "category": "Crecimiento" },
+      "analitica": { "name": "Departamento de Analítica", "shortName": "Analítica", "promise": "Dashboards, alertas y aprendizaje continuo sobre cada fuente de datos de tu empresa.", "tagline": "Datos vivos, alertas accionables y aprendizaje continuo.", "category": "Operaciones" },
+      "finanzas": { "name": "Departamento de Finanzas", "shortName": "Finanzas", "promise": "Conciliación, presupuestos y reporting financiero — con la precisión que tu contable merece.", "tagline": "Cuentas conciliadas, presupuestos vivos y reporting sin sorpresas.", "category": "Operaciones" },
+      "soporte": { "name": "Departamento de Soporte", "shortName": "Soporte", "promise": "Atención al cliente multicanal con detección temprana de cuentas en riesgo.", "tagline": "Atención consistente, base viva y clientes en riesgo detectados a tiempo.", "category": "Atención al cliente" },
+      "legal": { "name": "Departamento Legal", "shortName": "Legal", "promise": "Contratos revisados, plazos bajo control y compliance automatizado.", "tagline": "Contratos revisados, plazos controlados y compliance al día.", "category": "Cumplimiento" },
+      "gobierno": { "name": "Departamento de Gobierno", "shortName": "Gobierno", "promise": "Riesgos controlados, decisiones trazables y controles preventivos sobre la operativa.", "tagline": "Riesgos a la vista, controles preventivos y decisiones trazables.", "category": "Cumplimiento" }
+    },
+    "slug": {
+      "breadcrumb": { "catalog": "Departamentos" },
+      "cta": { "hire": "Contratar este departamento", "demo": "Ver demo del panel" },
+      "price": {
+        "from": "Desde",
+        "perMonth": "/ mes",
+        "privateInstance": "Instancia privada",
+        "webTelegram": "Web + Telegram",
+        "vatExcluded": "IVA no incluido",
+        "feature": {
+          "private": "Instancia privada dedicada",
+          "onboarding": "Onboarding guiado",
+          "integrationsPrefix": "Integraciones:",
+          "integrationsSuffix": "disponibles",
+          "webTelegram": "Panel web + Telegram",
+          "drafts": "Borradores y aprobaciones",
+          "reports": "Informes operativos"
+        }
+      },
+      "priceSection": {
+        "eyebrow": "Precio",
+        "title": "Un precio, sin extras ocultos",
+        "body": "Este departamento puede incluirse en cualquiera de nuestros planes. En el Starter opera con su propio equipo, en el Business se coordina con otros."
+      },
+      "notice": {
+        "eyebrow": "EN CONSTRUCCIÓN",
+        "title": "El detalle completo se está traduciendo.",
+        "body": "Estamos localizando el contenido profundo de cada departamento (problemas, miembros, capacidades, misiones, permisos). Mientras tanto, puedes ver este departamento en español.",
+        "ctaEs": "Ver detalle en español",
+        "ctaBack": "Volver al catálogo"
+      },
+      "image": {
+        "badge": "Imagen editorial",
+        "caption": "Sala de trabajo del departamento. Render editorial, 2K."
+      }
+    }
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Esta página aún no existe en este idioma.",
+    "body": "Estamos traduciendo el contenido. Mientras tanto, vuelve a la portada o explora el catálogo de departamentos.",
+    "primaryCta": "Volver al inicio"
+  }
+}

@@ -7,6 +7,7 @@ import { VideoPlaceholder } from "@/components/visualizations/video-placeholder"
 import { FinalCta } from "@/components/marketing/final-cta";
 import { ArrowUpRight } from "lucide-react";
 import { brand } from "@/config/brand";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Cómo funciona",
@@ -88,7 +89,8 @@ const STEPS = [
   },
 ];
 
-export default function HowItWorksPage() {
+export default function HowItWorksPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/como-funciona");
   return (
     <>
       {/* Hero */}

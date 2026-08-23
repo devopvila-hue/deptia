@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LegalPage } from "@/components/layout/legal-page";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Términos de servicio",
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
 
 const UPDATED = "1 de octubre de 2025";
 
-export default function TermsPage() {
+export default function TermsPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/terminos");
   return (
     <LegalPage
       index="02"

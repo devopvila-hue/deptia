@@ -1,13 +1,16 @@
+import { getTranslations } from "next-intl/server";
 import { brand } from "@/config/brand";
+import type { Locale } from "@/i18n/config";
 
-export function OrganizationJsonLd() {
+export async function OrganizationJsonLd({ locale }: { locale: Locale }) {
+  const tBrand = await getTranslations({ locale, namespace: "brand" });
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: brand.name,
+    name: tBrand("name"),
     legalName: brand.legalName,
     url: brand.url,
-    description: brand.description,
+    description: tBrand("description"),
     logo: `${brand.url}/logo.svg`,
     foundingDate: `${brand.foundedYear}`,
     address: {
@@ -99,10 +102,7 @@ export function FAQJsonLd({ items }: { items: { question: string; answer: string
     mainEntity: items.map((i) => ({
       "@type": "Question",
       name: i.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: i.answer,
-      },
+      acceptedAnswer: { "@type": "Answer", text: i.answer },
     })),
   };
   return (

@@ -7,6 +7,7 @@ import { IsolatedInstances } from "@/components/visualizations/isolated-instance
 import { ShieldCheck, Lock, Database, FileLock, Users, Eye, MailCheck, KeyRound } from "lucide-react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Seguridad",
@@ -106,7 +107,8 @@ const RESERVED = [
   },
 ];
 
-export default function SecurityPage() {
+export default function SecurityPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/seguridad");
   return (
     <>
       {/* Hero */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DemoPanel } from "@/components/demo/demo-panel";
 import { brand } from "@/config/brand";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Demo del panel",
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function DemoPage() {
+export default function DemoPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/demo");
   return <DemoPanel />;
 }

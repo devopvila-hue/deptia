@@ -5,6 +5,7 @@ import { FinalCta } from "@/components/marketing/final-cta";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Recursos",
@@ -63,7 +64,8 @@ const RESOURCES = [
   },
 ];
 
-export default function ResourcesPage() {
+export default function ResourcesPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/recursos");
   return (
     <>
       <section className="relative border-b border-border">

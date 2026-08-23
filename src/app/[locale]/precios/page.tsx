@@ -5,6 +5,7 @@ import { Pricing } from "@/components/marketing/pricing";
 import { FAQ } from "@/components/ui/faq";
 import { FinalCta } from "@/components/marketing/final-cta";
 import { brand } from "@/config/brand";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Precios",
@@ -53,7 +54,8 @@ const PRICING_FAQ = [
   },
 ];
 
-export default function PricingPage() {
+export default function PricingPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/precios");
   return (
     <>
       <section className="relative border-b border-border">

@@ -2,12 +2,13 @@
 
 import { motion } from "motion/react";
 import { ArrowUpRight, Play } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics";
-import { copy } from "@/config/site";
 
 export function FinalCta() {
+  const t = useTranslations("home.finalCta");
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
@@ -29,7 +30,7 @@ export function FinalCta() {
             className="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted"
           >
             <span className="h-1 w-1 rounded-full bg-accent" />
-            {copy.finalCta.badge}
+            {t("badge")}
             <span className="h-1 w-1 rounded-full bg-accent" />
           </motion.span>
 
@@ -40,7 +41,7 @@ export function FinalCta() {
             transition={{ duration: 0.6 }}
             className="mt-6 text-display text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground"
           >
-            {copy.finalCta.title}
+            {t("title")}
           </motion.h2>
 
           <motion.p
@@ -50,7 +51,7 @@ export function FinalCta() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-6 text-[1.0625rem] leading-relaxed text-muted text-pretty"
           >
-            {copy.finalCta.subtitle}
+            {t("subtitle")}
           </motion.p>
 
           <motion.div
@@ -67,7 +68,7 @@ export function FinalCta() {
               onClick={() => track("hero_cta_clicked", { source: "final_cta" })}
               rightIcon={<ArrowUpRight className="h-4 w-4" />}
             >
-              {copy.finalCta.primaryCta}
+              {t("primaryCta")}
             </Button>
             <Button
               href="/contacto"
@@ -75,7 +76,7 @@ export function FinalCta() {
               size="xl"
               leftIcon={<Play className="h-3.5 w-3.5 fill-current" />}
             >
-              {copy.finalCta.secondaryCta}
+              {t("secondaryCta")}
             </Button>
           </motion.div>
 
@@ -86,7 +87,7 @@ export function FinalCta() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-[0.875rem] text-muted text-pretty"
           >
-            {copy.finalCta.note}
+            {t("note")}
           </motion.p>
         </div>
       </Container>

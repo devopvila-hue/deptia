@@ -1,30 +1,31 @@
 /**
- * Middleware de Next.js — refresca la sesión de Supabase y
- * protege las rutas que requieren autenticación.
- *
- * - Rutas públicas: libres.
- * - /acceso, /registro: solo si NO hay sesión activa; si la hay,
- *   se redirige a /panel.
- * - /panel/**: requiere sesión activa.
- * - /admin/**: requiere sesión con rol super_admin (verificación server-side).
- *
- * Si Supabase no está configurado, el middleware es no-op (no rompe build/dev).
+ * Middleware de Next.js:
+ * 1. Manejo de sesión Supabase y rutas protegidas (existente).
+ * 2. i18n — next-intl middleware combina detección de locale + Supabase.
+ *    Detección por navegador DESACTIVADA (localePrefix: 'as-needed' + no cookie):
+ *    la URL es la autoridad del idioma. Determinista.
  */
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from "@/i18n/routing";
 
 const PROTECTED_PREFIXES = ["/panel", "/admin"];
 const AUTH_PAGES = ["/acceso", "/registro"];
 
+const intl = createIntlMiddleware(routing);
+
 export async function middleware(request: NextRequest) {
+  // 1) i18n — primero decide el locale y construye response con headers correctos.
+  const intlResponse = intl(request);
+
+  // 2) Supabase — refresca sesión si existe, sobre el response de i18n.
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !anonKey) return NextResponse.next();
 
-  let response = NextResponse.next({
-    request: { headers: request.headers },
-  });
+  if (!url || !anonKey) return intlResponse;
 
+  const response = intlResponse;
   const supabase = createServerClient(url, anonKey, {
     cookies: {
       getAll() {
@@ -38,26 +39,28 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  // Refresh session si existe — solo entonces se actualiza la cookie.
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   const path = request.nextUrl.pathname;
-  const isProtected = PROTECTED_PREFIXES.some((p) => path.startsWith(p));
-  const isAuthPage = AUTH_PAGES.some((p) => path === p || path.startsWith(p + "/"));
+
+  // Las rutas /panel y /admin existen dentro de [locale]. Quitamos el
+  // prefijo /en para evaluar el match contra los PROTECTED_PREFIXES originales.
+  const stripped = path.replace(/^\/(en|es)(?=\/|$)/, "") || "/";
+
+  const isProtected = PROTECTED_PREFIXES.some((p) => stripped.startsWith(p));
+  const isAuthPage = AUTH_PAGES.some((p) => stripped === p || stripped.startsWith(p + "/"));
 
   if (isProtected && !user) {
-    // Sprint P0 — Funnel Integrity: rutas protegidas redirigen
-    // directamente al Portal de auth. La landing NO autentica.
     const portalUrl = new URL("https://app.departify.app/login");
-    portalUrl.searchParams.set("next", path);
+    portalUrl.searchParams.set("next", stripped);
     return NextResponse.redirect(portalUrl, { status: 307 });
   }
 
   if (isAuthPage && user) {
     const redirect = request.nextUrl.clone();
-    redirect.pathname = "/panel";
+    redirect.pathname = stripped === "/acceso" || stripped === "/registro" ? "/panel" : stripped;
     redirect.search = "";
     return NextResponse.redirect(redirect);
   }
@@ -68,9 +71,12 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     /*
-     * Aplica a todas las rutas excepto archivos estáticos y API.
-     * Mantener /api/ fuera para evitar latencia extra en webhooks.
+     * Aplica a todas las rutas excepto:
+     *  - archivos estáticos, API, _next
+     *  - archivos servidos desde /public directamente (favicon, sitemap, robots)
+     *  - rutas de aplicación (/admin, /panel, /acceso, /registro): no son landing
+     *    y no deben pasar por el middleware de i18n para preservar sus URLs originales.
      */
-    "/((?!api|_next/static|_next/image|favicon.svg|robots.txt|sitemap.xml).*)",
+    "/((?!api|_next/static|_next/image|favicon.svg|robots.txt|sitemap.xml|admin|panel|acceso|registro).*)",
   ],
 };

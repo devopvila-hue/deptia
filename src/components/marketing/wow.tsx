@@ -1,27 +1,28 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { copy } from "@/config/site";
 
-// EL ORDEN — primero te escuchamos. Después te recomendamos.
 export function Wow() {
+  const t = useTranslations("home.wow");
+  const steps = t.raw("steps") as { n: string; head: string; body: string }[];
   return (
     <section className="border-b border-border bg-surface-soft/20">
       <Container width="wide" className="py-20 sm:py-28">
         <div className="mx-auto max-w-3xl text-center">
-          <Eyebrow>{copy.wow.eyebrow}</Eyebrow>
+          <Eyebrow>{t("eyebrow")}</Eyebrow>
           <h2 className="mt-5 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-            {copy.wow.title}
+            {t("title")}
           </h2>
           <p className="mt-5 text-[1.0625rem] leading-relaxed text-muted text-pretty">
-            {copy.wow.subtitle}
+            {t("subtitle")}
           </p>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
-          {copy.wow.steps.map((step, i) => (
+          {steps.map((step, i) => (
             <motion.div
               key={step.n}
               initial={{ opacity: 0, y: 16 }}
@@ -38,9 +39,7 @@ export function Wow() {
                   {step.head}
                 </h3>
               </div>
-              <p className="mt-4 text-[0.9375rem] leading-relaxed text-muted">
-                {step.body}
-              </p>
+              <p className="mt-4 text-[0.9375rem] leading-relaxed text-muted">{step.body}</p>
             </motion.div>
           ))}
         </div>

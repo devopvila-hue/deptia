@@ -3,24 +3,25 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight, Play, Shield } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ChatPreview } from "@/components/visualizations/chat-preview";
 import { track } from "@/lib/analytics";
-import { copy } from "@/config/site";
+import { localePrefixPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/config";
 
-// Hero: explica el producto en una línea.
-// Departamentos con IA que trabajan para tu empresa 24/7.
-export function Hero() {
+export function Hero({ locale }: { locale: Locale }) {
+  const t = useTranslations("home.hero");
+  const tVis = useTranslations("home.visualization.chatPreview");
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div className="absolute inset-0 grid-pattern-fine opacity-40 mask-radial-fade" aria-hidden />
       <div
         className="absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-60"
         style={{
-          background:
-            "radial-gradient(ellipse, rgba(216,255,98,0.10) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse, rgba(216,255,98,0.10) 0%, transparent 60%)",
         }}
         aria-hidden
       />
@@ -33,7 +34,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Eyebrow>{copy.hero.eyebrow}</Eyebrow>
+              <Eyebrow>{t("eyebrow")}</Eyebrow>
             </motion.div>
 
             <motion.h1
@@ -42,7 +43,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="mt-6 text-display text-[clamp(2.5rem,5.6vw,4.75rem)] leading-[1.05] tracking-[-0.03em] text-balance text-foreground"
             >
-              {copy.hero.title}
+              {t("title")}
             </motion.h1>
 
             <motion.p
@@ -51,7 +52,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-7 max-w-xl text-[clamp(1rem,1.4vw,1.1875rem)] leading-relaxed text-muted text-pretty"
             >
-              {copy.hero.subtitle}
+              {t("subtitle")}
             </motion.p>
 
             <motion.div
@@ -67,16 +68,16 @@ export function Hero() {
                 onClick={() => track("hero_cta_clicked")}
                 rightIcon={<ArrowUpRight className="h-4 w-4" />}
               >
-                {copy.hero.primaryCta}
+                {t("primaryCta")}
               </Button>
               <Button
-                href="/departamentos"
+                href={localePrefixPath(locale, "/departamentos")}
                 variant="secondary"
                 size="lg"
                 onClick={() => track("secondary_hero_cta_clicked")}
                 leftIcon={<Play className="h-3.5 w-3.5 fill-current" />}
               >
-                {copy.hero.secondaryCta}
+                {t("secondaryCta")}
               </Button>
             </motion.div>
 
@@ -87,7 +88,7 @@ export function Hero() {
               className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted"
             >
               <span className="inline-flex items-center gap-1.5">
-                <Shield className="h-3 w-3" /> {copy.hero.microtext}
+                <Shield className="h-3 w-3" /> {t("microtext")}
               </span>
             </motion.p>
 
@@ -97,7 +98,7 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.55 }}
               className="mt-3 text-[0.875rem] text-foreground/80 text-pretty"
             >
-              {copy.hero.socialProof}
+              {t("socialProof")}
             </motion.p>
           </div>
 
@@ -108,16 +109,15 @@ export function Hero() {
             className="relative lg:col-span-5"
           >
             <div className="relative flex h-full min-h-[460px] flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-4 sm:p-5">
-              {/* Status pill */}
               <div className="mb-3 flex items-center justify-between border-b border-border/60 pb-2.5">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />
                   <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
-                    Departamento activo
+                    {tVis("statusBadge")}
                   </span>
                 </div>
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-foreground/70">
-                  24 / 7
+                  {tVis("statusClock")}
                 </span>
               </div>
               <ChatPreview className="min-h-0 flex-1" />

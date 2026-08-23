@@ -1,5 +1,18 @@
+// Página /departamentos/[slug] — bilingüe.
+//
+// Estrategia:
+// - ES: render completo (problemas, miembros, capacidades, flujo, FAQ).
+// - EN: render bilingüe de chrome + secciones traducibles; el contenido profundo
+//   del data file (problems, members.responsibilities, capabilities, mission, faq)
+//   aún no está traducido. Para preservar ZERO-MIXED, las secciones data-driven
+//   se ocultan en /en y se muestra una nota localizada que enlaza al detalle ES
+//   cuando esté disponible.
+//
+// Si en el futuro se localizan los campos profundos, basta con mostrar las
+// secciones correspondientes también en /en usando t() o el helper de i18n.
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
@@ -22,6 +35,9 @@ import { formatCurrency } from "@/lib/utils";
 import { ArrowUpRight, Check, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/config";
+import { localePrefixPath } from "@/i18n/locale-path";
 
 type Params = { slug: string };
 
@@ -29,45 +45,59 @@ export function generateStaticParams(): Params[] {
   return [...departments, ...comingSoonDepartments].map((d) => ({ slug: d.slug }));
 }
 
+async function loadT(locale: Locale, namespace: string) {
+  return getTranslations({ locale, namespace });
+}
+
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Params>;
+  params: Promise<Params & { locale: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  const typedLocale = locale as Locale;
   const active = getDepartment(slug);
   const coming = active ? null : comingSoonDepartments.find((cd) => cd.slug === slug);
   if (!active && !coming) return { title: "Departamento" };
   const d = active ?? coming!;
-  const desc = "promise" in d ? d.promise : d.tagline;
+  const tDept = await loadT(typedLocale, "departamentos");
   const isComing = !active;
+  const localizedName = isComing
+    ? d.name
+    : (typedLocale === "es" ? d.name : tDept(`dept.${d.slug}.name`));
+  const canonicalPath = typedLocale === "es"
+    ? `/departamentos/${d.slug}`
+    : `/en/departamentos/${d.slug}`;
   return {
-    title: isComing ? `${d.name} (próximamente)` : d.name,
-    description: typeof desc === "string" ? desc : brand.description,
+    title: isComing ? `${localizedName} (próximamente)` : localizedName,
+    description: brand.description,
     alternates: {
-      canonical: `/departamentos/${d.slug}`,
+      canonical: canonicalPath,
+      languages: {
+        "es-ES": `/departamentos/${d.slug}`,
+        "en-US": `/en/departamentos/${d.slug}`,
+        "x-default": `/departamentos/${d.slug}`,
+      },
     },
     openGraph: {
-      title: `${d.name}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
-      description: typeof desc === "string" ? desc : brand.description,
-      url: `/departamentos/${d.slug}`,
+      title: `${localizedName}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
+      description: brand.description,
+      url: canonicalPath,
       type: "website",
-      // OG por departamento: Next 14 sirve /departamentos/<slug>/opengraph-image
-      // desde src/app/departamentos/[slug]/opengraph-image.tsx (edge runtime).
-      // Antes apuntaba a /og-default.png (404 confirmado).
       images: [
         {
           url: `/departamentos/${d.slug}/opengraph-image`,
           width: 1200,
           height: 630,
-          alt: `${d.name} · ${brand.name}`,
+          alt: `${localizedName} · ${brand.name}`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${d.name}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
-      description: typeof desc === "string" ? desc : brand.description,
+      title: `${localizedName}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
+      description: brand.description,
       images: [`/departamentos/${d.slug}/opengraph-image`],
     },
     ...(isComing ? { robots: { index: false, follow: true } } : {}),
@@ -77,14 +107,34 @@ export async function generateMetadata({
 export default async function DepartmentPage({
   params,
 }: {
-  params: Promise<Params>;
+  params: Promise<Params & { locale: string }>;
 }) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) notFound();
+  const typedLocale = locale as Locale;
   const department = getDepartment(slug);
+  const tDept = await loadT(typedLocale, "departamentos");
+  const tSlug = await loadT(typedLocale, "departamentos.slug");
+
   if (!department) {
     const coming = comingSoonDepartments.find((d) => d.slug === slug);
-    if (coming) return <ComingSoonPage department={coming} />;
+    if (coming) return <ComingSoonPage department={coming} locale={typedLocale} />;
     notFound();
+  }
+
+  // EN: renderizamos sólo chrome + secciones traducibles. El contenido profundo
+  // (problemas, miembros detallados, capacidades, misión, workflow, FAQ) sigue
+  // en ES en data/departments.ts. Para preservar ZERO-MIXED lo sustituimos
+  // por una nota localizada.
+  if (typedLocale === "en") {
+    return (
+      <DepartmentDetailEn
+        department={department}
+        locale={typedLocale}
+        tDept={tDept}
+        tSlug={tSlug}
+      />
+    );
   }
 
   const agent = getAgent(department.slug);
@@ -122,7 +172,184 @@ export default async function DepartmentPage({
   );
 }
 
-function ComingSoonPage({ department }: { department: (typeof comingSoonDepartments)[number] }) {
+/**
+ * Render bilingüe para /en/departamentos/[slug].
+ * Sólo secciones traducibles (chrome, pricing, métricas).
+ * El contenido data-driven del detalle se sustituye por una nota EN.
+ */
+function DepartmentDetailEn({
+  department,
+  locale,
+  tDept,
+  tSlug,
+}: {
+  department: (typeof departments)[number];
+  locale: Locale;
+  tDept: Awaited<ReturnType<typeof loadT>>;
+  tSlug: Awaited<ReturnType<typeof loadT>>;
+}) {
+  const localizedName = tDept(`dept.${department.slug}.name`);
+  const localizedShortName = tDept(`dept.${department.slug}.shortName`);
+  const localizedCategory = tDept(`dept.${department.slug}.category`);
+  const localizedTagline = tDept(`dept.${department.slug}.tagline`);
+  const esHref = localePrefixPath("es", `/departamentos/${department.slug}`);
+
+  return (
+    <>
+      <section className="relative overflow-hidden border-b border-border">
+        <div
+          className="absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-50"
+          style={{
+            background: `radial-gradient(ellipse, ${department.color.accent} 0%, transparent 60%)`,
+          }}
+          aria-hidden
+        />
+        <Container width="wide" className="relative py-20 sm:py-28">
+          <div className="flex items-center gap-3 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted">
+            <Link href={localePrefixPath(locale, "/departamentos")} className="hover:text-foreground">
+              {tSlug("breadcrumb.catalog")}
+            </Link>
+            <span className="text-border-strong">/</span>
+            <span className="text-foreground">{localizedShortName}</span>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 gap-12 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <Eyebrow index={`0${department.ordering}`}>{localizedCategory}</Eyebrow>
+              <h1 className="mt-6 text-display text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground">
+                {localizedName}
+              </h1>
+              <p className="mt-6 max-w-2xl text-[clamp(1.0625rem,1.4vw,1.25rem)] leading-relaxed text-muted text-pretty">
+                {localizedTagline}
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button
+                  href="https://app.departify.app/signup"
+                  variant="primary"
+                  size="lg"
+                  rightIcon={<ArrowUpRight className="h-4 w-4" />}
+                >
+                  {tSlug("cta.hire")}
+                </Button>
+                <Button href={localePrefixPath(locale, "/demo")} variant="secondary" size="lg">
+                  {tSlug("cta.demo")}
+                </Button>
+              </div>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">
+                <span>
+                  {tSlug("price.from")} {formatCurrency(department.priceFrom, department.priceCurrency)}{" "}
+                  {tSlug("price.perMonth")}
+                </span>
+                <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
+                <span>{tSlug("price.privateInstance")}</span>
+                <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
+                <span>{tSlug("price.webTelegram")}</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <DepartmentImage
+                src={department.assets?.hero ?? `/departments/${department.slug}/hero.png`}
+                alt={`${localizedName} — editorial image`}
+                badge={tSlug("image.badge")}
+                ratio="video"
+                priority
+                caption={tSlug("image.caption")}
+              />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Localized notice: detail content not yet translated */}
+      <section className="border-b border-border">
+        <Container width="wide" className="py-16 sm:py-20">
+          <div className="rounded-2xl border border-border bg-[#0c0e0a] p-8 sm:p-10">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent">
+              {tSlug("notice.eyebrow")}
+            </p>
+            <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,2rem)] tracking-[-0.02em] text-foreground">
+              {tSlug("notice.title")}
+            </h2>
+            <p className="mt-4 max-w-2xl text-[1rem] leading-relaxed text-muted text-pretty">
+              {tSlug("notice.body")}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Button href={esHref} variant="primary" size="md" rightIcon={<ArrowUpRight className="h-4 w-4" />}>
+                {tSlug("notice.ctaEs")}
+              </Button>
+              <Button href={localePrefixPath(locale, "/departamentos")} variant="ghost" size="md">
+                {tSlug("notice.ctaBack")}
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Pricing block (fully translatable) */}
+      <section className="border-b border-border bg-surface-soft/20">
+        <Container width="wide" className="py-16 sm:py-20">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
+                {tSlug("priceSection.eyebrow")}
+              </p>
+              <h2 className="mt-3 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
+                {tSlug("priceSection.title")}
+              </h2>
+              <p className="mt-3 text-[0.9375rem] text-muted text-pretty">
+                {tSlug("priceSection.body")}
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6 sm:p-8">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-[3rem] tracking-[-0.02em] text-foreground">
+                    {formatCurrency(department.priceFrom, department.priceCurrency)}
+                  </span>
+                  <span className="text-[0.9375rem] text-muted">{tSlug("price.perMonth")}</span>
+                </div>
+                <p className="mt-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">
+                  {tSlug("price.vatExcluded")}
+                </p>
+                <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {[tSlug("price.feature.private"), tSlug("price.feature.onboarding"), `${tSlug("price.feature.integrationsPrefix")} ${department.integrations.length} ${tSlug("price.feature.integrationsSuffix")}`, tSlug("price.feature.webTelegram"), tSlug("price.feature.drafts"), tSlug("price.feature.reports")].map((f) => (
+                    <li
+                      key={f}
+                      className="flex items-center gap-2 text-[0.875rem] text-foreground/90"
+                    >
+                      <Check className="h-3.5 w-3.5 shrink-0 text-accent" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Button
+                    href="https://app.departify.app/signup"
+                    variant="primary"
+                    size="lg"
+                    rightIcon={<ArrowUpRight className="h-4 w-4" />}
+                  >
+                    {`${tSlug("cta.hire")} ${localizedShortName}`}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+      <FinalCta />
+    </>
+  );
+}
+
+function ComingSoonPage({
+  department,
+  locale,
+}: {
+  department: (typeof comingSoonDepartments)[number];
+  locale: Locale;
+}) {
   return (
     <section className="relative">
       <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
@@ -147,7 +374,7 @@ function ComingSoonPage({ department }: { department: (typeof comingSoonDepartme
           >
             Apuntarme a la lista
           </Button>
-          <Button href="/departamentos" variant="ghost" size="lg">
+          <Button href={localePrefixPath(locale, "/departamentos")} variant="ghost" size="lg">
             Ver departamentos disponibles
           </Button>
         </div>

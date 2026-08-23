@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ContactForm } from "@/components/forms/contact-form";
 import { brand } from "@/config/brand";
+import { assertLocalizedForRoute } from "@/i18n/guard";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default function ContactPage({ params }: { params: { locale: string } }) {
+  assertLocalizedForRoute(params.locale, "/contacto");
   return (
     <section className="relative">
       <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
