@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -20,10 +21,11 @@ export async function Footer({ locale }: { locale: Locale }) {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/logo-light.svg"
                 alt={tFooter("brandAlt")}
+                width={140}
+                height={28}
                 className="h-7 w-auto shrink-0 select-none"
                 draggable={false}
               />
