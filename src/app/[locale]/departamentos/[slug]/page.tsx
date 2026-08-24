@@ -32,7 +32,7 @@ import {
 } from "@/data/departments";
 import { getAgent } from "@/data/department-agents";
 import { formatCurrency } from "@/lib/utils";
-import { ArrowUpRight, Check, Sparkles } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
 import { routing } from "@/i18n/routing";
@@ -66,12 +66,26 @@ export async function generateMetadata({
   const localizedName = isComing
     ? d.name
     : (typedLocale === "es" ? d.name : tDept(`dept.${d.slug}.name`));
+  const localizedTagline = isComing
+    ? d.tagline
+    : (typedLocale === "es" ? d.tagline : tDept(`dept.${d.slug}.tagline`));
+  // Para coming-soon solo tenemos `tagline`; lo usamos como fallback
+  // de la description. Para active usamos `promise` localizado.
+  const localizedPromise = isComing
+    ? d.tagline
+    : (typedLocale === "es"
+      ? (d as typeof departments[number]).promise
+      : tDept(`dept.${d.slug}.promise`));
   const canonicalPath = typedLocale === "es"
     ? `/departamentos/${d.slug}`
     : `/en/departamentos/${d.slug}`;
+  // Truncate to ~155 chars for SERP safety.
+  const description = (localizedPromise ?? brand.description).slice(0, 155);
   return {
-    title: isComing ? `${localizedName} (próximamente)` : localizedName,
-    description: brand.description,
+    title: isComing
+      ? `${localizedName} (próximamente)`
+      : `${localizedName} · ${localizedTagline}`,
+    description,
     alternates: {
       canonical: canonicalPath,
       languages: {
@@ -82,7 +96,7 @@ export async function generateMetadata({
     },
     openGraph: {
       title: `${localizedName}${isComing ? " (próximamente)" : ""} · ${brand.name}`,
-      description: brand.description,
+      description: localizedPromise ?? brand.description,
       url: canonicalPath,
       type: "website",
       images: [
@@ -153,6 +167,7 @@ export default async function DepartmentPage({
       <DepartmentWorkflow id="agent-workflow" department={department} />
       <DepartmentPricing id="agent-price" department={department} />
       <DepartmentFaq id="agent-faq" department={department} />
+      <DepartmentCrossLinks />
       <FinalCta />
       {agent && <DepartmentAgent agent={agent} />}
       <ProductJsonLd
@@ -1007,15 +1022,15 @@ function DepartmentPricing({
               </p>
               <ul className="mt-3 space-y-2 text-[0.875rem] text-foreground/90">
                 <li className="flex items-center gap-2">
-                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  <Check className="h-3.5 w-3.5 text-accent" />
                   14 días para cancelar sin coste
                 </li>
                 <li className="flex items-center gap-2">
-                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  <Check className="h-3.5 w-3.5 text-accent" />
                   Cambio de plan en cualquier momento
                 </li>
                 <li className="flex items-center gap-2">
-                  <Sparkles className="h-3.5 w-3.5 text-accent" />
+                  <Check className="h-3.5 w-3.5 text-accent" />
                   Exportación completa de datos al cancelar
                 </li>
               </ul>
@@ -1097,4 +1112,67 @@ function DepartmentFaq({
       </Container>
     </section>
   );
+}
+
+/**
+ * Cross-link block al final del detalle de cada departamento.
+ * Pasa autoridad hacia las páginas top-level (/como-funciona, /seguridad,
+ * /precios, /recursos) y abre rutas internas que de otra forma quedarían
+ * aisladas del cluster de departamentos.
+ */
+function DepartmentCrossLinks() {
+  // Las cadenas aquí son solo la etiqueta visible; las URLs y los hreflang
+  // los resuelve localePrefixPath.
+  const items = [
+    { key: "how", href: "/como-funciona" },
+    { key: "security", href: "/seguridad" },
+    { key: "pricing", href: "/precios" },
+    { key: "resources", href: "/recursos" },
+  ] as const;
+  return (
+    <section className="border-b border-border bg-surface-soft/20">
+      <Container width="wide" className="py-16 sm:py-20">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
+              Sigue explorando
+            </p>
+            <h2 className="mt-3 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
+              Antes de contratar este departamento
+            </h2>
+          </div>
+          <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:col-span-8">
+            {items.map((it) => (
+              <li key={it.key}>
+                <Link
+                  href={localePrefixPath("es", it.href)}
+                  className="group flex items-center justify-between rounded-lg border border-border bg-[#0c0e0a] p-3.5 transition-colors hover:border-foreground/30"
+                >
+                  <span className="text-[0.9375rem] text-foreground">
+                    {crossLinkLabel(it.key)}
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-muted transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+function crossLinkLabel(key: string): string {
+  switch (key) {
+    case "how":
+      return "Cómo funciona un departamento";
+    case "security":
+      return "Cómo protegemos tus datos";
+    case "pricing":
+      return "Planes y precios";
+    case "resources":
+      return "Guías y casos de uso";
+    default:
+      return key;
+  }
 }

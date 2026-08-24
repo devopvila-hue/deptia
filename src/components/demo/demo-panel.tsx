@@ -19,7 +19,8 @@ import {
   ChevronRight,
   X,
   Building2,
-  Sparkles,
+  Activity,
+  Share2,
   Circle,
 } from "lucide-react";
 import { Container } from "@/components/ui/container";
@@ -38,7 +39,7 @@ const TABS: { id: Tab; label: string; icon: typeof ListChecks }[] = [
   { id: "aprobaciones", label: "Aprobaciones", icon: CheckCircle2 },
   { id: "calendario", label: "Calendario", icon: Calendar },
   { id: "conexiones", label: "Conexiones", icon: Users },
-  { id: "consumo", label: "Consumo", icon: Sparkles },
+  { id: "consumo", label: "Consumo", icon: Activity },
   { id: "ajustes", label: "Ajustes", icon: Settings },
 ];
 
@@ -557,7 +558,7 @@ function AprobacionesView({
                 a.type === "create" && "border-success/40 bg-success/10"
               )}
             >
-              {a.type === "publish" && <Sparkles className="h-4 w-4 text-accent" />}
+              {a.type === "publish" && <Share2 className="h-4 w-4 text-accent" />}
               {a.type === "send" && <Bell className="h-4 w-4 text-warning" />}
               {a.type === "modify" && <Settings className="h-4 w-4 text-foreground/80" />}
               {a.type === "create" && <Plus className="h-4 w-4 text-success" />}

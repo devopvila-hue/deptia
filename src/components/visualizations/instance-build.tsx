@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { Building2, Check, Cpu, KeyRound, Shield, Sparkles } from "lucide-react";
+import { Building2, Check, Cpu, KeyRound, Shield, Play } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const STEPS = [
@@ -34,7 +34,7 @@ const STEPS = [
     id: "ready",
     title: "Operativo",
     description: "Listo para empezar la primera misión bajo tus reglas.",
-    icon: Sparkles,
+    icon: Play,
   },
 ] as const;
 

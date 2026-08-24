@@ -3,7 +3,7 @@
 // ChatPreview — réplica fiel del chat real de app.departify.app, localizada
 // vía next-intl. Lee los textos del namespace home.visualization.chatPreview.
 import { motion } from "motion/react";
-import { ArrowUpRight, Plus, Sparkles, Send } from "lucide-react";
+import { ArrowUpRight, Plus, Layers, Send } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
@@ -34,7 +34,7 @@ export function ChatPreview({ className }: { className?: string }) {
             type="button"
             className="inline-flex h-8 items-center gap-1.5 rounded-md border border-border bg-surface-soft/50 px-2.5 text-[0.75rem] font-medium text-foreground/90 transition-colors hover:bg-surface-soft"
           >
-            <Sparkles className="h-3.5 w-3.5 text-accent" />
+            <Layers className="h-3.5 w-3.5 text-accent" />
             {t("compactContext")}
           </button>
         </div>

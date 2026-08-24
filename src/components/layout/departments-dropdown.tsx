@@ -4,7 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { ChevronDown, ArrowUpRight, LayoutGrid } from "lucide-react";
 import { departments } from "@/data/departments";
 import { Icon, AGENT_ICONS } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
@@ -204,7 +204,7 @@ export function DepartmentsDropdown({ locale }: { locale: Locale }) {
                   )}
                 >
                   <span className="inline-flex items-center gap-2">
-                    <Sparkles className="h-3.5 w-3.5 text-accent" aria-hidden />
+                    <LayoutGrid className="h-3.5 w-3.5 text-accent" aria-hidden />
                     {seeAllLabel}
                   </span>
                   <span className="inline-flex items-center gap-2 text-muted">

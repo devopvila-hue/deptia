@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { X, Sparkles, MessageCircle, ChevronRight, Volume2 } from "lucide-react";
+import { X, MessageCircle, ChevronRight, Volume2 } from "lucide-react";
 import { Icon, type IconCode } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 
