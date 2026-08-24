@@ -20,6 +20,7 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    robots: { index: false, follow: true },
     alternates: {
       canonical: typedLocale === "es" ? "/demo" : "/en/demo",
       languages: {

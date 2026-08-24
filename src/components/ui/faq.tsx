@@ -27,21 +27,21 @@ export function FAQ({ items, className }: FAQProps) {
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
-              className="group flex w-full items-center justify-between gap-6 py-6 text-left transition-colors hover:text-foreground/90"
+              className="group flex w-full items-center justify-between gap-6 py-5 text-left transition-colors hover:text-foreground/90"
               aria-expanded={isOpen}
               aria-controls={`faq-panel-${i}`}
             >
-              <span className="text-[1.0625rem] font-medium text-pretty sm:text-[1.125rem]">
+              <span className="text-[1rem] font-medium text-pretty sm:text-[1.0625rem]">
                 {item.question}
               </span>
               <span
                 className={cn(
-                  "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border bg-surface-soft text-foreground/80 transition-all duration-300",
+                  "flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border bg-surface-soft text-foreground/80 transition-all duration-300",
                   isOpen && "rotate-45 border-accent/60 bg-accent-soft text-foreground"
                 )}
                 aria-hidden
               >
-                <Plus className="h-4 w-4" />
+                <Plus className="h-3.5 w-3.5" />
               </span>
             </button>
             <AnimatePresence initial={false}>
@@ -54,7 +54,7 @@ export function FAQ({ items, className }: FAQProps) {
                   transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-6 pr-12 text-[0.9375rem] leading-relaxed text-muted text-pretty">
+                  <p className="pb-5 pr-12 text-[0.9375rem] leading-relaxed text-muted text-pretty">
                     {item.answer}
                   </p>
                 </motion.div>

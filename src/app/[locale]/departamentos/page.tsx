@@ -27,7 +27,7 @@ export async function generateMetadata({
   const localizedUrl = typedLocale === "es" ? `${baseUrl}/departamentos` : `${baseUrl}/en/departamentos`;
   return {
     title: t("title"),
-    description: `${t("subtitle")} ${brandT("description")}`,
+    description: t("subtitle"),
     alternates: {
       canonical: typedLocale === "es" ? "/departamentos" : "/en/departamentos",
       languages: {

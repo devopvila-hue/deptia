@@ -82,7 +82,7 @@ const operationsPermissions = [
   {
     action: "Sobrescribir políticas internas",
     level: "never" as const,
-    example: "Los protocolos solo los修改 tu equipo humano.",
+    example: "Los protocolos solo los modifica tu equipo humano.",
   },
 ];
 
@@ -1719,7 +1719,7 @@ export const departments: Department[] = [
     mission: {
       brief: "Necesitamos cubrir tres vacantes técnicas en menos de 6 semanas sin perder calidad.",
       response:
-        "He revisado vuestras tres posiciones,你们的 perfiles previos y vuestras ofertas históricas. Propongo tres mensajes diferenciados por puesto, una cantera de 40 perfiles pre-cualificados y un onboarding listo por si cualquiera entra a la vez.",
+        "He revisado vuestras tres posiciones, vuestros perfiles previos y vuestras ofertas históricas. Propongo tres mensajes diferenciados por puesto, una cantera de 40 perfiles pre-cualificados y un onboarding listo por si cualquiera entra a la vez.",
       tasks: [
         "Investigar mercado de cada rol",
         "Preparar 3 mensajes de vacante",
@@ -1821,7 +1821,7 @@ export const departments: Department[] = [
         pattern: "bars",
         responsibilities: [
           "Documenta cada incidencia",
-          "Propone流程 de devolución",
+          "Propone el proceso de devolución",
           "Mantiene KPIs de calidad",
         ],
       },
@@ -1884,7 +1884,7 @@ export const departments: Department[] = [
       {
         question: "¿Qué pasa con las devoluciones?",
         answer:
-          "Documenta cada incidencia, propone流程 y prepara reembolso borrador; tú apruebas el importe.",
+          "Documenta cada incidencia, propone el proceso y prepara reembolso borrador; tú apruebas el importe.",
       },
       {
         question: "¿Trabaja con mi Shopify o mi ERP?",
@@ -1956,7 +1956,7 @@ export const departments: Department[] = [
       },
       {
         id: "referrals",
-        role: "Referidos y партнерства",
+        role: "Referidos y alianzas",
         initials: "RF",
         pattern: "grid",
         responsibilities: ["Activa programas de referido", "Onboarding de socios", "Mide atribución"],
@@ -1973,7 +1973,7 @@ export const departments: Department[] = [
         role: "Retención y loops",
         initials: "RT",
         pattern: "dots",
-        responsibilities: ["Detecta cohorts en riesgo", "Propone acciones de挽回", "Mide LTV por canal"],
+        responsibilities: ["Detecta cohorts en riesgo", "Propone acciones de recuperación", "Mide LTV por canal"],
       },
     ],
     capabilities: [
@@ -1982,7 +1982,7 @@ export const departments: Department[] = [
       "Outbound dirigido a cuentas objetivo",
       "Programa de referidos con atribución clara",
       "Coordinación de SEO y paid media",
-      "Loops de retención y挽救 de cohorts",
+      "Loops de retención y recuperación de cohorts",
     ],
     deliverables: [
       "Backlog de hipótesis priorizado",
@@ -1994,7 +1994,7 @@ export const departments: Department[] = [
     problems: [
       { title: "Crecimiento que no escala", description: "Cada hipótesis se mide y se archiva — el aprendizaje se acumula, no se pierde." },
       { title: "Canales sin retorno claro", description: "El equipo prioriza en función de LTV y coste de adquisición, no de intuición." },
-      { title: "Cohortes que se van", description: "Loops de retención y acciones de挽回 preparadas para cada segmento." },
+      { title: "Cohortes que se van", description: "Loops de retención y acciones de recuperación preparadas para cada segmento." },
     ],
     integrations: [
       "Google Analytics",
@@ -2077,7 +2077,7 @@ export const departments: Department[] = [
       },
       {
         id: "experiments",
-        role: "Analítica de экспериментов",
+        role: "Analítica de experimentación",
         initials: "AX",
         pattern: "orbit",
         responsibilities: ["Mide significación", "Calcula LTV", "Detecta novelty effects"],

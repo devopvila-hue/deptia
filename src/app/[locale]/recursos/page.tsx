@@ -6,6 +6,8 @@ import { FinalCta } from "@/components/marketing/final-cta";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
+import { localePrefixPath } from "@/i18n/locale-path";
+import type { Locale } from "@/i18n/config";
 
 export async function generateMetadata({
   params,
@@ -37,6 +39,7 @@ export async function generateMetadata({
 }
 
 type Resource = {
+  slug: string;
   type: string;
   title: string;
   description: string;
@@ -51,6 +54,7 @@ export default async function ResourcesPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "recursos" });
   const resources = t.raw("items") as Resource[];
+  const typedLocale = locale as Locale;
 
   return (
     <>
@@ -72,8 +76,8 @@ export default async function ResourcesPage({
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {resources.map((resource) => (
               <Link
-                key={resource.title}
-                href={`/recursos/${resource.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                key={resource.slug}
+                href={localePrefixPath(typedLocale, `/recursos/${resource.slug}`)}
                 className="group rounded-2xl border border-border bg-[#0c0e0a] p-6 transition-colors hover:border-foreground/30"
               >
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">

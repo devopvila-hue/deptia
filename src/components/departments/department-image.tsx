@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { Maximize2, X, Image as ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -22,6 +23,25 @@ const RATIOS = {
   portrait: "aspect-[3/4]",
 } as const;
 
+// Mapeo de aspect-ratio → tamaños concretos para next/image.
+// Estos valores son los reales del contenedor una vez que Tailwind aplica
+// la `aspect-*` utility; mantenerlos sincronizados evita CLS.
+const RATIO_DIMENSIONS = {
+  video: { width: 1280, height: 720 },
+  wide: { width: 1680, height: 720 },
+  photo: { width: 1200, height: 800 },
+  portrait: { width: 900, height: 1200 },
+} as const;
+
+// Tamaños responsivos para el slot (sirve como pista al navegador para
+// elegir el source correcto en AVIF/WebP).
+const SIZES = {
+  video: "(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 50vw",
+  wide: "(max-width: 768px) 100vw, 80vw",
+  photo: "(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 50vw",
+  portrait: "(max-width: 768px) 100vw, 40vw",
+} as const;
+
 export function DepartmentImage({
   src,
   alt,
@@ -32,6 +52,7 @@ export function DepartmentImage({
   priority,
 }: Props) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const dims = RATIO_DIMENSIONS[ratio];
 
   return (
     <>
@@ -47,20 +68,27 @@ export function DepartmentImage({
           onClick={() => setLightboxOpen(true)}
           aria-label="Ver imagen en grande"
           className={cn(
-            "relative w-full overflow-hidden rounded-2xl border border-border bg-[#0c0e0a]",
-            RATIOS[ratio]
+            "relative block w-full overflow-hidden rounded-2xl border border-border bg-[#0c0e0a]",
+            RATIOS[ratio],
           )}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <motion.img
-            src={src}
-            alt={alt}
-            loading={priority ? "eager" : "lazy"}
-            decoding="async"
-            className="h-full w-full object-cover"
+          <motion.div
+            className="absolute inset-0"
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-          />
+          >
+            <Image
+              src={src}
+              alt={alt}
+              width={dims.width}
+              height={dims.height}
+              sizes={SIZES[ratio]}
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
+              decoding="async"
+              className="h-full w-full object-cover"
+            />
+          </motion.div>
 
           {/* Corner ticks */}
           <div className="pointer-events-none absolute left-3 top-3 h-3 w-3 border-l border-t border-foreground/30" />
@@ -119,10 +147,12 @@ export function DepartmentImage({
               className="relative max-h-[90vh] max-w-[90vw]"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={src}
                 alt={alt}
+                width={dims.width}
+                height={dims.height}
+                sizes="90vw"
                 className="max-h-[90vh] max-w-[90vw] rounded-xl object-contain"
               />
               {caption && (

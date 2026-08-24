@@ -37,6 +37,7 @@ export function isRouteLocalized(pathname: string): boolean {
   if (LOCALIZED_ROUTES.has(clean)) return true;
   // Rutas con segmentos dinámicos conocidos
   if (clean.startsWith("/departamentos/")) return true;
+  if (clean.startsWith("/recursos/")) return true;
   return false;
 }
 
