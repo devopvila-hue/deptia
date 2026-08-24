@@ -6,7 +6,7 @@ export const brand = {
   description:
     "Departify incorpora departamentos que conocen tu empresa, trabajan con las herramientas que ya utilizas y se ocupan de tareas que hoy dependen de ti. Tú decides qué delegar. Tú apruebas lo importante.",
   domain: "departify.app",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://departify.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://departify.app",
   contactEmail: "hola@departify.app",
   securityEmail: "seguridad@departify.app",
   legalName: "Departify, S.L.",
