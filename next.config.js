@@ -12,6 +12,11 @@ const nextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    // Los SVGs del logo viven en /public. Son contenido propio, no
+    // subido por usuarios, así que permitimos que next/image los sirva.
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async headers() {
     return [

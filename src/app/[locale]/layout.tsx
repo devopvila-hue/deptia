@@ -6,7 +6,7 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Header } from "@/components/layout/header";
@@ -17,18 +17,15 @@ import { locales, toBcp47, type Locale } from "@/i18n/config";
 import { brand } from "@/config/brand";
 import "@/styles/globals.css";
 
-const inter = Inter({
+// Manrope es la única familia tipográfica de la web pública (sans + display).
+// Mantenemos JetBrains Mono para los tokens monoespaciados (badges, microtext).
+// Cargamos solo los pesos que la web usa (400/500/600/700/800) para evitar
+// inflado del bundle.
+const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-display",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const mono = JetBrains_Mono({
@@ -59,26 +56,6 @@ export async function generateMetadata({
     },
     description: t("description"),
     applicationName: t("name"),
-    keywords:
-      locale === "es"
-        ? [
-            "departamentos IA",
-            "equipos IA empresa",
-            "marketing IA",
-            "ventas IA",
-            "automatización empresarial",
-            "departamento como servicio",
-            "inteligencia artificial para empresas",
-          ]
-        : [
-            "AI departments",
-            "AI teams for business",
-            "AI marketing",
-            "AI sales",
-            "business automation",
-            "department as a service",
-            "artificial intelligence for business",
-          ],
     authors: [{ name: t("name"), url: baseUrl }],
     creator: t("name"),
     publisher: t("name"),
@@ -97,13 +74,13 @@ export async function generateMetadata({
       siteName: t("name"),
       title: `${t("name")} — ${t("tagline")}`,
       description: t("description"),
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: `${t("name")} — ${t("tagline")}` }],
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${t("name")} — ${t("tagline")}` }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${t("name")} — ${t("tagline")}`,
       description: t("description"),
-      images: ["/og.png"],
+      images: ["/opengraph-image"],
     },
     robots: {
       index: true,
@@ -138,7 +115,7 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "chrome" });
 
   return (
-    <html lang={toBcp47(typedLocale)} className={`${inter.variable} ${fraunces.variable} ${mono.variable}`}>
+    <html lang={toBcp47(typedLocale)} className={`${manrope.variable} ${mono.variable}`}>
       <body className="bg-background text-foreground antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a

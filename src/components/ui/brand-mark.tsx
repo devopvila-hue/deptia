@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
@@ -13,14 +14,15 @@ export function BrandMark({
   return (
     <div
       className={cn(
-        "inline-flex items-center justify-center leading-none",
+        "relative inline-flex items-center justify-center leading-none",
         className
       )}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/logo-light.svg"
         alt="DEPARTIFY"
+        width={140}
+        height={28}
         className="h-full w-auto shrink-0 select-none"
         draggable={false}
       />
