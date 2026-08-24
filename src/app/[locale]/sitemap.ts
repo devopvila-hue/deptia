@@ -18,17 +18,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const localizedRoutes = [
     { path: "/", priority: 1, changeFrequency: "weekly" as const },
     { path: "/departamentos", priority: 0.9, changeFrequency: "weekly" as const },
-  ];
-
-  // Rutas sólo-ES (legal, recursos, demo). Aparecen una vez sin variant.
-  const esOnlyRoutes = [
     { path: "/como-funciona", priority: 0.8, changeFrequency: "monthly" as const },
-    { path: "/seguridad", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/recursos", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/precios", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/seguridad", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contacto", priority: 0.5, changeFrequency: "yearly" as const },
     { path: "/privacidad", priority: 0.3, changeFrequency: "yearly" as const },
     { path: "/terminos", priority: 0.3, changeFrequency: "yearly" as const },
     { path: "/cookies", priority: 0.3, changeFrequency: "yearly" as const },
+  ];
+
+  // Rutas sólo-ES. Aparecen una vez sin variant.
+  const esOnlyRoutes: Array<{
+    path: string;
+    priority: number;
+    changeFrequency: "yearly" | "monthly" | "weekly" | "daily";
+  }> = [
     // /demo se omite del sitemap: robots.ts lo bloquea (Disallow: /demo).
   ];
 

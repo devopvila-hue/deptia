@@ -265,10 +265,406 @@
       }
     }
   },
+  "recursos": {
+    "metaTitle": "Recursos",
+    "metaDescription": "Guías, casos de uso y material para entender mejor cómo Departify puede ayudar a tu empresa.",
+    "ogTitle": "Recursos",
+    "ogDescription": "Guías, casos de uso y material para entender cómo Departify puede ayudar a tu empresa.",
+    "eyebrow": "Recursos",
+    "title": "Ideas, guías y casos para integrar departamentos digitales.",
+    "subtitle": "Material práctico para entender cómo Departify puede encajar en la operativa de tu empresa. Sin jerga, sin promesas exageradas.",
+    "items": [
+      {
+        "type": "Guía",
+        "title": "Cómo decidir qué departamento contratar primero",
+        "description": "Una guía de cinco pasos para identificar la fricción operativa más cara y abordarla con un equipo digital.",
+        "time": "8 min"
+      },
+      {
+        "type": "Caso de uso",
+        "title": "Cómo un departamento de marketing se coordina con uno de ventas",
+        "description": "Recorremos el flujo real entre los equipos: handoff de leads, memoria compartida, aprobaciones conjuntas.",
+        "time": "12 min"
+      },
+      {
+        "type": "Artículo",
+        "title": "Por qué los chatbots no escalan como departamentos",
+        "description": "Una comparación técnica y operativa entre interfaces conversacionales aisladas y equipos estructurados.",
+        "time": "6 min"
+      },
+      {
+        "type": "Changelog",
+        "title": "Actualizaciones de octubre",
+        "description": "Nuevo sistema de aprobaciones, integración con Telegram mejorada y permisos granulares por departamento.",
+        "time": "3 min"
+      },
+      {
+        "type": "Webinar",
+        "title": "Activación de un departamento en 30 minutos",
+        "description": "Grabación del recorrido en directo: desde la compra hasta la primera misión ejecutada.",
+        "time": "30 min"
+      },
+      {
+        "type": "Plantilla",
+        "title": "Brief de primera misión",
+        "description": "Una plantilla editable para definir la primera tarea que delegarás a tu departamento.",
+        "time": "Plantilla"
+      }
+    ],
+    "read": "Leer"
+  },
   "notFound": {
     "eyebrow": "Error 404",
     "title": "Esta página aún no existe en este idioma.",
     "body": "Estamos traduciendo el contenido. Mientras tanto, vuelve a la portada o explora el catálogo de departamentos.",
     "primaryCta": "Volver al inicio"
+  },
+  "precios": {
+    "metaTitle": "Precios",
+    "metaDescription": "Tres planes para incorporar departamentos de IA en tu empresa. Sin sorpresas, cancela cuando quieras.",
+    "ogTitle": "Precios",
+    "ogDescription": "Tres planes para incorporar departamentos de IA. Mensuales o anuales, sin permanencia.",
+    "hero": {
+      "eyebrow": "Precios",
+      "title": "Tres planes. Sin sorpresas. Cancela cuando quieras.",
+      "subtitle": "Empieza con un departamento, suma más cuando los necesites. Todos los planes incluyen instancia privada, onboarding guiado y aprobaciones en cada acción sensible."
+    },
+    "faq": {
+      "eyebrow": "Preguntas",
+      "title": "Sobre la facturación",
+      "items": [
+        {
+          "question": "¿Puedo cambiar de plan en cualquier momento?",
+          "answer": "Sí. Puedes subir o bajar de plan desde el panel de administración. El cambio se aplica de forma inmediata y se prorratea en la siguiente factura."
+        },
+        {
+          "question": "¿Qué incluye el uso mensual?",
+          "answer": "Cada plan incluye un uso mensual adecuado al alcance habitual del equipo. Si necesitas más capacidad, puedes contratar créditos adicionales sin cambiar de plan."
+        },
+        {
+          "question": "¿Hay permanencia?",
+          "answer": "No. Todos los planes son mensuales o anuales sin permanencia. Si decides cancelar, mantienes el acceso durante 30 días para exportar todo."
+        },
+        {
+          "question": "¿Necesito tarjeta para empezar?",
+          "answer": "No. Puedes iniciar el proceso de alta, completar el onboarding y explorar el panel. Te pediremos el método de pago cuando decidas activar el primer departamento."
+        },
+        {
+          "question": "¿Qué métodos de pago aceptáis?",
+          "answer": "Tarjeta de crédito y débito, transferencia bancaria para planes anuales, y SEPA para empresas europeas. Factura automática disponible."
+        },
+        {
+          "question": "¿Emitís factura?",
+          "answer": "Sí. Emitimos factura automática en cada cobro. Las empresas europeas pueden facilitar su número de IVA para la validación."
+        }
+      ]
+    }
+  },
+
+  "demo": {
+    "metaTitle": "Demo del panel",
+    "metaDescription": "Vista previa del panel de control con datos de ejemplo. Recorre el departamento, las tareas, aprobaciones y resultados.",
+    "ogDescription": "Recorre un departamento con datos de ejemplo. Tareas, aprobaciones y resultados."
+  },
+
+  "privacidad": {
+    "metaTitle": "Política de privacidad",
+    "metaDescription": "Cómo tratamos los datos personales en Departify.",
+    "title": "Política de privacidad",
+    "description": "Cómo recopilamos, tratamos y protegemos los datos personales de las personas que usan Departify.",
+    "updated": "1 de octubre de 2025",
+    "sections": [
+      {
+        "title": "Responsable del tratamiento",
+        "intro": "",
+        "list": [],
+        "body": "",
+        "beforeStrong": "El responsable del tratamiento de los datos personales recogidos a través de este sitio web y de los servicios asociados es ",
+        "strong": "Departify, S.L.",
+        "afterStrong": " (en adelante, «Departify»), con sede en España y NIF B-00000000.",
+        "beforeEmail": "Para cualquier cuestión relacionada con privacidad, puedes escribir a ",
+        "email": "privacidad@departify.app",
+        "afterEmail": "."
+      },
+      {
+        "title": "Datos que tratamos",
+        "intro": "Departify trata las siguientes categorías de datos personales, dependiendo de cómo interactúas con la plataforma:",
+        "list": [
+          "Datos de cuenta: nombre, email, organización.",
+          "Datos operativos: configuración, departamentos contratados, historial de misiones.",
+          "Datos de uso: interacción con el panel, métricas agregadas.",
+          "Datos de cliente final: información que la empresa cliente decida conectar a la plataforma, bajo su responsabilidad."
+        ],
+        "body": "",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Finalidad",
+        "intro": "",
+        "list": [],
+        "body": "Tratamos los datos para prestar el servicio contratado, mantener la seguridad de la plataforma, mejorar el producto, cumplir obligaciones legales y, en su caso, enviar comunicaciones comerciales que el usuario haya autorizado.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Base jurídica",
+        "intro": "",
+        "list": [],
+        "body": "La base jurídica del tratamiento es la ejecución del contrato de prestación de servicios, el cumplimiento de obligaciones legales, el consentimiento del interesado y, en su caso, el interés legítimo en mantener la seguridad del servicio.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Conservación",
+        "intro": "",
+        "list": [],
+        "body": "Los datos se conservan mientras dure la relación contractual y, posteriormente, durante el plazo legalmente exigido para atender eventuales responsabilidades. Los datos operativos pueden eliminarse a solicitud del cliente en cualquier momento.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Encargados del tratamiento",
+        "intro": "",
+        "list": [],
+        "body": "Departify trabaja con proveedores de infraestructura, analítica y atención al cliente que pueden tratar datos por cuenta de la plataforma. Todos los proveedores firman acuerdos de tratamiento conforme al RGPD.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Derechos",
+        "intro": "",
+        "list": [],
+        "body": "",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "Puedes ejercer en cualquier momento los derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a ",
+        "email": "privacidad@departify.app",
+        "afterEmail": ". También puedes presentar una reclamación ante la autoridad de control competente."
+      },
+      {
+        "title": "Seguridad",
+        "intro": "",
+        "list": [],
+        "body": "Aplicamos medidas técnicas y organizativas apropiadas para proteger los datos personales, incluyendo cifrado en tránsito y en reposo, control de accesos, registros de actividad y evaluaciones periódicas de riesgos. Puedes consultar más detalles en la página de seguridad.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      }
+    ]
+  },
+
+  "contacto": {
+    "metaTitle": "Contacto",
+    "metaDescription": "Habla con el equipo de Departify. Respondemos en horario laboral en menos de 24 horas.",
+    "ogTitle": "Contacto · Departify",
+    "ogDescription": "Habla con el equipo de Departify. Respondemos en menos de 24 horas.",
+    "eyebrow": "Contacto",
+    "title": "Cuéntanos qué necesita tu empresa.",
+    "subtitle": "Si quieres una demostración personalizada, estás evaluando para un proyecto específico o tienes dudas sobre seguridad, estamos disponibles.",
+    "panels": {
+      "email": { "label": "Email", "value": "hola@departify.app" },
+      "security": { "label": "Seguridad", "value": "seguridad@departify.app" },
+      "location": { "label": "Ubicación", "value": "España · Unión Europea" },
+      "response": { "label": "Respuesta", "value": "En horario laboral · menos de 24 h" }
+    }
+  },
+
+  "comoFunciona": {
+    "metaTitle": "Cómo funciona",
+    "metaDescription": "De la contratación a la primera misión en menos de una hora. Sin desplegar nada. Te explicamos el proceso completo.",
+    "ogTitle": "Cómo funciona · Departify",
+    "ogDescription": "De la contratación a la primera misión en menos de una hora. Cuatro pasos, sin desplegar nada.",
+    "eyebrow": "Proceso",
+    "title": "De la contratación a la primera misión, en menos de una hora.",
+    "subtitle": "No tienes que desplegar nada, configurar servidores ni entender infraestructura. Te explicamos el proceso completo, paso a paso.",
+    "ctaPrimary": "Empezar",
+    "ctaSecondary": "Probar el panel",
+    "steps": [
+      { "number": "01", "title": "Compra", "description": "Eliges el plan y el departamento. La contratación se realiza online, sin llamadas comerciales obligatorias.", "duration": "2 min" },
+      { "number": "02", "title": "Aprovisionamiento", "description": "Se crea una instancia privada con sus propios recursos, claves de cifrado y espacio aislado.", "duration": "3 min" },
+      { "number": "03", "title": "Onboarding", "description": "Un Director de Incorporación te guía en una conversación para entender tu empresa, marca, objetivos y reglas.", "duration": "30 min" },
+      { "number": "04", "title": "Conexiones", "description": "Conectas las herramientas que el departamento va a usar. Tú decides qué puede leer, preparar o aplicar.", "duration": "20 min" },
+      { "number": "05", "title": "Permisos", "description": "Configuras los tres niveles de autonomía para cada tipo de acción: puede, aprueba, nunca.", "duration": "15 min" },
+      { "number": "06", "title": "Primera misión", "description": "Defines la primera misión y el equipo propone un plan operativo. Apruebas y empieza a ejecutar.", "duration": "Continuo" },
+      { "number": "07", "title": "Trabajo recurrente", "description": "El equipo opera bajo tus reglas, mantiene memoria, registra actividad y propone iteraciones.", "duration": "Diario" },
+      { "number": "08", "title": "Informes", "description": "Recibes informes semanales, métricas por canal y resúmenes ejecutivos. Visibles desde web y Telegram.", "duration": "Semanal" },
+      { "number": "09", "title": "Mejora continua", "description": "El equipo aprende de cada decisión, corrige patrones y propone nuevas oportunidades de trabajo.", "duration": "Continuo" }
+    ],
+    "activationEyebrow": "Activación",
+    "activationTitle": "Tu instancia se construye en directo.",
+    "activationBody": "Durante el aprovisionamiento, el sistema crea un entorno aislado para tu empresa, aplica permisos y prepara el espacio de trabajo.",
+    "demoEyebrow": "Demo",
+    "demoTitle": "Una vista del panel en uso",
+    "demoBody": "El panel combina el estado del departamento, las tareas activas, las aprobaciones pendientes y la conexión con Telegram.",
+    "demoCta": "Probar el panel en vivo",
+    "videoTitle": "Activación completa",
+    "videoSubtitle": "Recorrido · 90 s"
+  },
+
+  "seguridad": {
+    "metaTitle": "Seguridad",
+    "metaDescription": "Tu instancia privada, tus credenciales, tu memoria. Cómo protegemos los datos de tu empresa.",
+    "ogTitle": "Seguridad",
+    "ogDescription": "Instancia privada por cliente, claves de cifrado propias, permisos por acción. Cómo protegemos tus datos.",
+    "eyebrow": "Seguridad",
+    "hero": {
+      "title": "Tu empresa no comparte oficina digital con nadie.",
+      "subtitle": "Cada cliente opera sobre una instancia privada, con credenciales propias, memoria independiente y permisos auditables.",
+      "primaryCta": "Contactar con seguridad",
+      "secondaryCta": "Ver el panel"
+    },
+    "pillars": [
+      { "title": "Instancia independiente", "description": "Cada cliente opera sobre una instancia con recursos dedicados. No se comparte infraestructura con otros clientes." },
+      { "title": "Datos separados", "description": "Cada empresa tiene su propia base de datos y perímetro. No se mezclan datos entre clientes." },
+      { "title": "Credenciales propias", "description": "Las claves de cifrado son únicas por instancia. Si decides irte, puedes desconectar y exportar todo." },
+      { "title": "Permisos por acción", "description": "Cada acción se clasifica en tres niveles: puede, aprueba, nunca. El equipo los respeta." },
+      { "title": "Registros de actividad", "description": "Queda constancia de cada acción ejecutada, propuesta o aprobada. Visible para tu equipo administrador." },
+      { "title": "Acceso administrativo", "description": "Solo las personas que invites pueden ver y aprobar. Roles separados entre administradores y miembros." },
+      { "title": "Integraciones reversibles", "description": "Puedes desconectar cualquier integración cuando quieras. Los datos previamente leídos se eliminan bajo solicitud." },
+      { "title": "Eliminación a la cancelación", "description": "Tienes 30 días para reactivar o exportar. Pasado ese plazo, los datos asociados a la instancia se eliminan." }
+    ],
+    "isolation": {
+      "eyebrow": "Aislamiento",
+      "title": "Empresas diferentes, instancias diferentes.",
+      "body": "Cada empresa mantiene su propia instancia, con sus claves, su base de datos y su perímetro. La información nunca se cruza."
+    },
+    "documentation": {
+      "eyebrow": "Documentación",
+      "title": "Información técnica disponible",
+      "body": "Estos apartados se completan con la documentación definitiva. De momento dejamos constancia de los compromisos.",
+      "cta": "Solicitar documento →",
+      "items": [
+        { "title": "DPA", "description": "Acuerdo de tratamiento de datos disponible bajo solicitud. Plantilla revisada por asesoría jurídica." },
+        { "title": "Subencargados", "description": "Listado completo de subencargados disponible en el panel de seguridad. Actualizado de forma continua." },
+        { "title": "Ubicación de datos", "description": "Los datos se procesan en la Unión Europea. Las regiones exactas se documentan en el DPA." },
+        { "title": "Política de conservación", "description": "Cada tipo de dato tiene un periodo de conservación documentado. Configurable a nivel de instancia." },
+        { "title": "Backups", "description": "Copias de seguridad cifradas según el plan contratado. Frecuencia y retención detalladas en el panel." },
+        { "title": "Contacto de seguridad", "description": "Canal directo para reportar incidentes. Respuesta en horario laboral en menos de 24 horas." }
+      ]
+    },
+    "certifications": {
+      "eyebrow": "Aclaración",
+      "title": "Sobre certificaciones",
+      "body": "No mostramos sellos de certificaciones que todavía no poseemos. El equipo técnico está trabajando para alcanzar las principales certificaciones del sector cuando el producto esté en un estado operativo más maduro."
+    }
+  },
+  "cookies": {
+    "metaTitle": "Política de cookies · Departify",
+    "metaDescription": "Cómo utiliza Departify las cookies y cómo puedes gestionarlas.",
+    "ogTitle": "Política de cookies · Departify",
+    "ogDescription": "Cómo utiliza Departify las cookies y cómo puedes gestionarlas.",
+    "title": "Política de cookies",
+    "description": "Información clara sobre las cookies que utiliza Departify y cómo gestionarlas.",
+    "updated": "1 de octubre de 2025",
+    "sections": {
+      "whatAreCookies": {
+        "title": "¿Qué son las cookies?",
+        "body": "Las cookies son pequeños archivos que un sitio web almacena en tu dispositivo para recordar información entre visitas. Las utilizamos para que Departify funcione correctamente y para entender cómo se utiliza el sitio."
+      },
+      "cookiesWeUse": {
+        "title": "Cookies que utilizamos",
+        "intro": "Usamos tres tipos de cookies, siempre con el objetivo de mejorar tu experiencia:",
+        "technical": {
+          "label": "Técnicas",
+          "body": "Imprescindibles para el funcionamiento del sitio y de tu sesión. No se pueden desactivar."
+        },
+        "preference": {
+          "label": "Preferencia",
+          "body": "Recuerdan tu idioma y otras opciones de visualización para evitar configurarlas en cada visita."
+        },
+        "analytics": {
+          "label": "Analítica",
+          "body": "Nos ayudan a entender qué partes del sitio se utilizan más. La información es agregada y nunca identifica individualmente al visitante."
+        }
+      },
+      "management": {
+        "title": "Gestión de cookies",
+        "body": "Puedes eliminar o bloquear las cookies desde la configuración de tu navegador. Ten en cuenta que bloquear ciertas cookies puede afectar al funcionamiento del sitio."
+      },
+      "thirdParty": {
+        "title": "Terceros",
+        "body": "Algunos servicios de analítica o soporte pueden establecer sus propias cookies. Estos terceros tienen sus propias políticas de privacidad y cookies."
+      },
+      "updates": {
+        "title": "Actualizaciones",
+        "body": "Podemos actualizar esta política para reflejar cambios técnicos o legales. Publicaremos la versión actualizada en esta misma página."
+      }
+    }
+  },
+  "terminos": {
+    "metaTitle": "Términos de servicio · Departify",
+    "metaDescription": "Condiciones que rigen el uso de Departify.",
+    "ogTitle": "Términos de servicio · Departify",
+    "ogDescription": "Condiciones que rigen el uso de Departify.",
+    "title": "Términos de servicio",
+    "description": "Las condiciones que rigen el acceso y uso de Departify por parte de empresas y profesionales.",
+    "updated": "1 de octubre de 2025",
+    "sections": {
+      "acceptance": {
+        "title": "Aceptación",
+        "body": "Al contratar o usar Departify aceptas estos términos. Si actúas en nombre de una empresa, declaras tener facultades para vincularla."
+      },
+      "object": {
+        "title": "Objeto",
+        "body": "Departify presta servicios de operación de departamentos mediante inteligencia artificial, accesibles desde el panel web y desde Telegram, con instancia privada por cliente."
+      },
+      "account": {
+        "title": "Registro y cuenta",
+        "body": "Para usar el servicio necesitas una cuenta. Eres responsable de mantener la confidencialidad de tus credenciales y de la actividad que ocurra bajo tu cuenta."
+      },
+      "allowedUse": {
+        "title": "Uso permitido",
+        "body": "Te comprometes a usar el servicio conforme a la ley, a no utilizar las salidas para actividades ilícitas y a respetar los derechos de terceros. Está prohibido eludir las medidas de seguridad o realizar ingeniería inversa del producto."
+      },
+      "payments": {
+        "title": "Planes y pagos",
+        "body": "Los precios y condiciones de cada plan se indican en la página de precios. Los cargos se realizan por adelantado. Puedes cambiar o cancelar el plan en cualquier momento desde el panel de administración."
+      },
+      "ip": {
+        "title": "Propiedad intelectual",
+        "body": "Departify conserva todos los derechos sobre el software, la marca, los diseños y los materiales del sitio. El cliente conserva la propiedad de los contenidos que carga o genera a través del servicio."
+      },
+      "liability": {
+        "title": "Limitación de responsabilidad",
+        "body": "Departify no será responsable de daños indirectos, lucro cesante o pérdida de datos derivada del uso del servicio más allá de lo exigido por la ley. La plataforma es una herramienta de apoyo a la operativa; las decisiones estratégicas y legalmente relevantes siguen siendo responsabilidad del cliente."
+      },
+      "suspension": {
+        "title": "Suspensión y terminación",
+        "body": "Podemos suspender el servicio si detectamos uso indebido, riesgo de seguridad o impago. Puedes cancelar en cualquier momento, manteniendo acceso a tu instancia durante 30 días para exportar tus datos."
+      },
+      "changes": {
+        "title": "Modificaciones",
+        "body": "Podemos modificar estos términos. Te avisaremos con al menos 30 días de antelación a la entrada en vigor de cambios sustanciales. El uso continuado del servicio implica la aceptación de los nuevos términos."
+      },
+      "law": {
+        "title": "Ley aplicable",
+        "body": "Estos términos se rigen por la legislación española y europea aplicable. Para cualquier controversia, las partes se someten a los juzgados y tribunales de la ciudad del cliente, sin perjuicio de los derechos del consumidor."
+      }
+    }
   }
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
@@ -7,121 +9,66 @@ import { IsolatedInstances } from "@/components/visualizations/isolated-instance
 import { ShieldCheck, Lock, Database, FileLock, Users, Eye, MailCheck, KeyRound } from "lucide-react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
-import { assertLocalizedForRoute } from "@/i18n/guard";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Seguridad",
-  description:
-    "Tu instancia privada, tus credenciales, tu memoria. Cómo protegemos los datos de tu empresa.",
-  alternates: { canonical: "/seguridad" },
-  openGraph: {
-    title: `Seguridad · ${brand.name}`,
-    description:
-      "Instancia privada por cliente, claves de cifrado propias, permisos por acción. Cómo protegemos tus datos.",
-    url: "/seguridad",
-    type: "website",
-  },
-};
+const PILLAR_ICONS = [Lock, Database, KeyRound, ShieldCheck, Eye, Users, FileLock, MailCheck];
 
-const PILLARS = [
-  {
-    icon: Lock,
-    title: "Instancia independiente",
-    description:
-      "Cada cliente opera sobre una instancia con recursos dedicados. No se comparte infraestructura con otros clientes.",
-  },
-  {
-    icon: Database,
-    title: "Datos separados",
-    description:
-      "Cada empresa tiene su propia base de datos y perímetro. No se mezclan datos entre clientes.",
-  },
-  {
-    icon: KeyRound,
-    title: "Credenciales propias",
-    description:
-      "Las claves de cifrado son únicas por instancia. Si decides irte, puedes desconectar y exportar todo.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Permisos por acción",
-    description:
-      "Cada acción se clasifica en tres niveles: puede, aprueba, nunca. El equipo los respeta.",
-  },
-  {
-    icon: Eye,
-    title: "Registros de actividad",
-    description:
-      "Queda constancia de cada acción ejecutada, propuesta o aprobada. Visible para tu equipo administrador.",
-  },
-  {
-    icon: Users,
-    title: "Acceso administrativo",
-    description:
-      "Solo las personas que invites pueden ver y aprobar. Roles separados entre administradores y miembros.",
-  },
-  {
-    icon: FileLock,
-    title: "Integraciones reversibles",
-    description:
-      "Puedes desconectar cualquier integración cuando quieras. Los datos previamente leídos se eliminan bajo solicitud.",
-  },
-  {
-    icon: MailCheck,
-    title: "Eliminación a la cancelación",
-    description:
-      "Tienes 30 días para reactivar o exportar. Pasado ese plazo, los datos asociados a la instancia se eliminan.",
-  },
-];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "seguridad" });
+  const baseUrl = brand.url;
+  const localizedUrl = typedLocale === "es" ? `${baseUrl}/seguridad` : `${baseUrl}/en/seguridad`;
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: typedLocale === "es" ? "/seguridad" : "/en/seguridad",
+      languages: {
+        "es-ES": "/seguridad",
+        "en-US": "/en/seguridad",
+        "x-default": "/seguridad",
+      },
+    },
+    openGraph: {
+      title: `${t("ogTitle")} · ${brand.name}`,
+      description: t("ogDescription"),
+      url: localizedUrl,
+      type: "website",
+    },
+  };
+}
 
-const RESERVED = [
-  {
-    title: "DPA",
-    description:
-      "Acuerdo de tratamiento de datos disponible bajo solicitud. Plantilla revisada por asesoría jurídica.",
-  },
-  {
-    title: "Subencargados",
-    description:
-      "Listado completo de subencargados disponible en el panel de seguridad. Actualizado de forma continua.",
-  },
-  {
-    title: "Ubicación de datos",
-    description:
-      "Los datos se procesan en la Unión Europea. Las regiones exactas se documentan en el DPA.",
-  },
-  {
-    title: "Política de conservación",
-    description:
-      "Cada tipo de dato tiene un periodo de conservación documentado. Configurable a nivel de instancia.",
-  },
-  {
-    title: "Backups",
-    description:
-      "Copias de seguridad cifradas según el plan contratado. Frecuencia y retención detalladas en el panel.",
-  },
-  {
-    title: "Contacto de seguridad",
-    description:
-      "Canal directo para reportar incidentes. Respuesta en horario laboral en menos de 24 horas.",
-  },
-];
+export default async function SecurityPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) notFound();
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "seguridad" });
+  const pillars = t.raw("pillars") as Array<{ title: string; description: string }>;
+  const reserved = t.raw("reserved") as Array<{ title: string; description: string }>;
 
-export default function SecurityPage({ params }: { params: { locale: string } }) {
-  assertLocalizedForRoute(params.locale, "/seguridad");
   return (
     <>
       {/* Hero */}
       <section className="relative border-b border-border">
         <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
         <Container width="wide" className="relative py-20 sm:py-28">
-          <Eyebrow index="01">Seguridad</Eyebrow>
+          <Eyebrow index="01">{t("eyebrow")}</Eyebrow>
           <h1 className="mt-6 max-w-3xl text-display text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground">
-            Tu empresa no comparte oficina digital con nadie.
+            {t("hero.title")}
           </h1>
           <p className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-muted text-pretty">
-            Cada cliente opera sobre una instancia privada, con credenciales propias, memoria
-            independiente y permisos auditables.
+            {t("hero.subtitle")}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
@@ -130,10 +77,10 @@ export default function SecurityPage({ params }: { params: { locale: string } })
               size="lg"
               rightIcon={<MailCheck className="h-4 w-4" />}
             >
-              Contactar con seguridad
+              {t("hero.primaryCta")}
             </Button>
             <Button href="/demo" variant="secondary" size="lg">
-              Ver el panel
+              {t("hero.secondaryCta")}
             </Button>
           </div>
         </Container>
@@ -143,8 +90,8 @@ export default function SecurityPage({ params }: { params: { locale: string } })
       <section className="border-b border-border">
         <Container width="wide" className="py-20 sm:py-24">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {PILLARS.map((p) => {
-              const Icon = p.icon;
+            {pillars.map((p, i) => {
+              const Icon = PILLAR_ICONS[i] ?? Lock;
               return (
                 <div
                   key={p.title}
@@ -167,13 +114,12 @@ export default function SecurityPage({ params }: { params: { locale: string } })
         <Container width="wide" className="py-20 sm:py-28">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <Eyebrow index="02">Aislamiento</Eyebrow>
+              <Eyebrow index="02">{t("isolation.eyebrow")}</Eyebrow>
               <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-                Empresas diferentes, instancias diferentes.
+                {t("isolation.title")}
               </h2>
               <p className="mt-5 max-w-md text-[1rem] leading-relaxed text-muted text-pretty">
-                Cada empresa mantiene su propia instancia, con sus claves, su base de datos y su
-                perímetro. La información nunca se cruza.
+                {t("isolation.body")}
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -188,17 +134,16 @@ export default function SecurityPage({ params }: { params: { locale: string } })
         <Container width="wide" className="py-20 sm:py-24">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <Eyebrow index="03">Documentación</Eyebrow>
+              <Eyebrow index="03">{t("documentation.eyebrow")}</Eyebrow>
               <h2 className="mt-6 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
-                Información técnica disponible
+                {t("documentation.title")}
               </h2>
               <p className="mt-3 text-[0.9375rem] text-muted text-pretty">
-                Estos apartados se completan con la documentación definitiva. De momento dejamos
-                constancia de los compromisos.
+                {t("documentation.body")}
               </p>
             </div>
             <ul className="grid grid-cols-1 gap-3 lg:col-span-8 sm:grid-cols-2">
-              {RESERVED.map((r) => (
+              {reserved.map((r) => (
                 <li
                   key={r.title}
                   className="rounded-xl border border-dashed border-border bg-[#0c0e0a] p-5"
@@ -209,7 +154,7 @@ export default function SecurityPage({ params }: { params: { locale: string } })
                     href="/contacto?asunto=seguridad"
                     className="mt-3 inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted transition-colors hover:text-foreground"
                   >
-                    Solicitar documento →
+                    {t("documentation.cta")}
                   </Link>
                 </li>
               ))}
@@ -223,15 +168,13 @@ export default function SecurityPage({ params }: { params: { locale: string } })
         <Container width="narrow" className="py-20 sm:py-24">
           <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6 sm:p-8">
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
-              Aclaración
+              {t("certifications.eyebrow")}
             </p>
             <h2 className="mt-3 font-display text-[1.5rem] tracking-[-0.02em] text-foreground">
-              Sobre certificaciones
+              {t("certifications.title")}
             </h2>
             <p className="mt-3 text-[0.9375rem] text-muted text-pretty">
-              No mostramos sellos de certificaciones que todavía no poseemos. El equipo técnico
-              está trabajando para alcanzar las principales certificaciones del sector cuando
-              el producto esté en un estado operativo más maduro.
+              {t("certifications.body")}
             </p>
           </div>
         </Container>

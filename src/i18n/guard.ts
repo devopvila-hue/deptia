@@ -16,6 +16,15 @@ import type { Locale } from "./config";
 export const LOCALIZED_ROUTES: ReadonlySet<string> = new Set([
   "/",
   "/departamentos",
+  "/como-funciona",
+  "/contacto",
+  "/demo",
+  "/precios",
+  "/privacidad",
+  "/recursos",
+  "/seguridad",
+  "/cookies",
+  "/terminos",
 ]);
 
 /**

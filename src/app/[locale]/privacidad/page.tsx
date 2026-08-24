@@ -1,132 +1,103 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { LegalPage } from "@/components/layout/legal-page";
-import { assertLocalizedForRoute } from "@/i18n/guard";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Política de privacidad",
-  description: "Cómo tratamos los datos personales en Departify.",
-  alternates: { canonical: "/privacidad" },
-  robots: { index: false, follow: true },
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "privacidad" });
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: typedLocale === "es" ? "/privacidad" : "/en/privacidad",
+      languages: {
+        "es-ES": "/privacidad",
+        "en-US": "/en/privacidad",
+        "x-default": "/privacidad",
+      },
+    },
+    robots: { index: false, follow: true },
+  };
+}
+
+type SectionData = {
+  title: string;
+  intro: string;
+  list: string[];
+  body: string;
+  beforeStrong: string;
+  strong: string;
+  afterStrong: string;
+  beforeEmail: string;
+  email: string;
+  afterEmail: string;
 };
 
-const UPDATED = "1 de octubre de 2025";
+export default async function PrivacyPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) notFound();
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "privacidad" });
+  const sections = (await getTranslations({ locale: typedLocale, namespace: "privacidad" }))
+    .raw("sections") as SectionData[];
 
-export default function PrivacyPage({ params }: { params: { locale: string } }) {
-  assertLocalizedForRoute(params.locale, "/privacidad");
+  const renderSectionContent = (s: SectionData) => {
+    return (
+      <>
+        {s.body ? <p>{s.body}</p> : null}
+        {s.intro ? <p>{s.intro}</p> : null}
+        {s.list && s.list.length > 0 ? (
+          <ul className="list-disc pl-5">
+            {s.list.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+        ) : null}
+        {s.beforeStrong || s.strong || s.afterStrong ? (
+          <p>
+            {s.beforeStrong}
+            {s.strong ? <strong>{s.strong}</strong> : null}
+            {s.afterStrong}
+          </p>
+        ) : null}
+        {s.beforeEmail || s.email || s.afterEmail ? (
+          <p>
+            {s.beforeEmail}
+            {s.email ? (
+              <a href={`mailto:${s.email}`} className="text-foreground underline">
+                {s.email}
+              </a>
+            ) : null}
+            {s.afterEmail}
+          </p>
+        ) : null}
+      </>
+    );
+  };
+
   return (
     <LegalPage
       index="01"
-      title="Política de privacidad"
-      description="Cómo recopilamos, tratamos y protegemos los datos personales de las personas que usan Departify."
-      updated={UPDATED}
-      sections={[
-        {
-          title: "Responsable del tratamiento",
-          content: (
-            <>
-              <p>
-                El responsable del tratamiento de los datos personales recogidos a través de este
-                sitio web y de los servicios asociados es <strong>Departify, S.L.</strong>{" "}
-                (en adelante, «Departify»), con sede en España y NIF B-00000000.
-              </p>
-              <p>
-                Para cualquier cuestión relacionada con privacidad, puedes escribir a{" "}
-                <a href="mailto:privacidad@departify.app" className="text-foreground underline">
-                  privacidad@departify.app
-                </a>
-                .
-              </p>
-            </>
-          ),
-        },
-        {
-          title: "Datos que tratamos",
-          content: (
-            <>
-              <p>
-                Departify trata las siguientes categorías de datos personales, dependiendo de cómo
-                interactúas con la plataforma:
-              </p>
-              <ul className="list-disc pl-5">
-                <li>Datos de cuenta: nombre, email, organización.</li>
-                <li>Datos operativos: configuración, departamentos contratados, historial de misiones.</li>
-                <li>Datos de uso: interacción con el panel, métricas agregadas.</li>
-                <li>
-                  Datos de cliente final: información que la empresa cliente decida conectar a la
-                  plataforma, bajo su responsabilidad.
-                </li>
-              </ul>
-            </>
-          ),
-        },
-        {
-          title: "Finalidad",
-          content: (
-            <p>
-              Tratamos los datos para prestar el servicio contratado, mantener la seguridad de la
-              plataforma, mejorar el producto, cumplir obligaciones legales y, en su caso,
-              enviar comunicaciones comerciales que el usuario haya autorizado.
-            </p>
-          ),
-        },
-        {
-          title: "Base jurídica",
-          content: (
-            <p>
-              La base jurídica del tratamiento es la ejecución del contrato de prestación de
-              servicios, el cumplimiento de obligaciones legales, el consentimiento del
-              interesado y, en su caso, el interés legítimo en mantener la seguridad del
-              servicio.
-            </p>
-          ),
-        },
-        {
-          title: "Conservación",
-          content: (
-            <p>
-              Los datos se conservan mientras dure la relación contractual y, posteriormente,
-              durante el plazo legalmente exigido para atender eventuales responsabilidades.
-              Los datos operativos pueden eliminarse a solicitud del cliente en cualquier
-              momento.
-            </p>
-          ),
-        },
-        {
-          title: "Encargados del tratamiento",
-          content: (
-            <p>
-              Departify trabaja con proveedores de infraestructura, analítica y atención al cliente
-              que pueden tratar datos por cuenta de la plataforma. Todos los proveedores
-              firman acuerdos de tratamiento conforme al RGPD.
-            </p>
-          ),
-        },
-        {
-          title: "Derechos",
-          content: (
-            <p>
-              Puedes ejercer en cualquier momento los derechos de acceso, rectificación,
-              supresión, oposición, limitación del tratamiento y portabilidad escribiendo a{" "}
-              <a href="mailto:privacidad@departify.app" className="text-foreground underline">
-                privacidad@departify.app
-              </a>
-              . También puedes presentar una reclamación ante la autoridad de control
-              competente.
-            </p>
-          ),
-        },
-        {
-          title: "Seguridad",
-          content: (
-            <p>
-              Aplicamos medidas técnicas y organizativas apropiadas para proteger los datos
-              personales, incluyendo cifrado en tránsito y en reposo, control de accesos,
-              registros de actividad y evaluaciones periódicas de riesgos. Puedes consultar más
-              detalles en la página de seguridad.
-            </p>
-          ),
-        },
-      ]}
+      title={t("title")}
+      description={t("description")}
+      updated={t("updated")}
+      sections={sections.map((s) => ({
+        title: s.title,
+        content: renderSectionContent(s),
+      }))}
     />
   );
 }

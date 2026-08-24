@@ -265,10 +265,405 @@
       }
     }
   },
+  "recursos": {
+    "metaTitle": "Resources",
+    "metaDescription": "Guides, case studies, and practical resources to better understand how Departify can help your business.",
+    "ogTitle": "Resources",
+    "ogDescription": "Guides, use cases, and practical resources to understand how Departify can help your business.",
+    "eyebrow": "Resources",
+    "title": "Ideas, guides, and case studies for bringing digital departments into your business.",
+    "subtitle": "Practical material to understand how Departify can fit into your day-to-day operations. No jargon, no overblown promises.",
+    "items": [
+      {
+        "type": "Guide",
+        "title": "How to decide which department to hire first",
+        "description": "A five-step guide to identifying your most expensive operational bottleneck and addressing it with a digital team.",
+        "time": "8 min"
+      },
+      {
+        "type": "Use case",
+        "title": "How a marketing department works with sales",
+        "description": "A look at the real flow between both teams: lead handoffs, shared memory, and joint approvals.",
+        "time": "12 min"
+      },
+      {
+        "type": "Article",
+        "title": "Why chatbots don't scale like departments",
+        "description": "A technical and operational comparison of isolated conversational interfaces and structured teams.",
+        "time": "6 min"
+      },
+      {
+        "type": "Changelog",
+        "title": "October updates",
+        "description": "A new approval system, an improved Telegram integration, and granular permissions by department.",
+        "time": "3 min"
+      },
+      {
+        "type": "Webinar",
+        "title": "Department activation in 30 minutes",
+        "description": "A recording of the live walkthrough: from purchase to the first completed mission.",
+        "time": "30 min"
+      },
+      {
+        "type": "Template",
+        "title": "First mission brief",
+        "description": "An editable template for defining the first task you'll delegate to your department.",
+        "time": "Template"
+      }
+    ],
+    "read": "Read"
+  },
   "notFound": {
     "eyebrow": "Error 404",
     "title": "This page is not available in this language yet.",
     "body": "We're translating the content. In the meantime, go back to the home page or browse the department catalog.",
     "primaryCta": "Back to home"
+  },
+  "precios": {
+    "metaTitle": "Pricing",
+    "metaDescription": "Three plans to bring AI departments into your business. No surprises, cancel whenever you want.",
+    "ogTitle": "Pricing",
+    "ogDescription": "Three plans to bring AI departments into your business. Monthly or annual, no commitment.",
+    "hero": {
+      "eyebrow": "Pricing",
+      "title": "Three plans. No surprises. Cancel whenever you want.",
+      "subtitle": "Start with one department, add more when you need them. Every plan includes a private instance, guided onboarding, and approvals on every sensitive action."
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "About billing",
+      "items": [
+        {
+          "question": "Can I change plans at any time?",
+          "answer": "Yes. You can upgrade or downgrade from the admin panel. The change takes effect immediately and is prorated on your next invoice."
+        },
+        {
+          "question": "What's included in the monthly usage?",
+          "answer": "Each plan includes a monthly usage tier sized to a typical team's scope. If you need more capacity, you can top up with extra credits without changing plans."
+        },
+        {
+          "question": "Is there a commitment?",
+          "answer": "No. Every plan is monthly or annual with no commitment. If you decide to cancel, you keep access for 30 days to export everything."
+        },
+        {
+          "question": "Do I need a card to start?",
+          "answer": "No. You can kick off the sign-up flow, complete the onboarding, and explore the dashboard. We'll ask for a payment method when you're ready to activate your first department."
+        },
+        {
+          "question": "Which payment methods do you accept?",
+          "answer": "Credit and debit cards, bank transfer for annual plans, and SEPA for European companies. Automatic invoicing available."
+        },
+        {
+          "question": "Do you issue invoices?",
+          "answer": "Yes. We issue an automatic invoice on every charge. European businesses can share their VAT number for validation."
+        }
+      ]
+    }
+  },
+  "contacto": {
+    "metaTitle": "Contact",
+    "metaDescription": "Talk to the Departify team. We reply during business hours in under 24 hours.",
+    "ogTitle": "Contact · Departify",
+    "ogDescription": "Talk to the Departify team. We reply in under 24 hours.",
+    "eyebrow": "Contact",
+    "title": "Tell us what your business needs.",
+    "subtitle": "If you want a personalised demo, you're evaluating us for a specific project, or you have questions about security — we're available.",
+    "panels": {
+      "email": { "label": "Email", "value": "hola@departify.app" },
+      "security": { "label": "Security", "value": "seguridad@departify.app" },
+      "location": { "label": "Location", "value": "Spain · European Union" },
+      "response": { "label": "Reply time", "value": "Business hours · under 24 hours" }
+    }
+  },
+
+  "demo": {
+    "metaTitle": "Dashboard demo",
+    "metaDescription": "Preview the control dashboard with sample data. Walk through the department, tasks, approvals and results.",
+    "ogDescription": "Walk through a department with sample data. Tasks, approvals and results."
+  },
+
+  "privacidad": {
+    "metaTitle": "Privacy policy",
+    "metaDescription": "How we handle personal data at Departify.",
+    "title": "Privacy policy",
+    "description": "How we collect, process and protect the personal data of the people who use Departify.",
+    "updated": "1 October 2025",
+    "sections": [
+      {
+        "title": "Data controller",
+        "intro": "",
+        "list": [],
+        "body": "",
+        "beforeStrong": "The data controller for the personal data collected through this website and the associated services is ",
+        "strong": "Departify, S.L.",
+        "afterStrong": " (hereinafter, \"Departify\"), based in Spain with tax ID B-00000000.",
+        "beforeEmail": "For any privacy-related matter, you can write to ",
+        "email": "privacidad@departify.app",
+        "afterEmail": "."
+      },
+      {
+        "title": "Data we process",
+        "intro": "Departify processes the following categories of personal data, depending on how you interact with the platform:",
+        "list": [
+          "Account data: name, email, organisation.",
+          "Operational data: configuration, contracted departments, mission history.",
+          "Usage data: panel interactions, aggregated metrics.",
+          "End-customer data: information that the client business chooses to connect to the platform, under its own responsibility."
+        ],
+        "body": "",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Purpose",
+        "intro": "",
+        "list": [],
+        "body": "We process the data to deliver the contracted service, keep the platform secure, improve the product, meet legal obligations and — where applicable — send commercial communications that the user has authorised.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Legal basis",
+        "intro": "",
+        "list": [],
+        "body": "The legal basis for processing is the performance of the service agreement, compliance with legal obligations, the data subject's consent and — where applicable — the legitimate interest in keeping the service secure.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Retention",
+        "intro": "",
+        "list": [],
+        "body": "Data is kept for the duration of the contractual relationship and, afterwards, for the period required by law to address any potential liabilities. Operational data can be deleted at the client's request at any time.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Processors",
+        "intro": "",
+        "list": [],
+        "body": "Departify works with infrastructure, analytics and customer-support providers that may process data on behalf of the platform. All providers sign data-processing agreements in line with the GDPR.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      },
+      {
+        "title": "Your rights",
+        "intro": "",
+        "list": [],
+        "body": "",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "You can exercise your rights of access, rectification, erasure, objection, restriction of processing and data portability at any time by writing to ",
+        "email": "privacidad@departify.app",
+        "afterEmail": ". You may also lodge a complaint with the competent supervisory authority."
+      },
+      {
+        "title": "Security",
+        "intro": "",
+        "list": [],
+        "body": "We apply appropriate technical and organisational measures to protect personal data, including encryption in transit and at rest, access control, activity logs and periodic risk assessments. You can find more details on the security page.",
+        "beforeStrong": "",
+        "strong": "",
+        "afterStrong": "",
+        "beforeEmail": "",
+        "email": "",
+        "afterEmail": ""
+      }
+    ]
+  },
+
+  "comoFunciona": {
+    "metaTitle": "How it works",
+    "metaDescription": "From sign-up to your first mission in under an hour. Nothing to deploy. Here's the full process.",
+    "ogTitle": "How it works · Departify",
+    "ogDescription": "From sign-up to your first mission in under an hour. Four steps, nothing to deploy.",
+    "eyebrow": "Process",
+    "title": "From sign-up to your first mission in under an hour.",
+    "subtitle": "No deployment, no servers to set up, no infrastructure to understand. We'll walk you through the whole process, step by step.",
+    "ctaPrimary": "Get started",
+    "ctaSecondary": "Try the dashboard",
+    "steps": [
+      { "number": "01", "title": "Sign-up", "description": "Pick your plan and your department. Sign-up happens online — no mandatory sales calls.", "duration": "2 min" },
+      { "number": "02", "title": "Provisioning", "description": "A private instance is created with its own resources, encryption keys and isolated space.", "duration": "3 min" },
+      { "number": "03", "title": "Onboarding", "description": "An Onboarding Lead walks you through a conversation to understand your business, brand, goals and rules.", "duration": "30 min" },
+      { "number": "04", "title": "Connections", "description": "You connect the tools the department will use. You decide what it can read, draft or apply.", "duration": "20 min" },
+      { "number": "05", "title": "Permissions", "description": "You set the three levels of autonomy for each type of action: can, approve, never.", "duration": "15 min" },
+      { "number": "06", "title": "First mission", "description": "You define the first mission and the team proposes an operating plan. You approve it and it starts executing.", "duration": "Ongoing" },
+      { "number": "07", "title": "Recurring work", "description": "The team operates under your rules, retains memory, logs activity and proposes iterations.", "duration": "Daily" },
+      { "number": "08", "title": "Reports", "description": "You receive weekly reports, per-channel metrics and executive summaries. Available on web and Telegram.", "duration": "Weekly" },
+      { "number": "09", "title": "Continuous improvement", "description": "The team learns from each decision, corrects patterns and proposes new opportunities for work.", "duration": "Ongoing" }
+    ],
+    "activationEyebrow": "Activation",
+    "activationTitle": "Your instance is built, live.",
+    "activationBody": "During provisioning the system creates an isolated environment for your business, applies permissions and prepares the workspace.",
+    "demoEyebrow": "Demo",
+    "demoTitle": "A look at the dashboard in use",
+    "demoBody": "The dashboard brings together the department status, active tasks, pending approvals and the Telegram connection.",
+    "demoCta": "Try the live dashboard",
+    "videoTitle": "Full activation",
+    "videoSubtitle": "Walkthrough · 90 s"
+  },
+
+  "seguridad": {
+    "metaTitle": "Security",
+    "metaDescription": "Your private instance, your credentials, your memory. How we protect your company's data.",
+    "ogTitle": "Security",
+    "ogDescription": "A private instance per customer, your own encryption keys, permissions per action. How we protect your data.",
+    "eyebrow": "Security",
+    "hero": {
+      "title": "Your business doesn't share a digital office with anyone.",
+      "subtitle": "Each customer runs on a private instance, with its own credentials, independent memory and auditable permissions.",
+      "primaryCta": "Contact security",
+      "secondaryCta": "See the dashboard"
+    },
+    "pillars": [
+      { "title": "Independent instance", "description": "Each customer runs on an instance with dedicated resources. No infrastructure is shared with other customers." },
+      { "title": "Separated data", "description": "Each company has its own database and perimeter. Data is never mixed between customers." },
+      { "title": "Your own credentials", "description": "Encryption keys are unique per instance. If you decide to leave, you can disconnect and export everything." },
+      { "title": "Permissions per action", "description": "Every action is classified into three levels: can, must approve, never. Your team enforces them." },
+      { "title": "Activity logs", "description": "Every action — executed, proposed or approved — is recorded. Visible to your admin team." },
+      { "title": "Administrative access", "description": "Only the people you invite can view and approve. Roles are split between administrators and members." },
+      { "title": "Reversible integrations", "description": "You can disconnect any integration whenever you want. Previously read data is deleted on request." },
+      { "title": "Deletion on cancellation", "description": "You have 30 days to reactivate or export. After that, the data tied to the instance is deleted." }
+    ],
+    "isolation": {
+      "eyebrow": "Isolation",
+      "title": "Different companies, different instances.",
+      "body": "Each company keeps its own instance, with its keys, its database and its perimeter. Information never crosses over."
+    },
+    "documentation": {
+      "eyebrow": "Documentation",
+      "title": "Technical information available",
+      "body": "These sections will be completed with the final documentation. For now, we record the commitments.",
+      "cta": "Request document →",
+      "items": [
+        { "title": "DPA", "description": "Data processing agreement available on request. Template reviewed by legal counsel." },
+        { "title": "Sub-processors", "description": "Full list of sub-processors available in the security dashboard. Continuously updated." },
+        { "title": "Data location", "description": "Data is processed in the European Union. Exact regions are documented in the DPA." },
+        { "title": "Retention policy", "description": "Each data type has a documented retention period. Configurable at the instance level." },
+        { "title": "Backups", "description": "Encrypted backups according to the contracted plan. Frequency and retention detailed in the dashboard." },
+        { "title": "Security contact", "description": "Direct channel to report incidents. Business-hours response in under 24 hours." }
+      ]
+    },
+    "certifications": {
+      "eyebrow": "A note",
+      "title": "On certifications",
+      "body": "We don't display certification badges we don't yet hold. The technical team is working toward the main industry certifications once the product reaches a more mature operating state."
+    }
+  },
+  "cookies": {
+    "metaTitle": "Cookie policy · Departify",
+    "metaDescription": "How Departify uses cookies and how you can manage them.",
+    "ogTitle": "Cookie policy · Departify",
+    "ogDescription": "How Departify uses cookies and how you can manage them.",
+    "title": "Cookie policy",
+    "description": "Clear information about the cookies Departify uses and how to manage them.",
+    "updated": "October 1, 2025",
+    "sections": {
+      "whatAreCookies": {
+        "title": "What are cookies?",
+        "body": "Cookies are small files that a website stores on your device to remember information between visits. We use them so Departify works correctly and so we can understand how the site is used."
+      },
+      "cookiesWeUse": {
+        "title": "Cookies we use",
+        "intro": "We use three types of cookies, always with the goal of improving your experience:",
+        "technical": {
+          "label": "Technical",
+          "body": "Required for the site and your session to work. These cannot be disabled."
+        },
+        "preference": {
+          "label": "Preference",
+          "body": "Remember your language and other display options so you don't have to set them on every visit."
+        },
+        "analytics": {
+          "label": "Analytics",
+          "body": "Help us understand which parts of the site are used most. The data is aggregated and never identifies the visitor individually."
+        }
+      },
+      "management": {
+        "title": "Managing cookies",
+        "body": "You can delete or block cookies from your browser settings. Note that blocking certain cookies may affect how the site works."
+      },
+      "thirdParty": {
+        "title": "Third parties",
+        "body": "Some analytics or support services may set their own cookies. Those third parties have their own privacy and cookie policies."
+      },
+      "updates": {
+        "title": "Updates",
+        "body": "We may update this policy to reflect technical or legal changes. We will publish the updated version on this same page."
+      }
+    }
+  },
+  "terminos": {
+    "metaTitle": "Terms of service · Departify",
+    "metaDescription": "Conditions that govern the use of Departify.",
+    "ogTitle": "Terms of service · Departify",
+    "ogDescription": "Conditions that govern the use of Departify.",
+    "title": "Terms of service",
+    "description": "The conditions that govern access to and use of Departify by companies and professionals.",
+    "updated": "October 1, 2025",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance",
+        "body": "By contracting or using Departify you accept these terms. If you act on behalf of a company, you confirm you have the authority to bind it."
+      },
+      "object": {
+        "title": "Subject matter",
+        "body": "Departify provides AI-powered department operations services, accessible from the web dashboard and from Telegram, with a private instance per customer."
+      },
+      "account": {
+        "title": "Registration and account",
+        "body": "You need an account to use the service. You are responsible for keeping your credentials confidential and for any activity under your account."
+      },
+      "allowedUse": {
+        "title": "Acceptable use",
+        "body": "You agree to use the service in compliance with the law, not to use the outputs for illicit activity, and to respect the rights of third parties. Bypassing security measures or reverse-engineering the product is prohibited."
+      },
+      "payments": {
+        "title": "Plans and payments",
+        "body": "Pricing and conditions for each plan are listed on the pricing page. Charges are made in advance. You can change or cancel your plan at any time from the admin dashboard."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "body": "Departify retains all rights to the software, brand, designs and site materials. The customer retains ownership of the content they upload or generate through the service."
+      },
+      "liability": {
+        "title": "Limitation of liability",
+        "body": "Departify will not be liable for indirect damages, lost profits or data loss arising from use of the service beyond what is required by law. The platform is an operational support tool; strategic and legally relevant decisions remain the customer's responsibility."
+      },
+      "suspension": {
+        "title": "Suspension and termination",
+        "body": "We may suspend the service if we detect misuse, security risk or non-payment. You can cancel at any time and keep access to your instance for 30 days to export your data."
+      },
+      "changes": {
+        "title": "Changes",
+        "body": "We may modify these terms. We will notify you at least 30 days before substantial changes take effect. Continued use of the service implies acceptance of the new terms."
+      },
+      "law": {
+        "title": "Governing law",
+        "body": "These terms are governed by applicable Spanish and European law. For any dispute, the parties submit to the courts of the customer's city, without prejudice to consumer rights."
+      }
+    }
   }
 }

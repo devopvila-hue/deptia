@@ -1,21 +1,48 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { DemoPanel } from "@/components/demo/demo-panel";
 import { brand } from "@/config/brand";
-import { assertLocalizedForRoute } from "@/i18n/guard";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Demo del panel",
-  description: "Vista previa del panel de control con datos de ejemplo. Recorre el departamento, las tareas, aprobaciones y resultados.",
-  alternates: { canonical: "/demo" },
-  openGraph: {
-    title: `Demo del panel · ${brand.name}`,
-    description: "Recorre un departamento con datos de ejemplo. Tareas, aprobaciones y resultados.",
-    url: "/demo",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "demo" });
+  const localizedUrl =
+    typedLocale === "es" ? `${brand.url}/demo` : `${brand.url}/en/demo`;
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: typedLocale === "es" ? "/demo" : "/en/demo",
+      languages: {
+        "es-ES": "/demo",
+        "en-US": "/en/demo",
+        "x-default": "/demo",
+      },
+    },
+    openGraph: {
+      title: `${t("metaTitle")} · ${brand.name}`,
+      description: t("ogDescription"),
+      url: localizedUrl,
+      type: "website",
+    },
+  };
+}
 
-export default function DemoPage({ params }: { params: { locale: string } }) {
-  assertLocalizedForRoute(params.locale, "/demo");
+export default async function DemoPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   return <DemoPanel />;
 }

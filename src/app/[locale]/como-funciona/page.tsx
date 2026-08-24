@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
@@ -7,103 +9,65 @@ import { VideoPlaceholder } from "@/components/visualizations/video-placeholder"
 import { FinalCta } from "@/components/marketing/final-cta";
 import { ArrowUpRight } from "lucide-react";
 import { brand } from "@/config/brand";
-import { assertLocalizedForRoute } from "@/i18n/guard";
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Cómo funciona",
-  description:
-    "De la contratación a la primera misión en menos de una hora. Sin desplegar nada. Te explicamos el proceso completo.",
-  alternates: { canonical: "/como-funciona" },
-  openGraph: {
-    title: `Cómo funciona · ${brand.name}`,
-    description:
-      "De la contratación a la primera misión en menos de una hora. Cuatro pasos, sin desplegar nada.",
-    url: "/como-funciona",
-    type: "website",
-  },
-};
+const STEP_NUMBERS = ["01", "02", "03", "04", "05", "06", "07", "08", "09"] as const;
 
-const STEPS = [
-  {
-    number: "01",
-    title: "Compra",
-    description:
-      "Eliges el plan y el departamento. La contratación se realiza online, sin llamadas comerciales obligatorias.",
-    duration: "2 min",
-  },
-  {
-    number: "02",
-    title: "Aprovisionamiento",
-    description:
-      "Se crea una instancia privada con sus propios recursos, claves de cifrado y espacio aislado.",
-    duration: "3 min",
-  },
-  {
-    number: "03",
-    title: "Onboarding",
-    description:
-      "Un Director de Incorporación te guía en una conversación para entender tu empresa, marca, objetivos y reglas.",
-    duration: "30 min",
-  },
-  {
-    number: "04",
-    title: "Conexiones",
-    description:
-      "Conectas las herramientas que el departamento va a usar. Tú decides qué puede leer, preparar o aplicar.",
-    duration: "20 min",
-  },
-  {
-    number: "05",
-    title: "Permisos",
-    description:
-      "Configuras los tres niveles de autonomía para cada tipo de acción: puede, aprueba, nunca.",
-    duration: "15 min",
-  },
-  {
-    number: "06",
-    title: "Primera misión",
-    description:
-      "Defines la primera misión y el equipo propone un plan operativo. Apruebas y empieza a ejecutar.",
-    duration: "Continuo",
-  },
-  {
-    number: "07",
-    title: "Trabajo recurrente",
-    description:
-      "El equipo opera bajo tus reglas, mantiene memoria, registra actividad y propone iteraciones.",
-    duration: "Diario",
-  },
-  {
-    number: "08",
-    title: "Informes",
-    description:
-      "Recibes informes semanales, métricas por canal y resúmenes ejecutivos. Visibles desde web y Telegram.",
-    duration: "Semanal",
-  },
-  {
-    number: "09",
-    title: "Mejora continua",
-    description:
-      "El equipo aprende de cada decisión, corrige patrones y propone nuevas oportunidades de trabajo.",
-    duration: "Continuo",
-  },
-];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "comoFunciona" });
+  const baseUrl = brand.url;
+  const localizedUrl =
+    typedLocale === "es" ? `${baseUrl}/como-funciona` : `${baseUrl}/en/como-funciona`;
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: typedLocale === "es" ? "/como-funciona" : "/en/como-funciona",
+      languages: {
+        "es-ES": "/como-funciona",
+        "en-US": "/en/como-funciona",
+        "x-default": "/como-funciona",
+      },
+    },
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: localizedUrl,
+      type: "website",
+    },
+  };
+}
 
-export default function HowItWorksPage({ params }: { params: { locale: string } }) {
-  assertLocalizedForRoute(params.locale, "/como-funciona");
+export default async function HowItWorksPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) notFound();
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "comoFunciona" });
+
   return (
     <>
       {/* Hero */}
       <section className="relative border-b border-border">
         <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
         <Container width="wide" className="relative py-20 sm:py-28">
-          <Eyebrow index="01">Proceso</Eyebrow>
+          <Eyebrow index="01">{t("eyebrow")}</Eyebrow>
           <h1 className="mt-6 max-w-3xl text-display text-[clamp(2.5rem,5.5vw,5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground">
-            De la contratación a la primera misión, en menos de una hora.
+            {t("title")}
           </h1>
           <p className="mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-muted text-pretty">
-            No tienes que desplegar nada, configurar servidores ni entender infraestructura. Te
-            explicamos el proceso completo, paso a paso.
+            {t("subtitle")}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button
@@ -112,10 +76,10 @@ export default function HowItWorksPage({ params }: { params: { locale: string } 
               size="lg"
               rightIcon={<ArrowUpRight className="h-4 w-4" />}
             >
-              Empezar
+              {t("ctaPrimary")}
             </Button>
             <Button href="/demo" variant="secondary" size="lg">
-              Probar el panel
+              {t("ctaSecondary")}
             </Button>
           </div>
         </Container>
@@ -125,21 +89,25 @@ export default function HowItWorksPage({ params }: { params: { locale: string } 
       <section className="border-b border-border">
         <Container width="wide" className="py-16 sm:py-20">
           <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {STEPS.map((step) => (
+            {STEP_NUMBERS.map((number, index) => (
               <li
-                key={step.number}
+                key={number}
                 className="rounded-xl border border-border bg-[#0c0e0a] p-5"
               >
                 <div className="flex items-center justify-between border-b border-border/60 pb-3">
                   <span className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent">
-                    {step.number}
+                    {number}
                   </span>
                   <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">
-                    {step.duration}
+                    {t(`steps.${index}.duration`)}
                   </span>
                 </div>
-                <h3 className="mt-3 text-[1.125rem] font-medium text-foreground">{step.title}</h3>
-                <p className="mt-2 text-[0.875rem] text-muted text-pretty">{step.description}</p>
+                <h3 className="mt-3 text-[1.125rem] font-medium text-foreground">
+                  {t(`steps.${index}.title`)}
+                </h3>
+                <p className="mt-2 text-[0.875rem] text-muted text-pretty">
+                  {t(`steps.${index}.description`)}
+                </p>
               </li>
             ))}
           </ol>
@@ -151,13 +119,12 @@ export default function HowItWorksPage({ params }: { params: { locale: string } 
         <Container width="wide" className="py-20 sm:py-28">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <Eyebrow index="02">Activación</Eyebrow>
+              <Eyebrow index="02">{t("activationEyebrow")}</Eyebrow>
               <h2 className="mt-6 text-display text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] tracking-[-0.025em] text-balance text-foreground">
-                Tu instancia se construye en directo.
+                {t("activationTitle")}
               </h2>
               <p className="mt-5 max-w-md text-[1rem] leading-relaxed text-muted text-pretty">
-                Durante el aprovisionamiento, el sistema crea un entorno aislado para tu empresa,
-                aplica permisos y prepara el espacio de trabajo.
+                {t("activationBody")}
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -172,20 +139,19 @@ export default function HowItWorksPage({ params }: { params: { locale: string } 
         <Container width="wide" className="py-20 sm:py-28">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
             <div className="lg:col-span-4">
-              <Eyebrow index="03">Demo</Eyebrow>
+              <Eyebrow index="03">{t("demoEyebrow")}</Eyebrow>
               <h2 className="mt-6 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
-                Una vista del panel en uso
+                {t("demoTitle")}
               </h2>
               <p className="mt-4 text-[0.9375rem] text-muted text-pretty">
-                El panel combina el estado del departamento, las tareas activas, las aprobaciones
-                pendientes y la conexión con Telegram.
+                {t("demoBody")}
               </p>
               <Button href="/demo" variant="secondary" size="md" className="mt-6">
-                Probar el panel en vivo
+                {t("demoCta")}
               </Button>
             </div>
             <div className="lg:col-span-8">
-              <VideoPlaceholder title="Activación completa" subtitle="Recorrido · 90 s" />
+              <VideoPlaceholder title={t("videoTitle")} subtitle={t("videoSubtitle")} />
             </div>
           </div>
         </Container>

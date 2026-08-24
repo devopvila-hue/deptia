@@ -1,123 +1,100 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 import { LegalPage } from "@/components/layout/legal-page";
-import { assertLocalizedForRoute } from "@/i18n/guard";
+import { routing } from "@/i18n/routing";
+import { brand } from "@/config/brand";
+import type { Locale } from "@/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Términos de servicio",
-  description: "Condiciones que rigen el uso de Departify.",
-  alternates: { canonical: "/terminos" },
-  robots: { index: false, follow: true },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) return {};
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "terminos" });
+  const baseUrl = brand.url;
+  const localizedUrl =
+    typedLocale === "es" ? `${baseUrl}/terminos` : `${baseUrl}/en/terminos`;
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+    alternates: {
+      canonical: typedLocale === "es" ? "/terminos" : "/en/terminos",
+      languages: {
+        "es-ES": "/terminos",
+        "en-US": "/en/terminos",
+        "x-default": "/terminos",
+      },
+    },
+    robots: { index: false, follow: true },
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: localizedUrl,
+      type: "website",
+    },
+  };
+}
 
-const UPDATED = "1 de octubre de 2025";
+export default async function TermsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!(routing.locales as readonly string[]).includes(locale)) notFound();
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "terminos" });
 
-export default function TermsPage({ params }: { params: { locale: string } }) {
-  assertLocalizedForRoute(params.locale, "/terminos");
   return (
     <LegalPage
       index="02"
-      title="Términos de servicio"
-      description="Las condiciones que rigen el acceso y uso de Departify por parte de empresas y profesionales."
-      updated={UPDATED}
+      title={t("title")}
+      description={t("description")}
+      updated={t("updated")}
       sections={[
         {
-          title: "Aceptación",
-          content: (
-            <p>
-              Al contratar o usar Departify aceptas estos términos. Si actúas en nombre de una
-              empresa, declaras tener facultades para vincularla.
-            </p>
-          ),
+          title: t("sections.acceptance.title"),
+          content: <p>{t("sections.acceptance.body")}</p>,
         },
         {
-          title: "Objeto",
-          content: (
-            <p>
-              Departify presta servicios de operación de departamentos mediante inteligencia
-              artificial, accesibles desde el panel web y desde Telegram, con instancia
-              privada por cliente.
-            </p>
-          ),
+          title: t("sections.object.title"),
+          content: <p>{t("sections.object.body")}</p>,
         },
         {
-          title: "Registro y cuenta",
-          content: (
-            <p>
-              Para usar el servicio necesitas una cuenta. Eres responsable de mantener la
-              confidencialidad de tus credenciales y de la actividad que ocurra bajo tu cuenta.
-            </p>
-          ),
+          title: t("sections.account.title"),
+          content: <p>{t("sections.account.body")}</p>,
         },
         {
-          title: "Uso permitido",
-          content: (
-            <p>
-              Te comprometes a usar el servicio conforme a la ley, a no utilizar las salidas
-              para actividades ilícitas y a respetar los derechos de terceros. Está prohibido
-              eludir las medidas de seguridad o realizar ingeniería inversa del producto.
-            </p>
-          ),
+          title: t("sections.allowedUse.title"),
+          content: <p>{t("sections.allowedUse.body")}</p>,
         },
         {
-          title: "Planes y pagos",
-          content: (
-            <p>
-              Los precios y condiciones de cada plan se indican en la página de precios. Los
-              cargos se realizan por adelantado. Puedes cambiar o cancelar el plan en cualquier
-              momento desde el panel de administración.
-            </p>
-          ),
+          title: t("sections.payments.title"),
+          content: <p>{t("sections.payments.body")}</p>,
         },
         {
-          title: "Propiedad intelectual",
-          content: (
-            <p>
-              Departify conserva todos los derechos sobre el software, la marca, los diseños y
-              los materiales del sitio. El cliente conserva la propiedad de los contenidos que
-              carga o genera a través del servicio.
-            </p>
-          ),
+          title: t("sections.ip.title"),
+          content: <p>{t("sections.ip.body")}</p>,
         },
         {
-          title: "Limitación de responsabilidad",
-          content: (
-            <p>
-              Departify no será responsable de daños indirectos, lucro cesante o pérdida de
-              datos derivada del uso del servicio más allá de lo exigido por la ley. La
-              plataforma es una herramienta de apoyo a la operativa; las decisiones
-              estratégicas y legalmente relevantes siguen siendo responsabilidad del cliente.
-            </p>
-          ),
+          title: t("sections.liability.title"),
+          content: <p>{t("sections.liability.body")}</p>,
         },
         {
-          title: "Suspensión y terminación",
-          content: (
-            <p>
-              Podemos suspender el servicio si detectamos uso indebido, riesgo de seguridad o
-              impago. Puedes cancelar en cualquier momento, manteniendo acceso a tu instancia
-              durante 30 días para exportar tus datos.
-            </p>
-          ),
+          title: t("sections.suspension.title"),
+          content: <p>{t("sections.suspension.body")}</p>,
         },
         {
-          title: "Modificaciones",
-          content: (
-            <p>
-              Podemos modificar estos términos. Te avisaremos con al menos 30 días de
-              antelación a la entrada en vigor de cambios sustanciales. El uso continuado del
-              servicio implica la aceptación de los nuevos términos.
-            </p>
-          ),
+          title: t("sections.changes.title"),
+          content: <p>{t("sections.changes.body")}</p>,
         },
         {
-          title: "Ley aplicable",
-          content: (
-            <p>
-              Estos términos se rigen por la legislación española y europea aplicable. Para
-              cualquier controversia, las partes se someten a los juzgados y tribunales de la
-              ciudad del cliente, sin perjuicio de los derechos del consumidor.
-            </p>
-          ),
+          title: t("sections.law.title"),
+          content: <p>{t("sections.law.body")}</p>,
         },
       ]}
     />
