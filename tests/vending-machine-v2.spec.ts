@@ -20,21 +20,20 @@ test.describe("Vending Machine — Landing smoke", () => {
     expect(text).not.toContain("Operating System");
   });
 
-  test("Home expone confianza sin fricción y CTA con Google OAuth", async ({ page }) => {
+  test("Home expone confianza sin fricción y CTA de signup", async ({ page }) => {
     await page.goto(BASE);
 
     // Micro-confianza visible (sin tarjeta)
     await expect(page.getByText(/Sin tarjeta/i).first()).toBeVisible();
 
-    // CTA principal: botón con logo Google + "Crear mi equipo"
-    const cta = page.getByRole("button", { name: /Crear mi equipo|Probar gratis/i }).first();
+    // CTA principal → app.departify.app/signup
+    const cta = page.getByRole("link", { name: /Crear mi equipo|Probar gratis/i }).first();
     await expect(cta).toBeVisible();
-    await expect(cta.locator("svg")).toHaveCount(1);
+    await expect(cta).toHaveAttribute("href", /app\.departify\.app\/signup/);
 
-    // CTA de acceso también es botón con Google
-    const signin = page.getByRole("button", { name: /Iniciar sesi[óo]n|Iniciar|Acceder/i }).first();
-    await expect(signin).toBeVisible();
-    await expect(signin.locator("svg")).toHaveCount(1);
+    // CTA secundario → app.departify.app/login
+    const signin = page.getByRole("link", { name: /Iniciar sesi[óo]n|Iniciar|Acceder/i }).first();
+    await expect(signin).toHaveAttribute("href", /app\.departify\.app\/login/);
   });
 
   test("Home tiene una sección de FAQ visible", async ({ page }) => {

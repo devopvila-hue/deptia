@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
-import { GoogleAuthButton } from "@/components/auth/google-auth-button";
 import { track } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
@@ -50,14 +49,15 @@ export function MidCta({ variant }: { variant?: "alt" }) {
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <GoogleAuthButton
-              fallbackHref="https://app.departify.app/signup"
+            <Button
+              href="https://app.departify.app/signup"
               variant="primary"
               size="md"
-              onAfterClick={() => track("mid_cta_clicked", { variant: variant ?? "default" })}
+              onClick={() => track("mid_cta_clicked", { variant: variant ?? "default" })}
+              rightIcon={<ArrowUpRight className="h-3.5 w-3.5" />}
             >
               Crear mi equipo
-            </GoogleAuthButton>
+            </Button>
             <Button href="/como-funciona" variant="ghost" size="md">
               Ver cómo funciona
             </Button>

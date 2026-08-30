@@ -80,6 +80,6 @@ export const config = {
      *  - rutas de aplicación (/admin, /panel, /acceso, /registro): no son landing
      *    y no deben pasar por el middleware de i18n para preservar sus URLs originales.
      */
-    "/((?!api|_next/static|_next/image|robots.txt|sitemap.xml|admin|panel|acceso|registro|auth|.*\\.(?:svg|png|jpg|jpeg|webp|ico|gif|avif|woff2?|css|js|map|txt|xml)$).*)",
+    "/((?!api|_next/static|_next/image|robots.txt|sitemap.xml|admin|panel|acceso|registro|.*\\.(?:svg|png|jpg|jpeg|webp|ico|gif|avif|woff2?|css|js|map|txt|xml)$).*)",
   ],
 };
