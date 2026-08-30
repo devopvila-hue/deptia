@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { DepartmentsDropdown } from "@/components/layout/departments-dropdown";
-import { departments } from "@/data/departments";
+import { departments, listPublicDepartments } from "@/data/departments";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
 import { localePrefixPath } from "@/i18n/locale-path";
@@ -274,7 +274,7 @@ function DepartmentsListMobile({ locale }: { locale: Locale }) {
   const tDepts = useTranslations("departamentos");
   return (
     <ul className="grid grid-cols-1 gap-2">
-      {departments.map((d, i) => (
+      {listPublicDepartments().map((d, i) => (
         <motion.li
           key={d.slug}
           initial={{ opacity: 0, y: 8 }}

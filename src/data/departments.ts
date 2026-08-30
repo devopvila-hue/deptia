@@ -1,4 +1,5 @@
 import type { Department, IntegrationRef } from "@/types/department";
+import { PUBLIC_DEPARTMENT_SLUGS } from "@/types/department";
 
 const defaultPermissions = [
   {
@@ -2600,6 +2601,184 @@ export const departments: Department[] = [
       output: "/departments/gobierno/output.svg",
     },
   },
+  {
+    slug: "developer",
+    name: "Departamento de Developer",
+    shortName: "Developer",
+    promise:
+      "Ayuda a crear, mejorar y mantener las herramientas digitales que tu empresa necesita, en lenguaje no técnico.",
+    description:
+      "Alberto analiza necesidades, trabaja sobre el software existente, implementa mejoras, verifica los cambios y mantiene tus aplicaciones. La infraestructura permanece invisible para ti.",
+    tagline: "Crea, mejora y mantiene el software que necesita tu empresa.",
+    category: "Tecnología",
+    status: "available",
+    priceFrom: 199,
+    priceCurrency: "EUR",
+    metrics: [
+      { label: "Tiempo medio de revisión", value: "48 h" },
+      { label: "Tareas por sprint", value: "8 — 12" },
+      { label: "Aprobaciones por entrega", value: "1 — 2" },
+    ],
+    members: [
+      {
+        id: "developer-direction",
+        role: "Dirección técnica",
+        initials: "AT",
+        pattern: "grid",
+        responsibilities: [
+          "Entiende tus necesidades operativas en lenguaje no técnico",
+          "Prioriza mejoras en función del impacto para tu negocio",
+          "Coordina al equipo técnico y mantiene la memoria del proyecto",
+        ],
+      },
+      {
+        id: "developer-analysis",
+        role: "Análisis de necesidades",
+        initials: "AN",
+        pattern: "wave",
+        responsibilities: [
+          "Revisa el software y las herramientas que ya usas",
+          "Identifica qué se puede mejorar de forma segura",
+          "Propone planes de cambio antes de tocar nada",
+        ],
+      },
+      {
+        id: "developer-implementation",
+        role: "Implementación",
+        initials: "IM",
+        pattern: "orbit",
+        responsibilities: [
+          "Aplica las mejoras aprobadas por tu equipo",
+          "Mantiene versiones y registra cada cambio",
+          "Trabaja sobre el código existente, no lo reinventa",
+        ],
+      },
+      {
+        id: "developer-verification",
+        role: "Verificación y entrega",
+        initials: "VE",
+        pattern: "bars",
+        responsibilities: [
+          "Prueba cada cambio antes de entregarlo",
+          "Te explica en lenguaje claro qué se modificó",
+          "Te entrega el resultado con un resumen ejecutivo",
+        ],
+      },
+    ],
+    capabilities: [
+      "Analizar necesidades operativas que tu empresa pueda traducir a software",
+      "Trabajar sobre el software y las herramientas que ya tienes",
+      "Implementar mejoras pequeñas y medianas de forma segura",
+      "Mantener aplicaciones existentes sin interrupciones",
+      "Verificar cada cambio antes de entregarlo",
+      "Mantenerte informado en lenguaje no técnico",
+    ],
+    deliverables: [
+      "Diagnóstico inicial de tus herramientas y aplicaciones",
+      "Plan priorizado de mejoras con coste y tiempo estimados",
+      "Implementaciones verificadas con resumen ejecutivo",
+      "Mantenimiento continuo sobre tus aplicaciones",
+      "Pequeñas herramientas internas cuando la capacidad esté certificada",
+    ],
+    problems: [
+      {
+        title: "Tu software se queda obsoleto.",
+        description:
+          "Las herramientas que compraste hace años ya no encajan con tu forma actual de trabajar y nadie las mantiene.",
+      },
+      {
+        title: "Dependes de freelancers puntuales.",
+        description:
+          "Cada cambio depende de encontrar a alguien disponible, y nadie conserva la memoria del proyecto.",
+      },
+      {
+        title: "Las mejoras se quedan en ideas.",
+        description:
+          "Sabes qué quieres mejorar pero no tienes un equipo técnico que lo convierta en realidad con control.",
+      },
+    ],
+    integrations: ["GitHub", "Vercel", "Supabase", "Railway"],
+    workflow: [
+      { number: "01", title: "Diagnóstico", description: "Revisamos las herramientas y aplicaciones que tienes hoy.", duration: "1 — 2 días" },
+      { number: "02", title: "Plan de mejoras", description: "Proponemos un plan priorizado con impacto, coste y tiempo estimado.", duration: "3 — 5 días" },
+      { number: "03", title: "Aprobación", description: "Apruebas qué se hace primero. Lo demás espera a tu OK.", duration: "Cuando tú decidas" },
+      { number: "04", title: "Implementación", description: "Alberto aplica las mejoras sobre el software existente, paso a paso.", duration: "Continuo" },
+      { number: "05", title: "Verificación", description: "Probamos cada cambio y te entregamos un resumen claro.", duration: "Antes de cada entrega" },
+    ],
+    permissions: [
+      {
+        action: "Leer el código y configuración de tus repositorios autorizados",
+        level: "can" as const,
+        example: "Accede solo a los proyectos que tú conectas.",
+      },
+      {
+        action: "Proponer borradores de cambios antes de aplicarlos",
+        level: "can" as const,
+        example: "Te muestra el plan de modificación antes de tocar nada.",
+      },
+      {
+        action: "Aplicar mejoras aprobadas",
+        level: "approval" as const,
+        example: "Necesita tu OK antes de subir cada cambio a producción.",
+      },
+      {
+        action: "Modificar infraestructura crítica",
+        level: "approval" as const,
+        example: "Cambios en permisos, claves o producción requieren tu confirmación.",
+      },
+      {
+        action: "Borrar código, datos o despliegues",
+        level: "never" as const,
+        example: "Ninguna operación destructiva se ejecuta sin confirmación humana.",
+      },
+      {
+        action: "Publicar en producción sin tu visto bueno",
+        level: "never" as const,
+        example: "Siempre hay revisión humana antes del deploy final.",
+      },
+    ],
+    faq: [
+      {
+        question: "¿Necesito saber programar?",
+        answer: "No. Alberto te explica cada cambio en lenguaje claro y mantiene un resumen ejecutivo de cada entrega.",
+      },
+      {
+        question: "¿Toca mi código existente?",
+        answer: "Trabaja sobre lo que ya tienes. No reemplaza tu stack ni migra plataformas sin un plan aprobado por tu equipo.",
+      },
+      {
+        question: "¿Puede romper mi producción?",
+        answer: "No. Cada cambio se prueba antes de subirlo y nunca se publica sin tu aprobación explícita.",
+      },
+      {
+        question: "¿Y si solo necesito pequeñas herramientas internas?",
+        answer: "Cuando esa capacidad esté certificada, Developer puede crear pequeñas herramientas internas acordadas contigo.",
+      },
+    ],
+    mission: {
+      brief:
+        "Tenemos software que ya no se adapta a cómo trabaja nuestra gente y nadie lo mantiene.",
+      response:
+        "Reviso el estado actual de tus herramientas, propongo un plan priorizado con impacto para tu negocio y empiezo por las mejoras que más te desbloquean. Tú apruebas cada cambio antes de que se aplique.",
+      tasks: [
+        "Inventariar tus herramientas y aplicaciones",
+        "Diagnosticar estado y riesgo",
+        "Proponer plan priorizado de mejoras",
+        "Implementar cambios aprobados",
+        "Verificar y entregar con resumen ejecutivo",
+      ],
+    },
+    color: {
+      base: "#7DC8E8",
+      accent: "rgba(125, 200, 232, 0.16)",
+    },
+    ordering: 6,
+    assets: {
+      hero: "/departments/developer/hero.svg",
+      team: "/departments/developer/team.svg",
+      output: "/departments/developer/output.svg",
+    },
+  },
 ];
 
 
@@ -2619,6 +2798,25 @@ export function listAvailableDepartments(): Department[] {
   return departments
     .filter((d) => d.status === "available")
     .sort((a, b) => a.ordering - b.ordering);
+}
+
+/**
+ * Lista maestra del catálogo público de la landing (SEO).
+ * Devuelve los seis departamentos comerciales + Developer, en el orden
+ * declarado en PUBLIC_DEPARTMENT_SLUGS. Cualquier departamento interno
+ * (Contenido, Operaciones, RR.HH., Logística, Crecimiento, Analítica,
+ * Finanzas, Soporte, Legal, Gobierno) NO aparece aquí aunque exista en
+ * `departments` para uso interno.
+ *
+ * Úsala en /departamentos, footer, nav dropdown, sitemap y home.
+ * NO la uses en Portal/registration/demo — esos siguen viendo la lista
+ * completa.
+ */
+export function listPublicDepartments(): Department[] {
+  const bySlug = new Map(departments.map((d) => [d.slug, d]));
+  return PUBLIC_DEPARTMENT_SLUGS.map((slug) => bySlug.get(slug)).filter(
+    (d): d is Department => Boolean(d),
+  );
 }
 
 export const integrations: IntegrationRef[] = [

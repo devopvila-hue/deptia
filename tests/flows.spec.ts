@@ -4,14 +4,11 @@ const ROUTES = [
   "/",
   "/departamentos",
   "/departamentos/marketing",
-  "/departamentos/ventas",
-  "/departamentos/contenido",
-  "/departamentos/operaciones",
-  "/departamentos/atencion-cliente",
   "/departamentos/seo",
+  "/departamentos/ventas",
+  "/departamentos/atencion-cliente",
   "/departamentos/administracion",
-  "/departamentos/rrhh",
-  "/departamentos/logistica",
+  "/departamentos/developer",
   "/como-funciona",
   "/seguridad",
   "/precios",
@@ -78,10 +75,10 @@ test.describe("Header y navegación", () => {
     await expect(page.getByRole("link", { name: "Precios" }).first()).toBeVisible();
   });
 
-  test("Botón 'Crear mi equipo' apunta a /registro", async ({ page }) => {
+  test("Botón 'Crear mi equipo' apunta al signup de la app", async ({ page }) => {
     await page.goto("/");
     const cta = page.getByRole("link", { name: /Crear mi equipo/i }).first();
-    await expect(cta).toHaveAttribute("href", "/registro");
+    await expect(cta).toHaveAttribute("href", /app\.departify\.app\/signup/);
   });
 
   test("Menú desplegable desktop de Departamentos se muestra en hover", async ({ page }) => {
@@ -89,37 +86,37 @@ test.describe("Header y navegación", () => {
     const trigger = page.getByRole("button", { name: /Departamentos/i }).first();
     await expect(trigger).toBeVisible();
     await trigger.hover();
-    // El dropdown aparece con todos los departamentos
+    // El dropdown aparece con el catálogo público (6 comerciales + Developer)
     await expect(page.getByRole("menu")).toBeVisible();
     await expect(page.getByRole("menuitem", { name: /Marketing/i })).toBeVisible();
-    await expect(page.getByRole("menuitem", { name: /Operaciones/i })).toBeVisible();
     await expect(page.getByRole("menuitem", { name: /SEO/i })).toBeVisible();
-    await expect(page.getByRole("menuitem", { name: /Recursos Humanos/i })).toBeVisible();
-    await expect(page.getByRole("menuitem", { name: /Log[íi]stica/i })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: /Ventas/i })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: /Atención al Cliente/i })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: /Administraci[óo]n/i })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: /Developer/i })).toBeVisible();
   });
 });
 
 test.describe("Departamentos", () => {
-  test("Catálogo muestra 7 departamentos sin etiqueta 'Próximamente'", async ({ page }) => {
+  test("Catálogo muestra el catálogo público sin etiqueta 'Próximamente'", async ({ page }) => {
     await page.goto("/departamentos");
     await expect(page.getByText(/Departamento de Marketing/)).toBeVisible();
-    await expect(page.getByText(/Departamento de Operaciones/)).toBeVisible();
-    await expect(page.getByText(/Departamento de Atención al Cliente/)).toBeVisible();
+    await expect(page.getByText(/Departamento de Atenci[óo]n al Cliente/)).toBeVisible();
     await expect(page.getByText(/Departamento SEO/)).toBeVisible();
+    await expect(page.getByText(/Departamento de Ventas/)).toBeVisible();
     await expect(page.getByText(/Departamento Administrativo/)).toBeVisible();
-    await expect(page.getByText(/Recursos Humanos/)).toBeVisible();
-    await expect(page.getByText(/Log[íi]stica/)).toBeVisible();
+    // Dirección se describe como coordinación incluida, no como dept. opcional.
+    await expect(page.getByText("Dirección", { exact: true })).toBeVisible();
     // Aseguramos que ningún departamento aparece como "Próximamente" / "En preparación"
     const comingSoon = page.getByText(/Próximamente|En preparación/i);
     expect(await comingSoon.count()).toBe(0);
   });
 
   test("Cada landing de departamento renderiza secciones clave", async ({ page }) => {
-    await page.goto("/departamentos/operaciones");
-    await expect(page.getByRole("heading", { name: /Operaciones/ })).toBeVisible();
-    await expect(page.getByText(/Aitor/)).toBeVisible();
-    await expect(page.getByText(/Capacidades/i)).toBeVisible();
-    await expect(page.getByText(/Permisos/i)).toBeVisible();
+    await page.goto("/departamentos/marketing");
+    await expect(page.getByRole("heading", { name: /Marketing/ })).toBeVisible();
+    await expect(page.getByText("Capacidades", { exact: true })).toBeVisible();
+    await expect(page.getByText("Permisos", { exact: true })).toBeVisible();
   });
 });
 

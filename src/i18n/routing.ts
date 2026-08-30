@@ -13,6 +13,11 @@ export const routing = defineRouting({
   locales,
   defaultLocale,
   localePrefix: "as-needed",
+  // Sin detección por navegador: el idioma es siempre la URL. Si no hay
+  // prefijo, se sirve el defaultLocale (es). Evita que Accept-Language
+  // de un bot desvíe /departamentos/marketing hacia /en/departamentos/marketing
+  // y mantiene la URL canónica determinista.
+  localeDetection: false,
 });
 
 // Helpers para <Link>, useRouter, redirect, getPathname con soporte i18n.

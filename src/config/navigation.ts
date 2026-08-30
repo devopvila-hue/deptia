@@ -1,4 +1,4 @@
-import { departments } from "@/data/departments";
+import { listPublicDepartments } from "@/data/departments";
 import type { IconCode } from "@/components/ui/icon";
 
 export interface NavLink {
@@ -28,7 +28,7 @@ export const mobileNavigation: NavLink[] = [
   { href: "/contacto", label: "Contacto", description: "Hablamos cuando quieras" },
 ];
 
-export const departmentsNavigation: NavLink[] = departments.map((d) => ({
+export const departmentsNavigation: NavLink[] = listPublicDepartments().map((d) => ({
   href: `/departamentos/${d.slug}`,
   label: d.shortName,
   description: d.tagline,

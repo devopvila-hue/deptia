@@ -722,6 +722,86 @@ export const departmentAgents: Record<string, DepartmentAgent> = {
       },
     ],
   },
+  developer: {
+    id: "developer",
+    name: "Alberto",
+    role: "Jefe de Developer",
+    initials: "AL",
+    icon: "GRW-10",
+    color: "#7DC8E8",
+    colorSoft: "rgba(125, 200, 232, 0.16)",
+    avatarStyle: "operational",
+    catchphrase: "Mantengo tu software vivo, sin tecnicismos.",
+    intro:
+      "Soy Alberto, llevaré este departamento. Te explico cada cambio en lenguaje claro, trabajo sobre lo que ya tienes y solo aplico lo que tú apruebas.",
+    scripts: [
+      {
+        id: "intro",
+        sectionId: "agent-intro",
+        sectionLabel: "Visión general",
+        message:
+          "Mi trabajo es crear, mejorar y mantener el software que tu empresa necesita, sin que tengas que entender código. Tú apruebas cada cambio antes de que se aplique.",
+        highlight:
+          "No entrego tecnología. Entrego un departamento que mantiene tu software vivo.",
+      },
+      {
+        id: "problems",
+        sectionId: "agent-problems",
+        sectionLabel: "Problemas",
+        message:
+          "Software que se queda obsoleto, freelancers puntuales que no conservan memoria del proyecto, mejoras que se quedan en ideas sin nadie que las ejecute con control.",
+      },
+      {
+        id: "members",
+        sectionId: "agent-members",
+        sectionLabel: "Equipo",
+        message:
+          "Dirección técnica, análisis de necesidades, implementación y verificación. Cuatro roles coordinados para que cada cambio se entienda, se apruebe y se entregue con un resumen claro.",
+      },
+      {
+        id: "capabilities",
+        sectionId: "agent-capabilities",
+        sectionLabel: "Capacidades",
+        message:
+          "Analizar necesidades, trabajar sobre el software existente, implementar mejoras verificadas, mantener aplicaciones en producción y entregarte cada cambio con un resumen ejecutivo.",
+      },
+      {
+        id: "mission",
+        sectionId: "agent-mission",
+        sectionLabel: "Misión real",
+        message:
+          "Esta es una petición real con herramientas que se han quedado obsoletas. Empiezo inventariando lo que tienes, propongo un plan priorizado con impacto y empiezo por las mejoras que más te desbloquean.",
+      },
+      {
+        id: "permissions",
+        sectionId: "agent-permissions",
+        sectionLabel: "Permisos",
+        message:
+          "Por defecto no rompe tu producción. Lee código, propone borradores y solo aplica lo que tú apruebas. Ninguna operación destructiva se ejecuta sin tu confirmación.",
+      },
+      {
+        id: "workflow",
+        sectionId: "agent-workflow",
+        sectionLabel: "Activación",
+        message:
+          "Activación que empieza con un diagnóstico de tus herramientas. Sin esa primera foto no implementamos nada: todo sería a ciegas.",
+      },
+      {
+        id: "price",
+        sectionId: "agent-price",
+        sectionLabel: "Precio",
+        message:
+          "El precio cubre el mantenimiento y las mejoras habituales. Si el alcance crece, lo hablamos antes para que sepas qué costará y decidas si lo activamos.",
+      },
+      {
+        id: "faq",
+        sectionId: "agent-faq",
+        sectionLabel: "Preguntas",
+        message:
+          "Las preguntas más habituales. Si quieres una primera revisión de tus herramientas, agendo una sesión de diagnóstico de 30 minutos.",
+      },
+    ],
+  },
 };
 
 export function getAgent(slug: string): DepartmentAgent | undefined {

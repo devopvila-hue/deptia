@@ -8,7 +8,8 @@ import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { DepartmentGrid } from "@/components/departments/department-grid";
-import { departments } from "@/data/departments";
+import { BreadcrumbJsonLd } from "@/components/layout/json-ld";
+import { listPublicDepartments } from "@/data/departments";
 import { brand } from "@/config/brand";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/config";
@@ -54,8 +55,13 @@ export default async function DepartmentsIndex({
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   const typedLocale = locale as Locale;
   const t = await getTranslations({ locale: typedLocale, namespace: "departamentos" });
+  const tChrome = await getTranslations({ locale: typedLocale, namespace: "chrome" });
 
-  const ordered = [...departments].sort((a, b) => a.ordering - b.ordering);
+  // Filtrado por PUBLIC_DEPARTMENT_SLUGS — Dirección no entra aquí porque
+  // se describe como base coordinadora en la landing, no como departamento
+  // opcional. listPublicDepartments ya devuelve los 6 + Developer ordenados
+  // por `ordering`.
+  const ordered = listPublicDepartments();
 
   return (
     <>
@@ -73,6 +79,27 @@ export default async function DepartmentsIndex({
         </Container>
       </section>
 
+      {/* Dirección (incluida, no se vende) */}
+      <section className="border-b border-border bg-surface-soft/30">
+        <Container width="wide" className="py-12 sm:py-16">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-3">
+              <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
+                {t("direccion.eyebrow")}
+              </p>
+            </div>
+            <div className="lg:col-span-9">
+              <h2 className="text-display text-[clamp(1.5rem,3vw,2.25rem)] leading-[1.1] tracking-[-0.02em] text-balance text-foreground">
+                {t("direccion.title")}
+              </h2>
+              <p className="mt-4 max-w-3xl text-[1rem] leading-relaxed text-muted text-pretty">
+                {t("direccion.body")}
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
       {/* Active departments */}
       <section className="border-b border-border">
         <Container width="wide" className="py-16 sm:py-20">
@@ -83,6 +110,13 @@ export default async function DepartmentsIndex({
           </div>
         </Container>
       </section>
+
+      <BreadcrumbJsonLd
+        items={[
+          { name: tChrome("breadcrumbHome"), url: "/" },
+          { name: tChrome("breadcrumbCatalog"), url: "/departamentos" },
+        ]}
+      />
     </>
   );
 }

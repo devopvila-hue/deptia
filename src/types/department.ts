@@ -1,5 +1,29 @@
 export type DepartmentStatus = "available" | "coming-soon";
 
+/**
+ * Lista maestra de departamentos visibles en el catálogo público de la landing.
+ * Cualquier slug fuera de este set no debe aparecer en sitemap, footer,
+ * navegación, /departamentos, ni en la home como recomendación.
+ *
+ * Dirección NO está aquí: es la base incluida y se describe en /departamentos,
+ * no se comercializa como departamento opcional.
+ *
+ * Por qué una lista explícita y no un boolean por departamento:
+ *  · el resto de la data (problemas, miembros, permisos, FAQ) puede seguir
+ *    existiendo para uso interno sin que aparezca en SEO público;
+ *  · añadir un departamento público futuro = añadir un slug aquí.
+ */
+export const PUBLIC_DEPARTMENT_SLUGS = [
+  "marketing",
+  "seo",
+  "ventas",
+  "atencion-cliente",
+  "administracion",
+  "developer",
+] as const;
+
+export type PublicDepartmentSlug = (typeof PUBLIC_DEPARTMENT_SLUGS)[number];
+
 export interface DepartmentMember {
   id: string;
   role: string;

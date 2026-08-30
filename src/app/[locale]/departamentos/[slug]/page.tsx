@@ -29,6 +29,7 @@ import {
   departments,
   comingSoonDepartments,
   getDepartment,
+  listPublicDepartments,
 } from "@/data/departments";
 import { getAgent } from "@/data/department-agents";
 import { formatCurrency } from "@/lib/utils";
@@ -42,8 +43,19 @@ import { localePrefixPath } from "@/i18n/locale-path";
 type Params = { slug: string };
 
 export function generateStaticParams(): Params[] {
-  return [...departments, ...comingSoonDepartments].map((d) => ({ slug: d.slug }));
+  // Prerenderizamos solo los slugs del catálogo público. Slugs legacy
+  // (Contenido, Operaciones, RR.HH., etc.) siguen existiendo en
+  // data/departments.ts como datos internos, pero no se generan como
+  // páginas estáticas — cualquier hit residual cae en notFound().
+  return listPublicDepartments().map((d) => ({ slug: d.slug }));
 }
+
+/**
+ * Solo los slugs del catálogo público son rutas válidas. Slugs legacy
+ * (`contenido`, `operaciones`, `rrhh`, ...) caen en 404 aunque estén en
+ * `data/departments.ts`: queremos que sean datos internos, no URLs públicas.
+ */
+export const dynamicParams = false;
 
 async function loadT(locale: Locale, namespace: string) {
   return getTranslations({ locale, namespace });
@@ -354,6 +366,18 @@ function DepartmentDetailEn({
         </Container>
       </section>
       <FinalCta />
+      <ProductJsonLd
+        name={`${department.name} — Departify`}
+        description={localizedTagline}
+        price={department.priceFrom}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: localePrefixPath(locale, "/") },
+          { name: tSlug("breadcrumb.catalog"), url: localePrefixPath(locale, "/departamentos") },
+          { name: localizedName, url: localePrefixPath(locale, `/departamentos/${department.slug}`) },
+        ]}
+      />
     </>
   );
 }

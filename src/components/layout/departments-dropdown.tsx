@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown, ArrowUpRight, LayoutGrid } from "lucide-react";
-import { departments } from "@/data/departments";
+import { departments, listPublicDepartments } from "@/data/departments";
 import { Icon, AGENT_ICONS } from "@/components/ui/icon";
 import { cn } from "@/lib/utils";
 import { localePrefixPath } from "@/i18n/locale-path";
@@ -149,7 +149,7 @@ export function DepartmentsDropdown({ locale }: { locale: Locale }) {
                 aria-hidden
               />
               <div className="grid grid-cols-1 gap-1 p-3 sm:grid-cols-2">
-                {departments.map((d) => {
+                {listPublicDepartments().map((d) => {
                   const iconCode = AGENT_ICONS[d.slug];
                   return (
                     <Link

@@ -50,6 +50,8 @@
   },
   "chrome": {
     "skipToContent": "Saltar al contenido principal",
+    "breadcrumbHome": "Inicio",
+    "breadcrumbCatalog": "Departamentos",
     "headerAria": "Principal",
     "openMenu": "Abrir menú",
     "menuLabel": "Menú",
@@ -239,27 +241,49 @@
     "recommendation": {
       "eyebrow": "Hoy disponibles",
       "title": "Incorpora el departamento que necesitas.",
-      "subtitle": "Hoy puedes activar estos dos departamentos. Los demás están terminando su formación interna y llegan en los próximos meses.",
+      "subtitle": "Hoy puedes activar seis departamentos comerciales más Developer, todos coordinados por una Dirección que ya viene incluida con tu activación.",
       "available": [
         {
           "name": "Marketing",
-          "description": "Estrategia, contenido, campañas y seguimiento del trabajo de marketing."
+          "slug": "marketing",
+          "description": "Estrategia, contenido, campañas y seguimiento del trabajo de marketing.",
+          "lead": "Elvira"
         },
         {
           "name": "SEO",
-          "description": "Auditoría, seguimiento y mejora continua de la visibilidad de tu negocio."
+          "slug": "seo",
+          "description": "Auditoría, seguimiento y mejora continua de la visibilidad de tu negocio.",
+          "lead": "Sandra"
+        },
+        {
+          "name": "Ventas",
+          "slug": "ventas",
+          "description": "Pipeline activo, seguimiento constante y propuestas listas para cada cuenta.",
+          "lead": "Marcos"
+        },
+        {
+          "name": "Atención al Cliente",
+          "slug": "atencion-cliente",
+          "description": "Soporte consistente con memoria y tono de marca las 24 horas.",
+          "lead": "Julio"
+        },
+        {
+          "name": "Administración",
+          "slug": "administracion",
+          "description": "Facturación, conciliaciones y reporting financiero controlado.",
+          "lead": "Ana"
+        },
+        {
+          "name": "Developer",
+          "slug": "developer",
+          "description": "Crea, mejora y mantiene el software que necesita tu empresa.",
+          "lead": "Alberto"
         }
       ],
-      "comingSoon": [
-        "Atención al Cliente",
-        "Ventas",
-        "Operaciones",
-        "Administración",
-        "Contenido"
-      ],
+      "comingSoon": [],
       "availableBadge": "Disponible",
       "comingSoonBadge": "Próximamente",
-      "footnote": "PRÓXIMAMENTE para el resto. Te avisamos cuando cada departamento esté listo para trabajar."
+      "footnote": "Dirección coordina todos los departamentos y viene incluida con tu activación."
     },
     "howToStart": {
       "eyebrow": "Cómo empezar",
@@ -352,6 +376,11 @@
     "eyebrow": "Catálogo",
     "title": "Cada departamento, un equipo completo. No un agente aislado.",
     "subtitle": "Selecciona el equipo que necesita tu empresa. Cada uno incluye dirección, miembros especializados, memoria de marca, tareas, entregables y aprobaciones.",
+    "direccion": {
+      "eyebrow": "Dirección",
+      "title": "Una base que coordina todos los departamentos.",
+      "body": "Dirección no se comercializa como un departamento adicional: viene incluida con cada activación. Se encarga de repartir las misiones entre departamentos, mantener la memoria compartida y elevar a tu equipo humano las decisiones que requieren tu firma. Así, cada departamento trabaja en su especialidad sin perder la coherencia del conjunto."
+    },
     "card": {
       "available": "Disponible",
       "since": "Desde",
@@ -407,6 +436,13 @@
         "promise": "Facturación, conciliaciones y reporting financiero controlado.",
         "tagline": "Facturación, conciliaciones y reporting financiero controlado.",
         "category": "Finanzas"
+      },
+      "developer": {
+        "name": "Departamento de Developer",
+        "shortName": "Developer",
+        "promise": "Crea, mejora y mantiene el software que tu empresa necesita, en lenguaje no técnico.",
+        "tagline": "Crea, mejora y mantiene el software que necesita tu empresa.",
+        "category": "Tecnología"
       },
       "rrhh": {
         "name": "Departamento de Recursos Humanos",
@@ -833,7 +869,80 @@
     "demoBody": "El panel combina el estado del departamento, las tareas activas, las aprobaciones pendientes y la conexión con Telegram.",
     "demoCta": "Probar el panel en vivo",
     "videoTitle": "Activación completa",
-    "videoSubtitle": "Recorrido · 90 s"
+    "videoSubtitle": "Recorrido · 90 s",
+    "infographic": {
+      "eyebrow": "El flujo completo",
+      "title": "Cómo trabajan tus empleados de IA en Departify",
+      "subtitle": "De tu objetivo a resultados reales, usando tus herramientas y con control total.",
+      "steps": [
+        {
+          "title": "Objetivo",
+          "body": "Le das un objetivo o le haces una petición a tu empleado de IA.",
+          "chip": "Tú marcas el rumbo"
+        },
+        {
+          "title": "Entiende tu empresa",
+          "body": "Conoce tu negocio, tu forma de trabajar, tu información y todo lo que necesita para ayudarte.",
+          "chip": "Conoce tu empresa"
+        },
+        {
+          "title": "Decide cómo resolverlo",
+          "body": "Elige el mejor camino, decide los pasos uno a uno y escoge las herramientas que va a usar.",
+          "chip": "Plan de trabajo"
+        },
+        {
+          "title": "Usa tus herramientas",
+          "body": "Se conecta a las herramientas que tú has autorizado para ejecutar el trabajo.",
+          "chip": "Integraciones activas"
+        },
+        {
+          "title": "Ejecuta",
+          "body": "Realiza las acciones necesarias en tus sistemas, con registros y trazabilidad.",
+          "chip": "Acciones en progreso"
+        },
+        {
+          "title": "Pide aprobación cuando corresponde",
+          "body": "Para cambios importantes o acciones sensibles, solicita tu aprobación antes de avanzar.",
+          "chip": "Aprobación requerida"
+        },
+        {
+          "title": "Verifica",
+          "body": "Revisa que todo haya quedado bien hecho antes de pasártelo.",
+          "chip": "Listo para entregar"
+        },
+        {
+          "title": "Te lo entrega",
+          "body": "Te pasa el resultado con un resumen claro de lo que hizo y por qué.",
+          "chip": "Trabajo terminado"
+        }
+      ],
+      "secureConnections": "Conexiones seguras · autorizadas por ti",
+      "toolsTitle": "Tus herramientas conectadas",
+      "toolsSubtitle": "Solo accede a lo que tú has autorizado",
+      "results": [
+        {
+          "title": "Seguro y privado",
+          "body": "Tú autorizas, tú controlas. Tus datos siempre son tuyos."
+        },
+        {
+          "title": "Ahorra tiempo",
+          "body": "Tus empleados de IA trabajan 24/7 para ti."
+        },
+        {
+          "title": "Resultados reales",
+          "body": "No solo respuestas: ejecución y resultados medibles."
+        },
+        {
+          "title": "Sin salir de Departify",
+          "body": "Todo el trabajo, en un solo lugar. Tú te enfocas en decidir."
+        }
+      ],
+      "footer": [
+        "Tú decides, apruebas y tienes el control total.",
+        "Nuestros empleados de IA ejecutan con excelencia.",
+        "Tu empresa avanza."
+      ]
+    }
   },
   "seguridad": {
     "metaTitle": "Seguridad",

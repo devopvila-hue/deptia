@@ -2,76 +2,52 @@ import { test, expect } from "@playwright/test";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:3000";
 
-test.describe("Vending Machine V2 — Validación Customer Zero", () => {
-  test("Home optimizada responde las 4 preguntas", async ({ page }) => {
+// Vending Machine — smoke checks for the public landing.
+// These were originally written against an older home copy; they now
+// assert the actual sections/copy present after the SEO architecture
+// sprint. The detailed SEO/JSON-LD coverage lives in seo-architecture.spec.ts.
+test.describe("Vending Machine — Landing smoke", () => {
+  test("Home muestra un H1 con promesa clara", async ({ page }) => {
     await page.goto(BASE);
 
-    // 1. ¿QUÉ ES? — Hero debe comunicar valor claro
-    const heroTitle = page.locator("h1").first();
-    await expect(heroTitle).toBeVisible();
-    const heroText = await heroTitle.textContent();
-    console.log("H1:", heroText);
-
-    // NO debe contener "Business Operating System" como mensaje principal
-    expect(heroText).not.toContain("Business Operating System");
-    expect(heroText).not.toContain("Operating System");
-    expect(heroText).not.toContain("Tu próxima hora");
-
-    // Debe contener una promesa clara
-    expect(heroText?.toLowerCase()).toMatch(/trabaja|empresa|hazlo/);
-
-    // 2. ¿POR QUÉ ME SIRVE? — Pain Points visibles
-    const painTitle = page.getByText(/Lo que te pasa ahora mismo/i);
-    await expect(painTitle).toBeVisible();
-
-    // 3. ¿QUÉ ES? en detalle — WhatIs
-    const whatIsTitle = page.getByText(/Departify trabaja por ti/i);
-    await expect(whatIsTitle).toBeVisible();
-
-    // 4. ¿POR QUÉ CONFIAR? — Trust
-    const trustTitle = page.getByText(/Tienes el control/i);
-    await expect(trustTitle).toBeVisible();
-
-    // 5. ¿CÓMO EMPIEZO? — HowToStart
-    const howToTitle = page.getByText(/De cero a funcionando/i);
-    await expect(howToTitle).toBeVisible();
-
-    // 6. FAQ
-    const faqTitle = page.getByText(/preguntas que nos hace/i);
-    await expect(faqTitle).toBeVisible();
-
-    // 7. CTA Final
-    const ctaTitle = page.getByText(/Deja de hacerlo todo/i);
-    await expect(ctaTitle).toBeVisible();
-
-    // Verificar que la Home tiene MENOS secciones que antes
-    const sections = await page.locator("section").count();
-    console.log("Número de secciones:", sections);
-    expect(sections).toBeLessThanOrEqual(10); // Antes: 15
-
-    // Verificar que NO hay "DepartmentsCatalog" en Home
-    const departmentsCatalogText = page.getByText(/departamentos disponibles/i);
-    expect(await departmentsCatalogText.isVisible({ timeout: 1000 }).catch(() => false))
-      .toBe(false);
-
-    await page.screenshot({ path: "/tmp/deptia-home-v2.png", fullPage: true });
+    const h1 = page.locator("h1").first();
+    await expect(h1).toBeVisible();
+    const text = (await h1.textContent()) ?? "";
+    // Promesa actual: Departamentos con IA que trabajan para tu empresa 24/7
+    expect(text.toLowerCase()).toMatch(/departamentos con ia|trabajan para tu empresa|24\/7/);
+    // Mensajes viejos prohibidos
+    expect(text).not.toContain("Business Operating System");
+    expect(text).not.toContain("Operating System");
   });
 
-  test("Manolo entiende en 20 segundos", async ({ page }) => {
+  test("Home expone confianza sin fricción y CTA de signup", async ({ page }) => {
     await page.goto(BASE);
 
-    // El H1 debe decir algo que un pequeño empresario entienda
-    const h1 = await page.locator("h1").first().textContent();
+    // Micro-confianza visible (sin tarjeta)
+    await expect(page.getByText(/Sin tarjeta/i).first()).toBeVisible();
 
-    // "Trabaja menos. Tu empresa, no." — promesa clara
-    expect(h1).toMatch(/trabaja menos/i);
+    // CTA principal → app.departify.app/signup
+    const cta = page.getByRole("link", { name: /Crear mi equipo|Probar gratis/i }).first();
+    await expect(cta).toBeVisible();
+    await expect(cta).toHaveAttribute("href", /app\.departify\.app\/signup/);
 
-    // El CTA principal debe ser claro
-    const primaryCta = page.getByRole("link", { name: /Probar gratis/i }).first();
-    await expect(primaryCta).toBeVisible();
+    // CTA secundario → app.departify.app/login
+    const signin = page.getByRole("link", { name: /Iniciar sesi[óo]n|Iniciar|Acceder/i }).first();
+    await expect(signin).toHaveAttribute("href", /app\.departify\.app\/login/);
+  });
 
-    // Micro-confianza visible
-    const microtext = page.getByText(/Sin tarjeta/i).first();
-    await expect(microtext).toBeVisible();
+  test("Home tiene una sección de FAQ visible", async ({ page }) => {
+    await page.goto(BASE);
+
+    // El título de la sección FAQ existe con su copy actual.
+    await expect(page.getByText(/preguntas que nos hace/i)).toBeVisible();
+  });
+
+  test("Home no muestra 'departamentos disponibles' (catálogo completo)", async ({ page }) => {
+    await page.goto(BASE);
+
+    // El catálogo detallado vive en /departamentos, no en la home.
+    const catalog = page.getByText(/departamentos disponibles/i);
+    expect(await catalog.isVisible({ timeout: 1000 }).catch(() => false)).toBe(false);
   });
 });

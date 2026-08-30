@@ -2,11 +2,22 @@ import type { MetadataRoute } from "next";
 import { brand } from "@/config/brand";
 import { listPublicDepartments } from "@/data/departments";
 
-// Genera el sitemap con variantes ES + EN para las rutas que tienen cobertura
-// bilingüe (ver src/i18n/guard.ts: LOCALIZED_ROUTES + /departamentos/[slug]
-// + /recursos/[slug]).
+// Sitemap a nivel raíz. Se publica en `/sitemap.xml` con todas las URLs
+// públicas indexables (ES + EN), declarando hreflang en cada entrada.
 //
-// `lastModified` se mantiene estable por tipo de contenido: las páginas
+// El sitemap incluye:
+//   · Rutas bilingües top-level (home, /departamentos, /como-funciona, …)
+//   · Las 7 páginas del catálogo público (6 comerciales + Developer)
+//   · Recursos publicados
+//
+// Lo que NO entra aquí (por decisión de arquitectura):
+//   · /api, /admin, /panel, /registro, /acceso, /demo (bloqueados en robots)
+//   · Slugs legacy de departamento (Contenido, Operaciones, RR.HH., …).
+//     Siguen existiendo en `data/departments.ts` como datos internos.
+//   · Dirección: no es una URL, se describe como base incluida en
+//     /departamentos.
+//
+// `lastModified` se mantiene estable por tipo de contenido — las páginas
 // de marketing cambian con cada release menor (mensual), los departamentos
 // cuando se actualizan sus datos (quincenal), los recursos cuando se publica
 // una nueva pieza (quincenal). Evita el patrón "ahora" para todo, que

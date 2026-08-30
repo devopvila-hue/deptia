@@ -113,3 +113,34 @@ export function FAQJsonLd({ items }: { items: { question: string; answer: string
     />
   );
 }
+
+/**
+ * WebSite JSON-LD con SearchAction. Refuerza la identidad del dominio para
+ * Google y le da al Search de marca un sitio canónico cuando hay alternatives
+ * localizadas. No se usa para activar el "sitelinks searchbox" como hack: lo
+ * emite porque describe lo que la web es, no para forzar un resultado.
+ */
+export function WebSiteJsonLd({ locale }: { locale: Locale }) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: brand.name,
+    url: brand.url,
+    inLanguage: locale === "es" ? "es-ES" : "en-US",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${brand.url}/${locale === "es" ? "" : "en/"}recursos?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

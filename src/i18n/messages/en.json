@@ -50,6 +50,8 @@
   },
   "chrome": {
     "skipToContent": "Skip to main content",
+    "breadcrumbHome": "Home",
+    "breadcrumbCatalog": "Departments",
     "headerAria": "Primary",
     "openMenu": "Open menu",
     "menuLabel": "Menu",
@@ -239,27 +241,49 @@
     "recommendation": {
       "eyebrow": "Available today",
       "title": "Bring in the department you need.",
-      "subtitle": "You can activate these two departments today. The rest are finishing their internal training and will arrive over the coming months.",
+      "subtitle": "Today you can activate six commercial departments plus Developer, all coordinated by Leadership that comes included with your activation.",
       "available": [
         {
           "name": "Marketing",
-          "description": "Strategy, content, campaigns and ongoing marketing execution."
+          "slug": "marketing",
+          "description": "Strategy, content, campaigns and ongoing marketing execution.",
+          "lead": "Elvira"
         },
         {
           "name": "SEO",
-          "description": "Audit, monitoring and continuous improvement of your business visibility."
+          "slug": "seo",
+          "description": "Audit, monitoring and continuous improvement of your business visibility.",
+          "lead": "Sandra"
+        },
+        {
+          "name": "Sales",
+          "slug": "ventas",
+          "description": "Active pipeline, constant follow-up and ready proposals for every account.",
+          "lead": "Marcos"
+        },
+        {
+          "name": "Customer Support",
+          "slug": "atencion-cliente",
+          "description": "Consistent support with brand memory and tone, around the clock.",
+          "lead": "Julio"
+        },
+        {
+          "name": "Administration",
+          "slug": "administracion",
+          "description": "Billing, reconciliations and controlled financial reporting.",
+          "lead": "Ana"
+        },
+        {
+          "name": "Developer",
+          "slug": "developer",
+          "description": "Builds, improves and maintains the software your business needs.",
+          "lead": "Alberto"
         }
       ],
-      "comingSoon": [
-        "Customer Support",
-        "Sales",
-        "Operations",
-        "Administration",
-        "Content"
-      ],
+      "comingSoon": [],
       "availableBadge": "Available",
       "comingSoonBadge": "Coming soon",
-      "footnote": "COMING SOON for the rest. We'll let you know when each department is ready to work."
+      "footnote": "Leadership coordinates every department and comes included with your activation."
     },
     "howToStart": {
       "eyebrow": "How to start",
@@ -352,6 +376,11 @@
     "eyebrow": "Catalog",
     "title": "Every department, a full team. Not an isolated agent.",
     "subtitle": "Pick the team your business needs. Each one comes with leadership, specialised members, brand memory, tasks, deliverables and approvals.",
+    "direccion": {
+      "eyebrow": "Leadership",
+      "title": "A base that coordinates every department.",
+      "body": "Leadership is not sold as an extra department: it comes included with every activation. It splits missions across departments, keeps shared memory alive, and escalates to your team every decision that needs your sign-off. That way each department works in its specialty without losing the coherence of the whole."
+    },
     "card": {
       "available": "Available",
       "since": "From",
@@ -407,6 +436,13 @@
         "promise": "Billing, reconciliations and controlled financial reporting.",
         "tagline": "Billing, reconciliations and controlled financial reporting.",
         "category": "Finance"
+      },
+      "developer": {
+        "name": "Developer Department",
+        "shortName": "Developer",
+        "promise": "Builds, improves and maintains the software your business needs, in plain language.",
+        "tagline": "Builds, improves and maintains the software your business needs.",
+        "category": "Technology"
       },
       "rrhh": {
         "name": "Human Resources Department",
@@ -833,7 +869,80 @@
     "demoBody": "The dashboard brings together the department status, active tasks, pending approvals and the Telegram connection.",
     "demoCta": "Try the live dashboard",
     "videoTitle": "Full activation",
-    "videoSubtitle": "Walkthrough · 90 s"
+    "videoSubtitle": "Walkthrough · 90 s",
+    "infographic": {
+      "eyebrow": "The full flow",
+      "title": "How your AI employees work in Departify",
+      "subtitle": "From your goal to real outcomes, using your own tools and with full control.",
+      "steps": [
+        {
+          "title": "Goal",
+          "body": "You give a goal or make a request to your AI employee.",
+          "chip": "You set the direction"
+        },
+        {
+          "title": "Understands your business",
+          "body": "Gets to know your business, the way you work, your information and everything it needs to help you.",
+          "chip": "Knows your business"
+        },
+        {
+          "title": "Decides how to solve it",
+          "body": "Picks the best path, lays out the steps one by one and chooses the tools it will use.",
+          "chip": "Work plan"
+        },
+        {
+          "title": "Uses your tools",
+          "body": "Connects to the tools you've authorized to carry out the work.",
+          "chip": "Connected tools"
+        },
+        {
+          "title": "Executes",
+          "body": "Performs the actions needed across your systems, with logs so you can see what happened.",
+          "chip": "In progress"
+        },
+        {
+          "title": "Asks for approval when needed",
+          "body": "For important changes or sensitive actions, it asks for your approval before moving forward.",
+          "chip": "Waiting on you"
+        },
+        {
+          "title": "Verifies",
+          "body": "Checks that everything is done right before handing it back to you.",
+          "chip": "Ready to deliver"
+        },
+        {
+          "title": "Delivers the outcome",
+          "body": "Hands you the final result with a clear summary of what was done and the impact generated.",
+          "chip": "Outcome delivered"
+        }
+      ],
+      "secureConnections": "Secure connections · authorized by you",
+      "toolsTitle": "Your connected tools",
+      "toolsSubtitle": "Only accesses what you have authorized",
+      "results": [
+        {
+          "title": "Safe and private",
+          "body": "You authorize, you control. Your data is always yours."
+        },
+        {
+          "title": "Save time",
+          "body": "Your AI employees work 24/7 for you."
+        },
+        {
+          "title": "Real outcomes",
+          "body": "Not just answers: execution and measurable results."
+        },
+        {
+          "title": "Without leaving Departify",
+          "body": "All the work in one place. You focus on deciding."
+        }
+      ],
+      "footer": [
+        "You decide, approve and keep full control.",
+        "Our AI employees execute with excellence.",
+        "Your business moves forward."
+      ]
+    }
   },
   "seguridad": {
     "metaTitle": "Security",
