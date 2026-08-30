@@ -19,3 +19,4 @@ export function getSupabaseBrowserClient() {
   cached = createBrowserClient(url!, anonKey!);
   return cached;
 }
+// touched
