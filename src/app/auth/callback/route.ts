@@ -43,6 +43,13 @@ export async function GET(request: NextRequest) {
   // Si Supabase no está configurado, redirigimos a /acceso con un
   // mensaje claro — la UI lo muestra en pantalla.
   const { configured } = getSupabasePublicConfig();
+  // eslint-disable-next-line no-console
+  console.log("[auth/callback] env probe", {
+    hasUrl: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL),
+    hasKey: Boolean(process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY),
+    hasCode: Boolean(code),
+    configured,
+  });
   if (!configured) {
     const fallback = new URL("/acceso", origin);
     fallback.searchParams.set("error", "supabase_not_configured");
