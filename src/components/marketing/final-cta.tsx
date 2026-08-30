@@ -5,6 +5,7 @@ import { ArrowUpRight, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { GoogleAuthButton } from "@/components/auth/google-auth-button";
 import { track } from "@/lib/analytics";
 
 export function FinalCta() {
@@ -61,15 +62,15 @@ export function FinalCta() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-3"
           >
-            <Button
-              href="https://app.departify.app/signup"
+            <GoogleAuthButton
+              fallbackHref="https://app.departify.app/signup"
               variant="primary"
-              size="xl"
-              onClick={() => track("hero_cta_clicked", { source: "final_cta" })}
-              rightIcon={<ArrowUpRight className="h-4 w-4" />}
+              size="md"
+              className="h-14 px-7 text-[1.0625rem]"
+              onAfterClick={() => track("hero_cta_clicked", { source: "final_cta" })}
             >
               {t("primaryCta")}
-            </Button>
+            </GoogleAuthButton>
             <Button
               href="/contacto"
               variant="secondary"

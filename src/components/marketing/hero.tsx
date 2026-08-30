@@ -5,6 +5,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight, Play, Shield } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { GoogleAuthButton } from "@/components/auth/google-auth-button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { ChatPreview } from "@/components/visualizations/chat-preview";
@@ -85,15 +86,15 @@ export function Hero({ locale }: { locale: Locale }) {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mt-6 flex flex-wrap items-center gap-3"
             >
-              <Button
-                href="https://app.departify.app/signup"
+              <GoogleAuthButton
+                fallbackHref="https://app.departify.app/signup"
                 variant="primary"
-                size="lg"
-                onClick={() => track("hero_cta_clicked")}
-                rightIcon={<ArrowUpRight className="h-4 w-4" />}
+                size="md"
+                className="h-12 px-6 text-[1rem]"
+                onAfterClick={() => track("hero_cta_clicked")}
               >
                 {t("primaryCta")}
-              </Button>
+              </GoogleAuthButton>
               <Button
                 href={localePrefixPath(locale, "/departamentos")}
                 variant="secondary"

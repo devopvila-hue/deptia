@@ -75,10 +75,12 @@ test.describe("Header y navegación", () => {
     await expect(page.getByRole("link", { name: "Precios" }).first()).toBeVisible();
   });
 
-  test("Botón 'Crear mi equipo' apunta al signup de la app", async ({ page }) => {
+  test("Botón 'Crear mi equipo' dispara Supabase OAuth (Google)", async ({ page }) => {
     await page.goto("/");
-    const cta = page.getByRole("link", { name: /Crear mi equipo/i }).first();
-    await expect(cta).toHaveAttribute("href", /app\.departify\.app\/signup/);
+    const cta = page.getByRole("button", { name: /Crear mi equipo/i }).first();
+    await expect(cta).toBeVisible();
+    // El botón debe incluir el logo de Google (svg con cuatro paths de color)
+    await expect(cta.locator("svg")).toHaveCount(1);
   });
 
   test("Menú desplegable desktop de Departamentos se muestra en hover", async ({ page }) => {

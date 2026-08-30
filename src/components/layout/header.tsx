@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { BrandMark } from "@/components/ui/brand-mark";
 import { LocaleSwitcher } from "@/components/layout/locale-switcher";
 import { DepartmentsDropdown } from "@/components/layout/departments-dropdown";
+import { GoogleAuthButton } from "@/components/auth/google-auth-button";
 import { departments, listPublicDepartments } from "@/data/departments";
 import { cn } from "@/lib/utils";
 import type { Locale } from "@/i18n/config";
@@ -100,23 +101,22 @@ export function Header({ locale }: { locale: Locale }) {
 
           <div className="hidden items-center gap-2 lg:flex">
             <LocaleSwitcher currentLocale={locale} />
-            <Button
-              href="https://app.departify.app/login"
+            <GoogleAuthButton
+              fallbackHref="https://app.departify.app/login"
               variant="ghost"
               size="sm"
-              className="h-9 px-3 text-[0.875rem]"
+              className="h-9 px-3"
             >
               {tSignIn}
-            </Button>
-            <Button
-              href="https://app.departify.app/signup"
+            </GoogleAuthButton>
+            <GoogleAuthButton
+              fallbackHref="https://app.departify.app/signup"
               variant="primary"
               size="sm"
-              className="h-9 px-4 text-[0.875rem]"
-              rightIcon={<ArrowUpRight className="h-3.5 w-3.5" />}
+              className="h-9 px-4"
             >
               {tCreate}
-            </Button>
+            </GoogleAuthButton>
           </div>
 
           <button
@@ -241,18 +241,22 @@ function MobileMenu({
             >
               <p className="text-[0.875rem] text-muted">{tChrome("mobileInstanceHint")}</p>
               <div className="mt-4 flex flex-col gap-2">
-                <Button
-                  href="https://app.departify.app/signup"
-                  onClick={onClose}
+                <GoogleAuthButton
+                  fallbackHref="https://app.departify.app/signup"
                   variant="primary"
                   size="md"
-                  rightIcon={<ArrowUpRight className="h-4 w-4" />}
+                  onAfterClick={onClose}
                 >
                   {tChrome("mobileCreate")}
-                </Button>
-                <Button href="https://app.departify.app/login" onClick={onClose} variant="ghost" size="md">
+                </GoogleAuthButton>
+                <GoogleAuthButton
+                  fallbackHref="https://app.departify.app/login"
+                  variant="ghost"
+                  size="md"
+                  onAfterClick={onClose}
+                >
                   {tChrome("mobileSignIn")}
-                </Button>
+                </GoogleAuthButton>
               </div>
             </motion.div>
           </div>

@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { GoogleAuthButton } from "@/components/auth/google-auth-button";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
 
@@ -42,14 +43,14 @@ export function HowToStart() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button
-            href="https://app.departify.app/signup"
+          <GoogleAuthButton
+            fallbackHref="https://app.departify.app/signup"
             variant="primary"
-            size="lg"
-            rightIcon={<ArrowUpRight className="h-4 w-4" />}
+            size="md"
+            className="h-12 px-6 text-[1rem]"
           >
             {t("cta")}
-          </Button>
+          </GoogleAuthButton>
         </div>
       </Container>
     </section>
