@@ -219,7 +219,6 @@ function DepartmentDetailEn({
   const localizedShortName = tDept(`dept.${department.slug}.shortName`);
   const localizedCategory = tDept(`dept.${department.slug}.category`);
   const localizedTagline = tDept(`dept.${department.slug}.tagline`);
-  const esHref = localePrefixPath("es", `/departamentos/${department.slug}`);
 
   return (
     <>
@@ -288,30 +287,16 @@ function DepartmentDetailEn({
         </Container>
       </section>
 
-      {/* Localized notice: detail content not yet translated */}
-      <section className="border-b border-border">
-        <Container width="wide" className="py-16 sm:py-20">
-          <div className="rounded-2xl border border-border bg-[#0c0e0a] p-8 sm:p-10">
-            <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-accent">
-              {tSlug("notice.eyebrow")}
-            </p>
-            <h2 className="mt-3 font-display text-[clamp(1.5rem,3vw,2rem)] tracking-[-0.02em] text-foreground">
-              {tSlug("notice.title")}
-            </h2>
-            <p className="mt-4 max-w-2xl text-[1rem] leading-relaxed text-muted text-pretty">
-              {tSlug("notice.body")}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <Button href={esHref} variant="primary" size="md" rightIcon={<ArrowUpRight className="h-4 w-4" />}>
-                {tSlug("notice.ctaEs")}
-              </Button>
-              <Button href={localePrefixPath(locale, "/departamentos")} variant="ghost" size="md">
-                {tSlug("notice.ctaBack")}
-              </Button>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <DepartmentShowcase department={department} english />
+      <DepartmentProblems id="agent-problems" department={department} />
+      <DepartmentMembers id="agent-members" department={department} />
+      <DepartmentCapabilities id="agent-capabilities" department={department} />
+      <DepartmentMission id="agent-mission" department={department} />
+      <DepartmentOutput department={department} />
+      <DepartmentPermissions id="agent-permissions" department={department} />
+      <DepartmentWorkflow id="agent-workflow" department={department} />
+      <DepartmentFaq id="agent-faq" department={department} />
+      <DepartmentCrossLinks />
 
       {/* Pricing block (fully translatable) */}
       <section className="border-b border-border bg-surface-soft/20">
@@ -627,7 +612,13 @@ function AgentAvatarInline({
   );
 }
 
-function DepartmentShowcase({ department }: { department: (typeof departments)[number] }) {
+function DepartmentShowcase({
+  department,
+  english = false,
+}: {
+  department: (typeof departments)[number];
+  english?: boolean;
+}) {
   return (
     <section className="relative border-b border-border bg-surface-soft/20">
       <Container width="wide" className="py-16 sm:py-20">
@@ -637,18 +628,19 @@ function DepartmentShowcase({ department }: { department: (typeof departments)[n
               Demo
             </p>
             <h2 className="mt-3 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
-              Cómo trabaja este departamento
+              {english ? "How this department works" : "Cómo trabaja este departamento"}
             </h2>
             <p className="mt-3 text-[0.9375rem] text-muted text-pretty">
-              Una vista general del flujo operativo, las herramientas que usa y la cadencia con
-              la que entrega resultados.
+              {english
+                ? "A quick look at the workflow, tools, and cadence behind every delivery."
+                : "Una vista general del flujo operativo, las herramientas que usa y la cadencia con la que entrega resultados."}
             </p>
           </div>
           <div className="lg:col-span-7">
             <VideoPlaceholder
               src={department.slug === "administracion" ? "/videos/administracion.mp4" : undefined}
               title={`${department.shortName} en acción`}
-              subtitle="Demostración · 60 s"
+              subtitle={english ? "Demonstration · 60 s" : "Demostración · 60 s"}
             />
           </div>
         </div>
