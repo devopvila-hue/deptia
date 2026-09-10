@@ -646,6 +646,7 @@ function DepartmentShowcase({ department }: { department: (typeof departments)[n
           </div>
           <div className="lg:col-span-7">
             <VideoPlaceholder
+              src={department.slug === "administracion" ? "/videos/administracion.mp4" : undefined}
               title={`${department.shortName} en acción`}
               subtitle="Demostración · 60 s"
             />

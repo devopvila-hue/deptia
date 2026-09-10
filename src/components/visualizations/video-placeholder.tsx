@@ -11,6 +11,7 @@ type Props = {
   className?: string;
   aspect?: "video" | "square" | "wide";
   poster?: string;
+  src?: string;
 };
 
 const ASPECTS = {
@@ -24,8 +25,30 @@ export function VideoPlaceholder({
   subtitle = "En construcción · 60 s",
   className,
   aspect = "video",
+  poster,
+  src,
 }: Props) {
   const [playing, setPlaying] = useState(false);
+
+  if (src) {
+    return (
+      <video
+        controls
+        playsInline
+        preload="metadata"
+        poster={poster}
+        aria-label={title}
+        className={cn(
+          "w-full rounded-2xl border border-border bg-black object-contain",
+          ASPECTS[aspect],
+          className
+        )}
+      >
+        <source src={src} type="video/mp4" />
+        <a href={src}>{title}</a>
+      </video>
+    );
+  }
 
   return (
     <motion.div
