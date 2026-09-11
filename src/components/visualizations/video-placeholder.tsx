@@ -34,6 +34,7 @@ export function VideoPlaceholder({
     return (
       <video
         controls
+        loop
         playsInline
         preload="metadata"
         poster={poster}
