@@ -6,9 +6,13 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Manrope, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { OrganizationJsonLd } from "@/components/layout/json-ld";
@@ -16,12 +20,16 @@ import { routing } from "@/i18n/routing";
 import { locales, toBcp47, type Locale } from "@/i18n/config";
 import { brand } from "@/config/brand";
 import "@/styles/globals.css";
+import "@/styles/premium.css";
+import "@/styles/site-theme.css";
+import "@/styles/how-and-navigation.css";
+import "@/styles/department-experience.css";
 
-// Manrope es la única familia tipográfica de la web pública (sans + display).
+// Inter y JetBrains Mono siguen el manual oficial de docs.departify.app.
 // Mantenemos JetBrains Mono para los tokens monoespaciados (badges, microtext).
 // Cargamos solo los pesos que la web usa (400/500/600/700/800) para evitar
 // inflado del bundle.
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
@@ -74,7 +82,14 @@ export async function generateMetadata({
       siteName: t("name"),
       title: `${t("name")} — ${t("tagline")}`,
       description: t("description"),
-      images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: `${t("name")} — ${t("tagline")}` }],
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `${t("name")} — ${t("tagline")}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
@@ -85,10 +100,18 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
-      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
     formatDetection: { email: false, address: false, telephone: false },
-    icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
+    icons: {
+      icon: [{ url: "/brand/departify-d-symbol.png", type: "image/png" }],
+      apple: "/brand/departify-d-symbol.png",
+    },
   };
 }
 
@@ -115,8 +138,21 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "chrome" });
 
   return (
-    <html lang={toBcp47(typedLocale)} className={`${manrope.variable} ${mono.variable}`}>
-      <body className="bg-background text-foreground antialiased">
+    <html
+      lang={toBcp47(typedLocale)}
+      className={`${inter.variable} ${mono.variable}`}
+      data-site="marketing"
+      data-theme="dark"
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{document.documentElement.dataset.theme=localStorage.getItem('departify-theme')==='light'?'light':'dark'}catch(e){}`,
+          }}
+        />
+      </head>
+      <body className="marketing-site bg-background text-foreground antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a
             href="#main"
@@ -128,8 +164,8 @@ export default async function LocaleLayout({
           <main id="main" className="relative">
             {children}
           </main>
-          <Footer locale={typedLocale} />
-          <OrganizationJsonLd locale={typedLocale} />
+          {await Footer({ locale: typedLocale })}
+          {await OrganizationJsonLd({ locale: typedLocale })}
         </NextIntlClientProvider>
       </body>
     </html>

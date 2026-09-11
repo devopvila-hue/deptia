@@ -229,3 +229,23 @@ main > section:first-of-type,
 main > section:first-of-type > div.relative {
   padding-top: clamp(1.5rem, 3vw, 2.5rem) !important;
 }
+
+/* RGB defaults keep opacity-aware Tailwind colors valid outside public marketing routes. */
+@layer base {
+  :root {
+  --background-rgb: 10 12 8;
+  --background-elevated-rgb: 23 28 20;
+  --surface-rgb: 17 22 15;
+  --surface-soft-rgb: 23 29 19;
+  --foreground-rgb: 242 244 233;
+  --muted-rgb: 163 175 150;
+  --muted-foreground-rgb: 195 205 185;
+  --border-rgb: 42 53 35;
+  --border-strong-rgb: 66 80 54;
+  --accent-rgb: 216 255 98;
+  --accent-foreground-rgb: 10 12 8;
+  --warning-rgb: 230 189 107;
+  --danger-rgb: 243 142 137;
+  --success-rgb: 165 217 123;
+  }
+}

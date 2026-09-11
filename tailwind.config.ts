@@ -22,27 +22,28 @@ const config: Config = {
     },
     extend: {
       colors: {
-        background: "var(--background)",
-        "background-elevated": "var(--background-elevated)",
-        surface: "var(--surface)",
-        "surface-soft": "var(--surface-soft)",
-        foreground: "var(--foreground)",
+        background: "rgb(var(--background-rgb) / <alpha-value>)",
+        "background-elevated":
+          "rgb(var(--background-elevated-rgb) / <alpha-value>)",
+        surface: "rgb(var(--surface-rgb) / <alpha-value>)",
+        "surface-soft": "rgb(var(--surface-soft-rgb) / <alpha-value>)",
+        foreground: "rgb(var(--foreground-rgb) / <alpha-value>)",
         muted: {
-          DEFAULT: "var(--muted)",
-          foreground: "var(--muted-foreground)",
+          DEFAULT: "rgb(var(--muted-rgb) / <alpha-value>)",
+          foreground: "rgb(var(--muted-foreground-rgb) / <alpha-value>)",
         },
         border: {
-          DEFAULT: "var(--border)",
-          strong: "var(--border-strong)",
+          DEFAULT: "rgb(var(--border-rgb) / <alpha-value>)",
+          strong: "rgb(var(--border-strong-rgb) / <alpha-value>)",
         },
         accent: {
-          DEFAULT: "var(--accent)",
+          DEFAULT: "rgb(var(--accent-rgb) / <alpha-value>)",
           soft: "var(--accent-soft)",
-          foreground: "var(--accent-foreground)",
+          foreground: "rgb(var(--accent-foreground-rgb) / <alpha-value>)",
         },
-        warning: "var(--warning)",
-        danger: "var(--danger)",
-        success: "var(--success)",
+        warning: "rgb(var(--warning-rgb) / <alpha-value>)",
+        danger: "rgb(var(--danger-rgb) / <alpha-value>)",
+        success: "rgb(var(--success-rgb) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
@@ -51,13 +52,31 @@ const config: Config = {
       },
       fontSize: {
         // Display
-        "display-2xl": ["clamp(3.5rem, 8vw, 7.5rem)", { lineHeight: "0.92", letterSpacing: "-0.04em" }],
-        "display-xl": ["clamp(2.75rem, 6vw, 5.5rem)", { lineHeight: "0.95", letterSpacing: "-0.035em" }],
-        "display-lg": ["clamp(2.25rem, 4.5vw, 4rem)", { lineHeight: "1.0", letterSpacing: "-0.03em" }],
-        "display-md": ["clamp(1.75rem, 3.5vw, 2.75rem)", { lineHeight: "1.1", letterSpacing: "-0.025em" }],
-        "display-sm": ["clamp(1.5rem, 2.5vw, 2rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
+        "display-2xl": [
+          "clamp(3.5rem, 8vw, 7.5rem)",
+          { lineHeight: "0.92", letterSpacing: "-0.04em" },
+        ],
+        "display-xl": [
+          "clamp(2.75rem, 6vw, 5.5rem)",
+          { lineHeight: "0.95", letterSpacing: "-0.035em" },
+        ],
+        "display-lg": [
+          "clamp(2.25rem, 4.5vw, 4rem)",
+          { lineHeight: "1.0", letterSpacing: "-0.03em" },
+        ],
+        "display-md": [
+          "clamp(1.75rem, 3.5vw, 2.75rem)",
+          { lineHeight: "1.1", letterSpacing: "-0.025em" },
+        ],
+        "display-sm": [
+          "clamp(1.5rem, 2.5vw, 2rem)",
+          { lineHeight: "1.15", letterSpacing: "-0.02em" },
+        ],
         // Body
-        "body-xl": ["clamp(1.125rem, 1.5vw, 1.375rem)", { lineHeight: "1.55", letterSpacing: "-0.005em" }],
+        "body-xl": [
+          "clamp(1.125rem, 1.5vw, 1.375rem)",
+          { lineHeight: "1.55", letterSpacing: "-0.005em" },
+        ],
         "body-lg": ["1.0625rem", { lineHeight: "1.6" }],
         body: ["1rem", { lineHeight: "1.6" }],
         "body-sm": ["0.9375rem", { lineHeight: "1.55" }],
@@ -90,11 +109,11 @@ const config: Config = {
           "0%": { transform: "translateY(8px)", opacity: "0" },
           "100%": { transform: "translateY(0)", opacity: "1" },
         },
-        "shimmer": {
+        shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
         },
-        "marquee": {
+        marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
@@ -102,7 +121,7 @@ const config: Config = {
           "0%, 100%": { opacity: "0.4" },
           "50%": { opacity: "0.7" },
         },
-        "flow": {
+        flow: {
           "0%": { strokeDashoffset: "100" },
           "100%": { strokeDashoffset: "0" },
         },
@@ -110,10 +129,10 @@ const config: Config = {
       animation: {
         "pulse-soft": "pulse-soft 2.4s ease-in-out infinite",
         "slide-in": "slide-in 0.4s ease-out forwards",
-        "shimmer": "shimmer 3s linear infinite",
-        "marquee": "marquee 40s linear infinite",
+        shimmer: "shimmer 3s linear infinite",
+        marquee: "marquee 40s linear infinite",
         "grid-pulse": "grid-pulse 4s ease-in-out infinite",
-        "flow": "flow 1.5s linear infinite",
+        flow: "flow 1.5s linear infinite",
       },
     },
   },
