@@ -2,7 +2,7 @@ export const HOME_FAQ_DATA = [
   {
     question: "¿Qué es Departify exactamente?",
     answer:
-      "Departamentos especializados que ejecutan trabajo real para tu empresa. Hoy puedes activar Marketing o SEO. Cada departamento propone, ejecuta y monitoriza bajo tus reglas.",
+      "Departamentos especializados que ejecutan trabajo real para tu empresa. Siete departamentos trabajan bajo tus reglas: Marketing, SEO, Ventas, Atención al cliente, Administración, Developer y Dirección. Cada departamento propone, ejecuta y monitoriza bajo tus reglas.",
   },
   {
     question: "¿Trabaja sólo o necesita que le diga qué hacer?",
@@ -47,7 +47,7 @@ export const HOME_FAQ_DATA = [
   {
     question: "¿Puedo empezar con un solo departamento?",
     answer:
-      "Sí. Empieza con Marketing o SEO y suma más departamentos según los necesites. Cada uno trabaja coordinado con los demás.",
+      "Sí. Empieza con el departamento que necesites y amplía tu equipo a tu ritmo. Cada uno trabaja coordinado con los demás.",
   },
   {
     question: "¿Es un chatbot?",

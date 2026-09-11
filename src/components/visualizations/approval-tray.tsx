@@ -50,7 +50,7 @@ export function ApprovalTray({ className }: { className?: string }) {
 
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#101210] to-[#0a0b09] p-4 sm:p-5 ${className ?? ""}`}
+      className={`relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-background-elevated to-[#0a0b09] p-4 sm:p-5 ${className ?? ""}`}
     >
       <div className="flex items-center justify-between border-b border-border pb-3">
         <div className="flex items-center gap-2">

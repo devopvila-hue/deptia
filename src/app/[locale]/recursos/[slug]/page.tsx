@@ -170,7 +170,7 @@ export default async function RecursoPage({
               </div>
             </article>
             <aside className="lg:col-span-4">
-              <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6">
+              <div className="rounded-2xl border border-border bg-surface p-6">
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
                   {t("relatedEyebrow")}
                 </p>

@@ -32,7 +32,7 @@ export function DepartmentGrid({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -2 }}
-      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-6 transition-colors hover:border-foreground/30 sm:p-8"
+      className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-surface to-background p-6 transition-colors hover:border-foreground/30 sm:p-8"
     >
       <div className="flex items-start justify-between border-b border-border/60 pb-4">
         <span

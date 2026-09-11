@@ -61,7 +61,7 @@ export function DemoConversation() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-5 sm:p-8">
+            <div className="rounded-2xl border border-border bg-gradient-to-b from-surface to-background p-5 sm:p-8">
               <MissionChat />
             </div>
           </div>

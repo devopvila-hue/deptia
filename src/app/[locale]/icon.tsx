@@ -1,33 +1,14 @@
+/* eslint-disable @next/next/no-img-element -- ImageResponse requires a native image node. */
 import { ImageResponse } from "next/og";
-
-export const runtime = "edge";
-export const size = { width: 32, height: 32 };
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+export const runtime = "nodejs";
+export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
-
-// Favicon dinámico. Se sirve en /icon y reemplaza al /favicon.ico tradicional.
-// Mantén sincronía con src/app/opengraph-image.tsx (colores + letter "D").
 export default async function Icon() {
+  const symbol = `data:image/png;base64,${(await readFile(join(process.cwd(), "public/brand/departify-d-symbol.png"))).toString("base64")}`;
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#d8ff62",
-          color: "#0a0c08",
-          fontSize: 22,
-          fontWeight: 700,
-          letterSpacing: "-0.04em",
-          borderRadius: 6,
-          fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
-        }}
-      >
-        D
-      </div>
-    ),
-    { ...size }
+    <img src={symbol} width={64} height={64} alt="" />,
+    size,
   );
 }

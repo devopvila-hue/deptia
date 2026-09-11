@@ -34,7 +34,7 @@ export function IsolatedInstances({ className }: { className?: string }) {
               whileHover={{ y: -2 }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
               className={cn(
-                "group relative overflow-hidden rounded-xl border bg-[#0c0e0a] p-4 text-left transition-colors",
+                "group relative overflow-hidden rounded-xl border bg-surface p-4 text-left transition-colors",
                 isActive ? "border-foreground/30" : "border-border"
               )}
             >
@@ -63,7 +63,7 @@ export function IsolatedInstances({ className }: { className?: string }) {
                   Datos aislados · Memoria propia · Permisos propios
                 </p>
 
-                <div className="relative mt-4 aspect-[5/3] overflow-hidden rounded-md border border-border/60 bg-[#080908]">
+                <div className="relative mt-4 aspect-[5/3] overflow-hidden rounded-md border border-border/60 bg-background">
                   <svg viewBox="0 0 100 60" className="absolute inset-0 h-full w-full">
                     <defs>
                       <linearGradient id={`fill-${c.id}`} x1="0%" y1="0%" x2="100%" y2="100%">

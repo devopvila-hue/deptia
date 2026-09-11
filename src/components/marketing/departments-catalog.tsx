@@ -75,7 +75,7 @@ function DepartmentCard({
       }}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-[#0f110f] to-[#080908] p-6 transition-all sm:p-7",
+        "group relative flex flex-col overflow-hidden rounded-2xl border bg-gradient-to-b from-surface to-background p-6 transition-all sm:p-7",
         hovered ? "border-foreground/30" : "border-border"
       )}
     >

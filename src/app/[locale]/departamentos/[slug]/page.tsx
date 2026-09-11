@@ -33,7 +33,8 @@ import {
 } from "@/data/departments";
 import { getAgent } from "@/data/department-agents";
 import { formatCurrency } from "@/lib/utils";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight, Check, MessageSquare, ShieldCheck } from "lucide-react";
+import { departmentBenefits } from "@/data/department-benefits";
 import Link from "next/link";
 import { brand } from "@/config/brand";
 import { routing } from "@/i18n/routing";
@@ -314,7 +315,7 @@ function DepartmentDetailEn({
               </p>
             </div>
             <div className="lg:col-span-7">
-              <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6 sm:p-8">
+              <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
                 <div className="flex items-baseline gap-2">
                   <span className="font-display text-[3rem] tracking-[-0.02em] text-foreground">
                     {formatCurrency(department.priceFrom, department.priceCurrency)}
@@ -408,6 +409,7 @@ function ComingSoonPage({
 }
 
 function DepartmentHero({ department }: { department: (typeof departments)[number] }) {
+  const benefit = departmentBenefits.es.find(item => item.slug === department.slug);
   return (
     <section className="relative overflow-hidden border-b border-border">
       <div
@@ -433,8 +435,12 @@ function DepartmentHero({ department }: { department: (typeof departments)[numbe
               {department.name}
             </h1>
             <p className="mt-6 max-w-2xl text-[clamp(1.0625rem,1.4vw,1.25rem)] leading-relaxed text-muted text-pretty">
-              {department.description}
+              {benefit?.result ?? department.description}
             </p>
+            {benefit && <dl className="department-business-summary">
+              <div><MessageSquare size={19} aria-hidden="true"/><div><dt>Puedes pedirle algo así</dt><dd>“{benefit.task}”</dd></div></div>
+              <div><ShieldCheck size={19} aria-hidden="true"/><div><dt>La decisión sigue siendo tuya</dt><dd>{benefit.control}</dd></div></div>
+            </dl>}
             <div className="mt-8 flex flex-wrap gap-3">
               <Button
                 href="https://app.departify.app/signup"
@@ -442,19 +448,20 @@ function DepartmentHero({ department }: { department: (typeof departments)[numbe
                 size="lg"
                 rightIcon={<ArrowUpRight className="h-4 w-4" />}
               >
-                Contratar este departamento
+                Elegir este departamento
               </Button>
               <Button href="/demo" variant="secondary" size="lg">
-                Ver demo del panel
+                Ver un ejemplo
               </Button>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">
               <span>Desde {formatCurrency(department.priceFrom, department.priceCurrency)} / mes</span>
               <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
-              <span>Instancia privada</span>
+              <span>Espacio privado</span>
               <span className="h-1 w-1 rounded-full bg-border-strong" aria-hidden />
               <span>Web + Telegram</span>
             </div>
+            <Link href="/precios" className="p-hero-price-link">Comparar planes y precios<ArrowUpRight size={15}/></Link>
           </div>
 
           <div className="lg:col-span-5">
@@ -464,7 +471,7 @@ function DepartmentHero({ department }: { department: (typeof departments)[numbe
               badge="Imagen editorial"
               ratio="video"
               priority
-              caption="Sala de trabajo del departamento. Render editorial, 2K."
+              caption="Del contexto a la entrega: una secuencia ilustrativa del trabajo del departamento."
             />
           </div>
         </div>
@@ -531,7 +538,7 @@ function AgentIntro({
 
           <div className="lg:col-span-5">
             <div
-              className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#101210] to-[#080908] p-6 sm:p-8"
+              className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-background-elevated to-background p-6 sm:p-8"
               style={{
                 boxShadow: `0 0 0 1px ${agent.color}22`,
               }}
@@ -601,7 +608,7 @@ function AgentAvatarInline({
   const iconSize = { sm: "h-4 w-4", md: "h-5 w-5", lg: "h-7 w-7" }[size];
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border-strong bg-[#0c0e0a] ${sizeClass}`}
+      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border-strong bg-surface ${sizeClass}`}
       style={{ boxShadow: `0 0 0 1px ${agent.color}33, 0 0 24px ${agent.color}20` }}
       aria-hidden
     >
@@ -625,7 +632,7 @@ function DepartmentShowcase({
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-muted">
-              Demo
+              {english ? "Demo" : "Demo"}
             </p>
             <h2 className="mt-3 font-display text-[1.75rem] tracking-[-0.02em] text-foreground">
               {english ? "How this department works" : "Cómo trabaja este departamento"}
@@ -672,7 +679,7 @@ function DepartmentProblems({
             {department.problems.map((p, i) => (
               <div
                 key={p.title}
-                className="rounded-xl border border-border bg-[#0c0e0a] p-5"
+                className="rounded-xl border border-border bg-surface p-5"
               >
                 <span className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
                   0{i + 1}
@@ -717,7 +724,7 @@ function DepartmentMembers({
           {department.members.map((m) => (
             <div
               key={m.id}
-              className="flex items-start gap-4 rounded-xl border border-border bg-[#0c0e0a] p-4"
+              className="flex items-start gap-4 rounded-xl border border-border bg-surface p-4"
             >
               <MemberPattern
                 member={m}
@@ -791,7 +798,7 @@ function DepartmentCapabilities({
             {department.capabilities.map((c) => (
               <li
                 key={c}
-                className="flex items-start gap-3 rounded-lg border border-border bg-[#0c0e0a] p-3.5"
+                className="flex items-start gap-3 rounded-lg border border-border bg-surface p-3.5"
               >
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
                 <span className="text-[0.875rem] text-foreground/90">{c}</span>
@@ -827,7 +834,7 @@ function DepartmentMission({
             </h2>
           </div>
           <div className="space-y-5 lg:col-span-8">
-            <div className="rounded-xl border border-border bg-[#0c0e0a] p-5">
+            <div className="rounded-xl border border-border bg-surface p-5">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">
                 Tú
               </p>
@@ -852,7 +859,7 @@ function DepartmentMission({
                 {department.mission.response}
               </p>
             </div>
-            <div className="rounded-xl border border-border bg-[#0c0e0a] p-5">
+            <div className="rounded-xl border border-border bg-surface p-5">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">
                 Tareas internas
               </p>
@@ -901,7 +908,7 @@ function DepartmentOutput({ department }: { department: (typeof departments)[num
               {department.metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="rounded-md border border-border bg-[#0c0e0a] p-3"
+                  className="rounded-md border border-border bg-surface p-3"
                 >
                   <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">
                     {m.label}
@@ -922,7 +929,7 @@ function DepartmentOutput({ department }: { department: (typeof departments)[num
               alt={`${department.name} — output visualizado`}
               badge="Output"
               ratio="video"
-              caption="Visualización editorial del output del departamento. Métricas, entregables, impacto."
+              caption="El trabajo del equipo se convierte en una entrega revisada, lista para tu aprobación."
             />
           </div>
         </div>
@@ -987,7 +994,7 @@ function DepartmentWorkflow({
           {department.workflow.map((step) => (
             <li
               key={step.number}
-              className="rounded-xl border border-border bg-[#0c0e0a] p-5"
+              className="rounded-xl border border-border bg-surface p-5"
             >
               <span
                 className="font-mono text-[0.7rem] uppercase tracking-[0.18em]"
@@ -1033,7 +1040,7 @@ function DepartmentPricing({
               Este departamento puede incluirse en cualquiera de nuestros planes. En el Starter
               opera con su propio equipo, en el Business se coordina con otros.
             </p>
-            <div className="mt-6 rounded-lg border border-border bg-[#0c0e0a] p-4">
+            <div className="mt-6 rounded-lg border border-border bg-surface p-4">
               <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">
                 Próximos pasos
               </p>
@@ -1054,7 +1061,7 @@ function DepartmentPricing({
             </div>
           </div>
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6 sm:p-8">
+            <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
               <div className="flex items-baseline gap-2">
                 <span className="font-display text-[3rem] tracking-[-0.02em] text-foreground">
                   {formatCurrency(department.priceFrom, department.priceCurrency)}
@@ -1163,7 +1170,7 @@ function DepartmentCrossLinks() {
               <li key={it.key}>
                 <Link
                   href={localePrefixPath("es", it.href)}
-                  className="group flex items-center justify-between rounded-lg border border-border bg-[#0c0e0a] p-3.5 transition-colors hover:border-foreground/30"
+                  className="group flex items-center justify-between rounded-lg border border-border bg-surface p-3.5 transition-colors hover:border-foreground/30"
                 >
                   <span className="text-[0.9375rem] text-foreground">
                     {crossLinkLabel(it.key)}

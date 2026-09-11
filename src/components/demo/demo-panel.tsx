@@ -142,7 +142,7 @@ export function DemoPanel() {
     <div className="border-b border-border bg-background">
       <Container width="wide" className="py-10 sm:py-12">
         {/* Panel frame */}
-        <div className="rounded-2xl border border-border bg-gradient-to-b from-[#0c0e0a] to-[#080908]">
+        <div className="rounded-2xl border border-border bg-gradient-to-b from-[#0c0e0a] to-background">
           {/* Top bar */}
           <div className="flex flex-col gap-3 border-b border-border/60 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="flex items-center gap-3">
@@ -223,7 +223,7 @@ export function DemoPanel() {
                   <p className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
                     Departamento activo
                   </p>
-                  <div className="mt-3 rounded-md border border-border bg-[#0c0e0a] p-3">
+                  <div className="mt-3 rounded-md border border-border bg-surface p-3">
                     <div className="flex items-center gap-2">
                       <span className="flex h-7 w-7 items-center justify-center rounded-md border border-accent/30 bg-accent-soft text-[0.65rem] font-mono text-foreground">
                         MK
@@ -315,7 +315,7 @@ function ResumenView() {
           { label: "Departamentos", value: "3", trend: "1 próximo" },
           { label: "Uso del mes", value: "62%", trend: "de 100%" },
         ].map((k) => (
-          <div key={k.label} className="rounded-lg border border-border bg-[#0c0e0a] p-3.5">
+          <div key={k.label} className="rounded-lg border border-border bg-surface p-3.5">
             <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">
               {k.label}
             </p>
@@ -331,7 +331,7 @@ function ResumenView() {
 
       <div className="mt-6 grid grid-cols-1 gap-3 lg:grid-cols-3">
         {/* Activity chart mock */}
-        <div className="rounded-xl border border-border bg-[#0c0e0a] p-5 lg:col-span-2">
+        <div className="rounded-xl border border-border bg-surface p-5 lg:col-span-2">
           <div className="flex items-center justify-between">
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
               Actividad · últimos 7 días
@@ -363,7 +363,7 @@ function ResumenView() {
         </div>
 
         {/* Recent activity */}
-        <div className="rounded-xl border border-border bg-[#0c0e0a] p-5">
+        <div className="rounded-xl border border-border bg-surface p-5">
           <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
             Actividad reciente
           </p>
@@ -416,7 +416,7 @@ function DepartamentosView() {
         {list.map((d) => (
           <div
             key={d.slug}
-            className="rounded-xl border border-border bg-[#0c0e0a] p-4"
+            className="rounded-xl border border-border bg-surface p-4"
           >
             <div className="flex items-center justify-between border-b border-border/60 pb-3">
               <span
@@ -479,7 +479,7 @@ function TareasView() {
         {MOCK_TASKS.map((t) => (
           <li
             key={t.id}
-            className="flex items-center gap-3 rounded-lg border border-border bg-[#0c0e0a] p-3"
+            className="flex items-center gap-3 rounded-lg border border-border bg-surface p-3"
           >
             <StatusDot status={t.status} />
             <div className="flex-1">
@@ -540,14 +540,14 @@ function AprobacionesView({
 
       <ul className="mt-4 space-y-2">
         {approvals.length === 0 && (
-          <li className="rounded-xl border border-dashed border-border bg-[#0c0e0a] p-6 text-center">
+          <li className="rounded-xl border border-dashed border-border bg-surface p-6 text-center">
             <p className="text-[0.875rem] text-muted">No hay aprobaciones pendientes.</p>
           </li>
         )}
         {approvals.map((a) => (
           <li
             key={a.id}
-            className="flex flex-col gap-3 rounded-xl border border-border bg-[#0c0e0a] p-4 sm:flex-row sm:items-center"
+            className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-4 sm:flex-row sm:items-center"
           >
             <span
               className={cn(
@@ -619,7 +619,7 @@ function CalendarioView() {
             <div
               key={d}
               className={cn(
-                "relative aspect-square rounded-md border bg-[#0c0e0a] p-1.5 text-left transition-colors",
+                "relative aspect-square rounded-md border bg-surface p-1.5 text-left transition-colors",
                 isToday ? "border-accent/50" : "border-border/60"
               )}
             >
@@ -672,7 +672,7 @@ function ConexionesView() {
         {tools.map((t) => (
           <div
             key={t.name}
-            className="flex items-center justify-between rounded-lg border border-border bg-[#0c0e0a] p-3"
+            className="flex items-center justify-between rounded-lg border border-border bg-surface p-3"
           >
             <div className="flex items-center gap-2.5">
               <span className="flex h-7 w-7 items-center justify-center rounded-md border border-border bg-surface-soft text-[0.65rem] font-mono text-foreground">
@@ -713,7 +713,7 @@ function ConsumoView() {
         ].map((c) => {
           const pct = (c.used / c.max) * 100;
           return (
-            <div key={c.label} className="rounded-xl border border-border bg-[#0c0e0a] p-4">
+            <div key={c.label} className="rounded-xl border border-border bg-surface p-4">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-muted">
                   {c.label}
@@ -758,7 +758,7 @@ function AjustesView() {
         ].map((s) => (
           <div
             key={s.label}
-            className="flex items-center justify-between gap-3 rounded-md border border-border bg-[#0c0e0a] px-3 py-2.5"
+            className="flex items-center justify-between gap-3 rounded-md border border-border bg-surface px-3 py-2.5"
           >
             <span className="text-[0.875rem] text-foreground">{s.label}</span>
             <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-muted">

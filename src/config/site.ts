@@ -140,7 +140,7 @@ export const copy = {
       {
         n: "01",
         title: "Elige el departamento que necesitas.",
-        body: "Marketing o SEO disponibles hoy. El resto, según vaya llegando.",
+        body: "Elige entre Marketing, SEO, Ventas, Atención al cliente, Administración y Developer. Dirección viene incluida y coordina el conjunto.",
       },
       {
         n: "02",
@@ -164,7 +164,7 @@ export const copy = {
     badge: "Empieza hoy",
     title: "Tu empresa podría tener más equipo mañana mismo.",
     subtitle:
-      "Activa Marketing o SEO y empieza a delegar trabajo real esta semana. Sin tarjeta. Sin permanencia.",
+      "Elige tu primer departamento y empieza a delegar trabajo real esta semana. Sin tarjeta. Sin permanencia.",
     primaryCta: "Empieza con Departify",
     secondaryCta: "Hablar con alguien del equipo",
     note: "Tú decides. Departify trabaja.",

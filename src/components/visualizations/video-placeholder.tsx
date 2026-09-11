@@ -56,7 +56,7 @@ export function VideoPlaceholder({
       whileHover={{ y: -2 }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={cn(
-        "group relative w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#101210] to-[#080908]",
+        "group relative w-full overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-background-elevated to-background",
         ASPECTS[aspect],
         className
       )}
@@ -81,7 +81,7 @@ export function VideoPlaceholder({
           type="button"
           onClick={() => setPlaying((p) => !p)}
           aria-label={playing ? "Pausar demostración" : "Reproducir demostración"}
-          className="group/play relative flex h-20 w-20 items-center justify-center rounded-full border border-foreground/20 bg-[#0c0e0a]/80 backdrop-blur transition-all hover:border-accent/60 hover:bg-[#0c0e0a]"
+          className="group/play relative flex h-20 w-20 items-center justify-center rounded-full border border-foreground/20 bg-surface/80 backdrop-blur transition-all hover:border-accent/60 hover:bg-surface"
         >
           <motion.span
             animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0] }}

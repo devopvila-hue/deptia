@@ -78,7 +78,7 @@ export default async function ResourcesPage({
               <Link
                 key={resource.slug}
                 href={localePrefixPath(typedLocale, `/recursos/${resource.slug}`)}
-                className="group rounded-2xl border border-border bg-[#0c0e0a] p-6 transition-colors hover:border-foreground/30"
+                className="group rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-foreground/30"
               >
                 <span className="font-mono text-[0.6rem] uppercase tracking-[0.18em] text-muted">
                   {resource.type} · {resource.time}

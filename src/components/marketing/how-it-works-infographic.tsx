@@ -152,7 +152,7 @@ function StepIcon({ Icon, accent }: { Icon: typeof Target; accent: string }) {
       />
       {/* Anillo */}
       <div
-        className="absolute inset-0 rounded-full border bg-[#0c0e0a]"
+        className="absolute inset-0 rounded-full border bg-surface"
         style={{
           borderColor: rgba(accent, 0.55),
           boxShadow: `inset 0 0 0 4px ${rgba(accent, 0.08)}`,
@@ -196,7 +196,7 @@ function StepColumn({ step, isLast }: { step: StepResolved; isLast: boolean }) {
       {/* Tarjeta del paso */}
       <div
         className={cn(
-          "mt-4 flex flex-1 flex-col rounded-xl border bg-[#0c0e0a]/80 p-4",
+          "mt-4 flex flex-1 flex-col rounded-xl border bg-surface/80 p-4",
           "border-border backdrop-blur-sm"
         )}
       >
@@ -294,7 +294,7 @@ function StepFlow({ steps, secureLabel }: { steps: StepResolved[]; secureLabel: 
           })}
         </svg>
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-[#0c0e0a] px-3 py-1.5 shadow-[0_0_24px_rgba(216,255,98,0.15)]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-surface px-3 py-1.5 shadow-[0_0_24px_rgba(216,255,98,0.15)]">
             <Lock className="h-3 w-3 text-accent" strokeWidth={2} />
             <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-foreground/90">
               {secureLabel}
@@ -320,7 +320,7 @@ function ToolsStrip({
   return (
     <div
       className={cn(
-        "mt-10 flex flex-col gap-4 rounded-2xl border border-border bg-[#0c0e0a]/70 p-4 sm:p-5",
+        "mt-10 flex flex-col gap-4 rounded-2xl border border-border bg-surface/70 p-4 sm:p-5",
         "md:flex-row md:items-center md:gap-6"
       )}
     >
@@ -363,7 +363,7 @@ function ResultsRow({ results }: { results: Array<ResultDef & { title: string; b
       {results.map(({ Icon, title, body, accent }) => (
         <div
           key={title}
-          className="group flex items-start gap-3 rounded-xl border border-border bg-[#0c0e0a]/60 p-4 transition-colors hover:border-foreground/20"
+          className="group flex items-start gap-3 rounded-xl border border-border bg-surface/60 p-4 transition-colors hover:border-foreground/20"
         >
           <span
             className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"

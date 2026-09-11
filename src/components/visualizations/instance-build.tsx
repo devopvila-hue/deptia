@@ -56,7 +56,7 @@ export function InstanceBuild({ className }: { className?: string }) {
                 className={cn(
                   "group flex w-full items-start gap-4 rounded-xl border p-4 text-left transition-all",
                   isActive
-                    ? "border-foreground/30 bg-[#0c0e0a]"
+                    ? "border-foreground/30 bg-surface"
                     : "border-border bg-surface-soft/40 hover:border-foreground/20"
                 )}
               >
@@ -93,7 +93,7 @@ export function InstanceBuild({ className }: { className?: string }) {
       </ol>
 
       {/* Visualization */}
-      <div className="relative aspect-square w-full max-w-[560px] self-center rounded-2xl border border-border bg-gradient-to-b from-[#101210] to-[#080908] p-6 sm:p-8">
+      <div className="relative aspect-square w-full max-w-[560px] self-center rounded-2xl border border-border bg-gradient-to-b from-background-elevated to-background p-6 sm:p-8">
         <div className="absolute inset-0 grid-pattern-fine opacity-40" aria-hidden />
         <BuildViz activeStep={active} />
       </div>
@@ -127,7 +127,7 @@ function BuildViz({ activeStep }: { activeStep: number }) {
           />
 
           {/* Outer frame */}
-          <div className="absolute inset-0 rounded-2xl border border-border-strong bg-[#0c0e0a]">
+          <div className="absolute inset-0 rounded-2xl border border-border-strong bg-surface">
             <div className="absolute inset-2 rounded-xl border border-border/60" aria-hidden />
 
             {/* Building up layers */}
@@ -192,7 +192,7 @@ function BuildViz({ activeStep }: { activeStep: number }) {
         key={activeStep}
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
-        className="absolute -bottom-2 left-1/2 -translate-x-1/2 translate-y-full whitespace-nowrap rounded-full border border-accent/40 bg-[#0c0e0a] px-3 py-1.5"
+        className="absolute -bottom-2 left-1/2 -translate-x-1/2 translate-y-full whitespace-nowrap rounded-full border border-accent/40 bg-surface px-3 py-1.5"
       >
         <span className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-foreground">
           {STEPS[activeStep]?.title}

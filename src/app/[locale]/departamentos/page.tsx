@@ -7,9 +7,10 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { DepartmentGrid } from "@/components/departments/department-grid";
+import { DepartmentCards } from "@/components/marketing/premium/department-cards";
+import { DepartmentChooser } from "@/components/departments/department-chooser";
 import { BreadcrumbJsonLd } from "@/components/layout/json-ld";
-import { listPublicDepartments } from "@/data/departments";
+
 import { brand } from "@/config/brand";
 import { routing } from "@/i18n/routing";
 import type { Locale } from "@/i18n/config";
@@ -22,10 +23,19 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!(routing.locales as readonly string[]).includes(locale)) return {};
   const typedLocale = locale as Locale;
-  const t = await getTranslations({ locale: typedLocale, namespace: "departamentos" });
-  const brandT = await getTranslations({ locale: typedLocale, namespace: "brand" });
+  const t = await getTranslations({
+    locale: typedLocale,
+    namespace: "departamentos",
+  });
+  const brandT = await getTranslations({
+    locale: typedLocale,
+    namespace: "brand",
+  });
   const baseUrl = brand.url;
-  const localizedUrl = typedLocale === "es" ? `${baseUrl}/departamentos` : `${baseUrl}/en/departamentos`;
+  const localizedUrl =
+    typedLocale === "es"
+      ? `${baseUrl}/departamentos`
+      : `${baseUrl}/en/departamentos`;
   return {
     title: t("title"),
     description: t("subtitle"),
@@ -54,20 +64,28 @@ export default async function DepartmentsIndex({
   const { locale } = await params;
   if (!(routing.locales as readonly string[]).includes(locale)) notFound();
   const typedLocale = locale as Locale;
-  const t = await getTranslations({ locale: typedLocale, namespace: "departamentos" });
-  const tChrome = await getTranslations({ locale: typedLocale, namespace: "chrome" });
+  const t = await getTranslations({
+    locale: typedLocale,
+    namespace: "departamentos",
+  });
+  const tChrome = await getTranslations({
+    locale: typedLocale,
+    namespace: "chrome",
+  });
 
   // Filtrado por PUBLIC_DEPARTMENT_SLUGS — Dirección no entra aquí porque
   // se describe como base coordinadora en la landing, no como departamento
-  // opcional. listPublicDepartments ya devuelve los 6 + Developer ordenados
+  // opcional. listPublicDepartments devuelve los seis especialistas ordenados
   // por `ordering`.
-  const ordered = listPublicDepartments();
 
   return (
     <>
       {/* Hero */}
       <section className="relative border-b border-border">
-        <div className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade" aria-hidden />
+        <div
+          className="absolute inset-0 grid-pattern-fine opacity-30 mask-radial-fade"
+          aria-hidden
+        />
         <Container width="wide" className="relative py-20 sm:py-28">
           <Eyebrow index="D">{t("eyebrow")}</Eyebrow>
           <h1 className="mt-6 max-w-3xl text-display text-[clamp(2.5rem,5vw,4.5rem)] leading-[0.98] tracking-[-0.03em] text-balance text-foreground">
@@ -79,8 +97,13 @@ export default async function DepartmentsIndex({
         </Container>
       </section>
 
+      <div className="p-wrap"><DepartmentChooser locale={typedLocale}/></div>
+
       {/* Dirección (incluida, no se vende) */}
-      <section className="border-b border-border bg-surface-soft/30">
+      <section
+        id="direccion"
+        className="scroll-mt-28 border-b border-border bg-surface-soft/30"
+      >
         <Container width="wide" className="py-12 sm:py-16">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:items-start">
             <div className="lg:col-span-3">
@@ -100,15 +123,8 @@ export default async function DepartmentsIndex({
         </Container>
       </section>
 
-      {/* Active departments */}
-      <section className="border-b border-border">
-        <Container width="wide" className="py-16 sm:py-20">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {ordered.map((d) => (
-              <DepartmentGrid key={d.slug} department={d} locale={typedLocale} />
-            ))}
-          </div>
-        </Container>
+      <section className="site-catalog p-wrap">
+        <DepartmentCards locale={typedLocale} />
       </section>
 
       <BreadcrumbJsonLd

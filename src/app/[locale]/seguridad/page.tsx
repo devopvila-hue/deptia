@@ -95,7 +95,7 @@ export default async function SecurityPage({
               return (
                 <div
                   key={p.title}
-                  className="rounded-xl border border-border bg-[#0c0e0a] p-5"
+                  className="rounded-xl border border-border bg-surface p-5"
                 >
                   <span className="flex h-9 w-9 items-center justify-center rounded-md border border-accent/30 bg-accent-soft text-foreground">
                     <Icon className="h-4 w-4" />
@@ -146,7 +146,7 @@ export default async function SecurityPage({
               {reserved.map((r) => (
                 <li
                   key={r.title}
-                  className="rounded-xl border border-dashed border-border bg-[#0c0e0a] p-5"
+                  className="rounded-xl border border-dashed border-border bg-surface p-5"
                 >
                   <h3 className="text-[1.0625rem] font-medium text-foreground">{r.title}</h3>
                   <p className="mt-2 text-[0.875rem] text-muted text-pretty">{r.description}</p>
@@ -166,7 +166,7 @@ export default async function SecurityPage({
       {/* Note about certifications */}
       <section className="border-b border-border bg-surface-soft/20">
         <Container width="narrow" className="py-20 sm:py-24">
-          <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6 sm:p-8">
+          <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
             <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">
               {t("certifications.eyebrow")}
             </p>

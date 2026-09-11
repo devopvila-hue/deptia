@@ -89,7 +89,7 @@ export function PermissionsBoard({ className }: { className?: string }) {
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop(lvl.id)}
               className={cn(
-                "rounded-xl border bg-[#0c0e0a] p-4 transition-colors",
+                "rounded-xl border bg-surface p-4 transition-colors",
                 STYLES[lvl.id].border
               )}
             >
@@ -132,7 +132,7 @@ export function PermissionsBoard({ className }: { className?: string }) {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ type: "spring", stiffness: 500, damping: 35 }}
                       draggable
-                      onDragStart={(e) =>
+                      onDragStart={(e: MouseEvent | TouchEvent | PointerEvent) =>
                         handleDragStart(
                           e as unknown as React.DragEvent,
                           item.id
@@ -189,7 +189,7 @@ export function PermissionsBoardStatic({ className }: { className?: string }) {
             <div
               key={lvl.id}
               className={cn(
-                "rounded-xl border bg-[#0c0e0a] p-4",
+                "rounded-xl border bg-surface p-4",
                 STYLES[lvl.id].border
               )}
             >

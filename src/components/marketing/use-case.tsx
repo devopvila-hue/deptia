@@ -83,7 +83,7 @@ function CaseColumn({
       transition={{ duration: 0.5 }}
       className={`relative overflow-hidden rounded-2xl border p-6 sm:p-8 ${
         isAccent
-          ? "border-accent/30 bg-gradient-to-b from-[#101210] to-[#0a0c08]"
+          ? "border-accent/30 bg-gradient-to-b from-background-elevated to-background"
           : "border-border bg-surface-soft/30"
       }`}
     >

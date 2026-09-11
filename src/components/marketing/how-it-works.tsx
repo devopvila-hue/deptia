@@ -60,7 +60,7 @@ export function HowItWorks() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-[#0c0e0a] p-6 sm:p-8">
+            <div className="rounded-2xl border border-border bg-surface p-6 sm:p-8">
               <InstanceBuild />
             </div>
           </div>

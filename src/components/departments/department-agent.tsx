@@ -102,7 +102,7 @@ export function DepartmentAgent({ agent }: Props) {
           setOpen(true);
           setHasInteracted(true);
         }}
-        className="group fixed bottom-6 right-6 z-30 flex items-center gap-3 rounded-full border border-border bg-[#0c0e0a]/95 p-2 pr-5 shadow-2xl backdrop-blur transition-all hover:border-foreground/30 hover:pr-6 sm:bottom-8 sm:right-8"
+        className="group fixed bottom-6 right-6 z-30 flex items-center gap-3 rounded-full border border-border bg-surface/95 p-2 pr-5 shadow-2xl backdrop-blur transition-all hover:border-foreground/30 hover:pr-6 sm:bottom-8 sm:right-8"
         aria-label={`Hablar con ${agent.name}, ${agent.role}`}
       >
         <AgentAvatar agent={agent} size="md" pulse={pulse} />
@@ -139,7 +139,7 @@ export function DepartmentAgent({ agent }: Props) {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: "100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 380, damping: 36 }}
-              className="relative z-10 flex h-[88vh] w-full flex-col overflow-hidden rounded-t-2xl border border-border bg-gradient-to-b from-[#101210] to-[#080908] shadow-2xl sm:h-[640px] sm:max-w-md sm:rounded-2xl"
+              className="relative z-10 flex h-[88vh] w-full flex-col overflow-hidden rounded-t-2xl border border-border bg-gradient-to-b from-background-elevated to-background shadow-2xl sm:h-[640px] sm:max-w-md sm:rounded-2xl"
             >
               {/* Header */}
               <header className="flex items-start justify-between gap-3 border-b border-border/60 p-5">
@@ -201,7 +201,7 @@ export function DepartmentAgent({ agent }: Props) {
                     {/* Message bubble */}
                     <div className="flex gap-3">
                       <AgentAvatar agent={agent} size="sm" pulse={false} />
-                      <div className="flex-1 rounded-2xl rounded-tl-md border border-border bg-[#0c0e0a] p-4">
+                      <div className="flex-1 rounded-2xl rounded-tl-md border border-border bg-surface p-4">
                         <p className="text-[0.9375rem] leading-relaxed text-foreground/95 text-pretty">
                           {current.message}
                         </p>
@@ -275,7 +275,7 @@ export function DepartmentAgent({ agent }: Props) {
                     />
                   ))}
                 </div>
-                <div className="rounded-md border border-border bg-[#0c0e0a] px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-muted">
+                <div className="rounded-md border border-border bg-surface px-3 py-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-muted">
                   <span className="inline-flex items-center gap-1.5">
                     <MessageCircle className="h-3 w-3" />
                     Mensaje pre-cargado · no es un chat en vivo
@@ -314,7 +314,7 @@ function AgentAvatar({
   return (
     <div
       className={cn(
-        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border-strong bg-[#0c0e0a]",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border-strong bg-surface",
         sizeClass
       )}
       style={{

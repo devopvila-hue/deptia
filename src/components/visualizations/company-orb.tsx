@@ -223,7 +223,7 @@ export function CompanyOrb({ className }: { className?: string }) {
             style={{ background: "radial-gradient(circle, rgba(216,255,98,0.16) 0%, transparent 60%)" }}
             aria-hidden
           />
-          <div className="relative flex h-24 w-24 flex-col items-center justify-center rounded-2xl border border-border-strong bg-[#0c0e0a] shadow-2xl sm:h-28 sm:w-28">
+          <div className="relative flex h-24 w-24 flex-col items-center justify-center rounded-2xl border border-border-strong bg-surface shadow-2xl sm:h-28 sm:w-28">
             <div className="absolute inset-1 rounded-xl bg-gradient-to-b from-[#1a1d18] to-[#0c0e0a]" aria-hidden />
             <div className="relative flex flex-col items-center">
               <span className="font-mono text-[0.55rem] uppercase tracking-[0.2em] text-muted">Empresa</span>
@@ -262,7 +262,7 @@ export function CompanyOrb({ className }: { className?: string }) {
                   "flex h-12 w-12 items-center justify-center rounded-lg border sm:h-14 sm:w-14",
                   node.status === "provisioning"
                     ? "border-border bg-surface-soft"
-                    : "border-border-strong bg-[#0c0e0a]"
+                    : "border-border-strong bg-surface"
                 )}
                 style={{
                   boxShadow:
@@ -298,7 +298,7 @@ export function CompanyOrb({ className }: { className?: string }) {
                   pointerEvents: isHovered ? "auto" : "none",
                 }}
                 transition={{ duration: 0.2 }}
-                className="absolute left-1/2 top-full z-40 mt-2 w-44 -translate-x-1/2 rounded-md border border-border bg-[#0c0e0a] p-2.5 shadow-2xl"
+                className="absolute left-1/2 top-full z-40 mt-2 w-44 -translate-x-1/2 rounded-md border border-border bg-surface p-2.5 shadow-2xl"
               >
                 <p className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted">
                   {node.status === "provisioning" ? "En preparación" : "Operativo"}
@@ -321,7 +321,7 @@ export function CompanyOrb({ className }: { className?: string }) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.5 }}
-        className="absolute bottom-2 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full border border-warning/40 bg-[#0c0e0a]/90 px-3 py-1.5 backdrop-blur"
+        className="absolute bottom-2 left-1/2 z-40 flex -translate-x-1/2 items-center gap-2 rounded-full border border-warning/40 bg-surface/90 px-3 py-1.5 backdrop-blur"
       >
         <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-warning" />
         <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-warning">

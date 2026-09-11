@@ -24,7 +24,7 @@ export function MemberPattern({ member, size = "md", color = "var(--accent)", cl
   return (
     <div
       className={cn(
-        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border-strong bg-[#0c0e0a]",
+        "relative flex shrink-0 items-center justify-center overflow-hidden rounded-lg border border-border-strong bg-surface",
         dims.box,
         className
       )}

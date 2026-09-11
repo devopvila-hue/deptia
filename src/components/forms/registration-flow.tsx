@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion, AnimatePresence } from "motion/react";
-import { Check, ChevronRight, ChevronLeft, Sparkles, Building2, KeyRound, ShieldCheck, AlertTriangle } from "lucide-react";
+import { Check, ChevronRight, ChevronLeft, Building2, KeyRound, ShieldCheck, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { departments, listAvailableDepartments } from "@/data/departments";
@@ -114,7 +114,7 @@ export function RegistrationFlow() {
       </aside>
 
       {/* Main */}
-      <div className="rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-5 sm:p-8">
+      <div className="rounded-2xl border border-border bg-gradient-to-b from-surface to-background p-5 sm:p-8">
         <AnimatePresence mode="wait">
           {step === "account" && (
             <AccountStep
@@ -353,7 +353,7 @@ function SelectionStep({
           {listAvailableDepartments().map((d) => (
             <label
               key={d.slug}
-              className="cursor-pointer rounded-xl border border-border bg-[#0c0e0a] p-4 transition-colors has-[:checked]:border-accent/50 has-[:checked]:bg-accent-soft"
+              className="cursor-pointer rounded-xl border border-border bg-surface p-4 transition-colors has-[:checked]:border-accent/50 has-[:checked]:bg-accent-soft"
             >
               <input
                 type="radio"
@@ -386,7 +386,7 @@ function SelectionStep({
           ].map((p) => (
             <label
               key={p.id}
-              className="cursor-pointer rounded-md border border-border bg-[#0c0e0a] px-3 py-2 transition-colors has-[:checked]:border-accent/50 has-[:checked]:bg-accent-soft"
+              className="cursor-pointer rounded-md border border-border bg-surface px-3 py-2 transition-colors has-[:checked]:border-accent/50 has-[:checked]:bg-accent-soft"
             >
               <input
                 type="radio"
@@ -427,7 +427,7 @@ function SelectionStep({
       </div>
 
       {/* Summary */}
-      <div className="rounded-xl border border-border bg-[#0c0e0a] p-4">
+      <div className="rounded-xl border border-border bg-surface p-4">
         <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted">Resumen</p>
         <p className="mt-2 text-[0.9375rem] text-foreground">
           Vas a activar{" "}
@@ -455,7 +455,7 @@ function SelectionStep({
           className="inline-flex h-11 items-center gap-2 rounded-lg bg-accent px-5 text-[0.9375rem] font-medium text-[#0a0c08] transition-all hover:-translate-y-px hover:bg-[#e3ff7a]"
         >
           Crear mi instancia
-          <Sparkles className="h-4 w-4" />
+          <Building2 className="h-4 w-4" />
         </button>
       </div>
     </motion.form>
@@ -466,7 +466,7 @@ function ProvisioningStep({ progress }: { progress: number }) {
   const steps = [
     { id: "instance", label: "Creando instancia privada", icon: Building2 },
     { id: "department", label: "Configurando el departamento", icon: KeyRound },
-    { id: "workspace", label: "Preparando el espacio de trabajo", icon: Sparkles },
+    { id: "workspace", label: "Preparando el espacio de trabajo", icon: Building2 },
     { id: "permissions", label: "Aplicando permisos", icon: ShieldCheck },
   ];
 
@@ -490,7 +490,7 @@ function ProvisioningStep({ progress }: { progress: number }) {
       </header>
 
       {/* Big illustration */}
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-[#0c0e0a] p-6">
+      <div className="relative overflow-hidden rounded-2xl border border-border bg-surface p-6">
         <div className="absolute inset-0 grid-pattern-fine opacity-30" aria-hidden />
         <div
           className="absolute left-1/2 top-1/2 h-[300px] w-[500px] -translate-x-1/2 -translate-y-1/2"
@@ -502,7 +502,7 @@ function ProvisioningStep({ progress }: { progress: number }) {
         />
         <div className="relative flex flex-col items-center justify-center py-10">
           <div className="relative">
-            <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-border-strong bg-[#0c0e0a] shadow-2xl">
+            <div className="flex h-24 w-24 items-center justify-center rounded-2xl border border-border-strong bg-surface shadow-2xl">
               <div className="absolute inset-1 rounded-xl bg-gradient-to-b from-[#1a1d18] to-[#0c0e0a]" aria-hidden />
               <div className="relative flex flex-col items-center">
                 <Building2 className="h-6 w-6 text-accent" />
@@ -550,7 +550,7 @@ function ProvisioningStep({ progress }: { progress: number }) {
                   ? "border-success/30 bg-success/5"
                   : active
                   ? "border-accent/40 bg-accent-soft"
-                  : "border-border bg-[#0c0e0a]"
+                  : "border-border bg-surface"
               )}
             >
               <span
@@ -660,12 +660,12 @@ function OnboardingStep({ onComplete }: { onComplete: () => void }) {
         </div>
       </header>
 
-      <div className="rounded-xl border border-border bg-[#0c0e0a] p-5">
+      <div className="rounded-xl border border-border bg-surface p-5">
         <p className="text-[1.0625rem] text-foreground text-pretty">{q?.label}</p>
         <textarea
           rows={4}
           placeholder={q?.placeholder}
-          className="mt-4 w-full rounded-md border border-border bg-[#0a0c08] px-3 py-2.5 text-[0.9375rem] text-foreground placeholder:text-muted focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/30"
+          className="mt-4 w-full rounded-md border border-border bg-background px-3 py-2.5 text-[0.9375rem] text-foreground placeholder:text-muted focus:border-accent/50 focus:outline-none focus:ring-1 focus:ring-accent/30"
         />
         <div className="mt-4 flex items-center justify-between">
           <div className="flex gap-1">
@@ -759,7 +759,7 @@ function ReadyStep() {
 
 function inputClass(invalid: boolean): string {
   return cn(
-    "h-11 w-full rounded-md border bg-[#0c0e0a] px-3 text-[0.9375rem] text-foreground placeholder:text-muted focus:outline-none focus:ring-1 transition-colors",
+    "h-11 w-full rounded-md border bg-surface px-3 text-[0.9375rem] text-foreground placeholder:text-muted focus:outline-none focus:ring-1 transition-colors",
     invalid
       ? "border-danger/60 focus:border-danger focus:ring-danger/30"
       : "border-border focus:border-accent/50 focus:ring-accent/30"

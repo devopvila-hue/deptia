@@ -1,0 +1,235 @@
+.department-cinema-shell {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #344035;
+  border-radius: 18px;
+  background: #0c110e;
+  box-shadow:
+    0 24px 65px #0003,
+    inset 0 1px 0 #ffffff08;
+  container-type: inline-size;
+}
+.department-cinema {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  color: #e9ede5;
+  background: radial-gradient(ellipse at 80% 0%, #25312455, transparent 60%),
+    #0c110e;
+}
+.department-cinema-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5cqw 5cqw 0;
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(8px, 1.65cqw, 12px);
+  letter-spacing: 0.08em;
+}
+.department-cinema-code {
+  color: var(--visual-accent);
+  white-space: nowrap;
+}
+.department-cinema-code span {
+  color: #a1ad9f;
+}
+.department-cinema-example {
+  color: #94a18f;
+  font-size: 0.9em;
+  letter-spacing: 0;
+}
+.department-cinema-story {
+  display: flex;
+  align-items: baseline;
+  gap: 3cqw;
+  padding: 3.5cqw 5cqw 0;
+  min-height: 11cqw;
+  overflow: hidden;
+}
+.department-cinema-number {
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(10px, 2cqw, 15px);
+  color: var(--visual-accent);
+}
+.department-cinema-story p {
+  margin: 0;
+  font-size: clamp(17px, 4.8cqw, 36px);
+  line-height: 1.2;
+  font-weight: 450;
+  letter-spacing: -0.045em;
+}
+.department-cinema-stage {
+  display: block;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: visible;
+}
+.department-cinema-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3cqw;
+  padding: 0 5cqw 4cqw;
+}
+.department-cinema-timeline > div > span {
+  display: block;
+  height: 2px;
+  background: #2c382d;
+  overflow: hidden;
+}
+.department-cinema-timeline i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--visual-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.department-cinema-timeline [data-active="true"] i {
+  animation: department-scene-progress 3.6s linear both;
+}
+.department-cinema-timeline [data-done="true"] i {
+  transform: scaleX(1);
+  opacity: 0.45;
+}
+.department-cinema[data-paused="true"] .department-cinema-timeline i {
+  animation-play-state: paused;
+}
+.department-cinema-timeline p {
+  display: flex;
+  align-items: center;
+  gap: 1.5cqw;
+  margin: 10px 0 0;
+  color: #8f9c8b;
+  font-family: var(--font-mono), monospace;
+  font-size: clamp(8px, 1.65cqw, 12px);
+}
+.department-cinema-timeline b {
+  font-weight: 400;
+}
+.department-cinema-timeline [data-active="true"] p {
+  color: #e9ede5;
+}
+.department-cinema-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 2px 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+.department-cinema-toolbar > div,
+.department-cinema-modal-bar > div {
+  display: flex;
+  gap: 5px;
+}
+.department-cinema-toolbar button,
+.department-cinema-modal-bar button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.department-cinema-toolbar button:hover {
+  color: var(--foreground);
+  background: var(--surface);
+}
+.department-cinema-toolbar button:focus-visible,
+.department-cinema-modal-bar button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.department-cinema-caption {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+.department-cinema-dialog {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  padding: 24px;
+  margin: 0;
+  border: 0;
+  color: #e9ede5;
+  background: transparent;
+}
+.department-cinema-dialog[open] {
+  display: grid;
+  place-items: center;
+}
+.department-cinema-dialog::backdrop {
+  background: #050905e8;
+  backdrop-filter: blur(16px);
+}
+.department-cinema-modal {
+  width: min(900px, 100%);
+  max-height: 90dvh;
+  overflow: auto;
+  border: 1px solid #344035;
+  border-radius: 18px;
+  background: #0c110e;
+  box-shadow: 0 40px 120px #0008;
+}
+.department-cinema-modal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #273429;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.department-cinema-modal-bar button {
+  border-color: #344035;
+}
+.department-cinema-modal-bar button:hover {
+  background: #253124;
+}
+.department-cinema-expanded {
+  aspect-ratio: 4 / 3;
+  container-type: inline-size;
+}
+@keyframes department-scene-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 480px) {
+  .department-cinema-shell {
+    border-radius: 12px;
+  }
+  .department-cinema-toolbar button {
+    width: 44px;
+    height: 44px;
+  }
+  .department-cinema-dialog {
+    padding: 10px;
+  }
+  .department-cinema-modal-bar {
+    padding: 8px 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .department-cinema-timeline [data-active="true"] i {
+    animation: none;
+    transform: scaleX(1);
+  }
+  .department-cinema-toolbar button,
+  .department-cinema-modal-bar button {
+    transition: none;
+  }
+}

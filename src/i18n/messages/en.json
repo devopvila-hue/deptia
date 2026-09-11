@@ -241,7 +241,7 @@
     "recommendation": {
       "eyebrow": "Available today",
       "title": "Bring in the department you need.",
-      "subtitle": "Today you can activate six commercial departments plus Developer, all coordinated by Leadership that comes included with your activation.",
+      "subtitle": "Seven departments: Marketing, SEO, Sales, Customer support, Administration, Developer and Direction. Direction is included and coordinates the team.",
       "available": [
         {
           "name": "Marketing",
@@ -292,7 +292,7 @@
         {
           "n": "01",
           "title": "Pick the department you need.",
-          "body": "Marketing or SEO available today. The rest as they come online."
+          "body": "Choose Marketing, SEO, Sales, Customer support, Administration or Developer. Direction is included and coordinates the team."
         },
         {
           "n": "02",
@@ -314,7 +314,7 @@
     "faq": [
       {
         "q": "What exactly is Departify?",
-        "a": "Specialised departments that execute real work for your business. You can activate Marketing or SEO today. Each department proposes, executes and monitors under your rules."
+        "a": "Specialised departments that execute real work for your business. Seven departments work under your rules: Marketing, SEO, Sales, Customer support, Administration, Developer and Direction. Each department proposes, executes and monitors under your rules."
       },
       {
         "q": "Does it work on its own or need me to tell it what to do?",
@@ -344,7 +344,7 @@
     "finalCta": {
       "badge": "Start today",
       "title": "Your business could have more team tomorrow.",
-      "subtitle": "Activate Marketing or SEO and start delegating real work this week. No card. No commitment.",
+      "subtitle": "Choose your first department and start delegating real work this week. No card. No commitment.",
       "primaryCta": "Start with Departify",
       "secondaryCta": "Talk to the team",
       "note": "You decide. Departify works."
@@ -539,7 +539,7 @@
       },
       "image": {
         "badge": "Editorial image",
-        "caption": "Department workspace. Editorial render, 2K."
+        "caption": "From context to delivery: an illustrative sequence of the department at work."
       }
     }
   },

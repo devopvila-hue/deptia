@@ -51,12 +51,12 @@ export function Pricing({ hideHeader = false }: { hideHeader?: boolean }) {
                 className={cn(
                   "relative flex flex-col rounded-2xl border bg-gradient-to-b p-6 sm:p-8",
                   plan.highlighted
-                    ? "border-accent/40 from-[#101210] to-[#0a0c08] shadow-[0_0_0_1px_rgba(216,255,98,0.2)]"
-                    : "border-border from-[#0f110f] to-[#080908]"
+                    ? "border-accent/40 from-background-elevated to-background shadow-[0_0_0_1px_rgba(216,255,98,0.2)]"
+                    : "border-border from-surface to-background"
                 )}
               >
                 {plan.badge && (
-                  <span className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full border border-accent/50 bg-[#0c0e0a] px-2.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-accent">
+                  <span className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full border border-accent/50 bg-surface px-2.5 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-accent">
                     <span className="h-1 w-1 rounded-full bg-accent" />
                     {plan.badge}
                   </span>

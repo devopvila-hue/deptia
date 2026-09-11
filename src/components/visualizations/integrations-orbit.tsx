@@ -100,7 +100,7 @@ export function IntegrationsOrbit({ className }: { className?: string }) {
             }}
             aria-hidden
           />
-          <div className="relative flex h-24 w-24 flex-col items-center justify-center rounded-2xl border border-border-strong bg-[#0c0e0a] shadow-2xl">
+          <div className="relative flex h-24 w-24 flex-col items-center justify-center rounded-2xl border border-border-strong bg-surface shadow-2xl">
             <div
               className="absolute inset-1 rounded-xl"
               style={{ background: "url(#instanceCore)" }}
@@ -153,7 +153,7 @@ export function IntegrationsOrbit({ className }: { className?: string }) {
           >
             <span
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-md border bg-[#0c0e0a] text-[0.6rem] font-medium uppercase tracking-wider transition-all sm:h-12 sm:w-12",
+                "flex h-10 w-10 items-center justify-center rounded-md border bg-surface text-[0.6rem] font-medium uppercase tracking-wider transition-all sm:h-12 sm:w-12",
                 isActive
                   ? "border-foreground/40 text-foreground shadow-xl"
                   : "border-border text-muted"
@@ -170,7 +170,7 @@ export function IntegrationsOrbit({ className }: { className?: string }) {
       })}
 
       {/* Legend at bottom */}
-      <div className="absolute -bottom-4 left-1/2 z-40 -translate-x-1/2 translate-y-full rounded-full border border-border bg-[#0c0e0a]/90 px-3 py-1.5 backdrop-blur">
+      <div className="absolute -bottom-4 left-1/2 z-40 -translate-x-1/2 translate-y-full rounded-full border border-border bg-surface/90 px-3 py-1.5 backdrop-blur">
         <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted">
           {active ? `Viendo · ${active}` : "Pasa el cursor sobre una herramienta"}
         </span>

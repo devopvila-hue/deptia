@@ -1,9 +1,14 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import type { departments } from "@/data/departments";
-import { getDepartment, departments as allDepartments } from "@/data/departments";
+import {
+  getDepartment,
+  departments as allDepartments,
+} from "@/data/departments";
 import { brand } from "@/config/brand";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const alt = `${brand.name} — ${brand.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -28,13 +33,10 @@ export async function generateImageMetadata({
   ];
 }
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<Params>;
-}) {
+export default async function Image({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const d = getDepartment(slug);
+  const symbol = `data:image/png;base64,${(await readFile(join(process.cwd(), "public/brand/departify-d-symbol.png"))).toString("base64")}`;
   if (!d) {
     return new ImageResponse(<Fallback />, size);
   }
@@ -47,12 +49,12 @@ export default async function Image({
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          backgroundColor: "#080908",
+          backgroundColor: "#0a0c08",
           backgroundImage:
-            "radial-gradient(circle at 80% 20%, rgba(201,169,97,0.08), transparent 60%)",
+            "radial-gradient(circle at 80% 20%, rgba(216,255,98,0.08), transparent 60%)",
           padding: "64px 72px",
           fontFamily: "system-ui, -apple-system, sans-serif",
-          color: "#F5F2EA",
+          color: "#f2f4e9",
         }}
       >
         {/* Top bar */}
@@ -63,19 +65,23 @@ export default async function Image({
             justifyContent: "space-between",
             fontSize: 16,
             letterSpacing: 2,
-            color: "#A8A39A",
+            color: "#a3af96",
             textTransform: "uppercase",
             fontFamily: "monospace",
           }}
         >
-          <span>{brand.name}</span>
+          <span style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={symbol} width={42} height={42} alt="" />
+            DEPARTIFY
+          </span>
           <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <span
               style={{
                 width: 8,
                 height: 8,
                 borderRadius: 999,
-                backgroundColor: "#C9A961",
+                backgroundColor: "#d8ff62",
                 display: "flex",
               }}
             />
@@ -94,7 +100,7 @@ export default async function Image({
           <div
             style={{
               fontSize: 28,
-              color: "#C9A961",
+              color: "#d8ff62",
               letterSpacing: 4,
               textTransform: "uppercase",
               fontFamily: "monospace",
@@ -121,7 +127,7 @@ export default async function Image({
         <div
           style={{
             fontSize: 32,
-            color: "#D9D4C9",
+            color: "#c3cdb9",
             marginTop: 32,
             maxWidth: 950,
             display: "flex",
@@ -144,7 +150,7 @@ export default async function Image({
           <div
             style={{
               fontSize: 18,
-              color: "#6B6864",
+              color: "#849176",
               fontFamily: "monospace",
               display: "flex",
             }}
@@ -154,7 +160,7 @@ export default async function Image({
           <div
             style={{
               fontSize: 18,
-              color: "#A8A39A",
+              color: "#a3af96",
               display: "flex",
               alignItems: "center",
               gap: 16,
@@ -178,8 +184,8 @@ function Fallback() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#080908",
-        color: "#F5F2EA",
+        backgroundColor: "#0a0c08",
+        color: "#f2f4e9",
         fontSize: 48,
         fontFamily: "system-ui, -apple-system, sans-serif",
       }}

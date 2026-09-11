@@ -60,7 +60,7 @@ export function Integrations() {
             </div>
 
             {/* Selected tool detail */}
-            <div className="mt-6 min-h-[180px] rounded-xl border border-border bg-[#0c0e0a] p-5">
+            <div className="mt-6 min-h-[180px] rounded-xl border border-border bg-surface p-5">
               {selectedItem ? (
                 <motion.div
                   key={selectedItem.name}
@@ -111,7 +111,7 @@ export function Integrations() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-6 sm:p-8">
+            <div className="rounded-2xl border border-border bg-gradient-to-b from-surface to-background p-6 sm:p-8">
               <IntegrationsOrbit />
             </div>
 

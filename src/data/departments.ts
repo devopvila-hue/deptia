@@ -2802,7 +2802,7 @@ export function listAvailableDepartments(): Department[] {
 
 /**
  * Lista maestra del catálogo público de la landing (SEO).
- * Devuelve los seis departamentos comerciales + Developer, en el orden
+ * Devuelve los seis departamentos especialistas, en el orden
  * declarado en PUBLIC_DEPARTMENT_SLUGS. Cualquier departamento interno
  * (Contenido, Operaciones, RR.HH., Logística, Crecimiento, Analítica,
  * Finanzas, Soporte, Legal, Gobierno) NO aparece aquí aunque exista en

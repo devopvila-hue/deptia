@@ -1,0 +1,319 @@
+.p-roadmap {
+  margin-top: 36px;
+  padding: 28px 0 4px;
+  border-top: 1px solid var(--border);
+}
+.p-roadmap-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.p-roadmap-mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--muted);
+}
+.p-roadmap h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.4;
+}
+.p-roadmap-heading p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.p-roadmap-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  border: 0;
+  padding: 0;
+  margin: 23px 0 18px;
+}
+.p-roadmap-options label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.4;
+  transition:
+    color 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+}
+.p-roadmap-options label:has(:checked) {
+  color: var(--foreground);
+  background: var(--surface-soft);
+  border-color: var(--muted);
+}
+.p-roadmap-options label:hover {
+  color: var(--foreground);
+  border-color: var(--muted);
+}
+.p-roadmap-options input,
+.p-vote-consent input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--foreground);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.p-roadmap-options label:focus-within {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+.p-roadmap-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+.p-roadmap-bottom > span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+.p-roadmap-bottom button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 44px;
+  padding: 9px 0;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.p-roadmap-bottom button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.p-roadmap-thanks {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.p-vote-dialog {
+  margin: 0;
+  padding: 24px;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  background: transparent;
+  border: 0;
+  color: var(--foreground);
+}
+.p-vote-dialog[open] {
+  display: grid;
+  place-items: center;
+}
+.p-vote-dialog::backdrop {
+  background: #080e0cb3;
+  backdrop-filter: blur(12px);
+}
+.p-vote-card {
+  position: relative;
+  width: min(100%, 570px);
+  max-height: 90dvh;
+  overflow-y: auto;
+  padding: clamp(28px, 4vw, 46px);
+  border: 1px solid var(--border-strong);
+  border-radius: 22px;
+  background: var(--background);
+  box-shadow: 0 32px 100px #0004;
+  animation: vote-arrive 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.p-vote-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+  border-radius: 50%;
+}
+.p-vote-close:hover {
+  color: var(--foreground);
+  background: var(--surface);
+}
+.p-vote-symbol {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface-soft);
+}
+.p-vote-dialog .p-eyebrow {
+  font-size: 10px;
+  margin: 0 0 13px;
+  line-height: 1.5;
+}
+.p-vote-dialog .p-vote-card h2 {
+  font-size: clamp(28px, 4vw, 37px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 0;
+}
+.p-vote-card > p:not(.p-eyebrow) {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 18px 0 26px;
+}
+.p-vote-fields {
+  display: grid;
+  gap: 18px;
+}
+.p-vote-fields label {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.p-vote-fields input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font: inherit;
+  font-size: 14px;
+  color: var(--foreground);
+}
+.p-vote-fields input::placeholder {
+  color: var(--muted);
+  font-size: 13px;
+}
+.p-vote-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  cursor: pointer;
+}
+.p-vote-consent input {
+  margin-top: 3px;
+}
+.p-vote-consent a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.p-vote-actions {
+  display: grid;
+  gap: 7px;
+  margin-top: 25px;
+}
+.p-vote-actions .p-button,
+.p-vote-done {
+  width: 100%;
+  justify-content: center;
+  min-height: 48px;
+  font-size: 14px;
+}
+.p-vote-skip {
+  min-height: 44px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.p-vote-skip:hover {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.p-vote-error {
+  border-left: 2px solid var(--danger);
+  padding-left: 12px;
+  margin-top: 18px;
+  color: var(--foreground);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.p-vote-dialog :is(button, input, a):focus-visible,
+.p-roadmap button:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 4px;
+}
+.p-vote-dialog button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+@keyframes vote-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 600px) {
+  .p-roadmap {
+    margin-top: 26px;
+    padding-top: 24px;
+  }
+  .p-roadmap-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .p-roadmap-options label {
+    font-size: 12px;
+    padding: 12px 9px;
+    gap: 7px;
+    min-height: 56px;
+  }
+  .p-roadmap-options label > svg {
+    display: none;
+  }
+  .p-roadmap-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+  .p-vote-dialog {
+    padding: 12px;
+  }
+  .p-vote-card {
+    padding: 30px 24px 24px;
+    border-radius: 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p-vote-card {
+    animation: none;
+  }
+  .p-roadmap-options label {
+    transition: none;
+  }
+}

@@ -94,7 +94,7 @@ export function MissionChat({ className }: { className?: string }) {
       </div>
 
       {/* Step content */}
-      <div className="mt-5 rounded-xl border border-border bg-[#0c0e0a] p-5">
+      <div className="mt-5 rounded-xl border border-border bg-surface p-5">
         {step === "plan" && (
           <motion.ul
             key="plan"
@@ -220,7 +220,7 @@ function ChatBubble({
     >
       {!isUser && (
         <div
-          className="mt-1 h-7 w-7 shrink-0 rounded-md border border-border bg-[#0c0e0a] flex items-center justify-center"
+          className="mt-1 h-7 w-7 shrink-0 rounded-md border border-border bg-surface flex items-center justify-center"
           aria-hidden
         >
           <span className="font-mono text-[0.6rem] tracking-[0.14em] text-foreground">DA</span>
@@ -231,7 +231,7 @@ function ChatBubble({
           "max-w-[88%] rounded-xl px-4 py-3 text-[0.9375rem] leading-relaxed text-pretty sm:max-w-[80%]",
           isUser
             ? "bg-surface-soft border border-border"
-            : "bg-[#0c0e0a] border border-border-strong"
+            : "bg-surface border border-border-strong"
         )}
       >
         <p className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-muted">

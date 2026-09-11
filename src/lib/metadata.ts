@@ -73,7 +73,7 @@ export const siteMetadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/departify-d-symbol.png", type: "image/png" },
     ],
   },
 };

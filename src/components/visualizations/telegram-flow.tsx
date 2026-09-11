@@ -28,7 +28,7 @@ export function TelegramFlow({ className }: { className?: string }) {
   return (
     <div className={cn("relative grid grid-cols-1 gap-6 lg:grid-cols-[1.4fr_1fr_1fr]", className)}>
       {/* Web panel */}
-      <div className="rounded-2xl border border-border bg-gradient-to-b from-[#101210] to-[#080908] p-4 sm:p-5">
+      <div className="rounded-2xl border border-border bg-gradient-to-b from-background-elevated to-background p-4 sm:p-5">
         <div className="flex items-center justify-between border-b border-border pb-3">
           <div className="flex items-center gap-2">
             <div className="flex h-6 w-6 items-center justify-center rounded-md border border-accent/40 bg-accent-soft">
@@ -59,7 +59,7 @@ export function TelegramFlow({ className }: { className?: string }) {
             );
           })}
         </ul>
-        <div className="mt-4 flex items-center gap-2 rounded-md border border-border bg-[#0c0e0a] px-3 py-2">
+        <div className="mt-4 flex items-center gap-2 rounded-md border border-border bg-surface px-3 py-2">
           <input
             type="text"
             placeholder="Pide un informe o aprueba una acción…"
@@ -83,7 +83,7 @@ export function TelegramFlow({ className }: { className?: string }) {
           <motion.div
             animate={{ opacity: [0.3, 1, 0.3] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 bg-[#0c0e0a]"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/40 bg-surface"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5 text-accent" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M7 8h10M7 8l3-3M7 8l3 3M17 16H7m10 0l-3-3m3 3l-3 3" />
@@ -97,7 +97,7 @@ export function TelegramFlow({ className }: { className?: string }) {
 
       {/* Phone / Telegram */}
       <div className="mx-auto w-full max-w-[280px]">
-        <div className="relative rounded-[32px] border border-border bg-[#0c0e0a] p-3 shadow-2xl">
+        <div className="relative rounded-[32px] border border-border bg-surface p-3 shadow-2xl">
           <div className="flex items-center justify-between px-2 pt-1 text-[0.65rem] text-muted">
             <span className="font-mono">10:44</span>
             <div className="flex items-center gap-1">
@@ -106,7 +106,7 @@ export function TelegramFlow({ className }: { className?: string }) {
             </div>
           </div>
           <div className="mt-2 flex items-center gap-2 border-b border-border/60 pb-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1f2419] text-[0.7rem] text-accent">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-surface-soft text-[0.7rem] text-accent">
               D
             </div>
             <div>
@@ -120,7 +120,7 @@ export function TelegramFlow({ className }: { className?: string }) {
                 key={m.id}
                 animate={{ opacity: pulse >= i ? 1 : 0.4 }}
                 transition={{ duration: 0.4 }}
-                className="rounded-lg border border-border/40 bg-[#101210] px-3 py-2"
+                className="rounded-lg border border-border/40 bg-background-elevated px-3 py-2"
               >
                 <p className="text-[0.8125rem] text-foreground/90">{m.text}</p>
                 <div className="mt-1 flex items-center justify-end gap-1">

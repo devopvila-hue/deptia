@@ -241,7 +241,7 @@
     "recommendation": {
       "eyebrow": "Hoy disponibles",
       "title": "Incorpora el departamento que necesitas.",
-      "subtitle": "Hoy puedes activar seis departamentos comerciales más Developer, todos coordinados por una Dirección que ya viene incluida con tu activación.",
+      "subtitle": "Siete departamentos: Marketing, SEO, Ventas, Atención al cliente, Administración, Developer y Dirección. Dirección viene incluida y coordina el conjunto.",
       "available": [
         {
           "name": "Marketing",
@@ -292,7 +292,7 @@
         {
           "n": "01",
           "title": "Elige el departamento que necesitas.",
-          "body": "Marketing o SEO disponibles hoy. El resto, según vaya llegando."
+          "body": "Elige entre Marketing, SEO, Ventas, Atención al cliente, Administración y Developer. Dirección viene incluida y coordina el conjunto."
         },
         {
           "n": "02",
@@ -314,7 +314,7 @@
     "faq": [
       {
         "q": "¿Qué es Departify exactamente?",
-        "a": "Departamentos especializados que ejecutan trabajo real para tu empresa. Hoy puedes activar Marketing o SEO. Cada departamento propone, ejecuta y monitoriza bajo tus reglas."
+        "a": "Departamentos especializados que ejecutan trabajo real para tu empresa. Siete departamentos trabajan bajo tus reglas: Marketing, SEO, Ventas, Atención al cliente, Administración, Developer y Dirección. Cada departamento propone, ejecuta y monitoriza bajo tus reglas."
       },
       {
         "q": "¿Trabaja solo o necesita que le diga qué hacer?",
@@ -344,7 +344,7 @@
     "finalCta": {
       "badge": "Empieza hoy",
       "title": "Tu empresa podría tener más equipo mañana mismo.",
-      "subtitle": "Activa Marketing o SEO y empieza a delegar trabajo real esta semana. Sin tarjeta. Sin permanencia.",
+      "subtitle": "Elige tu primer departamento y empieza a delegar trabajo real esta semana. Sin tarjeta. Sin permanencia.",
       "primaryCta": "Empieza con Departify",
       "secondaryCta": "Hablar con alguien del equipo",
       "note": "Tú decides. Departify trabaja."
@@ -539,7 +539,7 @@
       },
       "image": {
         "badge": "Imagen editorial",
-        "caption": "Sala de trabajo del departamento. Render editorial, 2K."
+        "caption": "Del contexto a la entrega: una secuencia ilustrativa del trabajo del departamento."
       }
     }
   },

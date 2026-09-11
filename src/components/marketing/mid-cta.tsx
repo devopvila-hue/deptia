@@ -31,7 +31,7 @@ export function MidCta({ variant }: { variant?: "alt" }) {
           className={cn(
             "flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between",
             "rounded-2xl border border-border/80 p-6 sm:p-7",
-            isAlt ? "bg-gradient-to-b from-[#101210] to-[#0a0c08]" : "bg-surface-soft/30"
+            isAlt ? "bg-gradient-to-b from-background-elevated to-background" : "bg-surface-soft/30"
           )}
         >
           <div className="max-w-2xl">

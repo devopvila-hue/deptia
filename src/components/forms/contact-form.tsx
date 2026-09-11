@@ -203,7 +203,7 @@ export function ContactForm() {
 
 function inputClass(invalid: boolean): string {
   return cn(
-    "h-11 w-full rounded-md border bg-[#0c0e0a] px-3 text-[0.9375rem] text-foreground placeholder:text-muted focus:outline-none focus:ring-1 transition-colors",
+    "h-11 w-full rounded-md border bg-surface px-3 text-[0.9375rem] text-foreground placeholder:text-muted focus:outline-none focus:ring-1 transition-colors",
     invalid
       ? "border-danger/60 focus:border-danger focus:ring-danger/30"
       : "border-border focus:border-accent/50 focus:ring-accent/30"
