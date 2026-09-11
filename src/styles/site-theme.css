@@ -137,6 +137,51 @@ html[data-site="marketing"][data-theme="dark"] {
   --dept-direction: #1b2516;
   color-scheme: dark;
 }
+/* Home backdrop: fine architectural grid, with a quiet olive glow in each theme. */
+html[data-site="marketing"] {
+  --hero-grid: rgba(65, 79, 48, 0.065);
+  --hero-glow: rgba(149, 177, 95, 0.13);
+}
+html[data-site="marketing"][data-theme="dark"] {
+  --hero-grid: rgba(242, 240, 233, 0.024);
+  --hero-glow: rgba(164, 194, 74, 0.065);
+}
+.site-home-hero,
+.premium-home > .p-hero {
+  position: relative;
+  isolation: isolate;
+}
+.site-home-hero::before,
+.premium-home > .p-hero::before,
+.site-home-hero::after,
+.premium-home > .p-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: -1;
+}
+.site-home-hero::before,
+.premium-home > .p-hero::before {
+  background: radial-gradient(ellipse at 74% 16%, var(--hero-glow), transparent 68%);
+}
+.site-home-hero::after,
+.premium-home > .p-hero::after {
+  background-image:
+    linear-gradient(var(--hero-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hero-grid) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse at 58% 28%, #000 12%, transparent 76%);
+  -webkit-mask-image: radial-gradient(ellipse at 58% 28%, #000 12%, transparent 76%);
+}
+.premium-home {
+  overflow-x: clip;
+}
+
 .marketing-site {
   background: var(--background);
   color: var(--foreground);

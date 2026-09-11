@@ -32,15 +32,7 @@ export function Hero({ locale }: { locale: Locale }) {
   const titleHighlight = t("titleHighlight");
   const titleTokens = t("title").split(/(\s+)/);
   return (
-    <section className="relative overflow-hidden border-b border-border">
-      <div className="absolute inset-0 grid-pattern-fine opacity-40 mask-radial-fade" aria-hidden />
-      <div
-        className="absolute -top-40 left-1/2 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-60"
-        style={{
-          background: "radial-gradient(ellipse, rgba(216,255,98,0.10) 0%, transparent 60%)",
-        }}
-        aria-hidden
-      />
+    <section className="site-home-hero relative overflow-hidden border-b border-border">
 
       <Container width="wide" className="relative pb-10 pt-10 sm:pb-14 sm:pt-12 lg:pb-16 lg:pt-14">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
@@ -123,7 +115,7 @@ export function Hero({ locale }: { locale: Locale }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative lg:col-span-5"
           >
-            <div className="relative flex h-full min-h-[380px] flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-[#0f110f] to-[#080908] p-4 sm:p-5">
+            <div className="relative flex h-full min-h-[380px] flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-b from-surface to-background p-4 sm:p-5">
               <div className="mb-3 flex items-center justify-between border-b border-border/60 pb-2.5">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-success" />

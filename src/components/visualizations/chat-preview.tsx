@@ -48,14 +48,14 @@ export function ChatPreview({ className }: { className?: string }) {
           className="flex items-start gap-2.5"
         >
           <div
-            className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border bg-[#0c0e0a]"
+            className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border bg-surface"
             aria-hidden
           >
             <span className="font-mono text-[0.55rem] font-medium uppercase tracking-[0.14em] text-accent">
               DA
             </span>
           </div>
-          <div className="min-w-0 flex-1 rounded-lg border border-border bg-[#0c0e0a]/80 p-3">
+          <div className="min-w-0 flex-1 rounded-lg border border-border bg-surface/80 p-3">
             <p className="font-mono text-[0.6rem] uppercase tracking-[0.14em] text-muted">
               {t("bubbleFrom")}
             </p>
@@ -79,7 +79,7 @@ export function ChatPreview({ className }: { className?: string }) {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
-          className="ml-9 rounded-lg border border-accent/40 bg-[#0c0e0a]/70 p-3"
+          className="ml-9 rounded-lg border border-accent/40 bg-surface/70 p-3"
         >
           <div className="flex items-center justify-between gap-2">
             <p className="text-[0.8125rem] font-semibold text-foreground">{t("taskTitle")}</p>
@@ -104,7 +104,7 @@ export function ChatPreview({ className }: { className?: string }) {
         initial={{ opacity: 0, y: 6 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.55 }}
-        className="flex items-center gap-2 rounded-lg border border-border bg-[#0c0e0a]/90 px-3 py-2.5"
+        className="flex items-center gap-2 rounded-lg border border-border bg-surface/90 px-3 py-2.5"
       >
         <Plus className="h-4 w-4 shrink-0 text-muted" aria-hidden />
         <span className="flex-1 truncate text-[0.8125rem] text-muted">{t("inputPlaceholder")}</span>
