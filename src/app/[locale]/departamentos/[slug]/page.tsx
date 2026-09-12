@@ -62,6 +62,13 @@ async function loadT(locale: Locale, namespace: string) {
   return getTranslations({ locale, namespace });
 }
 
+function departmentVideoSrc(department: (typeof departments)[number]) {
+  if (department.slug === "seo") return "/videos/departify-seo-corporate-15s.mp4";
+  if (department.slug === "developer") return "/videos/departify-desarrollo-corporate-15s.mp4";
+  if (department.slug === "administracion") return "/videos/administracion.mp4";
+  return undefined;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -275,13 +282,11 @@ function DepartmentDetailEn({
             </div>
 
             <div className="lg:col-span-5">
-              <DepartmentImage
-                src={department.assets?.hero ?? `/departments/${department.slug}/hero.png`}
-                alt={`${localizedName} — editorial image`}
-                badge={tSlug("image.badge")}
-                ratio="video"
-                priority
-                caption={tSlug("image.caption")}
+              <VideoPlaceholder
+                src={departmentVideoSrc(department)}
+                title={`${localizedShortName} in action`}
+                subtitle="Department preview"
+                className="aspect-[4/3]"
               />
             </div>
           </div>
@@ -465,13 +470,11 @@ function DepartmentHero({ department }: { department: (typeof departments)[numbe
           </div>
 
           <div className="lg:col-span-5">
-            <DepartmentImage
-              src={department.assets?.hero ?? `/departments/${department.slug}/hero.png`}
-              alt={`${department.name} — imagen editorial`}
-              badge="Imagen editorial"
-              ratio="video"
-              priority
-              caption="Del contexto a la entrega: una secuencia ilustrativa del trabajo del departamento."
+            <VideoPlaceholder
+              src={departmentVideoSrc(department)}
+              title={`${department.shortName} en acción`}
+              subtitle="Vista previa del departamento"
+              className="aspect-[4/3]"
             />
           </div>
         </div>
@@ -644,18 +647,20 @@ function DepartmentShowcase({
             </p>
           </div>
           <div className="lg:col-span-7">
-            <VideoPlaceholder
-              src={
-                department.slug === "seo"
-                  ? "/videos/departify-seo-corporate-15s.mp4"
-                  : department.slug === "developer"
-                    ? "/videos/departify-desarrollo-corporate-15s.mp4"
-                    : department.slug === "administracion"
-                      ? "/videos/administracion.mp4"
-                      : undefined
+            <DepartmentImage
+              src={department.assets?.hero ?? `/departments/${department.slug}/hero.png`}
+              alt={
+                english
+                  ? `${department.shortName} — editorial image`
+                  : `${department.name} — imagen editorial`
               }
-              title={`${department.shortName} en acción`}
-              subtitle={english ? "Demonstration · 60 s" : "Demostración · 60 s"}
+              badge={english ? "Editorial image" : "Imagen editorial"}
+              ratio="wide"
+              caption={
+                english
+                  ? "An illustrative sequence from context to delivery."
+                  : "Del contexto a la entrega: una secuencia ilustrativa del trabajo del departamento."
+              }
             />
           </div>
         </div>
