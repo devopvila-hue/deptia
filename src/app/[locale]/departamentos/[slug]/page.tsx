@@ -63,6 +63,7 @@ async function loadT(locale: Locale, namespace: string) {
 }
 
 function departmentVideoSrc(department: (typeof departments)[number]) {
+  if (department.slug === "marketing") return "/videos/departify-marketing-corporate-15s.mp4";
   if (department.slug === "seo") return "/videos/departify-seo-corporate-15s.mp4";
   if (department.slug === "developer") return "/videos/departify-desarrollo-corporate-15s.mp4";
   if (department.slug === "administracion") return "/videos/administracion.mp4";
