@@ -646,11 +646,13 @@ function DepartmentShowcase({
           <div className="lg:col-span-7">
             <VideoPlaceholder
               src={
-                department.slug === "seo" || department.slug === "developer"
+                department.slug === "seo"
                   ? "/videos/departify-seo-corporate-15s.mp4"
-                  : department.slug === "administracion"
-                    ? "/videos/administracion.mp4"
-                    : undefined
+                  : department.slug === "developer"
+                    ? "/videos/departify-desarrollo-corporate-15s.mp4"
+                    : department.slug === "administracion"
+                      ? "/videos/administracion.mp4"
+                      : undefined
               }
               title={`${department.shortName} en acción`}
               subtitle={english ? "Demonstration · 60 s" : "Demostración · 60 s"}
